@@ -1,0 +1,291 @@
+﻿<UserControl x:Class="SteeringSA_WPF.Views.ServicesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SteeringSA_WPF.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins">
+    <Grid>
+        <Image Stretch="UniformToFill" Source="../Images/bg_views.png"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--#region ROW 1 -->
+            <Grid Grid.Row="0">
+                <Button Name="Btn_GoBack"
+                        Click="Btn_GoBack_Click"
+                        ToolTip="Volver"
+                        Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                        HorizontalAlignment="Left"
+                        Margin="70 20 0 0">
+                    <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                </Button>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region ROW 2 -->
+            <StackPanel Margin="0 0 0 20" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <!--#region TXB CODIGO -->
+                <WrapPanel VerticalAlignment="Center" >
+                    <TextBlock Text="Código:" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                            <TextBlock Text="PONER" 
+                                   MinWidth="200" MaxWidth="250"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_IDReport, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
+                        </Grid>
+                    </Border>
+                </WrapPanel>
+                <!--#endregion-->
+
+                <!--#region TXB CLIENTE (CEDULA) -->
+                <WrapPanel VerticalAlignment="Center" >
+                    <TextBlock Text="Cliente (cédula):" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                            <TextBlock Text="XX-XXX-XXXXX" 
+                                   MinWidth="200" MaxWidth="250"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_ClientDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
+                        </Grid>
+                    </Border>
+                </WrapPanel>
+                <!--#endregion-->
+
+                <Button Name="Btn_Search"
+                        ToolTip="Buscar"
+                        VerticalAlignment="Center"
+                        Margin="0"
+                        Style="{StaticResource S_Button_NormalButton}">
+
+                    <materialDesign:PackIcon Kind="Search"
+                                             Height="30"
+                                             Width="auto"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                </Button>
+            </StackPanel>
+            <!--#endregion-->
+
+            <!--#region ROW 3-->
+
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+
+                <!--#region FILTRO COSTO -->
+                <Border Style="{StaticResource S_Border_TextBoxWithBorder}"
+                        Margin="20 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Text="Costo (Balboas):"/>
+                        <WrapPanel VerticalAlignment="Center">
+                            <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                                    <TextBlock Text="10.00" 
+                                   MinWidth="80" MaxWidth="60"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_MinPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                    <TextBox MinWidth="80" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
+                                </Grid>
+                            </Border>
+
+                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                       VerticalAlignment="Center"
+                                       Text="a"/>
+
+                            <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                                    <TextBlock Text="75.00" 
+                                   MinWidth="80" MaxWidth="60"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_MaxPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                    <TextBox MinWidth="80" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
+                                </Grid>
+                            </Border>
+                        </WrapPanel>
+
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region FILTRO FECHA DE INICIO -->
+                <Border Style="{StaticResource S_Border_TextBoxWithBorder}"
+                        Margin="20 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Margin="0 0 10 0"
+                                   Text="Fecha de Incio:"/>
+                        <DatePicker Name="Dtp_ServiceBeginDate"
+                                    Style="{StaticResource S_DatePicker_Light}">
+
+                        </DatePicker>
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region FILTRO FECHA DE FINALIZACION -->
+                <Border Style="{StaticResource S_Border_TextBoxWithBorder}"
+                        Margin="20 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Margin="0 0 10 0"
+                                   Text="Fecha de Finalización:"/>
+                        <DatePicker Name="Dtp_ServiceEndDate"
+                                    Style="{StaticResource S_DatePicker_Light}">
+
+                        </DatePicker>
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                <Button Name="Btn_Filter"
+                        ToolTip="Filtrar"
+                        VerticalAlignment="Center"
+                        Margin="0"
+                        Style="{StaticResource S_Button_NormalButton}">
+
+                    <materialDesign:PackIcon Kind="Filter"
+                                             Height="30"
+                                             Width="auto"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                </Button>
+
+            </WrapPanel>
+            <!--#endregion-->
+
+            <!--#region ROW 4 -->
+            <Grid Grid.Row="3" Margin="50 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="0 0 0 5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <TextBlock Text="Reportes:" Style="{StaticResource S_TextBlock_Info}"/>
+                        <TextBlock Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
+                    </WrapPanel>
+
+                    <Button Grid.Column="1"
+                            ToolTip="Recargar tabla y limpiar filtros"
+                            Name="Btn_RefreshDataGrid"
+                            Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                            HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="Refresh" 
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                    </Button>
+                </Grid>
+
+
+                <!--#region DATAGRID -->
+                <DataGrid 
+                    Grid.Row="2"
+                    Name="Dgv_DriversData"
+                    Style="{StaticResource S_DataGrid_Dark}">
+
+                    <!--#region ESTILOS -->
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="#76777A"/>
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="Transparent"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C1C1C1" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#2196F3"/>
+                                    <Setter Property="BorderBrush" Value="#11131B"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                    <Setter Property="BorderBrush" Value="#11131B"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver"
+                         Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <!--#endregion-->
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="Btn_ViewProfile"
+                                            Click="Btn_ViewProfile_Click"
+                                            Background="#7F209B"
+                                            BorderThickness="0"
+                                            Width="auto">
+                                        <Grid Width="auto">
+                                            <materialDesign:PackIcon Kind="User"
+                                             Width="Auto" 
+                                             Height="auto" 
+                                             Foreground="White" 
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--#endregion-->
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+    </Grid>
+</UserControl>
