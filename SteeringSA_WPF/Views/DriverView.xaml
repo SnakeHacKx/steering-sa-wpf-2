@@ -186,12 +186,13 @@
                     </Grid.ColumnDefinitions>
                     <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
                         <TextBlock Text="Conductores:" Style="{StaticResource S_TextBlock_Info}"/>
-                        <TextBlock Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
+                        <TextBlock Name="Tb_RecordCount" Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
                     </WrapPanel>
 
                     <Button Grid.Column="1"
                             ToolTip="Recargar tabla y limpiar filtros"
                             Name="Btn_RefreshDataGrid"
+                            Click="Btn_RefreshDataGrid_Click"
                             Style="{StaticResource S_Button_TransparentButtonWithHand}" 
                             HorizontalAlignment="Right">
                         <materialDesign:PackIcon Kind="Refresh" 

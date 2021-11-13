@@ -1,0 +1,149 @@
+﻿<Window x:Class="SteeringSA_WPF.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SteeringSA_WPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontFamily="Poppins"
+        Title="CustomMessageBox" Height="200" Width="500" AllowsTransparency="False" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Grid Name="Body" Background="#0F996D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="Header" Background="#0A6648">
+            <TextBlock
+                    x:Name="Tb_HeaderMessage"
+                    Grid.Row="0"
+                    VerticalAlignment="Center" 
+                    Height="auto" 
+                    Width="auto"
+                    Margin="10"
+                    TextWrapping="Wrap"
+                    Foreground="White"
+                    Style="{StaticResource S_TextBlock_Info}" 
+                    HorizontalAlignment="Left" 
+                    Text="Ha ocurrido un error en la  aplicación"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0 20 0 0" Width="auto" Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:PackIcon Kind="Error"
+                                     Name="messageIcon"
+                                    Grid.Column="0"
+                                    Width="Auto" 
+                                    Height="50" 
+                                    Foreground="White" 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Stretch"
+                                    Margin="0,0,0,0"/>
+
+            <TextBlock
+                    Name="Tb_Message"
+                    Grid.Column="1"
+                    VerticalAlignment="Center" 
+                    Height="auto" 
+                    Width="auto"
+                    TextWrapping="Wrap"
+                    Foreground="White"
+                    Style="{StaticResource S_TextBlock_Body}" 
+                    HorizontalAlignment="Left" 
+                    Text="La Planta con el ID #234235345 no existe, inténtelo nuevamente"/>
+
+            <!--<Viewbox Margin="0,0,0,0" Grid.Column="1">
+                <StackPanel Orientation="Vertical" Width="400">
+                    <TextBlock x:Name="subHeaderText" 
+                   FontSize="20" 
+                   TextWrapping="Wrap" 
+                   Foreground="Black"
+                   Text="Lorem ipsum dolor, lorem isum dolor,Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet " />
+                </StackPanel>
+            </Viewbox>-->
+
+        </Grid>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0 20 0 0">
+            <!-- #region BOTON OK  -->
+            <Button 
+                Name="Btn_OK"
+                Width="99" 
+                Height="auto"
+                Visibility="Collapsed"
+                Foreground="White"
+                FontSize="25"
+                FontFamily="Verdana"
+                FontWeight="Black"
+                BorderThickness="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#1A1D28"
+                Style="{StaticResource S_Button_NormalButton}"
+            >OK</Button>
+            <!--#endregion-->
+
+            <!-- #region BOTON CANCELAR  -->
+            <Button 
+                Name="Btn_Cancel"
+                Width="168" 
+                Height="auto"
+                Visibility="Collapsed"
+                Foreground="White"
+                FontSize="25"
+                FontFamily="Verdana"
+                FontWeight="Black"
+                BorderThickness="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#1A1D28"
+                Style="{StaticResource S_Button_NormalButton}"
+            >Cancelar</Button>
+            <!--#endregion-->
+
+            <!-- #region BOTON SI  -->
+            <Button 
+                Name="Btn_Yes"
+                Width="84" 
+                Height="auto"
+                Visibility="Collapsed"
+                Foreground="White"
+                FontSize="25"
+                FontFamily="Verdana"
+                FontWeight="Black"
+                BorderThickness="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#1A1D28"
+                Style="{StaticResource S_Button_NormalButton}"
+            >Sí</Button>
+            <!--#endregion-->
+
+            <!-- #region BOTON NO  -->
+            <Button 
+                Name="Btn_No"
+                Width="84" 
+                Height="auto"
+                Visibility="Collapsed"
+                Foreground="White"
+                FontSize="25"
+                FontFamily="Verdana"
+                FontWeight="Black"
+                BorderThickness="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#1A1D28"
+                Style="{StaticResource S_Button_NormalButton}"
+            >No</Button>
+            <!--#endregion-->
+        </WrapPanel>
+
+    </Grid>
+</Window>

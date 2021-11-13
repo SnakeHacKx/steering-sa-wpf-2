@@ -52,7 +52,7 @@ namespace SteeringSA_WPF
         // Todo en mayuscula porque significa que es constante
         //EJEMPLO: public const string NombreTabla = "Nombre exacto que tiene la llave primaria en la base de datos"
         public const string CLIENT = "";
-        public const string DRIVER = "";
+        public const string DRIVER = "Cedula";
         public const string VEHICLE = "";
         public const string MAINTENANCE = "";
         public const string REPORT = "";
@@ -96,7 +96,7 @@ namespace SteeringSA_WPF
         #endregion
 
         #region DRIVER
-
+        public static string SELECT_DRIVER_ALL = "Select_DriverAll";
         #endregion
 
         #region VEHICLE

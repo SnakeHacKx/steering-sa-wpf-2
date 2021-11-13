@@ -1,4 +1,5 @@
-﻿using SteeringSA_WPF.ViewModels;
+﻿using SteeringSA_WPF.CRUD;
+using SteeringSA_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace SteeringSA_WPF.Views
         public DriverView()
         {
             InitializeComponent();
+            RefreshDataGrid();
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -39,6 +41,16 @@ namespace SteeringSA_WPF.Views
         private void Btn_AddDriver_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.ADD_DRIVERS, new Register_DriverViewModel());
+        }
+
+        private void RefreshDataGrid()
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SELECT_DRIVER_ALL), ref Tb_RecordCount);
+        }
+
+        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshDataGrid();
         }
     }
 }

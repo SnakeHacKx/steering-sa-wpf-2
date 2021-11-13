@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="SteeringSA_WPF.Views.Profile_DriverView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SteeringSA_WPF.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             FontFamily="Poppins"
+             d:DesignHeight="768" d:DesignWidth="1366">
+    <Grid>
+        <Image Stretch="UniformToFill" Source="../Images/bg_profile.png"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--#region ROW 1 -->
+            <Grid Grid.Row="0">
+                <Button Name="Btn_GoBack"
+                        Click="Btn_GoBack_Click"
+                        ToolTip="Volver"
+                        Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                        HorizontalAlignment="Left"
+                        Margin="70 20 0 0">
+                    <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                                             Foreground="{StaticResource White}"
+                                             Style="{StaticResource S_Icon_MediumIcon}"/>
+                </Button>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region ROW 2 -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--#region ROW 2 COLUMN 1 -->
+                <Border BorderThickness="1" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        BorderBrush="{StaticResource DarkenGray}"
+                        Padding="20 20"
+                        Background="{StaticResource PaleGray}"
+                        Width="auto"
+                        CornerRadius="10">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="User" 
+                                                 HorizontalAlignment="Center"
+                                                 Foreground="{StaticResource Black}"
+                                                 Style="{StaticResource S_Icon_LargeIcon}"/>
+
+                        <TextBlock HorizontalAlignment="Center" 
+                                   Text="Nombre Conductor" 
+                                   Style="{StaticResource S_TextBlock_Subtitle}"/>
+                        <TextBlock Name="Tb_ClientDNI" 
+                                   HorizontalAlignment="Center"
+                                   Text="7-712-784" 
+                                   Style="{StaticResource S_TextBlock_BodyMedium}"/>
+
+                        <Border BorderThickness="0" 
+                                Margin="0 20 0 0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                BorderBrush="{StaticResource DarkenGray}"
+                                Padding="20 20"
+                                Background="{StaticResource TWhite}"
+                                Width="auto"
+                                CornerRadius="10">
+                            <StackPanel>
+                                <TextBlock Text="Información del Cliente" 
+                                   Margin="0 20"
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource S_TextBlock_Info}" />
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Fecha de Nacimiento:"
+                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="08/31/1999"
+                                               Margin="5 0"/>
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="(22 años)"/>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Teléfono:"
+                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="6675-8599"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Tipo de Licencia:"
+                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="D"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Tipo de Sangre:"
+                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="B+"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+               
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+    </Grid>
+</UserControl>
