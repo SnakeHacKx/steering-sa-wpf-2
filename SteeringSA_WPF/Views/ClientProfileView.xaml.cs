@@ -53,5 +53,15 @@ namespace SteeringSA_WPF.Views
             Register_ReportView addReportWindow = new Register_ReportView();
             addReportWindow.ShowDialog();
         }
+
+        private void Btn_EditClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_DeleteClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

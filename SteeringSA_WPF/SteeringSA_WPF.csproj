@@ -65,6 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CRUD\Client.cs" />
+    <Compile Include="CRUD\Driver.cs" />
     <Compile Include="CRUD\GenericCRUD.cs" />
     <Compile Include="CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
@@ -79,6 +81,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MaintenanceViewModel.cs" />
     <Compile Include="ViewModels\Profile_DriverView.cs" />
+    <Compile Include="ViewModels\Profile_VehicleViewModel.cs" />
     <Compile Include="ViewModels\Register_ClientViewModel.cs" />
     <Compile Include="ViewModels\Register_DriverViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
@@ -104,6 +107,9 @@
     </Compile>
     <Compile Include="Views\Profile_DriverView.xaml.cs">
       <DependentUpon>Profile_DriverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile_VehicleView.xaml.cs">
+      <DependentUpon>Profile_VehicleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register_ClientView.xaml.cs">
       <DependentUpon>Register_ClientView.xaml</DependentUpon>
@@ -174,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Profile_DriverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Profile_VehicleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

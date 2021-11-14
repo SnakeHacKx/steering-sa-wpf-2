@@ -66,7 +66,22 @@ namespace SteeringSA_WPF
     {
         #region CLIENT
         // EJEMPLO: public const string NombreDeLaTabla_NombreDeLaVariable = "Nombre exacto que tiene la variable en la base de datos"
-        public const string CLIENT_CLIENT_NAME = "ClientName";
+        public const string CLIENT_CEDULA = "Cedula_Cliente";
+        public const string CLIENT_NOMBRE = "Nombre_Cliente";
+        public const string CLIENT_APELLIDO = "Apellido_Cliente";
+        public const string CLIENT_TELEFONO = "Telefono_Cliente";
+        public const string CLIENT_FECHA_NACIMIENTO = "Fecha_Nacimiento_Cliente";
+        public const string CLIENT_DIRECCION = "Direccion_CLiente";
+        #endregion
+
+        #region DRIVER
+        public const string DRIVER_CEDULA = "Cedula";
+        public const string DRIVER_NOMBRE = "Nombre";
+        public const string DRIVER_APELLIDO = "Apellido";
+        public const string DRIVER_TELEFONO = "Telefono";
+        public const string DRIVER_FECHA_NACIMIENTO = "Fecha_de_nacimiento";
+        public const string DRIVER_TIPO_SANGRE = "Tipo_de_sangre";
+        public const string DRIVER_TIPO_LICENCIA = "Tipo_de_licencia";
         #endregion
 
         #region VEHICLE
@@ -129,6 +144,7 @@ namespace SteeringSA_WPF
         public const string UPDATE_SERVICE = "PROC_ACTUALIZAR_DATOS_SERVICIO";
         public const string DELETE_SERVICE = "PROC_ELIMINAR_SERVICIO";
         #endregion
+
         #region TYPE_SERVICE
             public const string INSERT_TYPE_SERVICE = "PROC_REGISTRAR_TIPO_SERVICIO";
             public const string UPDATE_TYPE_SERVICE = "PROC_ACTUALIZAR_DATOS_T_SERVICIOS";

@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="SteeringSA_WPF.Views.ClientProfileView"
+﻿<UserControl x:Class="SteeringSA_WPF.Views.Profile_VehicleView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
+             mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" FontFamily="Poppins"
+              FontFamily="Poppins"
              d:DesignHeight="768" d:DesignWidth="1366">
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_profile.png"/>
@@ -29,7 +30,7 @@
                 </Button>
             </Grid>
             <!--#endregion-->
-            
+
             <!--#region ROW 2 -->
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -47,7 +48,7 @@
                         Width="auto"
                         CornerRadius="10">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="User" 
+                        <materialDesign:PackIcon Kind="Car" 
                                                  HorizontalAlignment="Center"
                                                  Foreground="{StaticResource Black}"
                                                  Style="{StaticResource S_Icon_LargeIcon}"/>
@@ -102,9 +103,9 @@
 
                             <!-- #region Boton Editar  -->
                             <Button Grid.Column="1"
-                                    ToolTip="Editar cliente"
-                                    Name="Btn_EditClient" 
-                                    Click="Btn_EditClient_Click"
+                                    ToolTip="Editar conductor"
+                                    Name="Btn_EditVehicle" 
+                                    Click="Btn_EditVehicle_Click"
                                     HorizontalAlignment="Right"
                                     Margin="0 0 50 0"
                                     Style="{StaticResource S_Button_EditButton}">
@@ -114,12 +115,12 @@
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                             </Button>
                             <!--#endregion-->
-                            
+
                             <!-- #region Boton Eliminar  -->
                             <Button Grid.Column="1"
-                                    ToolTip="Eliminar cliente"
-                                    Name="Btn_DeleteClient" 
-                                    Click="Btn_DeleteClient_Click"
+                                    ToolTip="Eliminar conductor"
+                                    Name="Btn_DeleteVehicle" 
+                                    Click="Btn_DeleteVehicle_Click"
                                     HorizontalAlignment="Right"
                                     
                                     Style="{StaticResource S_Button_DeleteButton}">
@@ -138,7 +139,7 @@
                 <StackPanel Grid.Column="1" 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                    
+
                     <!--#region SERVICIOS SOLICITADOS -->
                     <Border BorderThickness="1" 
                             Margin="0 0 0 100"
@@ -149,10 +150,10 @@
                             CornerRadius="10">
                         <StackPanel>
                             <WrapPanel Margin="0 0 0 20" HorizontalAlignment="Center">
-                                <TextBlock Text="Servicios Soliciados"
+                                <TextBlock Text="Mantenimientos"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource S_TextBlock_Subtitle}"/>
-                                <Button Name="Btn_AddService" Click="Btn_AddService_Click" Style="{StaticResource S_Button_TransparentButtonWithHand}">
+                                <Button Name="Btn_AddMaintenance" Click="Btn_AddMaintenance_Click" Style="{StaticResource S_Button_TransparentButtonWithHand}">
                                     <materialDesign:PackIcon Kind="AddCircle"
                                                      Margin="10 0 0 0"
                                                      Foreground="{StaticResource White}"
@@ -162,19 +163,19 @@
 
                             <!--#region BOTON MOSTRAR SERVICIOS -->
                             <Button  
-                                    Name="Btn_ShowServices"
-                                    Click="Btn_ShowServices_Click"
+                                    Name="Btn_ShowMaintenances"
+                                    Click="Btn_ShowMaintenances_Click"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Center"
                                     Background="{StaticResource TWhite}"
                                     BorderThickness="0"
-                                    Width="200"
+                                    Width="288"
                                     Style="{StaticResource S_Button_NormalButton}"
-                                    Content="Mostrar Servicios"/>
-                            <!--#endregion--> 
+                                    Content="Mostrar Mantenimientos"/>
+                            <!--#endregion-->
                         </StackPanel>
-                        
-                        
+
+
                     </Border>
                     <!--#endregion-->
 

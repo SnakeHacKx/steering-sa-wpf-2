@@ -116,6 +116,39 @@
 
                             </StackPanel>
                         </Border>
+
+                        <WrapPanel HorizontalAlignment="Center" Margin="0 50 0 0">
+
+                            <!-- #region Boton Editar  -->
+                            <Button Grid.Column="1"
+                                    ToolTip="Editar conductor"
+                                    Name="Btn_EditDriver" 
+                                    Click="Btn_EditDriver_Click"    
+                                    HorizontalAlignment="Right"
+                                    Margin="0 0 50 0"
+                                    Style="{StaticResource S_Button_EditButton}">
+
+                                <materialDesign:PackIcon Kind="UserEdit"
+                                                         Foreground="{StaticResource White}"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                            </Button>
+                            <!--#endregion-->
+
+                            <!-- #region Boton Eliminar  -->
+                            <Button Grid.Column="1"
+                                    ToolTip="Eliminar conductor"
+                                    Name="Btn_DeleteDriver" 
+                                    Click="Btn_DeleteDriver_Click"
+                                    HorizontalAlignment="Right"
+                                    
+                                    Style="{StaticResource S_Button_DeleteButton}">
+
+                                <materialDesign:PackIcon Kind="DeleteCircle"
+                                                         Foreground="{StaticResource White}"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                            </Button>
+                            <!--#endregion-->
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
                 <!--#endregion-->

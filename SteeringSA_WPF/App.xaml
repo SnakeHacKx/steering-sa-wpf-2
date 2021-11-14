@@ -34,8 +34,14 @@
             <SolidColorBrush x:Key="PalePurple" Color="#BDB2FF"/>
             <SolidColorBrush x:Key="DarkenPurple" Color="#AEA0FF"/>
 
-            <SolidColorBrush x:Key="PaleGreen" Color="#CAFFBF"/>
-            <SolidColorBrush x:Key="DarkenGreen" Color="#A0EC90"/>
+            <SolidColorBrush x:Key="PaleGreen" Color="#70F79D"/>
+            <SolidColorBrush x:Key="DarkenGreen" Color="#5BDC86"/>
+
+            <SolidColorBrush x:Key="Red" Color="#ED4956"/>
+            <SolidColorBrush x:Key="DarkenRed" Color="#D12633"/>
+
+            <SolidColorBrush x:Key="Blue" Color="#3498DB"/>
+            <SolidColorBrush x:Key="DarkenbBlue" Color="#146FAD"/>
 
             <SolidColorBrush x:Key="PaleOrange" Color="#FFD6A5"/>
 
@@ -200,6 +206,68 @@
                             <Border Name="border" 
                                     CornerRadius="7"
                                     BorderBrush="{StaticResource DarkenGreen}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Padding="10 5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkenGreen}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_DeleteButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="Background" Value="{StaticResource Red}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                    CornerRadius="7"
+                                    BorderBrush="{StaticResource DarkenRed}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Padding="10 5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkenGreen}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_EditButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="Background" Value="{StaticResource Blue}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                    CornerRadius="7"
+                                    BorderBrush="{StaticResource DarkenbBlue}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Padding="10 5"
                                     Background="{TemplateBinding Background}">
