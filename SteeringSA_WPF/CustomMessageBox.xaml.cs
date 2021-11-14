@@ -53,10 +53,8 @@ namespace SteeringSA_WPF
                     customMessageBox.messageIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Error;
                     customMessageBox.messageIcon.Foreground = Brushes.White;
                     //Color
-                    customMessageBox.Header.Background = new SolidColorBrush(Color.FromRgb(155, 58, 74));
-                    customMessageBox.Body.Background = new SolidColorBrush(Color.FromRgb(233, 87, 111));
+                    customMessageBox.Pic_Background.Source = new BitmapImage(new Uri(@"/Images/bg_mb_error.png", UriKind.Relative));
                     // Texto
-                    customMessageBox.Tb_HeaderMessage.Foreground = Brushes.White;
                     customMessageBox.Tb_Message.Foreground = Brushes.White;
                     // Botones
                     customMessageBox.Btn_OK.Visibility = Visibility.Visible;
@@ -70,10 +68,8 @@ namespace SteeringSA_WPF
                     customMessageBox.messageIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.InfoCircle;
                     customMessageBox.messageIcon.Foreground = Brushes.White;
                     // Color
-                    customMessageBox.Header.Background = new SolidColorBrush(Color.FromRgb(22, 100, 162));
-                    customMessageBox.Body.Background = new SolidColorBrush(Color.FromRgb(33, 150, 243));
+                    customMessageBox.Pic_Background.Source = new BitmapImage(new Uri(@"/Images/bg_mb_info.png", UriKind.Relative));
                     // Texto
-                    customMessageBox.Tb_HeaderMessage.Foreground = Brushes.White;
                     customMessageBox.Tb_Message.Foreground = Brushes.White;
                     // Botones
                     customMessageBox.Btn_OK.Visibility = Visibility.Visible;
@@ -87,10 +83,8 @@ namespace SteeringSA_WPF
                     customMessageBox.messageIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Warning;
                     customMessageBox.messageIcon.Foreground = Brushes.Black;
                     // Color
-                    customMessageBox.Header.Background = new SolidColorBrush(Color.FromRgb(229, 223, 49));
-                    customMessageBox.Body.Background = new SolidColorBrush(Color.FromRgb(232, 232, 119));
+                    customMessageBox.Pic_Background.Source = new BitmapImage(new Uri(@"/Images/bg_mb_warning.png", UriKind.Relative));
                     // Texto
-                    customMessageBox.Tb_HeaderMessage.Foreground = Brushes.Black;
                     customMessageBox.Tb_Message.Foreground = Brushes.Black;
                     // Botones
                     customMessageBox.Btn_OK.Visibility = Visibility.Collapsed;
@@ -104,10 +98,8 @@ namespace SteeringSA_WPF
                     customMessageBox.messageIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.QuestionMark;
                     customMessageBox.messageIcon.Foreground = Brushes.White;
                     // Color
-                    customMessageBox.Header.Background = new SolidColorBrush(Color.FromRgb(22, 100, 162));
-                    customMessageBox.Body.Background = new SolidColorBrush(Color.FromRgb(33, 150, 243));
+                    customMessageBox.Pic_Background.Source = new BitmapImage(new Uri(@"/Images/bg_mb_info.png", UriKind.Relative));
                     // Texto
-                    customMessageBox.Tb_HeaderMessage.Foreground = Brushes.White;
                     customMessageBox.Tb_Message.Foreground = Brushes.White;
                     // Botones
                     customMessageBox.Btn_OK.Visibility = Visibility.Collapsed;
@@ -119,13 +111,11 @@ namespace SteeringSA_WPF
                 case CMessageBoxType.Success:
                     // Icono
                     customMessageBox.messageIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CheckBold;
-                    customMessageBox.messageIcon.Foreground = Brushes.White;
+                    customMessageBox.messageIcon.Foreground = Brushes.Black;
                     // Color
-                    customMessageBox.Header.Background = new SolidColorBrush(Color.FromRgb(10, 102, 72));
-                    customMessageBox.Body.Background = new SolidColorBrush(Color.FromRgb(15, 153, 109));
+                    customMessageBox.Pic_Background.Source = new BitmapImage(new Uri(@"/Images/bg_mb_success.png", UriKind.Relative));
                     // Texto
-                    customMessageBox.Tb_HeaderMessage.Foreground = Brushes.White;
-                    customMessageBox.Tb_Message.Foreground = Brushes.White;
+                    customMessageBox.Tb_Message.Foreground = Brushes.Black;
                     // Botones
                     customMessageBox.Btn_OK.Visibility = Visibility.Visible;
                     customMessageBox.Btn_Cancel.Visibility = Visibility.Collapsed;
@@ -138,11 +128,18 @@ namespace SteeringSA_WPF
             return result;
         }
 
-        //private void Header_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (e.ChangedButton == MouseButton.Left)
-        //        this.DragMove();
-        //}
+        private void Body_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void Btn_OK_Click(object sender, RoutedEventArgs e)
+        {
+            result = System.Windows.Forms.DialogResult.OK;
+            customMessageBox.Close();
+        }
+
 
         //private void Btn_Yes_Click(object sender, RoutedEventArgs e)
         //{

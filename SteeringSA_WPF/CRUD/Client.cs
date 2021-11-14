@@ -171,9 +171,8 @@ namespace SteeringSA_WPF.CRUD
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();
             reader = cmd.ExecuteReader();
-
-            .0
-00000000000000000000000000000000000            try
+            
+            try
             {
                 while (reader.Read())
                 {

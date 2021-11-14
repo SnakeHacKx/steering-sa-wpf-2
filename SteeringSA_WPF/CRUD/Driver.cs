@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace SteeringSA_WPF.CRUD
 {
-    class Driver
+    public class Driver
     {
         #region PROPERTIES
         public string IDCedula { get; set; }
@@ -42,19 +42,19 @@ namespace SteeringSA_WPF.CRUD
 
         #region CRUD
 
-        public void Register(string idClient, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
+        public void Register(string id, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_DRIVER, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_CEDULA, idClient);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_NOMBRE, name);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_APELLIDO, surname);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_TELEFONO, phoneNumber);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_FECHA_NACIMIENTO, birthDate);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_TIPO_SANGRE, bloodType);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_TIPO_LICENCIA, licenseType);
+                cmd.Parameters.AddWithValue("@cedula", id);
+                cmd.Parameters.AddWithValue("@nombre", name);
+                cmd.Parameters.AddWithValue("@apellido", surname);
+                cmd.Parameters.AddWithValue("@telefono", phoneNumber);
+                cmd.Parameters.AddWithValue("@fechaNac", birthDate);
+                cmd.Parameters.AddWithValue("@tipoSangre", bloodType);
+                cmd.Parameters.AddWithValue("@tipoLicencia", licenseType);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -76,7 +76,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Cliente Registrado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Conductor Registrado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -84,19 +84,19 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string idClient, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
+        public void Edit(string id, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_CLIENT, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_CEDULA, idClient);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_NOMBRE, name);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_APELLIDO, surname);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_TELEFONO, phoneNumber);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_FECHA_NACIMIENTO, birthDate);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_TIPO_SANGRE, bloodType);
-                cmd.Parameters.AddWithValue(TableVariable.DRIVER_TIPO_LICENCIA, licenseType);
+                cmd.Parameters.AddWithValue("@cedula", id);
+                cmd.Parameters.AddWithValue("@nombre", name);
+                cmd.Parameters.AddWithValue("@apellido", surname);
+                cmd.Parameters.AddWithValue("@telefono", phoneNumber);
+                cmd.Parameters.AddWithValue("@fechaNac", birthDate);
+                cmd.Parameters.AddWithValue("@tipoSangre", bloodType);
+                cmd.Parameters.AddWithValue("@tipoLecencia", licenseType);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -118,7 +118,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Cliente Editado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Conductor Editado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -128,11 +128,11 @@ namespace SteeringSA_WPF.CRUD
 
         public void Delete(string id)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_DRIVER, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, id);
+                cmd.Parameters.AddWithValue(TableVariable.DRIVER_CEDULA, id);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

@@ -158,8 +158,8 @@
 
                 <!--#region BOTON INICIAR SESION -->
                 <Button  
-                Name="Btn_AddClient"
-                Click="Btn_AddClient_Click"
+                Name="Btn_AddDriver"
+                Click="Btn_AddDriver_Click"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 Width="180"

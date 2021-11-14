@@ -35,5 +35,10 @@ namespace SteeringSA_WPF.Views
         {
             WindowManager.ChangeWindow(WindowsTitle.HOME, new HomeViewModel());
         }
+
+        private void Btn_AddVehicle_Click(object sender, RoutedEventArgs e)
+        {
+            WindowManager.ChangeWindow(WindowsTitle.ADD_VEHICLES, new Register_VehicleViewModel());
+        }
     }
 }

@@ -8,15 +8,16 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="Poppins"
         Title="CustomMessageBox" Height="200" Width="500" AllowsTransparency="False" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image Name="Pic_Background" Stretch="UniformToFill" Source="Images/bg_mb_info.png"/>
+        <Grid Name="Body" Background="Transparent" MouseDown="Body_MouseDown">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-    <Grid Name="Body" Background="#0F996D">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Name="Header" Background="#0A6648">
+        <Grid Name="Header" Background="#99FFFFFF">
             <TextBlock
                     x:Name="Tb_HeaderMessage"
                     Grid.Row="0"
@@ -25,7 +26,7 @@
                     Width="auto"
                     Margin="10"
                     TextWrapping="Wrap"
-                    Foreground="White"
+                    Foreground="Black"
                     Style="{StaticResource S_TextBlock_Info}" 
                     HorizontalAlignment="Left" 
                     Text="Ha ocurrido un error en la  aplicación"/>
@@ -42,7 +43,7 @@
                                     Grid.Column="0"
                                     Width="Auto" 
                                     Height="50" 
-                                    Foreground="White" 
+                                    Foreground="Black" 
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Margin="0,0,0,0"/>
@@ -54,7 +55,7 @@
                     Height="auto" 
                     Width="auto"
                     TextWrapping="Wrap"
-                    Foreground="White"
+                    Foreground="Black"
                     Style="{StaticResource S_TextBlock_Body}" 
                     HorizontalAlignment="Left" 
                     Text="La Planta con el ID #234235345 no existe, inténtelo nuevamente"/>
@@ -71,27 +72,22 @@
 
         </Grid>
 
-        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0 20 0 0">
-            <!-- #region BOTON OK  -->
-            <Button 
-                Name="Btn_OK"
-                Width="99" 
-                Height="auto"
-                Visibility="Collapsed"
-                Foreground="White"
-                FontSize="25"
-                FontFamily="Verdana"
-                FontWeight="Black"
-                BorderThickness="10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="#1A1D28"
-                Style="{StaticResource S_Button_NormalButton}"
-            >OK</Button>
-            <!--#endregion-->
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <!-- #region BOTON OK  -->
+                <Button  
+                    Name="Btn_OK"
+                    Click="Btn_OK_Click"
+                    Width="99"
+                    Height="auto"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Visibility="Collapsed"
+                    Content="OK"
+                    Style="{StaticResource S_Button_ConfirmButton}"/>
+                <!--#endregion-->
 
-            <!-- #region BOTON CANCELAR  -->
-            <Button 
+                <!-- #region BOTON CANCELAR  -->
+                <Button 
                 Name="Btn_Cancel"
                 Width="168" 
                 Height="auto"
@@ -106,10 +102,10 @@
                 Background="#1A1D28"
                 Style="{StaticResource S_Button_NormalButton}"
             >Cancelar</Button>
-            <!--#endregion-->
+                <!--#endregion-->
 
-            <!-- #region BOTON SI  -->
-            <Button 
+                <!-- #region BOTON SI  -->
+                <Button 
                 Name="Btn_Yes"
                 Width="84" 
                 Height="auto"
@@ -124,10 +120,10 @@
                 Background="#1A1D28"
                 Style="{StaticResource S_Button_NormalButton}"
             >Sí</Button>
-            <!--#endregion-->
+                <!--#endregion-->
 
-            <!-- #region BOTON NO  -->
-            <Button 
+                <!-- #region BOTON NO  -->
+                <Button 
                 Name="Btn_No"
                 Width="84" 
                 Height="auto"
@@ -142,8 +138,8 @@
                 Background="#1A1D28"
                 Style="{StaticResource S_Button_NormalButton}"
             >No</Button>
-            <!--#endregion-->
-        </WrapPanel>
-
+                <!--#endregion-->
+            </WrapPanel>
+        </Grid>
     </Grid>
 </Window>

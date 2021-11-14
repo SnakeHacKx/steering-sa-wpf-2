@@ -85,7 +85,13 @@ namespace SteeringSA_WPF
         #endregion
 
         #region VEHICLE
-
+        public const string VEHICLE_PLACA = "Placa";
+        public const string VEHICLE_MOTOR = "Motor";
+        public const string VEHICLE_TIPO = "Tipo";
+        public const string VEHICLE_ESTADO = "Estado";
+        public const string VEHICLE_PASAJERO = "pasajero";
+        public const string VEHICLE_TIPO_COMBUSTIBLE = "Tipo_de_combustible";
+        public const string VEHICLE_COLOR = "Color";
         #endregion
 
         #region MAINTENANCE
