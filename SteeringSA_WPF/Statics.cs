@@ -117,11 +117,15 @@ namespace SteeringSA_WPF
         #endregion
 
         #region MAINTENANCE
-
+        public const string INSERT_MAINTENANCE = "PROC_REGISTRAR_MANTENIMIENTO";
+        public const string UPDATE_MAINTENANCE = "PROC_ACTUALIZAR_MANTENIMIENTO";
+        public const string DELETE_MAINTENANCE = "PROC_ELIMINAR_MANTENIMIENTO";
         #endregion
 
         #region REPORT
-
+        public const string INSERT_REPORT = "PROC_REGISTRAR_REPORTE";
+        public const string UPDATE_REPORT = "PROC_ACTUALIZAR_ESTADO_REPORTES";
+        public const string DELETE_REPORT = "PROC_ELIMINAR_REPORTE";
         #endregion
 
         #region SERVICE
