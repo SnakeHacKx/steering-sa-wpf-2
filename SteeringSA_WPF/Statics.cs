@@ -53,8 +53,8 @@ namespace SteeringSA_WPF
         public const string CLIENT = "Cedula_Cliente";
         public const string DRIVER = "Cedula";
         public const string VEHICLE = "Placa";
-        public const string MAINTENANCE = "";
-        public const string REPORT = "";
+        public const string MAINTENANCE = "Cod_Mantenimiento";
+        public const string REPORT = "Cod_reporte";
         public const string SERVICE = "Cod_Servicio";
         public const string TYPE_SERVICE = "Cod_tipo_servicio";
     }
@@ -85,11 +85,23 @@ namespace SteeringSA_WPF
         #endregion
 
         #region VEHICLE
-
+        public const string VEHICLE_PLACA = "Placa";
+        public const string VEHICLE_MODELO = "Modelo_vehiculo";
+        public const string VEHICLE_TIPO = "Tipo";
+        public const string VEHICLE_CANT_PASAJEROS = "pasajero";
+        public const string VEHICLE_ESTADO= "Estado";
+        public const string VEHICLE_TIPO_COMBUSTIBLE = "Tipo_de_combustible";
+        public const string VEHICLE_COLOR = "Color";
         #endregion
 
         #region MAINTENANCE
-
+        public const string MAINTENANCE_CODIGO = "Cod_Mantenimiento";
+        public const string MAINTENANCE_PLACA_VEHICULO = "Placa_Vehiculo";
+        public const string MAINTENANCE_COD_REPORTE = "Cod_reporte";
+        public const string MAINTENANCE_COSTO = "Costo";
+        public const string MAINTENANCE_FECHA = "Fecha";
+        public const string MAINTENANCE_DESCRIPCION = "Descripcion";
+        public const string MAINTENANCE_ESTADO = "Estado";
         #endregion
 
         #region REPORT
