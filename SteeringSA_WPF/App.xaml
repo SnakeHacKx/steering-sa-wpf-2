@@ -408,7 +408,7 @@
             </Style>
             <!--#endregion-->
             
-            <!--#region DATA PICKER STYLES -->
+            <!--#region DATE PICKER STYLES -->
             <Style x:Key="S_DatePicker_Light" TargetType="DatePicker" BasedOn="{StaticResource MaterialDesignDatePicker}">
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="SelectedDate" Value="{x:Static sys:DateTime.Now}"/>
@@ -416,7 +416,7 @@
                 <Setter Property="FontWeight" Value="Light"/>
                 <Setter Property="Foreground" Value="{StaticResource FadedBlack}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
-                <Setter Property="DisplayDateStart" Value="2000-01-01"/>
+                <Setter Property="DisplayDateStart" Value="1900-01-01"/>
                 <Setter Property="SelectedDateFormat" Value="Short"/>
             </Style>
             <!--#endregion-->

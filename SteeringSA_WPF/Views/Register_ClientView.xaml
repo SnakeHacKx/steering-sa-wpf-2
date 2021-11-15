@@ -108,7 +108,7 @@
                                 <TextBlock Text="Fecha de Nacimiento" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                 <WrapPanel>
                                     <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                        <DatePicker Name="Dtp_ReportDate"
+                                        <DatePicker Name="Dtp_BirthDate"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                         </DatePicker>
                                     </Border>
@@ -117,6 +117,22 @@
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
+
+                        <!--#region TXB NOMBRE -->
+                        <StackPanel>
+                            <TextBlock Margin="0 0 0 10" Text="Dirección" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                            <Border Width="560" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
+                                <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
+                                    <TextBlock Text="Calle, Corregimiento, Distrito, Provincia"
+                                   MinWidth="560" MaxWidth="350"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_Address, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                    <TextBox MinWidth="560" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Address"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <!--#endregion-->
                     </StackPanel>
                 </Border>
 

@@ -76,6 +76,11 @@
                       DataType="{x:Type viewmodels:Register_DriverViewModel}">
             <views:Register_DriverView DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="AddVehicleViewTemplate"
+                      DataType="{x:Type viewmodels:Register_VehicleViewModel}">
+            <views:Register_VehicleView DataContext="{Binding}"/>
+        </DataTemplate>
         <!--#endregion-->
         
         <!--#region EDITAR -->

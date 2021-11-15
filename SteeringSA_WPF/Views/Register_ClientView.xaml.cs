@@ -27,12 +27,23 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddClient_Click(object sender, RoutedEventArgs e)
         {
-
+            CRUD.Client.Instance.Register(Txt_DNI.Text, Txt_Name.Text, Txt_Surname.Text, Txt_PhoneNumber.Text, Dtp_BirthDate.Text, Txt_Address.Text);
+            ClearFormFields();
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_CLIENTS, new ViewModels.ClientViewModel());
+        }
+
+        private void ClearFormFields()
+        {
+            Txt_DNI.Text = "";
+            Txt_Name.Text = "";
+            Txt_Surname.Text = "";
+            Txt_PhoneNumber.Text = "";
+            Dtp_BirthDate.Text = DateTime.Now.ToString();
+            Txt_Address.Text = "";
         }
     }
 }

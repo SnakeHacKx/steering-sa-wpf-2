@@ -30,9 +30,29 @@ namespace SteeringSA_WPF.Views
             WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
         }
 
-        private void Btn_AddClient_Click(object sender, RoutedEventArgs e)
+        private void Btn_AddDriver_Click(object sender, RoutedEventArgs e)
         {
+            CRUD.Driver.Instance.Register(Txt_DNI.Text,
+                Txt_Name.Text, 
+                Txt_Surname.Text,
+                Txt_PhoneNumber.Text,
+                Dtp_BirthDate.Text, 
+                Cb_BloodType.Text,
+                Cb_LicenseType.Text);
+            ClearFormFields();
+        }
 
+        private void ClearFormFields()
+        {
+            Txt_DNI.Text = "";
+            Txt_Name.Text = "";
+            Txt_Surname.Text = "";
+            Txt_PhoneNumber.Text = "";
+            Dtp_BirthDate.Text = DateTime.Now.ToString();
+            Cb_BloodType.Text = "";
+            Cb_LicenseType.Text = "";
+            Cb_BloodType.SelectedItem = null;
+            Cb_LicenseType.SelectedItem = null;
         }
     }
 }
