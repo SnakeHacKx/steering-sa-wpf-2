@@ -20,10 +20,10 @@ namespace SteeringSA_WPF
         public const string VIEW_REPORTS = "Reportes";
         public const string VIEW_SERVICES = "Servicios";
 
-        public const string PERSON_PROFILE = "Perfil de Persona";
-        public const string PLANT_PROFILE = "Perfil de Planta";
+        public const string CLIENT_PROFILE = "Cliente";
+        public const string VEHICLE_PROFILE = "Vehículo";
         public const string CHOOSE_PLANT_IMAGE = "Elegir Imagen de Planta";
-        public const string LAND_PROFILE = "Perfil de Land";
+        public const string DRIVER_PROFILE = "Conductor";
 
         public const string ADD_CLIENTE = "Agregar Cliente";
         public const string ADD_DRIVERS = "Agregar Conductor";

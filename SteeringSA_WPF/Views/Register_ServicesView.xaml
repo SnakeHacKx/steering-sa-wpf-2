@@ -41,8 +41,8 @@
                                 CornerRadius="10">
                             <StackPanel>
                                 <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
-                                    <TextBlock Text="Cédula del Cliente:" Style="{StaticResource S_TextBlock_Body}"/>
-                                    <TextBlock Name="Tb_VehicleCount" Margin="5 0 0 0" Text="7-712-784" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                    <TextBlock Text="Matrícula del Vehículo:" Style="{StaticResource S_TextBlock_Body}"/>
+                                    <TextBlock Name="Tb_VehicleCount" Margin="5 0 0 0" Text="AGB5698" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
                                 </WrapPanel>
 
                                 <WrapPanel Margin="0 0 0 20">

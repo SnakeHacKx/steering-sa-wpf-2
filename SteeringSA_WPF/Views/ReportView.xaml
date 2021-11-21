@@ -86,18 +86,46 @@
             <!--#region ROW 3-->
 
             <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
-                <!--#region FILTRO FECHA -->
+                <!--#region FILTRO RANGO DE FECHA -->
                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}"
                         Margin="20 0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
-                                   Margin="0 0 10 0"
                                    Text="Fecha:"/>
-                        <DatePicker Name="Dtp_ReportDate"
+                        <WrapPanel VerticalAlignment="Center">
+                            <DatePicker Margin="10 0 0 0" Name="Dtp_MaintenanceDateMin"
                                     Style="{StaticResource S_DatePicker_Light}">
-                            
-                        </DatePicker>
+
+                            </DatePicker>
+
+                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                       Margin="15 0"
+                                       VerticalAlignment="Center"
+                                       Text="a"/>
+
+                            <DatePicker Name="Dtp_MaintenanceDateMax"
+                                    Style="{StaticResource S_DatePicker_Light}">
+
+                            </DatePicker>
+                        </WrapPanel>
+
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region FILTRO ESTADO -->
+                <Border Margin="20 0 0 0" Height="50" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Text="Estado:"/>
+                        <ComboBox Name="Cb_State"
+                                  Width="150"
+                                  Style="{StaticResource S_Combobox_Normal}">
+                            <ComboBoxItem Content="Activo" Foreground="{StaticResource Black}" />
+                            <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
+                        </ComboBox>
                     </StackPanel>
                 </Border>
                 <!--#endregion-->
@@ -105,7 +133,7 @@
                 <Button Name="Btn_Filter"
                         ToolTip="Filtrar"
                         VerticalAlignment="Center"
-                        Margin="0"
+                        Margin="50 0 0 0"
                         Style="{StaticResource S_Button_NormalButton}">
 
                     <materialDesign:PackIcon Kind="Filter"

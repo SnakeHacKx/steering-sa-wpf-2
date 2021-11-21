@@ -106,8 +106,8 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
-                                   Text="Motor:"/>
-                        <ComboBox Name="Cb_EngineType"
+                                   Text="Modelo:"/>
+                        <ComboBox Name="Cb_Model"
                                   Width="150"
                                   Style="{StaticResource S_Combobox_Normal}">
                             <ComboBoxItem Content="Opción 1" Foreground="{StaticResource Black}" />

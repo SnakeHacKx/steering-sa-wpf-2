@@ -14,73 +14,59 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!--#region ROW 1 -->
-            <Grid Grid.Row="0">
-                <Button Name="Btn_GoBack"
+            <Grid Grid.Row="0" Margin="70 20 0 20">
+                <WrapPanel HorizontalAlignment="Left">
+                    <Button Name="Btn_GoBack"
                         Click="Btn_GoBack_Click"
                         ToolTip="Volver"
                         Style="{StaticResource S_Button_TransparentButtonWithHand}" 
-                        HorizontalAlignment="Left"
-                        Margin="70 20 0 0">
-                    <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                        HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="ArrowBackCircle" 
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
-                </Button>
-            </Grid>
-            <!--#endregion-->
+                    </Button>
 
-            <!--#region ROW 2 -->
-            <StackPanel Margin="0 0 0 20" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <!--#region TXB CODIGO -->
-                <WrapPanel VerticalAlignment="Center" >
-                    <TextBlock Text="Código:" 
+                    <StackPanel Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
+                        <!--#region TXB CODIGO -->
+                        <WrapPanel VerticalAlignment="Center" >
+                            <TextBlock Text="Código:" 
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
-                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <TextBlock Text="PONER" 
+                            <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                                    <TextBlock Text="PONER" 
                                    MinWidth="200" MaxWidth="250"
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
                                      Visibility="{Binding ElementName=Txt_IDReport, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
-                        </Grid>
-                    </Border>
-                </WrapPanel>
-                <!--#endregion-->
+                                    <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
+                                </Grid>
+                            </Border>
+                        </WrapPanel>
+                        <!--#endregion-->
 
-                <!--#region TXB CLIENTE (CEDULA) -->
-                <WrapPanel VerticalAlignment="Center" >
-                    <TextBlock Text="Cliente (cédula):" 
-                               VerticalAlignment="Center"
-                               Style="{StaticResource S_TextBlock_Body}"/>
-                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <TextBlock Text="XX-XXX-XXXXX" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_ClientDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
-                        </Grid>
-                    </Border>
-                </WrapPanel>
-                <!--#endregion-->
-
-                <Button Name="Btn_Search"
+                        <!--#region BUTTON BUSCAR -->
+                        <Button Name="Btn_Search"
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
                         Style="{StaticResource S_Button_NormalButton}">
 
-                    <materialDesign:PackIcon Kind="Search"
+                            <materialDesign:PackIcon Kind="Search"
                                              Height="30"
                                              Width="auto"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
-                </Button>
-            </StackPanel>
+                        </Button>
+                        <!--#endregion-->
+                    </StackPanel>
+                </WrapPanel>
+                
+            </Grid>
             <!--#endregion-->
 
             <!--#region ROW 3-->
@@ -133,7 +119,7 @@
                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
                                    Margin="0 0 10 0"
-                                   Text="Fecha de Incio:"/>
+                                   Text="Fecha de Inicio:"/>
                         <DatePicker Name="Dtp_ServiceBeginDate"
                                     Style="{StaticResource S_DatePicker_Light}">
 
@@ -157,24 +143,119 @@
                     </StackPanel>
                 </Border>
                 <!--#endregion-->
+            </WrapPanel>
+            <!--#endregion-->
+            
+            <!--#region ROW 4 -->
+            <WrapPanel Grid.Row="3" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <!--#region TXB CLIENTE (CEDULA) -->
+                <WrapPanel VerticalAlignment="Center" >
+                    
+                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                        <WrapPanel>
+                            <TextBlock Text="Cliente:" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+                            <Grid Margin="10 0 0 0" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                                <TextBlock Text="XX-XXX-XXXXX" 
+                                   MinWidth="150" MaxWidth="250"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_ClientDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                <TextBox MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </WrapPanel>
+                <!--#endregion-->
 
-                <Button Name="Btn_Filter"
+                <!--#region TXB CONDUCTOR (CEDULA) -->
+                <WrapPanel VerticalAlignment="Center" >
+                    
+                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                        <WrapPanel>
+                            <TextBlock Text="Conductor:" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+                            
+                            <Grid Margin="10 0 0 0" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                                <TextBlock Text="XX-XXX-XXXXX" 
+                                   MinWidth="150" MaxWidth="250"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_DriverDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                <TextBox MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </WrapPanel>
+                <!--#endregion-->
+
+                <!--#region FILTRO TIPO DE SERVICIO -->
+                <Border Margin="0 0 20 0" Height="50" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Text="Tipo de Servicio:"/>
+                        <ComboBox Name="Cb_Servicetype"
+                                  Width="150"
+                                  Style="{StaticResource S_Combobox_Normal}">
+                            <ComboBoxItem Content="Opción 1" Foreground="{StaticResource Black}" />
+                            <ComboBoxItem Content="Opción 2" Foreground="{StaticResource Black}" />
+                            <ComboBoxItem Content="Opción 3" Foreground="{StaticResource Black}" />
+                            <ComboBoxItem Content="Opción 4" Foreground="{StaticResource Black}" />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                
+
+                
+            </WrapPanel>
+            <!--#endregion-->
+            
+            <!--#region ROW 5 -->
+            <WrapPanel Grid.Row="4" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <!--#region TXB PLACA VEHICULO -->
+                <WrapPanel>
+                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                        <WrapPanel>
+                            <TextBlock Text="Matrícula del Vehículo:" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+
+                            <Grid Margin="10 0 0 0" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                                <TextBlock Text="AG5156" 
+                                   MinWidth="150" MaxWidth="250"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_VehicleID, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                <TextBox MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleID"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+
+                    <!--#endregion-->
+
+                    <Button Name="Btn_Filter"
                         ToolTip="Filtrar"
                         VerticalAlignment="Center"
                         Margin="0"
                         Style="{StaticResource S_Button_NormalButton}">
 
-                    <materialDesign:PackIcon Kind="Filter"
+                        <materialDesign:PackIcon Kind="Filter"
                                              Height="30"
                                              Width="auto"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
-                </Button>
+                    </Button>
 
+                </WrapPanel>
             </WrapPanel>
             <!--#endregion-->
-
-            <!--#region ROW 4 -->
-            <Grid Grid.Row="3" Margin="50 20">
+            
+            <!--#region ROW 6 -->
+            <Grid Grid.Row="5" Margin="50 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
@@ -203,7 +284,7 @@
 
                 <!--#region DATAGRID -->
                 <DataGrid 
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Name="Dgv_DriversData"
                     Style="{StaticResource S_DataGrid_Dark}">
 

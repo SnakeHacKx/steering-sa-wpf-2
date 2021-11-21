@@ -14,6 +14,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -106,19 +107,63 @@
                     </StackPanel>
                 </Border>
                 <!--#endregion-->
-                
-                <!--#region FILTRO FECHA -->
+
+                <!--#region FILTRO RANGO DE FECHA -->
                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}"
                         Margin="20 0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
-                                   Margin="0 0 10 0"
-                                   Text="Fecha:"/>
-                        <DatePicker Name="Dtp_MaintenanceDate"
+                                   Text="Fecha de asignación:"/>
+                        <WrapPanel VerticalAlignment="Center">
+                            <DatePicker Margin="10 0 0 0" Name="Dtp_MaintenanceDateMin"
                                     Style="{StaticResource S_DatePicker_Light}">
 
-                        </DatePicker>
+                            </DatePicker>
+
+                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                       Margin="15 0"
+                                       VerticalAlignment="Center"
+                                       Text="a"/>
+
+                                <DatePicker Name="Dtp_MaintenanceDateMax"
+                                    Style="{StaticResource S_DatePicker_Light}">
+
+                                </DatePicker>
+                        </WrapPanel>
+
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+            </WrapPanel>
+            <!--#endregion-->
+
+            <!--#region ROW 4 -->
+            <WrapPanel Grid.Row="3" Margin="0 20 0 0" HorizontalAlignment="Center">
+                <!--#region FILTRO RANGO DE FECHA -->
+                <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Text="Fecha de finalización:"/>
+                        <WrapPanel VerticalAlignment="Center">
+                            <DatePicker Margin="10 0 0 0" Name="Dtp_MaintenanceEndDateMin"
+                                    Style="{StaticResource S_DatePicker_Light}">
+
+                            </DatePicker>
+
+                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                       Margin="15 0"
+                                       VerticalAlignment="Center"
+                                       Text="a"/>
+
+                            <DatePicker Name="Dtp_MaintenanceEndDateMax"
+                                    Style="{StaticResource S_DatePicker_Light}">
+
+                            </DatePicker>
+                        </WrapPanel>
+
                     </StackPanel>
                 </Border>
                 <!--#endregion-->
@@ -126,7 +171,7 @@
                 <Button Name="Btn_Filter"
                         ToolTip="Filtrar"
                         VerticalAlignment="Center"
-                        Margin="0"
+                        Margin="20 0 0 0"
                         Style="{StaticResource S_Button_NormalButton}">
 
                     <materialDesign:PackIcon Kind="Filter"
@@ -134,12 +179,11 @@
                                              Width="auto"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                 </Button>
-
             </WrapPanel>
             <!--#endregion-->
 
-            <!--#region ROW 4 -->
-            <Grid Grid.Row="3" Margin="50 20">
+            <!--#region ROW 5 -->
+            <Grid Grid.Row="4" Margin="50 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
@@ -168,7 +212,7 @@
 
                 <!--#region DATAGRID -->
                 <DataGrid 
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Name="Dgv_DriversData"
                     Style="{StaticResource S_DataGrid_Dark}">
 
@@ -251,6 +295,8 @@
                 <!--#endregion-->
             </Grid>
             <!--#endregion-->
+            
+            
         </Grid>
     </Grid>
 </UserControl>

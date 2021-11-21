@@ -30,7 +30,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.DRIVER_PROFILE, new Profile_DriverViewModel());
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

@@ -63,5 +63,10 @@ namespace SteeringSA_WPF.Views
         {
 
         }
+
+        private void Btn_DownloadDoc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
