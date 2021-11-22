@@ -27,7 +27,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VIEW_DRIVERS, new ViewModels.DriverViewModel());
         }
 
         private void Btn_EditDriver_Click(object sender, RoutedEventArgs e)
@@ -36,6 +36,11 @@ namespace SteeringSA_WPF.Views
         }
 
         private void Btn_DeleteDriver_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_DownloadDoc_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -92,7 +92,7 @@
                                 <TextBlock Text="Pasajeros" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                 <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                     <ComboBox Name="Cb_MaxPassengerNumber"
-                                   Width="150"
+                                   Width="50"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="1" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="2" Foreground="{StaticResource Black}" />

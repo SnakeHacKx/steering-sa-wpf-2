@@ -17,15 +17,15 @@
                 CornerRadius="10">
                 <StackPanel>
                     <!--#region TXB CORREO ELECTRONICO -->
-                    <TextBlock Text="Correo Electrónico:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                    <TextBlock Text="Nombre de Usuario:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                     <Border Style="{StaticResource S_Border_TextBox}" Margin="0 0 0 30">
                         <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <TextBlock Text="ejemplo@ejemplo.com" 
+                            <TextBlock Text="Nombre Usuario" 
                                    MinWidth="300" MaxWidth="350"
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                            <TextBox MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="txtSearchBox"/>
+                                     Visibility="{Binding ElementName=Txt_User, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                            <TextBox MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
                         </Grid>
                     </Border>
                     <!--#endregion-->
@@ -34,7 +34,7 @@
                     <TextBlock Text="Contraseña:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                     <Border Style="{StaticResource S_Border_TextBox}" Margin="0 0 0 30">
                         <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <PasswordBox  MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
+                            <PasswordBox Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
                         </Grid>
                     </Border>
                     <!--#endregion-->

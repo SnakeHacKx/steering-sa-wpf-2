@@ -83,6 +83,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MaintenanceViewModel.cs" />
     <Compile Include="ViewModels\Profile_DriverView.cs" />
+    <Compile Include="ViewModels\Profile_DriverViewModel.cs" />
     <Compile Include="ViewModels\Profile_VehicleViewModel.cs" />
     <Compile Include="ViewModels\Register_ClientViewModel.cs" />
     <Compile Include="ViewModels\Register_DriverViewModel.cs" />

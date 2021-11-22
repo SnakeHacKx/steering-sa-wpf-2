@@ -42,6 +42,16 @@ namespace SteeringSA_WPF.CRUD
 
         #region CRUD
 
+        /// <summary>
+        /// Permite registrar un conductor
+        /// </summary>
+        /// <param name="id">Cédula</param>
+        /// <param name="name">Nombre</param>
+        /// <param name="surname">Apellido</param>
+        /// <param name="phoneNumber">Número Telefónico</param>
+        /// <param name="birthDate">Fecha de Nacimiento</param>
+        /// <param name="bloodType">Tipo de Sangre</param>
+        /// <param name="licenseType">Tipo de Licencia</param>
         public void Register(string id, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_DRIVER, DBConnection.Instance.SQLConnection);
@@ -84,6 +94,16 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
+        /// <summary>
+        /// Permite editar un conductor
+        /// </summary>
+        /// <param name="id">Cédula</param>
+        /// <param name="name">Nombre</param>
+        /// <param name="surname">Apellido</param>
+        /// <param name="phoneNumber">Número Telefónico</param>
+        /// <param name="birthDate">Fecha de Nacimiento</param>
+        /// <param name="bloodType">Tipo de Sangre</param>
+        /// <param name="licenseType">Tipo de Licencia</param>
         public void Edit(string id, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_CLIENT, DBConnection.Instance.SQLConnection);
@@ -126,6 +146,10 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
+        /// <summary>
+        /// Permite eliminar un conductor
+        /// </summary>
+        /// <param name="id">Cédula</param>
         public void Delete(string id)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_DRIVER, DBConnection.Instance.SQLConnection);
@@ -165,11 +189,16 @@ namespace SteeringSA_WPF.CRUD
 
         #region LECTURA DE DATOS
 
-        public void ReadFields(string procedureName, string idClient)
+        /// <summary>
+        /// Permite traer los campos de la tabla Conductor
+        /// </summary>
+        /// <param name="procedureName">Nombre del procedimiento almacenado.</param>
+        /// <param name="idClient">Cédula del Conductor</param>
+        public void ReadFields(string procedureName, string id)
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, idClient);
+            cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, id);
 
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();

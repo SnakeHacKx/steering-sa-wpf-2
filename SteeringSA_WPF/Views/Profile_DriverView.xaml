@@ -71,14 +71,14 @@
                                 Width="auto"
                                 CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Text="Información del Cliente" 
+                                <TextBlock Text="Información del Conductor" 
                                    Margin="0 20"
                                    HorizontalAlignment="Center"
                                    Style="{StaticResource S_TextBlock_Info}" />
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Fecha de Nacimiento:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="08/31/1999"
                                                Margin="5 0"/>
@@ -90,7 +90,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Teléfono:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="6675-8599"
                                                Margin="5 0"/>
@@ -99,7 +99,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Tipo de Licencia:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="D"
                                                Margin="5 0"/>
@@ -108,7 +108,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Tipo de Sangre:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="B+"
                                                Margin="5 0"/>
@@ -153,7 +153,33 @@
                 </Border>
                 <!--#endregion-->
 
-               
+                <!--#region ROW 2 COLUMN 2-->
+                <!--#region DESCRAGAR INFORME -->
+
+                <!--#region BOTON DESCARGAR -->
+                <Button  
+                        Grid.Column="1"
+                        Name="Btn_DownloadDoc"
+                        BorderThickness="0"
+                        Click="Btn_DownloadDoc_Click"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                    Margin="0 0 20 20"
+                        Background="{StaticResource TWhite}"
+                        Width="auto"
+                        Style="{StaticResource S_Button_NormalButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource S_TextBlock_BodyMedium}"
+                               Text="Informe"/>
+                        <materialDesign:PackIcon Kind="Download"
+                                                Margin="10 0 0 0"
+                                                Foreground="{StaticResource Black}"
+                                                Style="{StaticResource S_Icon_MediumIcon}"/>
+                    </StackPanel>
+                </Button>
+                <!--#endregion-->
+                <!--#endregion-->
+                <!--#endregion-->
             </Grid>
             <!--#endregion-->
         </Grid>

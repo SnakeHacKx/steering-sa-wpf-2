@@ -109,6 +109,8 @@
                                 <WrapPanel>
                                     <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                         <DatePicker Name="Dtp_BirthDate"
+                                                    SelectedDate="01/01/1950"
+                                                    SelectedDateChanged="Dtp_BirthDate_SelectedDateChanged"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                         </DatePicker>
                                     </Border>

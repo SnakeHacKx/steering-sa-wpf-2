@@ -24,7 +24,7 @@ namespace SteeringSA_WPF
         public MainWindow()
         {
             InitializeComponent();
-            DBConnection.Instance.ConectToDatabase();
+            
             Tb_WindowTitle.Text = WindowsTitle.LOGIN;
             DataContext = new LoginViewModel();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;

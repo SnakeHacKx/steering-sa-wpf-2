@@ -18,7 +18,13 @@
         </Grid.RowDefinitions>
         
         <Image Grid.Row="0" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/bg_home.png"/>
-        <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50" Stretch="Uniform" Source="../Images/logo_large.png"/>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30" >
+            <Image Stretch="Uniform" Width="300" Source="../Images/logo_large.png"/>
+            <TextBlock Text="Sistema de Gestión de Base de Datos" 
+                       Margin="0 20 0 0"
+                       Style="{StaticResource S_TextBlock_BodyMedium}"/>
+        </StackPanel>
+        
         <Grid Margin="60" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -44,7 +50,7 @@
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Clientes"/>
                     <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
-                               Text="17"/>
+                               Text="25"/>
                 </StackPanel>
             </Button>
             <!--#endregion-->

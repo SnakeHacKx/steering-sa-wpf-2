@@ -32,7 +32,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindowName(WindowsTitle.PERSON_PROFILE);
+            WindowManager.ChangeWindowName(WindowsTitle.CLIENT_PROFILE);
             this.Close();
         }
     }

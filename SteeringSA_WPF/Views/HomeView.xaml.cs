@@ -34,26 +34,41 @@ namespace SteeringSA_WPF.Views
             WindowManager.ChangeWindow(WindowsTitle.VIEW_CLIENTS, new ClientViewModel());
         }
 
+        /// <summary>
+        /// Cambia a la pantalla de ver conductores.
+        /// </summary>
         private void Btn_ViewDrivers_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_DRIVERS, new DriverViewModel());
         }
 
+        /// <summary>
+        /// Cambia a la pantalla de ver vehículos.
+        /// </summary>
         private void Btn_ViewVehicles_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_VEHICLES, new VehicleViewModel());
         }
 
+        /// <summary>
+        /// Cambia a la pantalla de ver reportes.
+        /// </summary>
         private void Btn_ViewReports_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_REPORTS, new ReportViewModel());
         }
 
+        /// <summary>
+        /// Cambia a la pantalla de ver mantenimientos.
+        /// </summary>
         private void Btn_ViewMaintenances_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_MAINTENANCE, new MaintenanceViewModel());
         }
 
+        /// <summary>
+        /// Cambia a la pantalla de ver servicios.
+        /// </summary>
         private void Btn_ViewServices_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_SERVICES, new ServicesViewModel());

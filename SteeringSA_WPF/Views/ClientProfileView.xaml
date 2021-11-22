@@ -77,7 +77,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Fecha de Nacimiento:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="08/31/1999"
                                                Margin="5 0"/>
@@ -89,9 +89,18 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Teléfono:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="6675-8599"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+                                
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Dirección:"
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="El Sesteadero, Las Tablas, los Santos, Panamá"
                                                Margin="5 0"/>
                                 </WrapPanel>
 
@@ -134,14 +143,22 @@
                 </Border>
                 <!--#endregion-->
 
+
+
                 <!--#region ROW 2 COLUMN 2  -->
-                <StackPanel Grid.Column="1" 
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                
+                
+                <StackPanel 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
                     
                     <!--#region SERVICIOS SOLICITADOS -->
-                    <Border BorderThickness="1" 
-                            Margin="0 0 0 100"
+                    <Border BorderThickness="1"
                             BorderBrush="{StaticResource DarkenGray}"
                             Padding="20 20"
                             Background="{StaticResource PaleGray}"
@@ -163,11 +180,11 @@
                             <!--#region BOTON MOSTRAR SERVICIOS -->
                             <Button  
                                     Name="Btn_ShowServices"
+                                    BorderThickness="0"
                                     Click="Btn_ShowServices_Click"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Center"
                                     Background="{StaticResource TWhite}"
-                                    BorderThickness="0"
                                     Width="200"
                                     Style="{StaticResource S_Button_NormalButton}"
                                     Content="Mostrar Servicios"/>
@@ -178,46 +195,32 @@
                     </Border>
                     <!--#endregion-->
 
-                    <!--#region REPORTES -->
-                    <Border BorderThickness="1" 
-                            BorderBrush="{StaticResource DarkenGray}"
-                            Padding="20 20"
-                            Background="{StaticResource PaleGray}"
-                            Width="auto"
-                            CornerRadius="10">
-                        <StackPanel>
-                            <WrapPanel Margin="0 0 0 20" HorizontalAlignment="Center">
-                                <TextBlock Text="Reportes"
-                                       VerticalAlignment="Center"
-                                       Style="{StaticResource S_TextBlock_Subtitle}"/>
-                                <Button Name="Btn_AddReport"
-                                        Style="{StaticResource S_Button_TransparentButtonWithHand}"
-                                        Click="Btn_AddReport_Click">
-                                    <materialDesign:PackIcon Kind="AddCircle"
-                                                     Margin="10 0 0 0"
-                                                     Foreground="{StaticResource White}"
-                                                     Style="{StaticResource S_Icon_MediumIcon}"/>
-                                </Button>
-                            </WrapPanel>
-
-                            <!--#region BOTON REPORTES -->
-                            <Button  
-                                    Name="Btn_ShowReports"
-                                    Click="Btn_ShowReports_Click"
-                                    VerticalAlignment="Top"
-                                    HorizontalAlignment="Center"
-                                    Background="{StaticResource TWhite}"
-                                    BorderThickness="0"
-                                    Width="200"
-                                    Style="{StaticResource S_Button_NormalButton}"
-                                    Content="Mostrar Reportes"/>
-                            <!--#endregion-->
-                        </StackPanel>
-
-
-                    </Border>
-                    <!--#endregion-->
+                        
                 </StackPanel>
+
+                    <!--#region BOTON DESCARGAR -->
+                    <Button  
+                            Grid.Row="1"
+                            Name="Btn_DownloadDoc"
+                            BorderThickness="0"
+                            Click="Btn_DownloadDoc_Click"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right"
+                        Margin="0 0 20 20"
+                            Background="{StaticResource TWhite}"
+                            Width="auto"
+                            Style="{StaticResource S_Button_NormalButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource S_TextBlock_BodyMedium}"
+                               Text="Informe"/>
+                            <materialDesign:PackIcon Kind="Download"
+                                                     Margin="10 0 0 0"
+                                                     Foreground="{StaticResource Black}"
+                                                     Style="{StaticResource S_Icon_MediumIcon}"/>
+                        </StackPanel>
+                    </Button>
+                    <!--#endregion-->
+                </Grid>
                 <!--#endregion-->
             </Grid>
             <!--#endregion-->

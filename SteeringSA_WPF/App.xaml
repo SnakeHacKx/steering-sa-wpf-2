@@ -244,7 +244,7 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="{StaticResource DarkenGreen}"/>
+                                    <Setter Property="Background" Value="{StaticResource DarkenRed}"/> 
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -275,7 +275,7 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="{StaticResource DarkenGreen}"/>
+                                    <Setter Property="Background" Value="{StaticResource DarkenbBlue}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -307,6 +307,36 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="{StaticResource DarkenPurple}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_NormalButtonWhite" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="Background" Value="{StaticResource TWhite}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                    CornerRadius="7"
+                                    BorderThickness="0"
+                                    Padding="10 5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource White}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -388,7 +418,7 @@
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="SelectionMode" Value="Single"/>
                 <Setter Property="Foreground" Value="{StaticResource White}"/>
-                <Setter Property="Background" Value="{StaticResource Black2}"/>
+                <Setter Property="Background" Value="{StaticResource Black}"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="BorderBrush" Value="{StaticResource Gray2}"/>
                 <Setter Property="IsReadOnly" Value="True"/>
