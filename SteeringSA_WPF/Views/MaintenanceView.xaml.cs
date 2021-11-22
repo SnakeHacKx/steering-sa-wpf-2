@@ -25,11 +25,17 @@ namespace SteeringSA_WPF.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Botón que permite ver el perfil del vehículo
+        /// </summary>
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Botón ir a la pantalla anterior.
+        /// </summary>
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());

@@ -78,7 +78,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Fecha de Nacimiento:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="08/31/1999"
                                                Margin="5 0"/>
@@ -90,7 +90,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Teléfono:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="6675-8599"
                                                Margin="5 0"/>
@@ -99,7 +99,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Tipo de Licencia:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="D"
                                                Margin="5 0"/>
@@ -108,7 +108,7 @@
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
                                            Text="Tipo de Sangre:"
-                                           Style="{StaticResource  S_TextBlock_Body}"/>
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="B+"
                                                Margin="5 0"/>

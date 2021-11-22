@@ -65,23 +65,7 @@
                 </WrapPanel>
                 <!--#endregion-->
 
-                <!--#region TXB NOMBRE -->
-                <WrapPanel VerticalAlignment="Center" >
-                    <TextBlock Text="Nombre:" 
-                               VerticalAlignment="Center"
-                               Style="{StaticResource S_TextBlock_Body}"/>
-                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <TextBlock Text="José Soriano" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_ClientName, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientName"/>
-                        </Grid>
-                    </Border>
-                </WrapPanel>
-                <!--#endregion-->
+                
 
                 <Button Name="Btn_Search"
                         ToolTip="Buscar"
@@ -100,6 +84,25 @@
             <!--#region ROW 3-->
  
             <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+
+                <!--#region TXB NOMBRE -->
+                <WrapPanel VerticalAlignment="Center" >
+                    <TextBlock Text="Nombre:" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
+                            <TextBlock Text="José Soriano" 
+                                   MinWidth="200" MaxWidth="250"
+                                   Style="{StaticResource S_TextBlock_Hint}"  
+                                    Foreground="{StaticResource DarkenGray}" 
+                                     Visibility="{Binding ElementName=Txt_ClientName, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientName"/>
+                        </Grid>
+                    </Border>
+                </WrapPanel>
+                <!--#endregion-->
+                
                 <!--#region FILTRO TIPO DE LICENCIA -->
                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Height="50">
                     <StackPanel Orientation="Horizontal">

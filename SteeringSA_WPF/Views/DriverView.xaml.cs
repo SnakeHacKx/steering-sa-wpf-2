@@ -28,26 +28,41 @@ namespace SteeringSA_WPF.Views
             RefreshDataGrid();
         }
 
+        /// <summary>
+        /// Botón ver pefil del conductor.
+        /// </summary>
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.DRIVER_PROFILE, new Profile_DriverViewModel());
         }
 
+        /// <summary>
+        /// Botón volver a la ventana anterior.
+        /// </summary>
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.HOME, new HomeViewModel());
         }
 
+        /// <summary>
+        /// Botón que nos lleva a la ventana de añadir conductor.
+        /// </summary>
         private void Btn_AddDriver_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.ADD_DRIVERS, new Register_DriverViewModel());
         }
 
+        /// <summary>
+        /// Refresca los datos del DataGrid.
+        /// </summary>
         private void RefreshDataGrid()
         {
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SELECT_DRIVER_ALL), ref Tb_RecordCount);
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_DRIVER), ref Tb_RecordCount);
         }
 
+        /// <summary>
+        /// Botón para refrescar el DataGrid.
+        /// </summary>
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();

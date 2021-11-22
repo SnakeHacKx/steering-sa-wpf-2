@@ -20,14 +20,17 @@ namespace SteeringSA_WPF
     /// </summary>
     public partial class CustomMessageBox : Window
     {
+        private static CustomMessageBox customMessageBox;
+        private static DialogResult result = System.Windows.Forms.DialogResult.No;
+
         public CustomMessageBox()
         {
             InitializeComponent();
         }
-
-        static CustomMessageBox customMessageBox;
-        static DialogResult result = System.Windows.Forms.DialogResult.No;
-
+        
+        /// <summary>
+        /// Tipos de mensajes.
+        /// </summary>
         public enum CMessageBoxType
         {
             Error,
@@ -37,6 +40,13 @@ namespace SteeringSA_WPF
             Success
         }
 
+        /// <summary>
+        /// Muestra un mensaje personalizado.
+        /// </summary>
+        /// <param name="message">Mensaje.</param>
+        /// <param name="title">Título de la ventana de mensaje</param>
+        /// <param name="type">Tipo del mensaje.</param>
+        /// <returns></returns>
         public static DialogResult Show(string message, string title, CMessageBoxType type)
         {
 
@@ -128,12 +138,18 @@ namespace SteeringSA_WPF
             return result;
         }
 
+        /// <summary>
+        /// Permite mover la ventana al mantener pulsado la parte de arriba.
+        /// </summary>
         private void Body_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
 
+        /// <summary>
+        /// Botón de OK que aparece en la ventana de mensaje.
+        /// </summary>
         private void Btn_OK_Click(object sender, RoutedEventArgs e)
         {
             result = System.Windows.Forms.DialogResult.OK;

@@ -83,7 +83,7 @@
                     HorizontalAlignment="Center"
                     Visibility="Collapsed"
                     Content="OK"
-                    Style="{StaticResource S_Button_ConfirmButton}"/>
+                    Style="{StaticResource S_Button_NormalButtonWhite}"/>
                 <!--#endregion-->
 
                 <!-- #region BOTON CANCELAR  -->
@@ -136,7 +136,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Background="#1A1D28"
-                Style="{StaticResource S_Button_NormalButton}"
+                Style="{StaticResource S_Button_TransparentButtonWithHand}"
             >No</Button>
                 <!--#endregion-->
             </WrapPanel>
