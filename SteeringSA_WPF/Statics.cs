@@ -146,7 +146,6 @@ namespace SteeringSA_WPF
         #endregion
 
         #region DRIVER
-        public static string SELECT_DRIVER_ALL = "Select_DriverAll";
         public const string INSERT_DRIVER = "PROC_REGISTRAR_CONDUCTOR";
         public const string UPDATE_DRIVER = "PROC_ACTUALIZAR_CONDUCTOR";
         public const string DELETE_DRIVER = "PROC_ELIMINAR_CONDUCTOR";

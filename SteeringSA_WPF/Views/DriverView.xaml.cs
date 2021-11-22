@@ -45,7 +45,7 @@ namespace SteeringSA_WPF.Views
 
         private void RefreshDataGrid()
         {
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SELECT_DRIVER_ALL), ref Tb_RecordCount);
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_DRIVER), ref Tb_RecordCount);
         }
 
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)

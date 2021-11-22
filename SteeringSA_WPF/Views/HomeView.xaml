@@ -19,7 +19,7 @@
         
         <Image Grid.Row="0" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/bg_home.png"/>
         <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50" Stretch="Uniform" Source="../Images/logo_large.png"/>
-        <Grid Margin="80" Grid.Row="1">
+        <Grid Margin="60" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
