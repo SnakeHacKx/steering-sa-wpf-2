@@ -24,11 +24,12 @@ namespace SteeringSA_WPF.Views
         public VehicleView()
         {
             InitializeComponent();
+            RefreshDataGrid();
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VEHICLE_PROFILE, new Profile_VehicleViewModel());
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,14 @@ namespace SteeringSA_WPF.Views
         private void Btn_AddVehicle_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.ADD_VEHICLES, new Register_VehicleViewModel());
+        }
+
+        /// <summary>
+        /// Refresca los datos del DataGrid.
+        /// </summary>
+        private void RefreshDataGrid()
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_VEHICLE), ref Tb_RecordCount);
         }
     }
 }

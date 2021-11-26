@@ -15,13 +15,19 @@ using System.Windows.Shapes;
 namespace SteeringSA_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for Register_ReportView.xaml
+    /// Interaction logic for Register_MaintenanceView.xaml
     /// </summary>
-    public partial class Register_ReportView : Window
+    public partial class Register_MaintenanceView : Window
     {
-        public Register_ReportView()
+        public Register_MaintenanceView()
         {
             InitializeComponent();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
@@ -29,10 +35,9 @@ namespace SteeringSA_WPF.Views
             this.Close();
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Btn_FindReport_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+
         }
     }
 }

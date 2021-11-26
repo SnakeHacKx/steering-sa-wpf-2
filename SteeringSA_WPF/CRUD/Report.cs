@@ -42,19 +42,17 @@ namespace SteeringSA_WPF.CRUD
 
         #region CRUD
 
-        public void Register(string idVehicle, string model, string type, string state, int passengers, string fuelType, string color)
+        public void Register(string id, string vehicleRegister, string state, string description, string addDate)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_VEHICLE, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_REPORT, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PLACA, idVehicle);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_MODELO, model);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO, type);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_ESTADO, state);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PASAJERO, passengers);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO_COMBUSTIBLE, fuelType);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_COLOR, color);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_PLACA_VEHICULO, vehicleRegister);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_ESTADO, state);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_DESCRIPCION, description);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_FECHA, addDate);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -76,7 +74,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Vehículo Registrado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Reporte Registrado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -84,19 +82,17 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string idVehicle, string model, string type, string state, int passengers, string fuelType, string color)
+        public void Edit(string id, string vehicleRegister, string state, string description, string addDate)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_VEHICLE, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_REPORT, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PLACA, idVehicle);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_MODELO, model);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO, type);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_ESTADO, state);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PASAJERO, passengers);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO_COMBUSTIBLE, fuelType);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_COLOR, color);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_PLACA_VEHICULO, vehicleRegister);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_ESTADO, state);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_DESCRIPCION, description);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_FECHA, addDate);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -118,7 +114,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Vehículo Editado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Reporte Editado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -128,11 +124,11 @@ namespace SteeringSA_WPF.CRUD
 
         public void Delete(string id)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_VEHICLE, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_REPORT, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PLACA, id);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -154,7 +150,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Vehículo Eliminado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Reporte Eliminado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {

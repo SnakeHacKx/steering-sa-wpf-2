@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins">
+
+    <!--#region ANIMACION -->
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+              Storyboard.TargetProperty="Opacity"
+              From="0.0" To="1.0" Duration="0:0:0.5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <!--#endregion-->
+
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_register.png"/>
         <Grid>

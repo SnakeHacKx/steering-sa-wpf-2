@@ -20,9 +20,11 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class ServicesView : UserControl
     {
+        private bool isFilterGridOpen;
         public ServicesView()
         {
             InitializeComponent();
+            isFilterGridOpen = false;
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -33,6 +35,23 @@ namespace SteeringSA_WPF.Views
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
+        }
+
+        private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
+        {
+            if (isFilterGridOpen)
+            {
+                isFilterGridOpen = false;
+                Bor_Filters.Visibility = Visibility.Collapsed;
+                Btn_TogggleFilters.Content = "Mostrar Filtros";
+            }
+            else
+            {
+                isFilterGridOpen = true;
+                Bor_Filters.Visibility = Visibility.Visible;
+                Btn_TogggleFilters.Content = "Ocultar Filtros";
+            }
+
         }
     }
 }

@@ -35,5 +35,20 @@ namespace SteeringSA_WPF.Views
             WindowManager.ChangeWindowName(WindowsTitle.CLIENT_PROFILE);
             this.Close();
         }
+
+        private void Btn_ChooseServiceType_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_ChooseDriver_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_ChooseVehicle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

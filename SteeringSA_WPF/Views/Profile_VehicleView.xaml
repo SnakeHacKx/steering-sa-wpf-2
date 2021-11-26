@@ -8,6 +8,21 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
               FontFamily="Poppins"
              d:DesignHeight="768" d:DesignWidth="1366">
+
+    <!--#region ANIMACION -->
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+              Storyboard.TargetProperty="Opacity"
+              From="0.0" To="1.0" Duration="0:0:0.5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <!--#endregion-->
+
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_profile.png"/>
         <Grid>
@@ -46,6 +61,7 @@
                         Padding="20 20"
                         Background="{StaticResource PaleGray}"
                         Width="auto"
+                        Height="auto"
                         CornerRadius="10">
                     <StackPanel>
                         <materialDesign:PackIcon Kind="Car" 
@@ -144,7 +160,7 @@
                             VerticalAlignment="Center">
 
                         <!--#region SERVICIOS SOLICITADOS -->
-                        <Border BorderThickness="1" 
+                        <Border BorderThickness="1"
                             Margin="0 0 0 100"
                             BorderBrush="{StaticResource DarkenGray}"
                             Padding="20 20"
@@ -156,16 +172,15 @@
                                     <TextBlock Text="Mantenimientos"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource S_TextBlock_Subtitle}"/>
-                                    <Button Name="Btn_AddMaintenance" Click="Btn_AddMaintenance_Click" Style="{StaticResource S_Button_TransparentButtonWithHand}">
+                                    <Button Name="Btn_AddMaintenance" Margin="10 0 0 0" Click="Btn_AddMaintenance_Click" Style="{StaticResource S_Button_TransparentButtonWithHand}">
                                         <materialDesign:PackIcon Kind="AddCircle"
-                                                     Margin="10 0 0 0"
                                                      Foreground="{StaticResource White}"
                                                      Style="{StaticResource S_Icon_MediumIcon}"/>
                                     </Button>
                                 </WrapPanel>
 
                                 <!--#region BOTON MOSTRAR SERVICIOS -->
-                                <Button  
+                                <Button
                                     Name="Btn_ShowMaintenances"
                                     Click="Btn_ShowMaintenances_Click"
                                     VerticalAlignment="Top"
@@ -192,13 +207,14 @@
                             <StackPanel>
                                 <WrapPanel Margin="0 0 0 20" HorizontalAlignment="Center">
                                     <TextBlock Text="Reportes"
-                                       VerticalAlignment="Center"
-                                       Style="{StaticResource S_TextBlock_Subtitle}"/>
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource S_TextBlock_Subtitle}"/>
                                     <Button Name="Btn_AddReport"
-                                        Style="{StaticResource S_Button_TransparentButtonWithHand}"
-                                        Click="Btn_AddReport_Click">
+                                            Style="{StaticResource S_Button_TransparentButtonWithHand}"
+                                            Click="Btn_AddReport_Click"
+                                            Margin="10 0 0 0">
                                         <materialDesign:PackIcon Kind="AddCircle"
-                                                     Margin="10 0 0 0"
+                                                     
                                                      Foreground="{StaticResource White}"
                                                      Style="{StaticResource S_Icon_MediumIcon}"/>
                                     </Button>

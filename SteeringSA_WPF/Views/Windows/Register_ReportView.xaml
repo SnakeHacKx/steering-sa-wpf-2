@@ -10,9 +10,9 @@
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGreen}">
+        <Border BorderThickness="1" BorderBrush="{StaticResource White}">
             <Grid MouseDown="Grid_MouseDown">
-                <Image Stretch="UniformToFill" Source="../Images/bg_register.png"/>
+                <Image Stretch="UniformToFill" Source="../../Images/bg_register.png"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -40,38 +40,19 @@
                 Width="auto"
                 CornerRadius="10">
                             <StackPanel>
-                                <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
-                                    <TextBlock Text="Cédula del Responsable:" Style="{StaticResource S_TextBlock_Body}"/>
-                                    <TextBlock Name="Tb_VehicleCount" Margin="5 0 0 0" Text="7-712-784" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                <WrapPanel Margin="0 0 0 5" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                    <TextBlock Text="Matrícula del Vehículo:" Style="{StaticResource S_TextBlock_Body}"/>
+                                    <TextBlock Name="Tb_VehicleRegistration" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
                                 </WrapPanel>
 
-                                <WrapPanel Margin="0 0 0 20">
-                                    <!--#region TXB CODIGO -->
-                                    <StackPanel>
-                                        <TextBlock Margin="0 0 0 10" Text="Código" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                            <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                                <TextBlock Text="PONER"
-                                   MinWidth="200" MaxWidth="350"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_Name, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
-                                            </Grid>
-                                        </Border>
-                                    </StackPanel>
-                                    <!--#endregion-->
+                                <WrapPanel Margin="0 0 0 5" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                    <TextBlock Text="Fecha:" Style="{StaticResource S_TextBlock_Body}" VerticalAlignment="Center"/>
+                                    <TextBlock Name="Tb_TodaysDate" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                </WrapPanel>
 
-                                    <!--#region TXB FECHA -->
-                                    <StackPanel Margin="30 0 0 0">
-                                        <TextBlock Text="Fecha" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                            <DatePicker Name="Dtp_ReportDate"
-                                                    Style="{StaticResource S_DatePicker_Light}">
-                                            </DatePicker>
-                                        </Border>
-                                    </StackPanel>
-                                    <!--#endregion-->
+                                <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                    <TextBlock Text="Código del Reporte:" Style="{StaticResource S_TextBlock_Body}" VerticalAlignment="Center"/>
+                                    <TextBlock Name="Tb_ReportID" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
                                 </WrapPanel>
 
                                 <WrapPanel>

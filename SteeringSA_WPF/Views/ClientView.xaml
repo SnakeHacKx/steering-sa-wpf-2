@@ -7,6 +7,21 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" FontFamily="Poppins"
              d:DesignHeight="768" d:DesignWidth="1366">
+
+    <!--#region ANIMACION -->
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+              Storyboard.TargetProperty="Opacity"
+              From="0.0" To="1.0" Duration="0:0:0.5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <!--#endregion-->
+
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_views.png"/>
         <Grid>
@@ -110,7 +125,7 @@
                     </Grid.ColumnDefinitions>
                     <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
                         <TextBlock Text="Clientes:" Style="{StaticResource S_TextBlock_Info}"/>
-                        <TextBlock Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
+                        <TextBlock Name="Tb_RecordCount" Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
                     </WrapPanel>
 
                     <Button Grid.Column="1"
@@ -191,6 +206,7 @@
                                     <Button Name="Btn_ViewProfile"
                                         Click="Btn_ViewProfile_Click"
                                         Background="#7F209B"
+                                            ToolTip="Ver perfil del cliente"
                                         BorderThickness="0"
                                         Width="auto">
                                         <Grid Width="auto">
