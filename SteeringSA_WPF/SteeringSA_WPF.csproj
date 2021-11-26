@@ -121,13 +121,13 @@
     <Compile Include="Views\Register_DriverView.xaml.cs">
       <DependentUpon>Register_DriverView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Register_MaintenanceView.xaml.cs">
+    <Compile Include="Views\Windows\Register_MaintenanceView.xaml.cs">
       <DependentUpon>Register_MaintenanceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Register_ReportView.xaml.cs">
+    <Compile Include="Views\Windows\Register_ReportView.xaml.cs">
       <DependentUpon>Register_ReportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Register_ServicesView.xaml.cs">
+    <Compile Include="Views\Windows\Register_ServicesView.xaml.cs">
       <DependentUpon>Register_ServicesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register_VehicleView.xaml.cs">
@@ -199,15 +199,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Register_MaintenanceView.xaml">
+    <Page Include="Views\Windows\Register_MaintenanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Register_ReportView.xaml">
+    <Page Include="Views\Windows\Register_ReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Register_ServicesView.xaml">
+    <Page Include="Views\Windows\Register_ServicesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

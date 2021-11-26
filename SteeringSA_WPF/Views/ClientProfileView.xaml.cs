@@ -42,16 +42,9 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddService_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindowName(WindowsTitle.ADD_REPORTS);
+            WindowManager.ChangeWindowName(WindowsTitle.ADD_SERVICES);
             Register_ServicesView addServiceWindow = new Register_ServicesView();
             addServiceWindow.ShowDialog();
-        }
-
-        private void Btn_AddReport_Click(object sender, RoutedEventArgs e)
-        {
-            WindowManager.ChangeWindowName(WindowsTitle.ADD_REPORTS);
-            Register_ReportView addReportWindow = new Register_ReportView();
-            addReportWindow.ShowDialog();
         }
 
         private void Btn_EditClient_Click(object sender, RoutedEventArgs e)

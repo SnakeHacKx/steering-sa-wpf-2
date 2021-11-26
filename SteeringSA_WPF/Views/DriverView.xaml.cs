@@ -22,10 +22,12 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class DriverView : UserControl
     {
+        private bool isFilterGridOpen;
         public DriverView()
         {
             InitializeComponent();
             RefreshDataGrid();
+            isFilterGridOpen = false;
         }
 
         /// <summary>
@@ -66,6 +68,22 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+        }
+
+        private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
+        {
+            if (isFilterGridOpen)
+            {
+                isFilterGridOpen = false;
+                Bor_Filters.Visibility = Visibility.Collapsed;
+                Btn_TogggleFilters.Content = "Mostrar Filtros";
+            }
+            else
+            {
+                isFilterGridOpen = true;
+                Bor_Filters.Visibility = Visibility.Visible;
+                Btn_TogggleFilters.Content = "Ocultar Filtros";
+            }
         }
     }
 }

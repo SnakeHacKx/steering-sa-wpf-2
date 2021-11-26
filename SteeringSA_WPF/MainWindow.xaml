@@ -69,6 +69,11 @@
                       DataType="{x:Type viewmodels:Profile_DriverViewModel}">
             <views:Profile_DriverView DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="VehicleProfileViewTemplate"
+                      DataType="{x:Type viewmodels:Profile_VehicleViewModel}">
+            <views:Profile_VehicleView DataContext="{Binding}"/>
+        </DataTemplate>
         <!--#endregion-->
         
         <!--#region REGISTRAR -->

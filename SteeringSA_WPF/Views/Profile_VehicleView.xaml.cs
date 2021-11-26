@@ -47,17 +47,21 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VIEW_VEHICLES, new ViewModels.VehicleViewModel());
         }
 
         private void Btn_AddMaintenance_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindowName(WindowsTitle.ADD_MAINTENANCE);
+            Register_MaintenanceView register_MaintenanceView = new Register_MaintenanceView();
+            register_MaintenanceView.ShowDialog();
         }
 
         private void Btn_AddReport_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindowName(WindowsTitle.ADD_REPORTS);
+            Register_ReportView register_ReportView = new Register_ReportView();
+            register_ReportView.ShowDialog();
         }
 
         private void Btn_DownloadDoc_Click(object sender, RoutedEventArgs e)

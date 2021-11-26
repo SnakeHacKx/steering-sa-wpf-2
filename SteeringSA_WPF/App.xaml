@@ -24,6 +24,7 @@
             <!--#region GENERIC COLORS -->
             <SolidColorBrush x:Key="Black" Color="#252422"/>
             <SolidColorBrush x:Key="TBlack" Color="#99252422"/>
+            <SolidColorBrush x:Key="TGray" Color="#99C4C4C4"/>
             <SolidColorBrush x:Key="White" Color="#FFFFFC"/>
             <SolidColorBrush x:Key="TWhite" Color="#99FFFFFC"/>
             <SolidColorBrush x:Key="FadedBlack" Color="#757575"/>
@@ -461,6 +462,29 @@
                 <Setter Property="Width" Value="120"/>
                 <Setter Property="Height" Value="auto"/>
                 <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <!--#endregion-->
+            
+            <!--#region USER CONTROL STYLES -->
+            <Style x:Key="S_UserControl_Animation" TargetType="UserControl">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="UserControl">
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="Loaded">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                              Storyboard.TargetProperty="Opacity"
+                                              From="0.0" To="1.0" Duration="0:0:1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <!--#endregion-->
         </ResourceDictionary>

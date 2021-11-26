@@ -6,6 +6,21 @@
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="Transparent" FontFamily="Poppins">
+
+    <!--#region ANIMACION -->
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+              Storyboard.TargetProperty="Opacity"
+              From="0.0" To="1.0" Duration="0:0:0.5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <!--#endregion-->
+
     <Grid>
         <Image Grid.Row="0" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/bg_login.png"/>
 
@@ -25,7 +40,7 @@
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
                                      Visibility="{Binding ElementName=Txt_User, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                            <TextBox MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
+                            <TextBox KeyDown="Txt_User_KeyDown" Text="Omar" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
                         </Grid>
                     </Border>
                     <!--#endregion-->
@@ -34,7 +49,7 @@
                     <TextBlock Text="Contraseña:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                     <Border Style="{StaticResource S_Border_TextBox}" Margin="0 0 0 30">
                         <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <PasswordBox Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
+                            <PasswordBox  Password="elputo" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
                         </Grid>
                     </Border>
                     <!--#endregion-->

@@ -24,6 +24,7 @@ namespace SteeringSA_WPF.Views
         public ClientView()
         {
             InitializeComponent();
+            RefreshDataGrid();
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -43,7 +44,15 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindow(WindowsTitle.CLIENT_PROFILE, new ClientProfileViewModel());
+            RefreshDataGrid();
+        }
+
+        /// <summary>
+        /// Refresca los datos del DataGrid.
+        /// </summary>
+        private void RefreshDataGrid()
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ClientsData, TableID.CLIENT, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_CLIENT), ref Tb_RecordCount);
         }
     }
 }

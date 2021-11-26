@@ -9,10 +9,11 @@
         Title="Register_ReportView"  Height="700" Width="1000" 
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGreen}">
+        <Border BorderThickness="1" BorderBrush="{StaticResource White}">
             <Grid MouseDown="Grid_MouseDown" >
-                <Image Stretch="UniformToFill" Source="../Images/bg_register.png"/>
+                <Image Stretch="UniformToFill" Source="../../Images/bg_register.png"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -48,17 +49,28 @@
                                 <WrapPanel Margin="0 0 0 20">
                                     <!--#region TXB CODIGO -->
                                     <StackPanel>
-                                        <TextBlock Margin="0 0 0 10" Text="Código" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                            <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                                <TextBlock Text="PONER"
+                                        <TextBlock Margin="0 0 0 10" Text="Reporte" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                        <WrapPanel>
+                                            <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
+                                                <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
+                                                    <TextBlock Text="Código"
                                                    MinWidth="200" MaxWidth="350"
                                                    Style="{StaticResource S_TextBlock_Hint}"  
                                                     Foreground="{StaticResource DarkenGray}" 
                                                      Visibility="{Binding ElementName=Txt_Name, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
-                                            </Grid>
-                                        </Border>
+                                                    <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                                                </Grid>
+                                            </Border>
+                                            <Button Name="Btn_FindReport"
+                                                Click="Btn_FindReport_Click" 
+                                                ToolTip="Buscar reporte"
+                                                Style="{StaticResource S_Button_NormalButton}" 
+                                                HorizontalAlignment="Left"
+                                                Margin="5 0 0 0">
+                                                <materialDesign:PackIcon Kind="Search" 
+                                                        Style="{StaticResource S_Icon_WindowIcon}"/>
+                                            </Button>
+                                        </WrapPanel>
                                     </StackPanel>
                                     <!--#endregion-->
 
@@ -84,8 +96,7 @@
                                                       Height="25"
                                                       Style="{StaticResource S_Combobox_Normal}">
                                                 <ComboBoxItem Content="Pendiente" Foreground="{StaticResource Black}" />
-                                                <ComboBoxItem Content="Realizado" Foreground="{StaticResource Black}" />
-                                                <ComboBoxItem Content="Cancelado" Foreground="{StaticResource Black}" />
+                                                <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
                                             </ComboBox>
                                         </Border>
                                     </StackPanel>

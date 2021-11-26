@@ -20,9 +20,13 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class MaintenanceView : UserControl
     {
+        private bool isFilterGridOpen;
+
         public MaintenanceView()
         {
             InitializeComponent();
+            RefreshDataGrid();
+            isFilterGridOpen = false;
         }
 
         /// <summary>
@@ -39,6 +43,35 @@ namespace SteeringSA_WPF.Views
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
+        }
+
+        private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
+        {
+            if (isFilterGridOpen)
+            {
+                isFilterGridOpen = false;
+                Bor_Filters.Visibility = Visibility.Collapsed;
+                Btn_TogggleFilters.Content = "Mostrar Filtros";
+            }
+            else
+            {
+                isFilterGridOpen = true;
+                Bor_Filters.Visibility = Visibility.Visible;
+                Btn_TogggleFilters.Content = "Ocultar Filtros";
+            }
+        }
+
+        /// <summary>
+        /// Refresca los datos del DataGrid.
+        /// </summary>
+        private void RefreshDataGrid()
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_MaintenanceData, TableID.MAINTENANCE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_MAINTENANCE), ref Tb_RecordCount);
+        }
+
+        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshDataGrid();
         }
     }
 }

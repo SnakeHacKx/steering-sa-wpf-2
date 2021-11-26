@@ -31,6 +31,27 @@ namespace SteeringSA_WPF.Views
         /// </summary>
         private void Btn_LogIn_Click(object sender, RoutedEventArgs e)
         {
+            Login();
+        }
+
+        private void Txt_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login();
+            }
+        }
+
+        private void Txt_User_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login();
+            }
+        }
+
+        private void Login()
+        {
             DBConnection.Instance.SetConnectionString(Txt_User.Text, Txt_Password.Password);
 
             if (!DBConnection.Instance.TestConnection())
