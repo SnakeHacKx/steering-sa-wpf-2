@@ -21,9 +21,11 @@ namespace SteeringSA_WPF.Views
     public partial class ServicesView : UserControl
     {
         private bool isFilterGridOpen;
+
         public ServicesView()
         {
             InitializeComponent();
+            RefreshDataGrid();
             isFilterGridOpen = false;
         }
 
@@ -52,6 +54,22 @@ namespace SteeringSA_WPF.Views
                 Btn_TogggleFilters.Content = "Ocultar Filtros";
             }
 
+        }
+
+        /// <summary>
+        /// Botón para refrescar el DataGrid.
+        /// </summary>
+        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshDataGrid();
+        }
+
+        /// <summary>
+        /// Refresca los datos del DataGrid.
+        /// </summary>
+        private void RefreshDataGrid()
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.SERVICE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_SERVICE), ref Tb_RecordCount);
         }
     }
 }

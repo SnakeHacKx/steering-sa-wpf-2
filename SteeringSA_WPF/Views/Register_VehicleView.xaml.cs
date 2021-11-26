@@ -27,7 +27,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VIEW_VEHICLES, new ViewModels.VehicleViewModel());
         }
 
         private void ClearFormFields()

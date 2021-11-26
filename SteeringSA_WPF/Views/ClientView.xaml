@@ -24,7 +24,7 @@
 
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_views.png"/>
-        <Grid>
+        <Grid Margin="50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -37,8 +37,7 @@
                         Click="Btn_GoBack_Click"
                         ToolTip="Volver"
                         Style="{StaticResource S_Button_TransparentButtonWithHand}" 
-                        HorizontalAlignment="Left"
-                        Margin="70 20 0 0">
+                        HorizontalAlignment="Left">
                     <materialDesign:PackIcon Kind="ArrowBackCircle" 
                                          Style="{StaticResource S_Icon_MediumIcon}"/> 
                 </Button>
@@ -49,7 +48,6 @@
                         Name="Btn_AddClient" 
                         Click="Btn_AddClient_Click"
                         HorizontalAlignment="Right"
-                        Margin="0 20 70 0"
                         Style="{StaticResource S_Button_ConfirmButton}">
 
                     <materialDesign:PackIcon Kind="Register"
@@ -112,7 +110,7 @@
             <!--#endregion-->
             
             <!--#region ROW 3 -->
-            <Grid Grid.Row="2" Margin="50 20">
+            <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>

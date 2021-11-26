@@ -54,10 +54,10 @@
 
                 <!--#region ROW 2 COLUMN 1 -->
                 <Border BorderThickness="1" 
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         BorderBrush="{StaticResource DarkenGray}"
-                        Padding="20 20"
+                        Padding="20 10"
                         Background="{StaticResource PaleGray}"
                         Width="auto"
                         CornerRadius="10">
@@ -86,7 +86,7 @@
                                 CornerRadius="10">
                             <StackPanel>
                                 <TextBlock Text="Información del Cliente" 
-                                   Margin="0 20"
+                                   Margin="0 0 0 20"
                                    HorizontalAlignment="Center"
                                    Style="{StaticResource S_TextBlock_Info}" />
                                 <WrapPanel>
@@ -122,7 +122,7 @@
                             </StackPanel>
                         </Border>
 
-                        <WrapPanel HorizontalAlignment="Center" Margin="0 50 0 0">
+                        <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
 
                             <!-- #region Boton Editar  -->
                             <Button Grid.Column="1"
@@ -169,11 +169,12 @@
                 
                 
                 <StackPanel 
-                            HorizontalAlignment="Center"
+                            HorizontalAlignment="Left"
                             VerticalAlignment="Center">
                     
                     <!--#region SERVICIOS SOLICITADOS -->
                     <Border BorderThickness="1"
+                            Margin="50 0 0 0"
                             BorderBrush="{StaticResource DarkenGray}"
                             Padding="20 20"
                             Background="{StaticResource PaleGray}"

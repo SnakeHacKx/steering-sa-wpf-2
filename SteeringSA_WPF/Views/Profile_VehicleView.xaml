@@ -55,10 +55,10 @@
 
                 <!--#region ROW 2 COLUMN 1 -->
                 <Border BorderThickness="1" 
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         BorderBrush="{StaticResource DarkenGray}"
-                        Padding="20 20"
+                        Padding="20 10"
                         Background="{StaticResource PaleGray}"
                         Width="auto"
                         Height="auto"
@@ -88,7 +88,7 @@
                                 CornerRadius="10">
                             <StackPanel>
                                 <TextBlock Text="Información del Vehículo" 
-                                   Margin="0 20"
+                                   Margin="0 0 0 20"
                                    HorizontalAlignment="Center"
                                    Style="{StaticResource S_TextBlock_Info}" />
                                 <WrapPanel>
@@ -109,10 +109,37 @@
                                                Margin="5 0"/>
                                 </WrapPanel>
 
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Pasajeros:"
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="5"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Tipo de Combustible:"
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="Gasolina 95"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                           Text="Color:"
+                                           Style="{StaticResource  S_TextBlock_BodyMedium}"/>
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="Blanco"
+                                               Margin="5 0"/>
+                                </WrapPanel>
+
                             </StackPanel>
                         </Border>
 
-                        <WrapPanel HorizontalAlignment="Center" Margin="0 50 0 0">
+                        <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
 
                             <!-- #region Boton Editar  -->
                             <Button Grid.Column="1"
@@ -156,7 +183,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" 
-                            HorizontalAlignment="Center"
+                            HorizontalAlignment="Left"
+                                Margin="50 0 0 0"
                             VerticalAlignment="Center">
 
                         <!--#region SERVICIOS SOLICITADOS -->
@@ -187,9 +215,12 @@
                                     HorizontalAlignment="Center"
                                     Background="{StaticResource TWhite}"
                                     BorderThickness="0"
-                                    Width="288"
-                                    Style="{StaticResource S_Button_NormalButton}"
-                                    Content="Mostrar Mantenimientos"/>
+                                    Width="auto"
+                                    Style="{StaticResource S_Button_NormalButton}">
+                                    <materialDesign:PackIcon Kind="Eye"
+                                                     Foreground="{StaticResource Black}"
+                                                     Style="{StaticResource S_Icon_MediumIcon}"/>
+                                </Button>
                                 <!--#endregion-->
                             </StackPanel>
 
@@ -238,29 +269,6 @@
                         </Border>
                         <!--#endregion-->
                     </StackPanel>
-
-                    <!--#region BOTON DESCARGAR -->
-                    <Button  
-                            Grid.Row="1"
-                            Name="Btn_DownloadDoc"
-                            BorderThickness="0"
-                            Click="Btn_DownloadDoc_Click"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Right"
-                        Margin="0 0 20 20"
-                            Background="{StaticResource TWhite}"
-                            Width="auto"
-                            Style="{StaticResource S_Button_NormalButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Style="{StaticResource S_TextBlock_BodyMedium}"
-                               Text="Informe"/>
-                            <materialDesign:PackIcon Kind="Download"
-                                                     Margin="10 0 0 0"
-                                                     Foreground="{StaticResource Black}"
-                                                     Style="{StaticResource S_Icon_MediumIcon}"/>
-                        </StackPanel>
-                    </Button>
-                    <!--#endregion-->
                 </Grid>
                 
                 <!--#endregion-->

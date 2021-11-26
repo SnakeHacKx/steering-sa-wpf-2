@@ -63,7 +63,7 @@
                                Style="{StaticResource S_TextBlock_Body}"/>
                                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
                                     <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="PONER" 
+                                        <TextBlock Text="SIN DEFINIR" 
                                    MinWidth="200" MaxWidth="250"
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
@@ -88,8 +88,6 @@
                             </Button>
                             <!--#endregion-->
                         </StackPanel>
-
-
                     </WrapPanel>
                     <!--#endregion-->
 
@@ -121,12 +119,13 @@
                         </Grid.ColumnDefinitions>
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
                             <TextBlock Text="Servicios:" Style="{StaticResource S_TextBlock_Info}"/>
-                            <TextBlock Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
+                            <TextBlock Margin="5 0 0 0" Name="Tb_RecordCount" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
                         </WrapPanel>
 
                         <Button Grid.Column="1"
                             ToolTip="Recargar tabla y limpiar filtros"
                             Name="Btn_RefreshDataGrid"
+                                Click="Btn_RefreshDataGrid_Click"
                             Style="{StaticResource S_Button_TransparentButtonWithHand}" 
                             HorizontalAlignment="Right">
                             <materialDesign:PackIcon Kind="Refresh" 
@@ -138,7 +137,7 @@
                     <!--#region DATAGRID -->
                     <DataGrid 
                     Grid.Row="3"
-                    Name="Dgv_DriversData"
+                    Name="Dgv_VehiclesData"
                     Style="{StaticResource S_DataGrid_Dark}">
 
                         <!--#region ESTILOS -->
@@ -202,6 +201,7 @@
                                             Click="Btn_ViewProfile_Click"
                                             Background="#7F209B"
                                             BorderThickness="0"
+                                                ToolTip="Ver perfil del cliente"
                                             Width="auto">
                                             <Grid Width="auto">
                                                 <materialDesign:PackIcon Kind="User"

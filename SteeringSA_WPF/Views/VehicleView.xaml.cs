@@ -21,10 +21,13 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class VehicleView : UserControl
     {
+        private bool isFilterGridOpen;
+
         public VehicleView()
         {
             InitializeComponent();
             RefreshDataGrid();
+            isFilterGridOpen = false;
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -48,6 +51,22 @@ namespace SteeringSA_WPF.Views
         private void RefreshDataGrid()
         {
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_VEHICLE), ref Tb_RecordCount);
+        }
+
+        private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
+        {
+            if (isFilterGridOpen)
+            {
+                isFilterGridOpen = false;
+                Bor_Filters.Visibility = Visibility.Collapsed;
+                Btn_TogggleFilters.Content = "Mostrar Filtros";
+            }
+            else
+            {
+                isFilterGridOpen = true;
+                Bor_Filters.Visibility = Visibility.Visible;
+                Btn_TogggleFilters.Content = "Ocultar Filtros";
+            }
         }
     }
 }
