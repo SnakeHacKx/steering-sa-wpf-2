@@ -141,8 +141,8 @@ namespace SteeringSA_WPF
         public const string UPDATE_CLIENT = "PROC_ACTUALIZAR_DATOS_CLIENTE";
         public const string DELETE_CLIENT = "PROC_ELIMINAR_CLIENTE";
         public const string SHOW_ALL_CLIENT = "PROC_LISTAR_TODOS_CLIENTES";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYNAME_CLIENT = "PROC_BUSCAR_NOMBRE_CLIENTE";//BUSCA POR NOMBRE COMPLETO DE CONDUCTOR Ejem"Pedro Pinilla"
         public const string SEARCH_BYID_CLIENT = "PROC_BUSCAR_CEDULA_CLIENTE";//BUSCA POR CEDULA
+        public const string FILTERS_CLIENT = "PROC_FILTRO_CLIENTE";// Formato [Nombre o apellido], inicio rango de edad, final rango de edad, direccion
         #endregion
 
         #region DRIVER
@@ -150,8 +150,8 @@ namespace SteeringSA_WPF
         public const string UPDATE_DRIVER = "PROC_ACTUALIZAR_CONDUCTOR";
         public const string DELETE_DRIVER = "PROC_ELIMINAR_CONDUCTOR";
         public const string SHOW_ALL_DRIVER = "PROC_LISTAR_TODOS_CONDUCTORES";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYNAME_DRIVER = "PROC_BUSCAR_NOMBRE_CONDUCTOR";//BUSCA POR NOMBRE COMPLETO DE CONDUCTOR Ejem"Pedro Pinilla"
         public const string SEARCH_BYID_DRIVER = "PROC_BUSCAR_CEDULA_CONDUCTOR";//BUSCA POR CEDULA
+        public const string FILTERS_DRIVER = "PROC_FILTRO_CONDUCTOR";//Formato [Nombre o apellido], tipo de licencia, inicio rango de edad, final rango de edad
         #endregion
 
         #region VEHICLE
@@ -161,10 +161,7 @@ namespace SteeringSA_WPF
         public const string DELETE_VEHICLE = "PROC_ELIMINAR_VEHICULO";
         public const string SHOW_ALL_VEHICLE = "PROC_LISTAR_TODOS_VEHICULOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BYPLACA_VEHICLE = "PROC_BUSCAR_VEHICULO_POR_PLACA";//BUSCA POR PLACA
-        /*public const string SELECT_PERSON_ALL = "Select_PersonAll";
-        public const string SELECT_PERSON_NAME_BYID = "Select_PersonName_ByPersonID";
-        public const string SELECT_PERSON_BY_NAME = "Select_PersonByName";
-        public const string SELECT_PERSON_BY_ID = "Select_PersonByID";*/
+        public const string FILTERS_VEHICLE = "PROC_FILTRO_VEHICULO"; //Formato Modelo, tipo de vehiculo, rango inicial pasajeros, rango final pasajeros, tipo de combustible,estado,color
         #endregion
 
         #region MAINTENANCE
@@ -173,6 +170,7 @@ namespace SteeringSA_WPF
         public const string DELETE_MAINTENANCE = "PROC_ELIMINAR_MANTENIMIENTO";
         public const string SHOW_ALL_MAINTENANCE = "PROC_LISTAR_TODOS_MANTENIMIENTOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BYCODE_MAINTENANCE = "PROC_BUSCAR_CODIGO_MANTENIMIENTO";//BUSCA POR EL CODIGO
+        public const string FILTERS_MAINTENANCE = "PROC_FILTRO_MANTENIMIENTO";//Formato inicio rango de costo, final rango de costo, inicio rango de fecha, final rango de fechas,estado,placa de vehiculo,tipo de vehiculo
         #endregion
 
         #region REPORT
@@ -181,6 +179,7 @@ namespace SteeringSA_WPF
         public const string DELETE_REPORT = "PROC_ELIMINAR_REPORTE";
         public const string SHOW_ALL_REPORT = "PROC_LISTAR_TODOS_REPORTES";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BYCODE_REPORT = "PROC_BUSCAR_CODIGO_REPORTE";//BUSCA POR EL CODIGO
+        public const string FILTERS_REPORT = "PROC_FILTRO_REPORTE";//Formato inicio rango de fechas, final rango de fechas, estado
 
         #endregion
 
@@ -190,6 +189,7 @@ namespace SteeringSA_WPF
         public const string DELETE_SERVICE = "PROC_ELIMINAR_SERVICIO";
         public const string SHOW_ALL_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BYCODE_SERVICE = "PROC_BUSCAR_CODIGO_SERVICIO";//BUSCA POR EL CODIGO
+        public const string FILTERS_SERVICE = "PROC_FILTRO_SERVICIO";//Formato Cedula cliente, Cedula conductor, Placa vehiculo, tipo de servicio, tipo de vehiculo, inicio rango de costo, final rango de costo,inicio rango de fecha, final rango de fechas
 
         #endregion
 
