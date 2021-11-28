@@ -366,7 +366,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource S_TextBlock_Body}"
                             VerticalAlignment="Center"
-                            Text="Tipo de Servicio:"/>
+                            Text="Tipo:"/>
                                 <ComboBox Name="Cb_Servicetype"
                             Width="150"
                             Style="{StaticResource S_Combobox_Normal}">
