@@ -21,7 +21,7 @@
         </EventTrigger>
     </UserControl.Triggers>
     <!--#endregion-->
-
+ 
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_register.png"/>
         <Grid>

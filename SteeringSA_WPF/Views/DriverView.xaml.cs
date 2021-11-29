@@ -60,6 +60,11 @@ namespace SteeringSA_WPF.Views
         private void RefreshDataGrid()
         {
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_DRIVER), ref Tb_RecordCount);
+            Txt_DriverName.Text = "";
+            Cb_LicenseType.Text = "-";
+            Txt_MinAge.Text = "";
+            Txt_MaxAge.Text = "";
+            Txt_DriverDNI.Text = "";
         }
 
         /// <summary>
@@ -84,6 +89,44 @@ namespace SteeringSA_WPF.Views
                 Bor_Filters.Visibility = Visibility.Visible;
                 Btn_TogggleFilters.Content = "Ocultar Filtros";
             }
+        }
+
+        private void Btn_Filter_Click(object sender, RoutedEventArgs e)
+        {
+            string name = "";
+            string license = "";
+            string minAge = "";
+            string maxAge = "";
+
+            if (Txt_DriverName.Text == "") name = null;
+            else name = Txt_DriverName.Text;
+
+            if (Cb_LicenseType.Text == "-") license = null;
+            else license = Cb_LicenseType.Text;
+
+            if (Txt_MinAge.Text == "") minAge = null;
+            else minAge = Txt_MinAge.Text;
+
+            if (Txt_MaxAge.Text == "") maxAge = null;
+            else maxAge = Txt_MaxAge.Text;
+
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, Driver.Instance.FilterBy(name, license, minAge, maxAge), ref Tb_RecordCount);
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_BYID_DRIVER,
+                TableID.DRIVER, Txt_DriverDNI.Text), ref Tb_RecordCount);
+        }
+
+        private void Txt_MinAge_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = Utilities.IsInputNumeric(e.Text);
+        }
+
+        private void Txt_MaxAge_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = Utilities.IsInputNumeric(e.Text);
         }
     }
 }

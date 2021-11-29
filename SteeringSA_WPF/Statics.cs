@@ -104,8 +104,7 @@ namespace SteeringSA_WPF
         public const string MAINTENANCE_ESTADO = "Estado";
         #endregion
 
-        #region REPORT
-        
+        #region REPORT 
         public const string REPORT_CODIGO = "Cod_reporte";
         public const string REPORT_PLACA_VEHICULO = "Placa_Vehiculo";
         public const string REPORT_ESTADO = "Estado";
@@ -123,6 +122,7 @@ namespace SteeringSA_WPF
         public const string SERVICE_FECHA_FINAL = "Fecha_finalizacion";
         public const string SERVICE_MONTO_TOTAL = "Monto_Total_Servicio";
         #endregion
+
         #region TYPE_SERVICE
         public const string TYPE_SERVICE_CODIGO = "Cod_tipo_servicio";
         public const string TYPE_SERVICE_NOMBRE = "Nombre_servicio";
@@ -197,9 +197,8 @@ namespace SteeringSA_WPF
         public const string INSERT_TYPE_SERVICE = "PROC_REGISTRAR_TIPO_SERVICIO";
         public const string UPDATE_TYPE_SERVICE = "PROC_ACTUALIZAR_DATOS_T_SERVICIOS";
         public const string DELETE_TYPE_SERVICE = "PROC_ELIMINAR_TIPO_SERVICIO";
-        public const string AHOW_ALL_TYPE_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
+        public const string SHOW_ALL_TYPE_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BY_TYPE_SERVICE = "PROC_BUSCAR_CODIGO_SERVICIO"; //BUSCA POR EL CODIGO
         #endregion
-
     }
 }

@@ -67,8 +67,8 @@
                                    MinWidth="200" MaxWidth="250"
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_IDReport, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
+                                     Visibility="{Binding ElementName=Txt_DriverDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
                                     </Grid>
                                 </Border>
                             </WrapPanel>
@@ -76,6 +76,7 @@
 
                             <!--#region BUTTON BUSCAR -->
                             <Button Name="Btn_Search"
+                                    Click="Btn_Search_Click"
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
@@ -125,29 +126,6 @@
 
                     
                 </Grid>
-                <!--#endregion-->
-
-                <!--#region ROW 2 -->
-                <StackPanel Margin="0 0 0 20" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <!--#region TXB CEDULA -->
-                    <WrapPanel VerticalAlignment="Center" >
-                        <TextBlock Text="Cédula:" 
-                               VerticalAlignment="Center"
-                               Style="{StaticResource S_TextBlock_Body}"/>
-                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                            <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                <TextBlock Text="XX-XXXX-XXXXX" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_ClientDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
-                            </Grid>
-                        </Border>
-                    </WrapPanel>
-                    <!--#endregion-->
-
-                </StackPanel>
                 <!--#endregion-->
 
                 <!--#region ROW 2 -->
@@ -269,7 +247,7 @@
             <!--#endregion-->
 
             <!--#region COLUMN 2 FILTROS -->
-            <Border Name="Bor_Filters" Visibility="Collapsed"
+            <Border Name="Bor_Filters" Visibility="Visible"
                     Grid.Column="1" Margin="20 0 0 0"
                     Style="{StaticResource S_Border_TextBoxWithBorder}"
                     Background="{StaticResource TGray}">
@@ -283,6 +261,7 @@
                             <!--#region BUTTON FILTER -->
                             <Button Name="Btn_Filter"
                                         Margin="100 0 0 0"
+                                    Click="Btn_Filter_Click"
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
                                         VerticalAlignment="Center"
@@ -308,8 +287,8 @@
                                    MinWidth="200" MaxWidth="250"
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_ClientName, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                    <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientName"/>
+                                     Visibility="{Binding ElementName=Txt_DriverName, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                    <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverName"/>
                                 </Grid>
                             </WrapPanel>
                             
@@ -322,15 +301,18 @@
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    HorizontalAlignment="Left"
                                    Text="Tipo de Licencia:"/>
-                                    <ComboBox Name="Cb_LicenseType"
-                                              HorizontalAlignment="Left"
-                                  Width="40"
-                                  Style="{StaticResource S_Combobox_Normal}">
-                                        <ComboBoxItem Content="A" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="B" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="C" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="D" Foreground="{StaticResource Black}" />
-                                    </ComboBox>
+                                <ComboBox Name="Cb_LicenseType"
+                                          SelectedIndex="0"
+                                          HorizontalAlignment="Left"
+                                          Width="40"
+                                          Style="{StaticResource S_Combobox_Normal}">
+                                    <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="B" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="C" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="D" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="F" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="G" Foreground="{StaticResource Black}" />
+                                </ComboBox>
                                 </StackPanel>
                             </Border>
                             <!--#endregion-->
@@ -345,26 +327,27 @@
                                         <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
                                                 <TextBlock Text="30" 
-                                   MinWidth="40" MaxWidth="60"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_MinAge, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                <TextBox MinWidth="40" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinAge" Width="Auto"/>
+                                                           MinWidth="40" MaxWidth="60"
+                                                           Style="{StaticResource S_TextBlock_Hint}"  
+                                                           Foreground="{StaticResource DarkenGray}" 
+                                                           Visibility="{Binding ElementName=Txt_MinAge, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
+                                                <TextBox MinWidth="40" PreviewTextInput="Txt_MinAge_PreviewTextInput" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinAge" Width="Auto"/>
                                             </Grid>
                                         </Border>
 
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                                   Margin="5 0"
                                        VerticalAlignment="Center"
                                        Text="a"/>
 
-                                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
                                                 <TextBlock Text="50" 
                                    MinWidth="40" MaxWidth="60"
                                    Style="{StaticResource S_TextBlock_Hint}"  
                                     Foreground="{StaticResource DarkenGray}" 
                                      Visibility="{Binding ElementName=Txt_MaxAge, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                <TextBox MinWidth="40" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxAge" Width="Auto"/>
+                                            <TextBox MinWidth="40" PreviewTextInput="Txt_MaxAge_PreviewTextInput"  MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxAge" Width="Auto"/>
                                             </Grid>
                                         </Border>
                                     </WrapPanel>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Controls;
+using System.Text.RegularExpressions;
 
 namespace SteeringSA_WPF
 {
@@ -34,6 +35,21 @@ namespace SteeringSA_WPF
             }
 
             return 0;
+        }
+    }
+
+    public static class Utilities
+    {
+        public static bool IsInputNumeric(string str)
+        {
+            Regex reg = new Regex("[^0-9]");
+            return reg.IsMatch(str);
+        }
+
+        public static bool IsAValidDNI(string str)
+        {
+            Regex reg = new Regex("^[0 - 9]{ 3} -[0 - 9]{ 4}-[0 - 9]{ 4}");
+            return reg.IsMatch(str);
         }
     }
 }
