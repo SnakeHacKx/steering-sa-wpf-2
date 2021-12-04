@@ -200,5 +200,13 @@ namespace SteeringSA_WPF
         public const string SHOW_ALL_TYPE_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BY_TYPE_SERVICE = "PROC_BUSCAR_CODIGO_SERVICIO"; //BUSCA POR EL CODIGO
         #endregion
+
+        #region USERS
+        public const string INSERT_USER = "PROC_REGISTRAR_USUARIO";
+        public const string DELETE_USER = "PROC_ELIMINAR_USUARIO";
+        public const string UPDATE_USER_NAME = "PROC_CAMBIAR_NOMBRE_DE_USUARIO";
+        public const string UPDATE_USER_PASSWORD = "PROC_CAMBIAR_CONTRASEÑA_USUARIO";
+        public const string SHOW_ALL_USERS = "PROC_MOSTRAR_USUARIOS";
+        #endregion
     }
 }
