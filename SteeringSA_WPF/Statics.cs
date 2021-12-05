@@ -199,6 +199,7 @@ namespace SteeringSA_WPF
         public const string DELETE_TYPE_SERVICE = "PROC_ELIMINAR_TIPO_SERVICIO";
         public const string SHOW_ALL_TYPE_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_BY_TYPE_SERVICE = "PROC_BUSCAR_CODIGO_SERVICIO"; //BUSCA POR EL CODIGO
+        public const string SEARCH_TYPE_SERVICE_NAME = "PROC_OBTENER_NOMBRES_T_SERVICIO";
         #endregion
 
         #region USERS
@@ -206,7 +207,7 @@ namespace SteeringSA_WPF
         public const string DELETE_USER = "PROC_ELIMINAR_USUARIO";
         public const string UPDATE_USER_NAME = "PROC_CAMBIAR_NOMBRE_DE_USUARIO";
         public const string UPDATE_USER_PASSWORD = "PROC_CAMBIAR_CONTRASEÑA_USUARIO";
-        public const string SHOW_ALL_USERS = "PROC_MOSTRAR_USUARIOS";
+        public const string SHOW_ALL_USERS = "PROC_MOSTRAR_USUARIOS";//Muesta unicamente el nombre de usuario y que rol tiene en el sistema(empleado o administrador)
         #endregion
     }
 }
