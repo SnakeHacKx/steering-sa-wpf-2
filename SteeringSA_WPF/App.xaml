@@ -32,8 +32,9 @@
             <!--#endregion-->
 
             <!--#region LIGHT THEME COLORS -->
-            <SolidColorBrush x:Key="PalePurple" Color="#BDB2FF"/>
+            <SolidColorBrush x:Key="PalePurple" Color="#99BDB2FF"/>
             <SolidColorBrush x:Key="DarkenPurple" Color="#AEA0FF"/>
+            <SolidColorBrush x:Key="BorderPurple" Color="#99AEA0FF"/>
 
             <SolidColorBrush x:Key="PaleGreen" Color="#70F79D"/>
             <SolidColorBrush x:Key="DarkenGreen" Color="#5BDC86"/>
@@ -299,7 +300,7 @@
                         <ControlTemplate TargetType="Button">
                             <Border Name="border" 
                                     CornerRadius="7"
-                                    BorderBrush="{StaticResource DarkenPurple}"
+                                    BorderBrush="{StaticResource BorderPurple}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Padding="10 5"
                                     Background="{TemplateBinding Background}">
@@ -338,6 +339,37 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="{StaticResource White}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_NormalButtonWhiteBorder" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="Background" Value="{StaticResource TWhite}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                    CornerRadius="7"
+                                    BorderThickness="1"
+                                    BorderBrush="{StaticResource DarkenGray}"
+                                    Padding="10 5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource TGray}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -398,6 +430,22 @@
                 <Setter Property="BorderBrush" Value="{StaticResource DarkenWhite}"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Background" Value="{StaticResource White}"/>
+            </Style>
+
+            <Style x:Key="S_Border_TextBox_Dark" TargetType="Border">
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Padding" Value="10 0"/>
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="Background" Value="{StaticResource TBlack}"/>
+            </Style>
+
+            <Style x:Key="S_Border_TextBoxWithBorder_Dark" TargetType="Border">
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Padding" Value="10 0"/>
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Gray2}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="{StaticResource TBlack}"/>
             </Style>
             <!--#endregion-->
 

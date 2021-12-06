@@ -12,12 +12,14 @@ namespace SteeringSA_WPF.CRUD
     public class Client
     {
         #region PROPERTIES
-        public string IDCedula { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Telefono { get; set; }
-        public string FechaNacimiento { get; set; }
-        public string Direccion { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string FullName { get { return string.Format("{0} {1}", Name, Surname); } }
+        public DateTime BirthDate { get; set; }
+        public int Age { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
         #endregion
 
         #region SINGLETON
@@ -176,12 +178,13 @@ namespace SteeringSA_WPF.CRUD
             {
                 while (reader.Read())
                 {
-                    IDCedula = reader.GetString(0);
-                    Nombre = reader.GetString(1);
-                    Apellido = reader.GetString(2);
-                    Telefono = reader.GetString(3);
-                    FechaNacimiento = reader.GetString(4);
-                    Direccion = reader.GetString(5);
+                    ID = reader.GetString(0);
+                    Name = reader.GetString(1);
+                    Surname = reader.GetString(2);
+                    BirthDate = reader.GetDateTime(3);
+                    Age = reader.GetInt32(4);
+                    PhoneNumber = reader.GetString(5);
+                    Address = reader.GetString(6);
                 }
             }
             catch (Exception ex)

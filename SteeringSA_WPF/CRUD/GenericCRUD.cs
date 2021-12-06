@@ -29,7 +29,7 @@ namespace SteeringSA_WPF.CRUD
         }
         #endregion
 
-        public DataTable SelectParticularRecord(string procedureName, string variableName, string value)
+        public DataTable SearchBy(string procedureName, string variableName, string value)
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;

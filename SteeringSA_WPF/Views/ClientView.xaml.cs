@@ -54,5 +54,15 @@ namespace SteeringSA_WPF.Views
         {
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ClientsData, TableID.CLIENT, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_CLIENT), ref Tb_RecordCount);
         }
+
+        private void Dgv_ClientsData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
+
+            if (columnValue != null)
+            {
+                WindowManager.ClientID = columnValue;
+            }
+        }
     }
 }

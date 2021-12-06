@@ -19,9 +19,13 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class Register_ServicesView : Window
     {
-        public Register_ServicesView()
+        private string clientID;
+        public Register_ServicesView(string clientID)
         {
             InitializeComponent();
+            this.clientID = clientID;
+
+            Tb_ClientDNI.Text = clientID;
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -43,7 +47,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_ChooseDriver_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ShowWindow(new Windows.Choose_Driver());
         }
 
         private void Btn_ChooseVehicle_Click(object sender, RoutedEventArgs e)

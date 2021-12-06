@@ -19,7 +19,7 @@
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
-    </UserControl.Triggers>
+    </UserControl.Triggers>  
     <!--#endregion-->
 
     <Grid>
@@ -69,6 +69,7 @@
 
                         <TextBlock HorizontalAlignment="Center" 
                                    Text="Nombre Cliente" 
+                                   Name="Tb_Name"
                                    Style="{StaticResource S_TextBlock_Subtitle}"/>
                         <TextBlock Name="Tb_ClientDNI" 
                                    HorizontalAlignment="Center"
@@ -95,10 +96,19 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="08/31/1999"
+                                               Name="Tb_BirthDate"
                                                Margin="5 0"/>
 
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
-                                               Text="(22 años)"/>
+                                               Text="("
+                                               Margin="5 0 0 0"/>
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="20"
+                                               Name="Tb_Age"/>
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text=" años)"/>
                                 </WrapPanel>
 
                                 <WrapPanel>
@@ -107,6 +117,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="6675-8599"
+                                               Name="Tb_PhoneNumber"
                                                Margin="5 0"/>
                                 </WrapPanel>
                                 
@@ -116,6 +127,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="El Sesteadero, Las Tablas, los Santos, Panamá"
+                                               Name="Tb_Address"
                                                Margin="5 0"/>
                                 </WrapPanel>
 

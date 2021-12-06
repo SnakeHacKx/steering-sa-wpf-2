@@ -27,6 +27,7 @@ namespace SteeringSA_WPF.Views
             InitializeComponent();
             RefreshDataGrid();
             isFilterGridOpen = false;
+            
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -69,7 +70,53 @@ namespace SteeringSA_WPF.Views
         /// </summary>
         private void RefreshDataGrid()
         {
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.SERVICE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_SERVICE), ref Tb_RecordCount);
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesData, TableID.SERVICE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_SERVICE), ref Tb_RecordCount);
+        }
+
+        private void Btn_Filter_Click(object sender, RoutedEventArgs e)
+        {
+            string minCost = "";
+            string maxCost = "";
+            string beginDate = "";
+            string endDate = "";
+            string clientID = "";
+            string driverID = "";
+            string type = "";
+            string vehicleRegis = "";
+
+
+
+            if (Txt_MinCost.Text == "") minCost = null;
+            else minCost = Txt_MinCost.Text;
+
+            if (Txt_MaxCost.Text == "") maxCost = null;
+            else maxCost = Txt_MaxCost.Text;
+
+            if (Dtp_ServiceBeginDate.Text == "") beginDate = null;
+            else beginDate = Dtp_ServiceBeginDate.Text;
+
+            if (Dtp_ServiceEndDate.Text == "") endDate = null;
+            else endDate = Dtp_ServiceEndDate.Text;
+
+            if (Txt_ClientDNI.Text == "") clientID = null;
+            else clientID = Txt_ClientDNI.Text;
+
+            if (Txt_DriverDNI.Text == "") driverID = null;
+            else driverID = Txt_DriverDNI.Text;
+
+            if (Cb_Servicetype.Text == "") type = null;
+            else type = Cb_Servicetype.Text;
+
+            if (Txt_VehicleID.Text == "") vehicleRegis = null;
+            else vehicleRegis = Txt_VehicleID.Text;
+
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesData, TableID.SERVICE, CRUD.Service.Instance.FilterBy(minCost, maxCost, beginDate, endDate, clientID, driverID, type, vehicleRegis), ref Tb_RecordCount);
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dtp_ServiceBeginDate.Text = "";
+            Dtp_ServiceEndDate.Text = "";
         }
     }
 }

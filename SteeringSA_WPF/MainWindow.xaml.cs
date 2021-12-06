@@ -87,5 +87,34 @@ namespace SteeringSA_WPF
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void Cb_Test_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {   
+            if (Cb_Test.SelectedIndex == 0)
+            {
+               
+            }
+
+            if (Cb_Test.SelectedIndex == 1)
+            {
+
+            }
+
+            if (Cb_Test.SelectedIndex == 2)
+            {
+                Cb_Test.Text = "";
+                WindowManager.ChangeWindow(WindowsTitle.LOGIN, new LoginViewModel());
+            }
+        }
+
+        private void Cb_Test_DropDownOpened(object sender, EventArgs e)
+        {
+            Cb_Test.Foreground = new SolidColorBrush(Colors.Black) { Opacity = 1 };
+        }
+
+        private void Cb_Test_DropDownClosed(object sender, EventArgs e)
+        {
+            Cb_Test.Foreground = new SolidColorBrush(Colors.Black) { Opacity = 0 };
+        }
     }
 }

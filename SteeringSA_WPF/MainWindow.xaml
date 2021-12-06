@@ -11,7 +11,7 @@
         Title="MainWindow" Height="768" Width="1366" FontFamily="Poppins"
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         WindowStyle="None" ResizeMode="CanResize" AllowsTransparency="False" SizeChanged="MainWindow_SizeChanged">
- 
+
     <!--#region ADMINISTRACION DE PANTALLAS -->
 
     <Window.Resources>
@@ -45,7 +45,7 @@
 
         <DataTemplate x:Name="ReportiewTemplate"
                       DataType="{x:Type viewmodels:ReportViewModel}">
-            <views:ReportView DataContext="{Binding}"/> 
+            <views:ReportView DataContext="{Binding}"/>
         </DataTemplate>
 
         <DataTemplate x:Name="MaintenanceViewTemplate"
@@ -58,7 +58,7 @@
             <views:ServicesView DataContext="{Binding}"/>
         </DataTemplate>
         <!--#endregion-->
-        
+
         <!--#region PERFILES -->
         <DataTemplate x:Name="ClientProfileViewTemplate"
                       DataType="{x:Type viewmodels:ClientProfileViewModel}">
@@ -75,7 +75,7 @@
             <views:Profile_VehicleView DataContext="{Binding}"/>
         </DataTemplate>
         <!--#endregion-->
-        
+
         <!--#region REGISTRAR -->
         <DataTemplate x:Name="AddClientViewTemplate"
                       DataType="{x:Type viewmodels:Register_ClientViewModel}">
@@ -92,7 +92,7 @@
             <views:Register_VehicleView DataContext="{Binding}"/>
         </DataTemplate>
         <!--#endregion-->
-        
+
         <!--#region EDITAR -->
         <!--#endregion-->
     </Window.Resources>
@@ -173,8 +173,9 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="0" Width="200" Margin="20 0 0 0" HorizontalAlignment="Left" Height="60" Stretch="Uniform" Source="../Images/logo_large.png"/>
-                    <!-- TITULO -->
+                    <Image Grid.Column="0" Width="auto" Margin="20 0 0 0" HorizontalAlignment="Right" Height="60" Stretch="Uniform"          Source="../Images/logo_large.png"/>
+
+                        <!-- TITULO -->
                     <TextBlock 
                                Name="Tb_WindowTitle"
                                Grid.Column="0"
@@ -188,20 +189,41 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
                            Margin="0,0,20,0" Grid.ColumnSpan="2">
-                        <Grid>
+                         
+                        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="17"/>
                             </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Kind="User" 
+                                                     VerticalAlignment="Center"
+                                                Style="{StaticResource S_Icon_MediumIcon}"/>
+                            <ComboBox Grid.Column="1" Background="Transparent"
+                                    Name="Cb_Test"
+                                    Width="17"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    BorderBrush="Black"
+                                    FontSize="16"
+                                    FontWeight="Normal"
+                                    IsReadOnly="True"
+                                    Foreground="Transparent"
+                                    Style="{StaticResource MaterialDesignDataGridComboBox}" SelectionChanged="Cb_Test_SelectionChanged" DropDownOpened="Cb_Test_DropDownOpened" DropDownClosed="Cb_Test_DropDownClosed" 
+                                    Margin="-20,0,0,0">
+                                <ComboBoxItem Content="Ver Perfil"/>
+                                <ComboBoxItem Content="Configuración"/>
+                                <ComboBoxItem Content="Cerrar Sesión"/>
+                            </ComboBox>
+
                         </Grid>
 
-                        <materialDesign:PackIcon Kind="User"  
-                                                Style="{StaticResource S_Icon_MediumIcon}"/>
+                        
 
-                        <StackPanel>
+                        <StackPanel Margin="10 0 0 0">
                             <TextBlock HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Style="{StaticResource S_TextBlock_Body}"
+                                       Style="{StaticResource S_TextBlock_BodyMedium}"
                                        Text="Nombre Usuario"/>
 
                             <TextBlock HorizontalAlignment="Left"
