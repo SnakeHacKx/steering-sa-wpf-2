@@ -208,6 +208,7 @@ namespace SteeringSA_WPF
         public const string UPDATE_USER_NAME = "PROC_CAMBIAR_NOMBRE_DE_USUARIO";
         public const string UPDATE_USER_PASSWORD = "PROC_CAMBIAR_CONTRASEÑA_USUARIO";
         public const string SHOW_ALL_USERS = "PROC_MOSTRAR_USUARIOS";//Muesta unicamente el nombre de usuario y que rol tiene en el sistema(empleado o administrador)
+        public const string GET_TOTALS = "FUNC_TOTALES_EN_TABLAS";
         #endregion
     }
 }
