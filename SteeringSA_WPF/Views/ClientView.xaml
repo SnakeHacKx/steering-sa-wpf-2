@@ -141,6 +141,7 @@
                 <!--#region DATAGRID -->
                 <DataGrid 
                     Grid.Row="2"
+                    SelectionChanged="Dgv_ClientsData_SelectionChanged"
                     Name="Dgv_ClientsData"
                     Style="{StaticResource S_DataGrid_Dark}">
 

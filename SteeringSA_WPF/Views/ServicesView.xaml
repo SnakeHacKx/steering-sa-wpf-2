@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins">
+             d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins" Loaded="UserControl_Loaded">
 
     <!--#region ANIMACION -->
     <UserControl.Triggers>
@@ -137,7 +137,7 @@
                     <!--#region DATAGRID -->
                     <DataGrid 
                     Grid.Row="3"
-                    Name="Dgv_VehiclesData"
+                    Name="Dgv_ServicesData"
                     Style="{StaticResource S_DataGrid_Dark}">
 
                         <!--#region ESTILOS -->
@@ -226,7 +226,7 @@
             
             <!--#region COLUMN 2 FILTROS -->
             
-            <Border Name="Bor_Filters" Visibility="Collapsed"
+            <Border Name="Bor_Filters" Visibility="Visible"
                     Grid.Column="1" Margin="20 0 0 0"
                     Style="{StaticResource S_Border_TextBoxWithBorder}"
                     Background="{StaticResource TGray}">
@@ -240,6 +240,7 @@
                                 
                                 <!--#region BUTTON FILTER -->
                                 <Button Name="Btn_Filter"
+                                        Click="Btn_Filter_Click"
                                         Margin="100 0 0 0"
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
@@ -260,34 +261,16 @@
                                 <TextBlock Style="{StaticResource S_TextBlock_Body}"
                             VerticalAlignment="Center"
                             Text="Costo (Balboas):"/>
-                                <WrapPanel>
-                                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                            <TextBlock Text="10.00" 
-                                                MinWidth="80" MaxWidth="60"
-                                                Style="{StaticResource S_TextBlock_Hint}"  
-                                                Foreground="{StaticResource DarkenGray}" 
-                                                    Visibility="{Binding ElementName=Txt_MinPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                            <TextBox MinWidth="80" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
-                                        </Grid>
-                                    </Border>
+                                    <WrapPanel>
+                                        <TextBox MinWidth="80" Name="Txt_MinCost" materialDesign:HintAssist.Hint="20.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Width="Auto"/>
 
-                                    <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                         VerticalAlignment="Center"
                                         Margin="5 0"
                                         Text="a"/>
-
-                                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                            <TextBlock Text="75.00" 
-                                                MinWidth="80" MaxWidth="60"
-                                                Style="{StaticResource S_TextBlock_Hint}"  
-                                                Foreground="{StaticResource DarkenGray}" 
-                                                    Visibility="{Binding ElementName=Txt_MaxPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                            <TextBox MinWidth="80" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
-                                        </Grid>
-                                    </Border>
-                                </WrapPanel>
+                                        
+                                        <TextBox Name="Txt_MaxCost" MinWidth="80" materialDesign:HintAssist.Hint="50.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Width="Auto"/>
+                                    </WrapPanel>
 
                             </StackPanel>
                         </Border>
@@ -301,7 +284,7 @@
                                 VerticalAlignment="Center"
                                 Margin="0 0 10 0"
                                 Text="Fecha de Inicio:"/>
-                                <DatePicker Name="Dtp_ServiceBeginDate"
+                                <DatePicker HorizontalAlignment="Left" Name="Dtp_ServiceBeginDate"
                                 Style="{StaticResource S_DatePicker_Light}">
 
                                 </DatePicker>
@@ -316,7 +299,7 @@
                             VerticalAlignment="Center"
                             Margin="0 0 10 0"
                             Text="Fecha de Finalización:"/>
-                                <DatePicker Name="Dtp_ServiceEndDate"
+                                    <DatePicker HorizontalAlignment="Left" Name="Dtp_ServiceEndDate"
                             Style="{StaticResource S_DatePicker_Light}">
 
                                 </DatePicker>
@@ -327,18 +310,11 @@
                         <!--#region TXB CLIENTE (CEDULA) -->
                         <Border HorizontalAlignment="Left" Margin="0 20" Style="{StaticResource S_Border_TextBoxWithBorder}" >
                             <WrapPanel Orientation="Vertical">
-                                <TextBlock Text="Cliente:" 
+                                    <TextBlock Text="Cliente:" 
                         VerticalAlignment="Center"
                         Style="{StaticResource S_TextBlock_Body}"/>
-                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                    <TextBlock Text="XX-XXX-XXXXX" 
-                            MinWidth="150" MaxWidth="250"
-                            Style="{StaticResource S_TextBlock_Hint}"  
-                            Foreground="{StaticResource DarkenGray}" 
-                                Visibility="{Binding ElementName=Txt_ClientDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                    <TextBox MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
-                                </Grid>
-                            </WrapPanel>
+                                    <TextBox MinWidth="150" materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
+                                </WrapPanel>
                         </Border>
                         <!--#endregion-->
 
@@ -346,17 +322,9 @@
                         <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="Conductor:" 
-                        VerticalAlignment="Center"
-                        Style="{StaticResource S_TextBlock_Body}"/>
-
-                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                    <TextBlock Text="XX-XXX-XXXXX" 
-                            MinWidth="150" MaxWidth="250"
-                            Style="{StaticResource S_TextBlock_Hint}"  
-                            Foreground="{StaticResource DarkenGray}" 
-                                Visibility="{Binding ElementName=Txt_DriverDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                    <TextBox MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
-                                </Grid>
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource S_TextBlock_Body}"/>
+                                <TextBox MinWidth="150" materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
                             </WrapPanel>
                         </Border>
                         <!--#endregion-->
@@ -370,8 +338,8 @@
                                 <ComboBox Name="Cb_Servicetype"
                             Width="150"
                             Style="{StaticResource S_Combobox_Normal}">
-                                    <ComboBoxItem Content="Opción 1" Foreground="{StaticResource Black}" />
-                                    <ComboBoxItem Content="Opción 2" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Delivery" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Transporte" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Opción 3" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Opción 4" Foreground="{StaticResource Black}" />
                                 </ComboBox>
@@ -383,17 +351,9 @@
                         <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="Matrícula del Vehículo:" 
-                    VerticalAlignment="Center"
-                    Style="{StaticResource S_TextBlock_Body}"/>
-
-                                <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                    <TextBlock Text="AG5156" 
-                        MinWidth="150" MaxWidth="250"
-                        Style="{StaticResource S_TextBlock_Hint}"  
-                        Foreground="{StaticResource DarkenGray}" 
-                            Visibility="{Binding ElementName=Txt_VehicleID, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                    <TextBox MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleID"/>
-                                </Grid>
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource S_TextBlock_Body}"/>
+                                <TextBox HorizontalAlignment="Left" materialDesign:HintAssist.Hint="AGB09" MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleID"/>
                             </WrapPanel>
                         </Border>
 

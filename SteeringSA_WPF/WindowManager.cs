@@ -9,6 +9,12 @@ namespace SteeringSA_WPF
 {
     public static class WindowManager
     {
+        public static string ClientID { get; set; }
+        public static string DriverID { get; set; }
+        public static string ReportID { get; set; }
+        public static string ServiceID { get; set; }
+        public static string MaintenanceID { get; set; }
+
         /// <summary>
         /// Cambia la ventana (control de usuario) presentado actualmente por uno nuevo.
         /// </summary>
@@ -39,6 +45,11 @@ namespace SteeringSA_WPF
                     (window as MainWindow).Tb_WindowTitle.Text = newWindowName;
                 }
             }
+        }
+
+        public static void ShowWindow(Window window)
+        {
+            window.ShowDialog();
         }
     }
 }

@@ -46,6 +46,30 @@
             </Grid>
             <!--#endregion-->
 
+            <!--<materialDesign:PopupBox>
+                <materialDesign:PopupBox.ToggleContent>
+                    <materialDesign:PackIcon Kind="MenuDownOutline" />
+                </materialDesign:PopupBox.ToggleContent>
+
+                <StackPanel>
+                    <Button>hola1</Button>
+                    <Button>hola2</Button>
+                </StackPanel>
+            </materialDesign:PopupBox>-->
+
+            <materialDesign:DialogHost HorizontalAlignment="Center" VerticalAlignment="Center">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="16">
+                        
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+                <!-- START OF YOUR CONTEXT-->
+
+
+
+                <!-- END OF YOUR CONTEXT -->
+            </materialDesign:DialogHost>
+
             <!--#region ROW 2 -->
 
                 <!--#region ROW 2 COLUMN 1 -->
@@ -67,8 +91,9 @@
 
                         <TextBlock HorizontalAlignment="Center" 
                                    Text="Nombre Conductor" 
+                                   Name="Tb_Name"
                                    Style="{StaticResource S_TextBlock_Subtitle}"/>
-                        <TextBlock Name="Tb_ClientDNI" 
+                        <TextBlock Name="Tb_DriverDNI" 
                                    HorizontalAlignment="Center"
                                    Text="7-712-784" 
                                    Style="{StaticResource S_TextBlock_BodyMedium}"/>
@@ -93,11 +118,20 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="08/31/1999"
+                                               Name="Tb_BirthDate"
                                                Margin="5 0"/>
 
-                                    <TextBlock Style="{StaticResource S_TextBlock_Body}" 
-                                               Text="(22 años)"/>
-                                </WrapPanel>
+                                <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="("
+                                               Margin="5 0 0 0"/>
+
+                                <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text="20"
+                                               Name="Tb_Age"/>
+
+                                <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Text=" años)"/>
+                            </WrapPanel>
 
                                 <WrapPanel>
                                     <TextBlock HorizontalAlignment="Left" 
@@ -105,6 +139,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="6675-8599"
+                                               Name="Tb_PhoneNumber"
                                                Margin="5 0"/>
                                 </WrapPanel>
 
@@ -114,6 +149,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="D"
+                                               Name="Tb_LicenseType"
                                                Margin="5 0"/>
                                 </WrapPanel>
 
@@ -123,6 +159,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="B+"
+                                               Name="Tb_BloodType"
                                                Margin="5 0"/>
                                 </WrapPanel>
 

@@ -23,6 +23,20 @@ namespace SteeringSA_WPF.Views
         public Profile_DriverView()
         {
             InitializeComponent();
+            RefreshProfileInfo();
+        }
+
+        private void RefreshProfileInfo()
+        {
+            CRUD.Driver.Instance.ReadFields(StoreProcedure.SEARCH_DRIVER_BYID, WindowManager.DriverID);
+
+            Tb_Name.Text = CRUD.Driver.Instance.FullName;
+            Tb_PhoneNumber.Text = CRUD.Driver.Instance.PhoneNumber;
+            Tb_BloodType.Text = CRUD.Driver.Instance.BloodType;
+            Tb_DriverDNI.Text = CRUD.Driver.Instance.ID;
+            Tb_LicenseType.Text = CRUD.Driver.Instance.LicenseType;
+            Tb_BirthDate.Text = CRUD.Driver.Instance.BirthDate;
+            Tb_Age.Text = CRUD.Driver.Instance.Age.ToString();
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

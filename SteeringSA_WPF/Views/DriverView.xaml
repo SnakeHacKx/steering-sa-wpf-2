@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins">
 
@@ -51,7 +51,7 @@
                         ToolTip="Volver"
                         Style="{StaticResource S_Button_TransparentButtonWithHand}" 
                         HorizontalAlignment="Left">
-                            <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                            <md:PackIcon Kind="ArrowBackCircle" 
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
 
@@ -62,14 +62,10 @@
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
                                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                                    <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="XX-XXXX-XXXXX" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_DriverDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
-                                    </Grid>
+                                    <TextBox md:HintAssist.Hint="XX-XXXX-XXXXX"
+                                             MinWidth="200" 
+                                             MaxWidth="250" 
+                                             Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
                                 </Border>
                             </WrapPanel>
                             <!--#endregion-->
@@ -82,7 +78,7 @@
                         Margin="0"
                         Style="{StaticResource S_Button_NormalButton}">
 
-                                <materialDesign:PackIcon Kind="Search"
+                                <md:PackIcon Kind="Search"
                                              Height="30"
                                              Width="auto"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
@@ -104,7 +100,7 @@
                                 Click="Btn_AddDriver_Click"
                                 Style="{StaticResource S_Button_ConfirmButton}">
 
-                            <materialDesign:PackIcon Kind="Register"
+                            <md:PackIcon Kind="Register"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
                         <!--#endregion-->
@@ -151,7 +147,7 @@
                             Click="Btn_RefreshDataGrid_Click"
                             Style="{StaticResource S_Button_TransparentButtonWithHand}" 
                             HorizontalAlignment="Right">
-                            <materialDesign:PackIcon Kind="Refresh" 
+                            <md:PackIcon Kind="Refresh" 
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
                     </Grid>
@@ -161,6 +157,7 @@
                     <DataGrid 
                     Grid.Row="2"
                     Name="Dgv_DriversData"
+                        SelectionChanged="Dgv_DriversData_SelectionChanged_1"
                     Style="{StaticResource S_DataGrid_Dark}">
 
                         <!--#region ESTILOS -->
@@ -227,7 +224,7 @@
                                         BorderThickness="0"
                                         Width="auto">
                                             <Grid Width="auto">
-                                                <materialDesign:PackIcon Kind="User"
+                                                <md:PackIcon Kind="User"
                                                              Width="Auto" 
                                                              Height="auto" 
                                                              Foreground="White" 
@@ -247,7 +244,7 @@
             <!--#endregion-->
 
             <!--#region COLUMN 2 FILTROS -->
-            <Border Name="Bor_Filters" Visibility="Visible"
+            <Border Name="Bor_Filters" Visibility="Collapsed"
                     Grid.Column="1" Margin="20 0 0 0"
                     Style="{StaticResource S_Border_TextBoxWithBorder}"
                     Background="{StaticResource TGray}">
@@ -267,7 +264,7 @@
                                         VerticalAlignment="Center"
                                         Style="{StaticResource S_Button_NormalButton}">
 
-                                <materialDesign:PackIcon Kind="Filter"
+                                <md:PackIcon Kind="Filter"
                                         Height="30"
                                         Width="auto"
                                     Style="{StaticResource S_Icon_MediumIcon}"/>
@@ -282,17 +279,10 @@
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
 
-                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                    <TextBlock Text="José Soriano" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_DriverName, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                    <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverName"/>
-                                </Grid>
+                                <TextBox md:HintAssist.Hint="Jose Manuel" MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverName"/>
                             </WrapPanel>
-                            
-                            </Border>
+
+                        </Border>
                             <!--#endregion-->
 
                             <!--#region FILTRO TIPO DE LICENCIA -->
@@ -324,33 +314,16 @@
                                    VerticalAlignment="Center"
                                    Text="Edad:"/>
                                     <WrapPanel VerticalAlignment="Center">
-                                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                            <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                                <TextBlock Text="30" 
-                                                           MinWidth="40" MaxWidth="60"
-                                                           Style="{StaticResource S_TextBlock_Hint}"  
-                                                           Foreground="{StaticResource DarkenGray}" 
-                                                           Visibility="{Binding ElementName=Txt_MinAge, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                <TextBox MinWidth="40" PreviewTextInput="Txt_MinAge_PreviewTextInput" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinAge" Width="Auto"/>
-                                            </Grid>
-                                        </Border>
 
-                                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                    <TextBox md:HintAssist.Hint="30" MinWidth="40" PreviewTextInput="Txt_MinAge_PreviewTextInput" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinAge" Width="Auto"/>
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                                    Margin="5 0"
                                        VerticalAlignment="Center"
                                        Text="a"/>
 
-                                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                            <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                                <TextBlock Text="50" 
-                                   MinWidth="40" MaxWidth="60"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_MaxAge, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                            <TextBox MinWidth="40" PreviewTextInput="Txt_MaxAge_PreviewTextInput"  MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxAge" Width="Auto"/>
-                                            </Grid>
-                                        </Border>
-                                    </WrapPanel>
+                                    <TextBox md:HintAssist.Hint="50" MinWidth="40" PreviewTextInput="Txt_MaxAge_PreviewTextInput"  MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxAge" Width="Auto"/>
+                                </WrapPanel>
 
                                 </StackPanel>
                             </Border>

@@ -24,22 +24,28 @@ namespace SteeringSA_WPF
             recordQuantity.Text = dataGrid.Items.Count.ToString();
         }
 
-        public static int GetColumnValue(object sender, int column)
+        public static string GetColumnValue(object sender, int column)
         {
             DataGrid dg = (DataGrid)sender;
             DataRowView selectedRow = dg.SelectedItem as DataRowView;
 
             if (selectedRow != null)
             {
-                return int.Parse(selectedRow[column].ToString());
+                return selectedRow[column].ToString();
             }
 
-            return 0;
+            return null;
         }
     }
 
     public static class Utilities
     {
+        public static void FillCombobox(ref ComboBox combo, string tableID, DataTable dataTable)
+        {
+            combo.SelectedValuePath = tableID;
+            combo.ItemsSource = dataTable.DefaultView;
+        }
+
         public static bool IsInputNumeric(string str)
         {
             Regex reg = new Regex("[^0-9]");

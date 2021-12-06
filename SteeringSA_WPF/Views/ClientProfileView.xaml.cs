@@ -23,11 +23,24 @@ namespace SteeringSA_WPF.Views
         public ClientProfileView()
         {
             InitializeComponent();
+            RefreshProfileInfo();
+        }
+
+        private void RefreshProfileInfo()
+        {
+            CRUD.Client.Instance.ReadFields(StoreProcedure.SEARCH_CLIENT_BYID, WindowManager.ClientID);
+
+            Tb_ClientDNI.Text = CRUD.Client.Instance.ID;
+            Tb_Name.Text = CRUD.Client.Instance.FullName;
+            Tb_PhoneNumber.Text = CRUD.Client.Instance.PhoneNumber;
+            Tb_ClientDNI.Text = CRUD.Client.Instance.ID;
+            Tb_BirthDate.Text = CRUD.Client.Instance.BirthDate.ToString();
+            Tb_Age.Text = CRUD.Client.Instance.Age.ToString();
         }
 
         private void Btn_ShowServices_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show(CRUD.Client.Instance.PhoneNumber);
         }
 
         private void Btn_ShowReports_Click(object sender, RoutedEventArgs e)
@@ -42,9 +55,10 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddService_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindowName(WindowsTitle.ADD_SERVICES);
-            Register_ServicesView addServiceWindow = new Register_ServicesView();
-            addServiceWindow.ShowDialog();
+            //WindowManager.ChangeWindowName(WindowsTitle.ADD_SERVICES);
+            //Register_ServicesView addServiceWindow = new Register_ServicesView();
+            //addServiceWindow.ShowDialog();
+            WindowManager.ShowWindow(new Register_ServicesView(Tb_ClientDNI.Text));
         }
 
         private void Btn_EditClient_Click(object sender, RoutedEventArgs e)

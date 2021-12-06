@@ -115,7 +115,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_BYID_DRIVER,
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_DriversData, TableID.DRIVER, GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_DRIVER_BYID,
                 TableID.DRIVER, Txt_DriverDNI.Text), ref Tb_RecordCount);
         }
 
@@ -127,6 +127,18 @@ namespace SteeringSA_WPF.Views
         private void Txt_MaxAge_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = Utilities.IsInputNumeric(e.Text);
+        }
+
+        private void Dgv_DriversData_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
+
+            //MessageBox.Show(columnValue);
+
+            if (columnValue != null)
+            {
+                WindowManager.DriverID = columnValue;
+            }
         }
     }
 }

@@ -38,6 +38,14 @@ namespace SteeringSA_WPF
         public const string EDIT_MAINTENANCE = "Editar Mantenimiento";
         public const string EDIT_REPORT = "Editar Reporte";
         public const string EDIT_SERVICE = "Editar Servicio";
+        
+        
+        public const string CHOOSE_DRIVER = "Elegir Conductor";
+        public const string CHOOSE_CLIENT = "Elegir Cliente";
+        public const string CHOOSE_SERVICE = "Elegir Servicio";
+        public const string CHOOSE_REPORT = "Elegir Reporte";
+        public const string CHOOSE_VEHICLE= "Elegir Vehículo";
+        public const string CHOOSE_MAINTENANCE = "Elegir Mantenimiento";
 
         public const string LOGIN = "Iniciar Sesión";
         public const string SIGNUP_USER = "Registrar Usuario";
@@ -114,7 +122,7 @@ namespace SteeringSA_WPF
 
         #region SERVICE
         public const string SERVICE_CODIGO = "Cod_Servicio";
-        public const string SERVICE_COD_TIPO_SERVICIO = "Cod_tipo_servicio";
+        public const string SERVICE_COD_TIPO_SERVICIO = "Cod_Tipo_servicio";
         public const string SERVICE_CEDULA_CONDUCTOR = "Cedula_Conductor";
         public const string SERVICE_PLACA_VEHICULO = "Placa";
         public const string SERVICE_CEDULA_CLIENTE = "Cedula_Cliente";
@@ -141,7 +149,7 @@ namespace SteeringSA_WPF
         public const string UPDATE_CLIENT = "PROC_ACTUALIZAR_DATOS_CLIENTE";
         public const string DELETE_CLIENT = "PROC_ELIMINAR_CLIENTE";
         public const string SHOW_ALL_CLIENT = "PROC_LISTAR_TODOS_CLIENTES";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYID_CLIENT = "PROC_BUSCAR_CEDULA_CLIENTE";//BUSCA POR CEDULA
+        public const string SEARCH_CLIENT_BYID = "PROC_BUSCAR_CEDULA_CLIENTE";//BUSCA POR CEDULA
         public const string FILTERS_CLIENT = "PROC_FILTRO_CLIENTE";// Formato [Nombre o apellido], inicio rango de edad, final rango de edad, direccion
         #endregion
 
@@ -150,7 +158,7 @@ namespace SteeringSA_WPF
         public const string UPDATE_DRIVER = "PROC_ACTUALIZAR_CONDUCTOR";
         public const string DELETE_DRIVER = "PROC_ELIMINAR_CONDUCTOR";
         public const string SHOW_ALL_DRIVER = "PROC_LISTAR_TODOS_CONDUCTORES";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYID_DRIVER = "PROC_BUSCAR_CEDULA_CONDUCTOR";//BUSCA POR CEDULA
+        public const string SEARCH_DRIVER_BYID = "PROC_BUSCAR_CEDULA_CONDUCTOR";//BUSCA POR CEDULA
         public const string FILTERS_DRIVER = "PROC_FILTRO_CONDUCTOR";//Formato [Nombre o apellido], tipo de licencia, inicio rango de edad, final rango de edad
         #endregion
 

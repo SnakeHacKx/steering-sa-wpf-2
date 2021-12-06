@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" FontFamily="Poppins"
              d:DesignHeight="768" d:DesignWidth="1366">
 
@@ -28,19 +29,56 @@
         </Grid.ColumnDefinitions>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
-            <RowDefinition Height="*"/> 
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+         
+        <Image Grid.Row="0" Grid.RowSpan="3" Stretch="UniformToFill" Source="../Images/bg_home.png"/>
+
+        <WrapPanel>
+            <Button  Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
+                <WrapPanel>
+                    <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="Historial" Style="{StaticResource S_TextBlock_BodyMedium}"/>
+                    <materialDesign:PackIcon Kind="History"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                </WrapPanel>
+            </Button>
+
+            <Button  Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
+                <WrapPanel>
+                    <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="Informe" Style="{StaticResource S_TextBlock_BodyMedium}"/>
+                    <materialDesign:PackIcon Kind="Book"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                </WrapPanel>
+            </Button>
+
+            <Button  Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
+                <WrapPanel>
+                    <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="Usuarios" Style="{StaticResource S_TextBlock_BodyMedium}"/>
+                    <materialDesign:PackIcon Kind="UserBadge"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                </WrapPanel>
+            </Button>
+        </WrapPanel>
         
-        <Image Grid.Row="0" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/bg_home.png"/>
-        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30" >
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30" >
             <Image Stretch="Uniform" Width="300" Source="../Images/logo_large.png"/>
             <TextBlock Text="Sistema de Gestión de Base de Datos"
                        Margin="0 20 0 0"
                        Style="{StaticResource S_TextBlock_BodyMedium}"/>
         </StackPanel>
         
-        <Grid Margin="60" Grid.Row="1">
+        <Grid Margin="60" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -161,6 +199,6 @@
             <!--#endregion-->
         </Grid>
 
-        <Image Grid.Column="1" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/home_image1.jpg"/>
+        <Image Grid.Column="1" Grid.RowSpan="3" Stretch="UniformToFill" Source="../Images/home_image1.jpg"/>
     </Grid>
 </UserControl>

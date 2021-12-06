@@ -12,13 +12,15 @@ namespace SteeringSA_WPF.CRUD
     public class Driver
     {
         #region PROPERTIES
-        public string IDCedula { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Telefono { get; set; }
-        public string FechaNacimiento { get; set; }
-        public string TipoSangre { get; set; }
-        public string TipoLicencia { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string FullName { get { return string.Format("{0} {1}", Name, Surname); } }
+        public string PhoneNumber { get; set; }
+        public int Age { get; set; }
+        public string BirthDate { get; set; }
+        public string BloodType { get; set; }
+        public string LicenseType { get; set; }
         #endregion
 
         #region SINGLETON
@@ -198,7 +200,7 @@ namespace SteeringSA_WPF.CRUD
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, id);
+            cmd.Parameters.AddWithValue(TableVariable.DRIVER_CEDULA, id);
 
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();
@@ -208,13 +210,14 @@ namespace SteeringSA_WPF.CRUD
             {
                 while (reader.Read())
                 {
-                    IDCedula = reader.GetString(0);
-                    Nombre = reader.GetString(1);
-                    Apellido = reader.GetString(2);
-                    Telefono = reader.GetString(3);
-                    FechaNacimiento = reader.GetString(4);
-                    TipoSangre = reader.GetString(5);
-                    TipoLicencia = reader.GetString(6);
+                    ID = reader.GetString(0);
+                    Name = reader.GetString(1);
+                    Surname = reader.GetString(2);
+                    PhoneNumber = reader.GetString(3);
+                    BirthDate = reader.GetString(4);
+                    Age = reader.GetInt32(5);
+                    BloodType = reader.GetString(6);
+                    LicenseType = reader.GetString(7);
                 }
             }
             catch (Exception ex)
