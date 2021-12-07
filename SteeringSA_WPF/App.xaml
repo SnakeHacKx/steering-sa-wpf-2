@@ -28,6 +28,7 @@
             <SolidColorBrush x:Key="White" Color="#FFFFFC"/>
             <SolidColorBrush x:Key="TWhite" Color="#99FFFFFC"/>
             <SolidColorBrush x:Key="FadedBlack" Color="#757575"/>
+            <SolidColorBrush x:Key="TFadedBlack" Color="#99757575"/>
             <SolidColorBrush x:Key="DarkenWhite" Color="#E4E4E4"/>
             <!--#endregion-->
 
@@ -40,10 +41,12 @@
             <SolidColorBrush x:Key="DarkenGreen" Color="#5BDC86"/>
 
             <SolidColorBrush x:Key="Red" Color="#ED4956"/>
+            <SolidColorBrush x:Key="TRed" Color="#99D12633"/>
             <SolidColorBrush x:Key="DarkenRed" Color="#D12633"/>
 
             <SolidColorBrush x:Key="Blue" Color="#3498DB"/>
             <SolidColorBrush x:Key="DarkenbBlue" Color="#146FAD"/>
+            <SolidColorBrush x:Key="TBlue" Color="#99146FAD"/>
 
             <SolidColorBrush x:Key="PaleOrange" Color="#FFD6A5"/>
 
@@ -173,6 +176,75 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="{StaticResource DarkenGray}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_CloseWindow" TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                BorderThickness="1"
+                                Padding="1" 
+                                CornerRadius="3" 
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource TRed}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_MaximizeNormalizeWindow" TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                BorderThickness="1"
+                                Padding="1" 
+                                CornerRadius="3" 
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource TBlue}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_MinimizeWindow" TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                BorderThickness="1"
+                                Padding="1" 
+                                CornerRadius="3" 
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource TFadedBlack}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>

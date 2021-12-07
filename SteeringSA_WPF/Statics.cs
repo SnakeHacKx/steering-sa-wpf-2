@@ -22,7 +22,6 @@ namespace SteeringSA_WPF
 
         public const string CLIENT_PROFILE = "Cliente";
         public const string VEHICLE_PROFILE = "Vehículo";
-        public const string CHOOSE_PLANT_IMAGE = "Elegir Imagen de Planta";
         public const string DRIVER_PROFILE = "Conductor";
 
         public const string ADD_CLIENTE = "Agregar Cliente";

@@ -12,7 +12,7 @@
     <Grid>
         <Border BorderThickness="1" BorderBrush="{StaticResource White}">
             <Grid MouseDown="Grid_MouseDown">
-                <Image Stretch="UniformToFill" Source="../../Images/bg_register.png"/>
+                <Image Stretch="UniformToFill" Source="../../Images/viewTest1.png"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -36,7 +36,7 @@
                     <!--#region ROW 2 -->
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="0 0 0 50">
-                        <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource PaleGray}"
+                        <Border BorderThickness="0" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
                 Width="auto"
                 CornerRadius="10">
                             <StackPanel>
@@ -59,7 +59,7 @@
                                     <!--#region RTXB DESCRIPCION -->
                                     <StackPanel>
                                         <TextBlock Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
+                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <RichTextBox Width="350" 
                                                  Height="150" 
                                                  Style="{StaticResource S_RichTextBox_Form}"/>
@@ -67,18 +67,21 @@
                                     </StackPanel>
                                     <!--#endregion-->
                                 </WrapPanel>
-                            </StackPanel>
-                        </Border>
 
-                        <!--#region BOTON INICIAR SESION -->
-                        <Button  
+                                <!--#region BOTON INICIAR SESION -->
+                                <Button
+                                    Margin="0 50 0 0"
                 Name="Btn_AddClient"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 Width="180"
                 Style="{StaticResource S_Button_ConfirmButton}"
                 Content="REGISTRAR"/>
-                        <!--#endregion-->
+                                <!--#endregion-->
+                            </StackPanel>
+                        </Border>
+
+                        
                     </StackPanel>
                     <!--#endregion-->
                 </Grid>

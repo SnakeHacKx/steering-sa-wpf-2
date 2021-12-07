@@ -24,6 +24,13 @@ namespace SteeringSA_WPF.Views
         public HomeView()
         {
             InitializeComponent();
+            CRUD.GenericCRUD.Instance.GetRecordsCount();
+            Tb_ClientCount.Text = CRUD.GenericCRUD.Instance.ClientCount;
+            Tb_DriverCount.Text = CRUD.GenericCRUD.Instance.DriverCount;
+            Tb_VehicleCount.Text = CRUD.GenericCRUD.Instance.VehicleCount;
+            Tb_ReportCount.Text = CRUD.GenericCRUD.Instance.ReportCount;
+            Tb_MaintenanceCount.Text = CRUD.GenericCRUD.Instance.MaintenanceCount;
+            Tb_ServicesCount.Text = CRUD.GenericCRUD.Instance.ServiceCount;
         }
 
         /// <summary>

@@ -102,8 +102,18 @@
                 <StackPanel>
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Clientes"/>
-                    <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="User"
+                                                 Margin="0 0 5 0"
+                                                 VerticalAlignment="Center"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                        <TextBlock Name="Tb_ClientCount" Style="{StaticResource S_TextBlock_Subtitle}"
                                Text="25"/>
+                    </WrapPanel>
+                    
                 </StackPanel>
             </Button>
             <!--#endregion-->
@@ -120,8 +130,17 @@
                 <StackPanel>
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Conductores"/>
-                    <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="DriversLicense"
+                                                 Margin="0 0 5 0"
+                                                 VerticalAlignment="Center"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                        <TextBlock Name="Tb_DriverCount" Style="{StaticResource S_TextBlock_Subtitle}"
                                Text="25"/>
+                    </WrapPanel>
                 </StackPanel>
             </Button>
             <!--#endregion-->
@@ -138,8 +157,17 @@
                 <StackPanel>
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Vehículos"/>
-                    <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="Car"
+                                                 Margin="0 0 5 0"
+                                                 VerticalAlignment="Center"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                        <TextBlock Name="Tb_VehicleCount" Style="{StaticResource S_TextBlock_Subtitle}"
                                Text="25"/>
+                    </WrapPanel>
                 </StackPanel>
             </Button>
             <!--#endregion-->
@@ -156,8 +184,17 @@
                 <StackPanel>
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Reportes"/>
-                    <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="Report"
+                                                 Margin="0 0 5 0"
+                                                 VerticalAlignment="Center"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                        <TextBlock Name="Tb_ReportCount" Style="{StaticResource S_TextBlock_Subtitle}"
                                Text="25"/>
+                    </WrapPanel>
                 </StackPanel>
             </Button>
             <!--#endregion-->
@@ -174,8 +211,17 @@
                 <StackPanel>
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Mantenimientos"/>
-                    <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="Wrench"
+                                                 Margin="0 0 5 0"
+                                                 VerticalAlignment="Center"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                        <TextBlock Name="Tb_MaintenanceCount" Style="{StaticResource S_TextBlock_Subtitle}"
                                Text="25"/>
+                    </WrapPanel>
                 </StackPanel>
             </Button>
             <!--#endregion-->
@@ -192,8 +238,17 @@
                 <StackPanel>
                     <TextBlock Style="{StaticResource S_TextBlock_BodyMedium}"
                                Text="Servicios"/>
-                    <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="CustomerService"
+                                                 Margin="0 0 5 0"
+                                                 VerticalAlignment="Center"
+                                             Foreground="{StaticResource Black}"
+                                             Height="30"
+                                             Width="30"
+                                            Style="{StaticResource S_Icon_MediumIcon}"/>
+                        <TextBlock Name="Tb_ServicesCount" Style="{StaticResource S_TextBlock_Subtitle}"
                                Text="25"/>
+                    </WrapPanel>
                 </StackPanel>
             </Button>
             <!--#endregion-->

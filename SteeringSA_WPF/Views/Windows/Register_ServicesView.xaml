@@ -12,7 +12,7 @@
     <Grid>
         <Border BorderThickness="1" BorderBrush="{StaticResource White}">
             <Grid MouseDown="Grid_MouseDown" >
-                <Image Stretch="UniformToFill" Source="../../Images/bg_register.png"/>
+                <Image Stretch="UniformToFill" Source="../../Images/viewTest1.png"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -36,7 +36,7 @@
                     <!--#region ROW 2 -->
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Margin="0 0 0 0">
-                        <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource PaleGray}"
+                        <Border BorderThickness="0" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
                                 Width="auto"
                                 CornerRadius="10">
                             <StackPanel>
@@ -50,17 +50,8 @@
                                     <StackPanel>
                                         <TextBlock Margin="0 0 0 10" Text="Tipo de Servicio" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
-                                            <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                                <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                                    <TextBlock Text="Código"
-                                                   MinWidth="200" MaxWidth="350"
-                                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                                    Foreground="{StaticResource DarkenGray}" 
-                                                     Visibility="{Binding ElementName=Txt_Name, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                    <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
-                                                </Grid>
-                                            </Border>
-                                            <Button Name="Btn_ChooseServiceType"
+                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                                                    <Button Name="Btn_ChooseServiceType"
                                                 Click="Btn_ChooseServiceType_Click" 
                                                 ToolTip="Buscar reporte"
                                                 Style="{StaticResource S_Button_NormalButton}" 
@@ -79,17 +70,8 @@
                                     <StackPanel>
                                         <TextBlock Margin="0 0 0 10" Text="Conductor" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
-                                            <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                                <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                                    <TextBlock Text="Cédula"
-                                                   MinWidth="200" MaxWidth="350"
-                                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                                    Foreground="{StaticResource DarkenGray}" 
-                                                     Visibility="{Binding ElementName=Txt_DriverDNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                    <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
-                                                </Grid>
-                                            </Border>
-                                            <Button Name="Btn_ChooseDriver"
+                                            <TextBox materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
+                                                    <Button Name="Btn_ChooseDriver"
                                                     Click="Btn_ChooseDriver_Click" 
                                                     ToolTip="Elegir conductor"
                                                     Style="{StaticResource S_Button_NormalButton}" 
@@ -106,17 +88,8 @@
                                     <StackPanel Margin="20 0 0 0">
                                         <TextBlock Margin="0 0 0 10" Text="Vehículo" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
-                                            <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                                <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                                    <TextBlock Text="Matrícula"
-                                                   MinWidth="200" MaxWidth="350"
-                                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                                    Foreground="{StaticResource DarkenGray}" 
-                                                     Visibility="{Binding ElementName=Txt_VehicleRegistration, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                    <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleRegistration"/>
-                                                </Grid>
-                                            </Border>
-                                            <Button Name="Btn_ChooseVehicle"
+                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleRegistration"/>
+                                                    <Button Name="Btn_ChooseVehicle"
                                                     Click="Btn_ChooseVehicle_Click"
                                                     ToolTip="Elegir conductor"
                                                     Style="{StaticResource S_Button_NormalButton}" 
@@ -134,22 +107,18 @@
                                     <!--#region TXB FECHA DE INICIO -->
                                     <StackPanel>
                                         <TextBlock Text="Fecha de Inicio" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                            <DatePicker Name="Dtp_ServiceBeginDate"
+                                        <DatePicker Name="Dtp_ServiceBeginDate"
                                                         Style="{StaticResource S_DatePicker_Light}">
                                             </DatePicker>
-                                        </Border>
                                     </StackPanel>
                                     <!--#endregion-->
 
                                     <!--#region TXB FECHA DE FINALIZACION -->
                                     <StackPanel Margin="30 0 0 0">
                                         <TextBlock Text="Fecha de Finalización" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                            <DatePicker Name="Dtp_ServiceEndDate"
+                                        <DatePicker Name="Dtp_ServiceEndDate"
                                                         Style="{StaticResource S_DatePicker_Light}">
                                             </DatePicker>
-                                        </Border>
                                     </StackPanel>
                                     <!--#endregion-->
                                 </WrapPanel>
@@ -158,7 +127,7 @@
                                     <!--#region RTXB DESCRIPCION -->
                                     <StackPanel>
                                         <TextBlock Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
+                                        <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <RichTextBox Width="530" 
                                                          Height="100" 
                                                          Style="{StaticResource S_RichTextBox_Form}"/>
@@ -166,18 +135,21 @@
                                     </StackPanel>
                                     <!--#endregion-->
                                 </WrapPanel>
-                            </StackPanel>
-                        </Border>
 
-                        <!--#region BOTON INICIAR SESION -->
-                        <Button  
+                                <!--#region BOTON INICIAR SESION -->
+                                <Button  
+                                    Margin="0 50 0 0"
                             Name="Btn_AddClient"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"
                             Width="180"
                             Style="{StaticResource S_Button_ConfirmButton}"
                             Content="REGISTRAR"/>
-                        <!--#endregion-->
+                                <!--#endregion-->
+                            </StackPanel>
+                        </Border>
+
+                        
                     </StackPanel>
                     <!--#endregion-->
                 </Grid>

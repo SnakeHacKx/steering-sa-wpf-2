@@ -23,7 +23,7 @@
     <!--#endregion-->
 
     <Grid>
-        <Image Stretch="UniformToFill" Source="../Images/bg_register.png"/>
+        <Image Stretch="UniformToFill" Source="../Images/viewTest1.png"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -47,7 +47,7 @@
             <!--#region ROW 2 -->
             <StackPanel Grid.Row="1" HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="0 0 0 50">
-                <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource PaleGray}"
+                <Border BorderThickness="0" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
                 Width="auto"
                 CornerRadius="10">
                     <StackPanel>
@@ -55,32 +55,14 @@
                             <!--#region TXB NOMBRE -->
                             <StackPanel>
                                 <TextBlock Margin="0 0 0 10" Text="Nombre" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="Eduardo"
-                                   MinWidth="200" MaxWidth="350"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_Name, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
-                                    </Grid>
-                                </Border>
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
                             </StackPanel>
                             <!--#endregion-->
 
                             <!--#region TXB APELLIDO -->
                             <StackPanel Margin="50 0 0 0">
                                 <TextBlock Text="Apellido" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="Contreras"
-                                   MinWidth="200" MaxWidth="350"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_Surname, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Surname"/>
-                                    </Grid>
-                                </Border>
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Surname"/>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
@@ -89,32 +71,14 @@
                             <!--#region TXB CEDULA -->
                             <StackPanel>
                                 <TextBlock Margin="0 0 0 10" Text="Cédula" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="XX-XXXX-XXXXX"
-                                            MinWidth="150"
-                                            Style="{StaticResource S_TextBlock_Hint}"  
-                                            Foreground="{StaticResource DarkenGray}" 
-                                            Visibility="{Binding ElementName=Txt_DNI, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="150" Style="{StaticResource S_TextBox_Form}" Name="Txt_DNI"/>
-                                    </Grid>
-                                </Border>
+                                <TextBox materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MinWidth="150" Style="{StaticResource S_TextBox_Form}" Name="Txt_DNI"/>
                             </StackPanel>
                             <!--#endregion-->
 
                             <!--#region TXB TELEFONO -->
                             <StackPanel Margin="30 0 0 0">
                                 <TextBlock Text="Teléfono" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="XXXX-XXXX"
-                                            MinWidth="100"
-                                            Style="{StaticResource S_TextBlock_Hint}"  
-                                            Foreground="{StaticResource DarkenGray}" 
-                                            Visibility="{Binding ElementName=Txt_PhoneNumber, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="100" Style="{StaticResource S_TextBox_Form}" Name="Txt_PhoneNumber"/>
-                                    </Grid>
-                                </Border>
+                                <TextBox MinWidth="100" Style="{StaticResource S_TextBox_Form}" materialDesign:HintAssist.Hint="XXXX-XXXX" Name="Txt_PhoneNumber"/>
                             </StackPanel>
                             <!--#endregion-->
 
@@ -122,14 +86,12 @@
                             <StackPanel Margin="30 0 0 0">
                                 <TextBlock Text="Fecha de Nacimiento" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                 <WrapPanel>
-                                    <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                        <DatePicker Name="Dtp_BirthDate"
+                                    <DatePicker Name="Dtp_BirthDate"
                                                     SelectedDate="01/01/1950"
                                                     SelectedDateChanged="Dtp_BirthDate_SelectedDateChanged"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                         </DatePicker>
-                                    </Border>
-                                    <TextBlock VerticalAlignment="Center" Text="(0 años)" Margin="5 0 0 0" Style="{StaticResource ResourceKey=S_TextBlock_Faded}" />
+                                        <TextBlock VerticalAlignment="Center" Text="(0 años)" Margin="5 0 0 0" Style="{StaticResource ResourceKey=S_TextBlock_Faded}" />
                                 </WrapPanel>
                             </StackPanel>
                             <!--#endregion-->
@@ -139,8 +101,7 @@
                             <!--#region CB TIPO DE LICENCIA -->
                             <StackPanel>
                                 <TextBlock Text="Tipo de Licencia" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <ComboBox Name="Cb_LicenseType"
+                                <ComboBox HorizontalAlignment="Left" Name="Cb_LicenseType"
                                   Width="40"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="A" Foreground="{StaticResource Black}" />
@@ -148,15 +109,13 @@
                                         <ComboBoxItem Content="C" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="D" Foreground="{StaticResource Black}" />
                                     </ComboBox>
-                                </Border>
                             </StackPanel>
                             <!--#endregion-->
 
                             <!--#region CB TIPO DE SANGRE -->
                             <StackPanel Margin="50 0 0 0">
                                 <TextBlock Text="Tipo de Sangre" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <ComboBox Name="Cb_BloodType"
+                                <ComboBox HorizontalAlignment="Left" Name="Cb_BloodType"
                                   Width="40"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="A+" Foreground="{StaticResource Black}" />
@@ -166,15 +125,13 @@
                                         <ComboBoxItem Content="AB+" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="AB-" Foreground="{StaticResource Black}" />
                                     </ComboBox>
-                                </Border>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
-                    </StackPanel>
-                </Border>
 
-                <!--#region BOTON INICIAR SESION -->
-                <Button  
+                        <!--#region BOTON INICIAR SESION -->
+                        <Button  
+                            Margin="0 50 0 0"
                 Name="Btn_AddDriver"
                 Click="Btn_AddDriver_Click"
                 VerticalAlignment="Top"
@@ -182,7 +139,11 @@
                 Width="180"
                 Style="{StaticResource S_Button_ConfirmButton}"
                 Content="REGISTRAR"/>
-                <!--#endregion-->
+                        <!--#endregion-->
+                    </StackPanel>
+                </Border>
+
+               
             </StackPanel>
             <!--#endregion-->
         </Grid>

@@ -23,7 +23,7 @@
     <!--#endregion-->
  
     <Grid>
-        <Image Stretch="UniformToFill" Source="../Images/bg_register.png"/>
+        <Image Stretch="UniformToFill" Source="../Images/viewTest1.png"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -47,7 +47,7 @@
             <!--#region ROW 2 -->
             <StackPanel Grid.Row="1" HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="0 0 0 50">
-                <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource PaleGray}"
+                <Border BorderThickness="0" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
                 Width="auto"
                 CornerRadius="10">
                     <StackPanel>
@@ -55,32 +55,14 @@
                             <!--#region TXB MATRICULA -->
                             <StackPanel>
                                 <TextBlock Margin="0 0 0 10" Text="Matrícula" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="AG6936"
-                                   MinWidth="200" MaxWidth="350"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_Matricula, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Matricula"/>
-                                    </Grid>
-                                </Border>
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Matricula"/>
                             </StackPanel>
                             <!--#endregion-->
 
                             <!--#region TXB MOTOR -->
                             <StackPanel Margin="50 0 0 0">
                                 <TextBlock Text="Modelo" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <Grid Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text=""
-                                   MinWidth="200" MaxWidth="350"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_Motor, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Motor"/>
-                                    </Grid>
-                                </Border>
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Motor"/>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
@@ -89,8 +71,7 @@
                             <!--#region CB TIPO -->
                             <StackPanel>
                                 <TextBlock Text="Tipo" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <ComboBox Name="Cb_VehicleType"
+                                <ComboBox Name="Cb_VehicleType"
                                   Width="150"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="Sedán" Foreground="{StaticResource Black}" />
@@ -98,15 +79,13 @@
                                         <ComboBoxItem Content="Motocicleta" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="Camioneta" Foreground="{StaticResource Black}" />
                                     </ComboBox>
-                                </Border>
                             </StackPanel>
                             <!--#endregion-->
 
                             <!--#region CB PASAJEROS -->
                             <StackPanel Margin="50 0 0 0">
                                 <TextBlock Text="Pasajeros" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <ComboBox Name="Cb_MaxPassengerNumber"
+                                <ComboBox Name="Cb_MaxPassengerNumber"
                                    Width="50"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="1" Foreground="{StaticResource Black}" />
@@ -115,8 +94,7 @@
                                         <ComboBoxItem Content="4" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="5" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="6" Foreground="{StaticResource Black}" />
-                                    </ComboBox>
-                                </Border>
+                                </ComboBox>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
@@ -125,22 +103,19 @@
                             <!--#region CB TIPO DE LICENCIA -->
                             <StackPanel>
                                 <TextBlock Text="Combustible" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <ComboBox Name="Cb_Fuel"
+                                <ComboBox Name="Cb_Fuel"
                                   Width="120"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="Diesel" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="Gasolina" Foreground="{StaticResource Black}" />
                                     </ComboBox>
-                                </Border>
                             </StackPanel>
                             <!--#endregion-->
 
                             <!--#region CB TIPO DE SANGRE -->
                             <StackPanel Margin="50 0 0 0">
                                 <TextBlock Text="Color" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                                    <ComboBox Name="Cb_Color"
+                                <ComboBox Name="Cb_Color"
                                   Width="120"
                                   Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="Rojo" Foreground="{StaticResource Black}" />
@@ -150,15 +125,13 @@
                                         <ComboBoxItem Content="Negro" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="Morado" Foreground="{StaticResource Black}" />
                                     </ComboBox>
-                                </Border>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
-                    </StackPanel>
-                </Border>
 
-                <!--#region BOTON INICIAR SESION -->
-                <Button  
+                        <!--#region BOTON INICIAR SESION -->
+                        <Button  
+                            Margin="0 50 0 0"
                     Name="Btn_AddVehicle"
                     Click="Btn_AddVehicle_Click"
                     VerticalAlignment="Top"
@@ -166,7 +139,11 @@
                     Width="180"
                     Style="{StaticResource S_Button_ConfirmButton}"
                     Content="REGISTRAR"/>
-                <!--#endregion-->
+                        <!--#endregion-->
+                    </StackPanel>
+                </Border>
+
+                
             </StackPanel>
             <!--#endregion-->
         </Grid>
