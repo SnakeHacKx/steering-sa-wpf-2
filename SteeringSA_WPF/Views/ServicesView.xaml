@@ -62,20 +62,14 @@
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
                                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                                    <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="SIN DEFINIR" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_IDReport, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
-                                    </Grid>
+                                    <TextBox MinWidth="20" materialDesign:HintAssist.Hint="5" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
                                 </Border>
                             </WrapPanel>
                             <!--#endregion-->
 
                             <!--#region BUTTON BUSCAR -->
                             <Button Name="Btn_Search"
+                                    Click="Btn_Search_Click"
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
@@ -98,7 +92,7 @@
                             VerticalAlignment="Center"
                         Height="40"
                         Style="{StaticResource S_Button_NormalButton}">
-                        Mostrar Filtros
+                        Ocultar Filtros
                     </Button>
                     <!--#endregion-->
 
@@ -284,7 +278,7 @@
                                 VerticalAlignment="Center"
                                 Margin="0 0 10 0"
                                 Text="Fecha de Inicio:"/>
-                                <DatePicker HorizontalAlignment="Left" Name="Dtp_ServiceBeginDate"
+                                <DatePicker Text="" HorizontalAlignment="Left" Name="Dtp_ServiceBeginDate"
                                 Style="{StaticResource S_DatePicker_Light}">
 
                                 </DatePicker>
@@ -299,7 +293,7 @@
                             VerticalAlignment="Center"
                             Margin="0 0 10 0"
                             Text="Fecha de Finalización:"/>
-                                    <DatePicker HorizontalAlignment="Left" Name="Dtp_ServiceEndDate"
+                                    <DatePicker Text="" HorizontalAlignment="Left" Name="Dtp_ServiceEndDate"
                             Style="{StaticResource S_DatePicker_Light}">
 
                                 </DatePicker>

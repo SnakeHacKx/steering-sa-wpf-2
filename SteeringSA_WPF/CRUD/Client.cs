@@ -197,5 +197,42 @@ namespace SteeringSA_WPF.CRUD
             }
         }
         #endregion
+
+        public DataTable FilterBy(string name, string address, string minAge, string maxAge)
+        {
+            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_CLIENT, DBConnection.Instance.SQLConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(TableVariable.CLIENT_NOMBRE, name);
+            cmd.Parameters.AddWithValue(TableVariable.CLIENT_DIRECCION, address);
+
+            if (minAge == null)
+                cmd.Parameters.AddWithValue("@Edad_inicial", minAge);
+            else
+                cmd.Parameters.AddWithValue("@Edad_inicial", int.Parse(minAge));
+
+            if (maxAge == null)
+                cmd.Parameters.AddWithValue("@Edad_final", maxAge);
+            else
+                cmd.Parameters.AddWithValue("@Edad_final", int.Parse(maxAge));
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            using (da)
+            {
+                DataTable dataTable = new DataTable();
+
+                try
+                {
+                    da.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.Show(ex.Message, "Error en la base de datos", CustomMessageBox.CMessageBoxType.Error);
+                    return null;
+                }
+
+                return dataTable;
+            }
+        }
     }
 }

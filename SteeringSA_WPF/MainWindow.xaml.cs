@@ -28,6 +28,14 @@ namespace SteeringSA_WPF
             Tb_WindowTitle.Text = WindowsTitle.LOGIN;
             DataContext = new LoginViewModel();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
+            //var login = new Views.LoginView();
+            //login.ChangeUsername += ChangeUsernameText2;
+        }
+
+        public void ChangeUsernameText2()
+        {
+            Wp_Username.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -88,33 +96,11 @@ namespace SteeringSA_WPF
             this.WindowState = WindowState.Minimized;
         }
 
-        private void Cb_Test_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {   
-            if (Cb_Test.SelectedIndex == 0)
-            {
-               
-            }
-
-            if (Cb_Test.SelectedIndex == 1)
-            {
-
-            }
-
-            if (Cb_Test.SelectedIndex == 2)
-            {
-                Cb_Test.Text = "";
-                WindowManager.ChangeWindow(WindowsTitle.LOGIN, new LoginViewModel());
-            }
-        }
-
-        private void Cb_Test_DropDownOpened(object sender, EventArgs e)
+        private void Btn_LogOut_Click(object sender, RoutedEventArgs e)
         {
-            Cb_Test.Foreground = new SolidColorBrush(Colors.Black) { Opacity = 1 };
-        }
-
-        private void Cb_Test_DropDownClosed(object sender, EventArgs e)
-        {
-            Cb_Test.Foreground = new SolidColorBrush(Colors.Black) { Opacity = 0 };
+            Wp_Username.Visibility = Visibility.Collapsed;
+            Img_Logo.Visibility = Visibility.Collapsed;
+            WindowManager.ChangeWindow(WindowsTitle.LOGIN, new LoginViewModel());
         }
     }
 }

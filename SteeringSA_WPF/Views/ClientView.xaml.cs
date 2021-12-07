@@ -21,10 +21,13 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class ClientView : UserControl
     {
+        private bool isFilterGridOpen;
+
         public ClientView()
         {
             InitializeComponent();
             RefreshDataGrid();
+            isFilterGridOpen = true;
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -45,6 +48,11 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+            Txt_Address.Text = "";
+            Txt_ClientDNI.Text = "";
+            Txt_ClientName.Text = "";
+            Txt_MaxAge.Text = "";
+            Txt_MinAge.Text = "";
         }
 
         /// <summary>
@@ -63,6 +71,60 @@ namespace SteeringSA_WPF.Views
             {
                 WindowManager.ClientID = columnValue;
             }
+        }
+
+        private void Txt_MinAge_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void Txt_MaxAge_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
+        {
+            if (isFilterGridOpen)
+            {
+                isFilterGridOpen = false;
+                Bor_Filters.Visibility = Visibility.Collapsed;
+                Btn_TogggleFilters.Content = "Mostrar Filtros";
+            }
+            else
+            {
+                isFilterGridOpen = true;
+                Bor_Filters.Visibility = Visibility.Visible;
+                Btn_TogggleFilters.Content = "Ocultar Filtros";
+            }
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ClientsData, TableID.DRIVER, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_CLIENT_BYID,
+                TableID.CLIENT, Txt_ClientDNI.Text), ref Tb_RecordCount);
+        }
+
+        private void Btn_Filter_Click(object sender, RoutedEventArgs e)
+        {
+            string name = "";
+            string address = "";
+            string minAge = "";
+            string maxAge = "";
+
+            if (Txt_ClientName.Text == "") name = null;
+            else name = Txt_ClientName.Text;
+
+            if (Txt_Address.Text == "-") address = null;
+            else address = Txt_Address.Text;
+
+            if (Txt_MinAge.Text == "") minAge = null;
+            else minAge = Txt_MinAge.Text;
+
+            if (Txt_MaxAge.Text == "") maxAge = null;
+            else maxAge = Txt_MaxAge.Text;
+
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ClientsData, TableID.CLIENT, CRUD.Client.Instance.FilterBy(name, address, minAge, maxAge), ref Tb_RecordCount);
         }
     }
 }

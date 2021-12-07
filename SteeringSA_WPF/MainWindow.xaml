@@ -76,6 +76,11 @@
         </DataTemplate>
         <!--#endregion-->
 
+        <DataTemplate x:Name="HistoryViewTemplate"
+                      DataType="{x:Type viewmodels:HistoryViewModel}">
+            <views:HistoryView DataContext="{Binding}"/>
+        </DataTemplate>
+
         <!--#region REGISTRAR -->
         <DataTemplate x:Name="AddClientViewTemplate"
                       DataType="{x:Type viewmodels:Register_ClientViewModel}">
@@ -117,6 +122,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"
+                           Foreground="{StaticResource TWhite}"
                            Style="{StaticResource S_TextBlock_Info}">
                     Proyecto de Base de Datos II
                 </TextBlock>
@@ -133,7 +139,7 @@
 
                         <materialDesign:PackIcon Kind="WindowMinimize"
                                          Grid.Column="0"
-                                         Style="{StaticResource S_Icon_WindowIcon}"/>
+                                         Style="{StaticResource S_Icon_WindowIconWhite}"/>
                     </Button>
                     <!--#endregion-->
 
@@ -145,7 +151,7 @@
                             VerticalAlignment="Center">
 
                         <materialDesign:PackIcon Kind="SquareRoundedOutline"
-                                         Style="{StaticResource S_Icon_WindowIcon}"/>
+                                         Style="{StaticResource S_Icon_WindowIconWhite}"/>
                     </Button>
                     <!--#endregion-->
 
@@ -157,7 +163,7 @@
                         VerticalAlignment="Center">
 
                         <materialDesign:PackIcon Kind="Close"
-                                         Style="{StaticResource S_Icon_WindowIcon}"/>
+                                         Style="{StaticResource S_Icon_WindowIconWhite}"/>
                     </Button>
                     <!--#endregion-->
                 </WrapPanel>
@@ -165,7 +171,7 @@
             <!--#endregion-->
 
             <!--#region BOTTOM HEADER -->
-            <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="{StaticResource DarkenGray}">
+            <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="{StaticResource DarkenGray}" Background="{StaticResource DarkenWhite}">
                 <Grid  Name="Header" Background="Transparent" Height="auto">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -173,7 +179,7 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="0" Width="auto" Margin="20 0 0 0" HorizontalAlignment="Right" Height="60" Stretch="Uniform"          Source="../Images/logo_large.png"/>
+                    <Image Grid.Column="0" Name="Img_Logo" Visibility="Collapsed" Width="auto" Margin="20 0 0 0" HorizontalAlignment="Right" Height="60" Stretch="Uniform" Source="../Images/logo_large.png"/>
 
                         <!-- TITULO -->
                     <TextBlock 
@@ -186,6 +192,8 @@
 
                     <!-- NOMBRE DE USUARIO -->
                     <WrapPanel Grid.Column="2 "
+                               Name="Wp_Username"
+                               Visibility="Collapsed"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
                            Margin="0,0,20,0" Grid.ColumnSpan="2">
@@ -199,22 +207,17 @@
                             <materialDesign:PackIcon Kind="User" 
                                                      VerticalAlignment="Center"
                                                 Style="{StaticResource S_Icon_MediumIcon}"/>
-                            <ComboBox Grid.Column="1" Background="Transparent"
-                                    Name="Cb_Test"
-                                    Width="17"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"
-                                    BorderBrush="Black"
-                                    FontSize="16"
-                                    FontWeight="Normal"
-                                    IsReadOnly="True"
-                                    Foreground="Transparent"
-                                    Style="{StaticResource MaterialDesignDataGridComboBox}" SelectionChanged="Cb_Test_SelectionChanged" DropDownOpened="Cb_Test_DropDownOpened" DropDownClosed="Cb_Test_DropDownClosed" 
-                                    Margin="-20,0,0,0">
-                                <ComboBoxItem Content="Ver Perfil"/>
-                                <ComboBoxItem Content="Configuración"/>
-                                <ComboBoxItem Content="Cerrar Sesión"/>
-                            </ComboBox>
+                            <materialDesign:PopupBox Grid.Column="1">
+                                <materialDesign:PopupBox.ToggleContent>
+                                    <materialDesign:PackIcon Kind="MenuDown"/>
+                                </materialDesign:PopupBox.ToggleContent>
+
+                                <StackPanel>
+                                    <Button Style="{StaticResource S_Button_PopupButton}" Content="Ver Perfil" HorizontalAlignment="Left"/>
+                                    <Button Style="{StaticResource S_Button_PopupButton}" Content="Configuración" HorizontalAlignment="Left"/>
+                                    <Button Name="Btn_LogOut" Click="Btn_LogOut_Click" Style="{StaticResource S_Button_PopupButton}" HorizontalAlignment="Left" Content="Cerrar Sesión"/>
+                                </StackPanel>
+                            </materialDesign:PopupBox>
 
                         </Grid>
 
@@ -224,7 +227,8 @@
                             <TextBlock HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource S_TextBlock_BodyMedium}"
-                                       Text="Nombre Usuario"/>
+                                       Text="Nombre Usuario"
+                                       Name="Tb_Username"/>
 
                             <TextBlock HorizontalAlignment="Left"
                                        VerticalAlignment="Center"

@@ -23,7 +23,7 @@
     <!--#endregion-->
 
     <Grid>
-        <Image Stretch="UniformToFill" Source="../Images/bg_views.png"/>
+        <Image Stretch="UniformToFill" Source="../Images/bg_view.png"/>
         <Grid Margin="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -79,7 +79,7 @@
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
-                        Style="{StaticResource S_Button_NormalButton}">
+                        Style="{StaticResource S_Button_NormalButtonWhite}">
 
                                 <materialDesign:PackIcon Kind="Search"
                                              Height="30"
@@ -97,8 +97,8 @@
                         HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                         Height="40"
-                        Style="{StaticResource S_Button_NormalButton}">
-                        Mostrar Filtros
+                        Style="{StaticResource S_Button_NormalButtonWhite}">
+                        Ocultar Filtros
                     </Button>
                     <!--#endregion-->
 
@@ -224,10 +224,10 @@
             <!--#endregion-->
             
             <!--#region COLUMN 2 -->
-            <Border Name="Bor_Filters" Visibility="Collapsed"
+            <Border Name="Bor_Filters" Visibility="Visible"
                     Grid.Column="1" Margin="20 0 0 0"
                     Style="{StaticResource S_Border_TextBoxWithBorder}"
-                    Background="{StaticResource TGray}">
+                    Background="{StaticResource TWhite}">
                 <Grid>
                     <StackPanel>
                         <WrapPanel Margin="0 10">
@@ -237,11 +237,11 @@
 
                             <!--#region BUTTON FILTER -->
                             <Button Name="Btn_Filter"
-                                        Margin="125 0 0 0"
+                                        Margin="115 0 0 0"
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
                                         VerticalAlignment="Center"
-                                        Style="{StaticResource S_Button_NormalButton}">
+                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}">
 
                                 <materialDesign:PackIcon Kind="Filter"
                                         Height="30"
@@ -252,37 +252,19 @@
                         </WrapPanel>
 
                         <!--#region FILTRO COSTO -->
-                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
                                    Text="Costo (Balboas):"/>
                                 <WrapPanel VerticalAlignment="Center">
-                                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                            <TextBlock Text="10.00" 
-                                   MinWidth="80" MaxWidth="60"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_MinPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                            <TextBox MinWidth="80" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
-                                        </Grid>
-                                    </Border>
+                                    <TextBox MinWidth="80" materialDesign:HintAssist.Hint="30.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
 
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                        VerticalAlignment="Center"
                                        Text="a"/>
-
-                                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                            <TextBlock Text="75.00" 
-                                   MinWidth="80" MaxWidth="60"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_MaxPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                            <TextBox MinWidth="80" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
-                                        </Grid>
-                                    </Border>
+                                    
+                                    <TextBox MinWidth="80" materialDesign:HintAssist.Hint="70.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
                                 </WrapPanel>
 
                             </StackPanel>
@@ -290,7 +272,7 @@
                         <!--#endregion-->
 
                         <!--#region FILTRO RANGO DE FECHA -->
-                        <Border Margin="0 20" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                        <Border Margin="0 20" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
@@ -317,7 +299,7 @@
                         <!--#endregion-->
 
                         <!--#region FILTRO RANGO DE FECHA -->
-                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"

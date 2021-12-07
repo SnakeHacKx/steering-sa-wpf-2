@@ -23,7 +23,7 @@
     <!--#endregion-->
 
     <Grid>
-        <Image Stretch="UniformToFill" Source="../Images/bg_views.png"/>
+        <Image Stretch="UniformToFill" Source="../Images/bg_view.png"/>
         <Grid Margin="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -80,7 +80,7 @@
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
-                        Style="{StaticResource S_Button_NormalButton}">
+                        Style="{StaticResource S_Button_NormalButtonWhite}">
 
                                 <materialDesign:PackIcon Kind="Search"
                                              Height="30"
@@ -102,7 +102,7 @@
                         HorizontalAlignment="Right"
                         Style="{StaticResource S_Button_ConfirmButton}">
 
-                            <materialDesign:PackIcon Kind="Register"
+                            <materialDesign:PackIcon Kind="AddCircle"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
 
@@ -111,8 +111,8 @@
                         HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                         Height="40"
-                        Style="{StaticResource S_Button_NormalButton}">
-                            Mostrar Filtros
+                        Style="{StaticResource S_Button_NormalButtonWhite}">
+                            Ocultar Filtros
                         </Button>
                         <!--#endregion-->
                     </WrapPanel>
@@ -135,7 +135,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
-                            <TextBlock Text="Vehículos:" Style="{StaticResource S_TextBlock_Info}"/>
+                            <TextBlock Text="Vehículos:" Style="{StaticResource S_TextBlock_Info}" />
                             <TextBlock Name="Tb_RecordCount" Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
                         </WrapPanel>
 
@@ -244,10 +244,10 @@
                 </WrapPanel>
 
             <!--#region COLUMN 2 FILTROS -->
-                <Border Name="Bor_Filters" Visibility="Collapsed"
+                <Border Name="Bor_Filters" Visibility="Visible"
                     Grid.Column="1" Margin="20 0 0 0"
                     Style="{StaticResource S_Border_TextBoxWithBorder}"
-                    Background="{StaticResource TGray}">
+                    Background="{StaticResource TWhite}">
 
                     <Grid>
                         <ScrollViewer>
@@ -259,11 +259,11 @@
 
                                     <!--#region BUTTON FILTER -->
                                     <Button Name="Btn_Filter"
-                                        Margin="40 0 0 0"
+                                        Margin="75 0 0 0"
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
                                         VerticalAlignment="Center"
-                                        Style="{StaticResource S_Button_NormalButton}">
+                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}">
 
                                         <materialDesign:PackIcon Kind="Filter"
                                         Height="30"
@@ -274,7 +274,7 @@
                                 </WrapPanel>
 
                                 <!--#region FILTRO COLOR -->
-                                <Border Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                <Border Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
@@ -294,7 +294,7 @@
                                 <!--#endregion-->
 
                                 <!--#region FILTRO COMBUSTIBLE -->
-                                <Border Margin="0 20" Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                <Border Margin="0 20" Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
@@ -311,45 +311,28 @@
                                 <!--#endregion-->
 
                                 <!--#region FILTRO CANTIDAD DE PASAJEROS -->
-                                <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
                                    Text="Pasajeros:"/>
-                                        <WrapPanel VerticalAlignment="Center">
-                                            <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                                    <TextBlock Text="2" 
-                                   MinWidth="40" MaxWidth="60"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_MinPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                    <TextBox MinWidth="40" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
-                                                </Grid>
-                                            </Border>
+                                    <WrapPanel VerticalAlignment="Center">
+                                        <TextBox MinWidth="40" materialDesign:HintAssist.Hint="2" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
 
-                                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
-                                       VerticalAlignment="Center"
-                                       Text="a"/>
+                                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                                    VerticalAlignment="Center"
+                                                   Margin="5 0"
+                                                    Text="a"/>
 
-                                            <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                                                <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                                    <TextBlock Text="5" 
-                                   MinWidth="40" MaxWidth="60"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_MaxPassengerCount, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                                    <TextBox MinWidth="40" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
-                                                </Grid>
-                                            </Border>
-                                        </WrapPanel>
+                                        <TextBox MinWidth="40" materialDesign:HintAssist.Hint="7" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
+                                    </WrapPanel>
 
                                     </StackPanel>
                                 </Border>
                                 <!--#endregion-->
 
                                 <!--#region FILTRO TIPO DE VEHICULO -->
-                                <Border Margin="0 20" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}" Height="auto">
+                                <Border Margin="0 20" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}" Height="auto">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
@@ -368,27 +351,18 @@
                                 <!--#endregion-->
 
                                 <!--#region FILTRO TIPO DE MOTOR -->
-                                <Border Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                <Border Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                    <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
                                    Text="Modelo:"/>
-                                    <Border Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                            <TextBlock Text="PONER" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_VehicleModel, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                            <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleModel"/>
-                                        </Grid>
-                                    </Border>
+                                    <TextBox materialDesign:HintAssist.Hint="Hyundai Accent" MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleModel"/>
                                 </StackPanel>
                                 </Border>
                                 <!--#endregion-->
 
                                 <!--#region FILTRO ESTADO -->
-                                <Border Margin="0 20 0 0" HorizontalAlignment="Left" Height="auto" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                <Border Margin="0 20 0 0" HorizontalAlignment="Left" Height="auto" Style="{StaticResource S_Border_TextBox}">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"

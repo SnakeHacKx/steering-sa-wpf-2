@@ -7,72 +7,72 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="Poppins"
-        Title="CustomMessageBox" Height="200" Width="500" AllowsTransparency="False" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="CustomMessageBox" Height="300" Width="500" AllowsTransparency="False" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image Name="Pic_Background" Stretch="UniformToFill" Source="Images/bg_mb_info.png"/>
         <Grid Name="Body" Background="Transparent" MouseDown="Body_MouseDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-        <Grid Name="Header" Background="#99FFFFFF">
-            <TextBlock
-                    x:Name="Tb_HeaderMessage"
-                    Grid.Row="0"
-                    VerticalAlignment="Center" 
-                    Height="auto" 
-                    Width="auto"
-                    Margin="10"
-                    TextWrapping="Wrap"
-                    Foreground="Black"
-                    Style="{StaticResource S_TextBlock_Info}" 
-                    HorizontalAlignment="Left" 
-                    Text="Ha ocurrido un error en la  aplicación"/>
-        </Grid>
+            <Grid Name="Header" Background="#99FFFFFF">
+                <TextBlock
+                        x:Name="Tb_HeaderMessage"
+                        Grid.Row="0"
+                        VerticalAlignment="Center" 
+                        Height="auto" 
+                        Width="auto"
+                        Margin="10"
+                        TextWrapping="Wrap"
+                        Foreground="Black"
+                        Style="{StaticResource S_TextBlock_Info}" 
+                        HorizontalAlignment="Left" 
+                        Text="Ha ocurrido un error en la  aplicación"/>
+            </Grid>
 
-        <Grid Grid.Row="1" Margin="0 20 0 0" Width="auto" Height="auto">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40*"/>
-                <ColumnDefinition Width="100*"/>
-            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Margin="0 20 0 0" Width="auto" Height="auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
 
-            <materialDesign:PackIcon Kind="Error"
-                                     Name="messageIcon"
-                                    Grid.Column="0"
-                                    Width="Auto" 
-                                    Height="50" 
-                                    Foreground="Black" 
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Stretch"
-                                    Margin="0,0,0,0"/>
+                <materialDesign:PackIcon Kind="Error"
+                                         Name="messageIcon"
+                                        Grid.Column="0"
+                                        Width="Auto" 
+                                        Height="50" 
+                                        Foreground="Black" 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="0,0,0,0"/>
 
-            <TextBlock
-                    Name="Tb_Message"
-                    Grid.Column="1"
-                    VerticalAlignment="Center" 
-                    Height="auto" 
-                    Width="auto"
-                    TextWrapping="Wrap"
-                    Foreground="Black"
-                    Style="{StaticResource S_TextBlock_Body}" 
-                    HorizontalAlignment="Left" 
-                    Text="La Planta con el ID #234235345 no existe, inténtelo nuevamente"/>
+                <TextBlock
+                        Name="Tb_Message"
+                        Grid.Column="1"
+                        VerticalAlignment="Center" 
+                        Height="auto" 
+                        Width="auto"
+                        TextWrapping="Wrap"
+                        Foreground="Black"
+                        Style="{StaticResource S_TextBlock_Body}" 
+                        HorizontalAlignment="Left" 
+                        Text="La Planta con el ID #234235345 no existe, inténtelo nuevamente"/>
 
-            <!--<Viewbox Margin="0,0,0,0" Grid.Column="1">
-                <StackPanel Orientation="Vertical" Width="400">
-                    <TextBlock x:Name="subHeaderText" 
-                   FontSize="20" 
-                   TextWrapping="Wrap" 
-                   Foreground="Black"
-                   Text="Lorem ipsum dolor, lorem isum dolor,Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet " />
-                </StackPanel>
-            </Viewbox>-->
+                <!--<Viewbox Margin="0,0,0,0" Grid.Column="1">
+                    <StackPanel Orientation="Vertical" Width="400">
+                        <TextBlock x:Name="subHeaderText" 
+                       FontSize="20" 
+                       TextWrapping="Wrap" 
+                       Foreground="Black"
+                       Text="Lorem ipsum dolor, lorem isum dolor,Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet " />
+                    </StackPanel>
+                </Viewbox>-->
 
-        </Grid>
+            </Grid>
 
-            <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0 20 0 0">
+            <WrapPanel Height="auto" Grid.Row="2" HorizontalAlignment="Center" Margin="0 20 0 0">
                 <!-- #region BOTON OK  -->
                 <Button  
                     Name="Btn_OK"

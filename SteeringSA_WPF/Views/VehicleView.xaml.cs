@@ -27,7 +27,7 @@ namespace SteeringSA_WPF.Views
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = false;
+            isFilterGridOpen = true;
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)

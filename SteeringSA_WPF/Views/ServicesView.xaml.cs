@@ -26,7 +26,7 @@ namespace SteeringSA_WPF.Views
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = false;
+            isFilterGridOpen = true;
             
         }
 
@@ -53,8 +53,9 @@ namespace SteeringSA_WPF.Views
                 isFilterGridOpen = true;
                 Bor_Filters.Visibility = Visibility.Visible;
                 Btn_TogggleFilters.Content = "Ocultar Filtros";
+                Dtp_ServiceBeginDate.Text = "";
+                Dtp_ServiceEndDate.Text = "";
             }
-
         }
 
         /// <summary>
@@ -63,6 +64,15 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+            Txt_ClientDNI.Text = "";
+            Txt_DriverDNI.Text = "";
+            Txt_IDReport.Text = "";
+            Txt_MaxCost.Text = "";
+            Txt_MinCost.Text = "";
+            Txt_VehicleID.Text = "";
+            Cb_Servicetype.Text = "";
+            Dtp_ServiceBeginDate.Text = "";
+            Dtp_ServiceEndDate.Text = "";
         }
 
         /// <summary>
@@ -83,8 +93,6 @@ namespace SteeringSA_WPF.Views
             string driverID = "";
             string type = "";
             string vehicleRegis = "";
-
-
 
             if (Txt_MinCost.Text == "") minCost = null;
             else minCost = Txt_MinCost.Text;
@@ -117,6 +125,12 @@ namespace SteeringSA_WPF.Views
         {
             Dtp_ServiceBeginDate.Text = "";
             Dtp_ServiceEndDate.Text = "";
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesData, TableID.SERVICE, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_SERVICE_BYCODE,
+                "@Codigo_Servicio", Txt_IDReport.Text), ref Tb_RecordCount);
         }
     }
 }

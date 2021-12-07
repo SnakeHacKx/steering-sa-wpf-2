@@ -73,5 +73,10 @@ namespace SteeringSA_WPF.Views
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_SERVICES, new ServicesViewModel());
         }
+
+        private void Btn_ShowHistory_Click(object sender, RoutedEventArgs e)
+        {
+            WindowManager.ChangeWindow(WindowsTitle.HISTORY, new HistoryViewModel());
+        }
     }
 }

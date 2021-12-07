@@ -49,6 +49,7 @@ namespace SteeringSA_WPF
 
         public const string LOGIN = "Iniciar Sesión";
         public const string SIGNUP_USER = "Registrar Usuario";
+        public const string HISTORY = "Historial";
     }
 
     /// <summary>
@@ -196,7 +197,7 @@ namespace SteeringSA_WPF
         public const string UPDATE_SERVICE = "PROC_ACTUALIZAR_DATOS_SERVICIO";
         public const string DELETE_SERVICE = "PROC_ELIMINAR_SERVICIO";
         public const string SHOW_ALL_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYCODE_SERVICE = "PROC_BUSCAR_CODIGO_SERVICIO";//BUSCA POR EL CODIGO
+        public const string SEARCH_SERVICE_BYCODE = "PROC_BUSCAR_CODIGO_SERVICIO";//BUSCA POR EL CODIGO
         public const string FILTERS_SERVICE = "PROC_FILTRO_SERVICIO";//Formato Cedula cliente, Cedula conductor, Placa vehiculo, tipo de servicio, tipo de vehiculo, inicio rango de costo, final rango de costo,inicio rango de fecha, final rango de fechas
 
         #endregion

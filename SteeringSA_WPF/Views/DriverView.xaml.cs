@@ -27,7 +27,7 @@ namespace SteeringSA_WPF.Views
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = false;
+            isFilterGridOpen = true;
         }
 
         /// <summary>

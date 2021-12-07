@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Transparent" FontFamily="Poppins">
+             d:DesignHeight="768" d:DesignWidth="1366" Background="Transparent" FontFamily="Poppins">
 
     <!--#region ANIMACION -->
     <UserControl.Triggers>
@@ -22,42 +23,41 @@
     <!--#endregion-->
 
     <Grid>
-        <Image Grid.Row="0" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/bg_login.png"/>
+        <Image Grid.Row="0" Grid.RowSpan="2" Stretch="UniformToFill" Source="../Images/login.jpg"/>
 
         <!--#region FORMULARIO  -->
-        <StackPanel HorizontalAlignment="Center"
-                VerticalAlignment="Center" Margin="0 0 0 50">
-            <Border BorderThickness="0" Padding="20 20" Margin="0 50" Background="{StaticResource PaleGray}"
+        <StackPanel HorizontalAlignment="Left"
+                VerticalAlignment="Center" Margin="100 0 0 0">
+           
+            
+            <Border Style="{StaticResource S_Border_TextBoxWithBorder}" BorderThickness="0" Padding="20 20" Margin="0 20" Background="{StaticResource White}"
                 Width="auto"
                 CornerRadius="10">
-                <StackPanel>
-                    <!--#region TXB CORREO ELECTRONICO -->
-                    <TextBlock Text="Nombre de Usuario:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                    <Border Style="{StaticResource S_Border_TextBox}" Margin="0 0 0 30">
-                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <TextBlock Text="Nombre Usuario" 
-                                   MinWidth="300" MaxWidth="350"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_User, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                            <TextBox KeyDown="Txt_User_KeyDown" Text="Omar" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
-                        </Grid>
-                    </Border>
-                    <!--#endregion-->
+                <WrapPanel Orientation="Vertical">
+                    <StackPanel Margin="0 0 0 50" VerticalAlignment="Center">
+                        <Image Stretch="Uniform" Width="300" Source="../Images/logo_large.png"/>
+                        <TextBlock Text="Sistema de Gestión de Base de Datos"
+                       Margin="0 20 0 0"
+                       Style="{StaticResource S_TextBlock_BodyMedium}"/>
+                    </StackPanel>
 
-                    <!--#region TXB CONTRA -->
-                    <TextBlock Text="Contraseña:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                    <Border Style="{StaticResource S_Border_TextBox}" Margin="0 0 0 30">
-                        <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                            <PasswordBox  Password="elputo" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
-                        </Grid>
-                    </Border>
-                    <!--#endregion-->
-                </StackPanel>
-            </Border>
+                    <StackPanel VerticalAlignment="Center">
+                        <!--#region TXB CORREO ELECTRONICO -->
+                        <TextBlock Text="Nombre de Usuario:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="0 0 0 30">
+                            <TextBox KeyDown="Txt_User_KeyDown" HorizontalAlignment="Left"  md:HintAssist.Hint="Nombre Usuario" Text="Omar" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
+                        </Border>
+                        <!--#endregion-->
 
-            <!--#region BOTON INICIAR SESION -->
-            <Button  
+                        <!--#region TXB CONTRA -->
+                        <TextBlock Text="Contraseña:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="0 0 0 30">
+                            <PasswordBox HorizontalAlignment="Left" Password="elputo" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
+                        </Border>
+                        <!--#endregion-->
+
+                        <!--#region BOTON INICIAR SESION -->
+                        <Button  
                 Name="Btn_LogIn"
                 Click="Btn_LogIn_Click"
                 VerticalAlignment="Top"
@@ -65,7 +65,13 @@
                 Width="180"
                 Style="{StaticResource S_Button_ConfirmButton}"
                 Content="INICIAR SESIÓN"/>
-            <!--#endregion-->
+                        <!--#endregion-->
+                    </StackPanel>
+                </WrapPanel>
+                   
+            </Border>
+
+
         </StackPanel>
         <!--#endregion -->
     </Grid>

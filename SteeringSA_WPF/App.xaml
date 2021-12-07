@@ -36,7 +36,7 @@
             <SolidColorBrush x:Key="DarkenPurple" Color="#AEA0FF"/>
             <SolidColorBrush x:Key="BorderPurple" Color="#99AEA0FF"/>
 
-            <SolidColorBrush x:Key="PaleGreen" Color="#70F79D"/>
+            <SolidColorBrush x:Key="PaleGreen" Color="#9970F79D"/>
             <SolidColorBrush x:Key="DarkenGreen" Color="#5BDC86"/>
 
             <SolidColorBrush x:Key="Red" Color="#ED4956"/>
@@ -62,7 +62,7 @@
 
             <!--#region GRID STYLES -->
             <Style x:Key="S_Grid_TopHeader" TargetType="Grid">
-                <Setter Property="Background" Value="{StaticResource DarkenWhite}"/>
+                <Setter Property="Background" Value="{StaticResource Black}"/>
             </Style>
             <!--#endregion-->
 
@@ -112,7 +112,7 @@
             <Style x:Key="S_TextBlock_Info" TargetType="TextBlock">
                 <Setter Property="Foreground" Value="{StaticResource Black}"/>
                 <Setter Property="FontWeight" Value="Light"/>
-                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontSize" Value="18"/>
             </Style>
 
             <Style x:Key="S_TextBlock_Hint" TargetType="TextBlock">
@@ -129,6 +129,13 @@
             <!--#region ICONS STYLES -->
             <Style x:Key="S_Icon_WindowIcon" TargetType="materialDesign:PackIcon">
                 <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+
+            <Style x:Key="S_Icon_WindowIconWhite" TargetType="materialDesign:PackIcon">
+                <Setter Property="Foreground" Value="{StaticResource TWhite}"/>
                 <Setter Property="Width" Value="20"/>
                 <Setter Property="Height" Value="20"/>
                 <Setter Property="Background" Value="Transparent"/>
@@ -173,6 +180,33 @@
                 </Setter>
             </Style>
 
+            <Style x:Key="S_Button_PopupButton" TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="Regular"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                BorderThickness="1"
+                                Padding="5" 
+                                CornerRadius="3" 
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource TGray}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="S_Button_TransparentButtonWithHand" TargetType="Button">
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="Cursor" Value="Hand"/>
@@ -187,6 +221,30 @@
                                 Background="{TemplateBinding Background}">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="S_Button_TransparentButtonWithHand_Background" TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" 
+                                BorderThickness="1"
+                                Padding="3" 
+                                CornerRadius="3" 
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource TWhite}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
@@ -427,7 +485,7 @@
                 <Setter Property="Width" Value="auto"/>
                 <Setter Property="Padding" Value="10 0"/>
                 <Setter Property="CornerRadius" Value="7"/>
-                <Setter Property="BorderBrush" Value="{StaticResource DarkenWhite}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource DarkenGray}"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Background" Value="{StaticResource White}"/>
             </Style>

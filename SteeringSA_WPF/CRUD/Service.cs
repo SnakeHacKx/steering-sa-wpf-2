@@ -256,8 +256,22 @@ namespace SteeringSA_WPF.CRUD
             cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
             cmd.Parameters.AddWithValue("@Placa_Vehiculo", vehicleID);
             cmd.Parameters.AddWithValue("@Tipo_Servicio", serviceType);
-            cmd.Parameters.AddWithValue("@Fecha_inicial", beginDate);
-            cmd.Parameters.AddWithValue("@Fecha_final", endDate);
+
+            if (beginDate == null)
+                cmd.Parameters.AddWithValue("@Fecha_inicial", null);
+            else
+            {
+                MessageBox.Show(DateTime.Parse(beginDate).ToString());
+                cmd.Parameters.AddWithValue("@Fecha_inicial", DateTime.Parse(beginDate));
+            }
+
+            if (endDate == null)
+                cmd.Parameters.AddWithValue("@Fecha_final", null);
+            else
+            {
+                MessageBox.Show(DateTime.Parse(endDate).ToString());
+                cmd.Parameters.AddWithValue("@Fecha_final", DateTime.Parse(endDate));
+            }
 
             if (minCost == null)
                 cmd.Parameters.AddWithValue("@Costo_inicial", minCost);

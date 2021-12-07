@@ -25,7 +25,7 @@ namespace SteeringSA_WPF.Views
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = false;
+            isFilterGridOpen = true;
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -68,6 +68,12 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dtp_MaintenanceDateMin.Text = "";
+            Dtp_MaintenanceDateMax.Text = "";
         }
     }
 }

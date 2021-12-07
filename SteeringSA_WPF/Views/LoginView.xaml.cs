@@ -21,6 +21,9 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class LoginView : UserControl
     {
+        //public delegate void ChangeUsernameText();
+        //public event ChangeUsernameText ChangeUsername;
+
         public LoginView()
         {
             InitializeComponent();
@@ -62,7 +65,7 @@ namespace SteeringSA_WPF.Views
                 return;
             }
 
-
+            WindowManager.ChangeUsername(Txt_User.Text);
             WindowManager.ChangeWindow(WindowsTitle.HOME, new HomeViewModel());
         }
     }

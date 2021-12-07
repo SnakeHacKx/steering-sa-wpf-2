@@ -14,6 +14,7 @@ namespace SteeringSA_WPF
         public static string ReportID { get; set; }
         public static string ServiceID { get; set; }
         public static string MaintenanceID { get; set; }
+        public static string Username { get; set; }
 
         /// <summary>
         /// Cambia la ventana (control de usuario) presentado actualmente por uno nuevo.
@@ -50,6 +51,19 @@ namespace SteeringSA_WPF
         public static void ShowWindow(Window window)
         {
             window.ShowDialog();
+        }
+
+        public static void ChangeUsername(string username)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(MainWindow))
+                {
+                    (window as MainWindow).Tb_Username.Text = username;
+                    (window as MainWindow).Wp_Username.Visibility = Visibility.Visible;
+                    (window as MainWindow).Img_Logo.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }
