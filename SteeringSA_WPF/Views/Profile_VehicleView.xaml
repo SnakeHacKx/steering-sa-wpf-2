@@ -71,6 +71,7 @@
 
                         <TextBlock HorizontalAlignment="Center" 
                                    Text="Modelo Vehículo" 
+                                   Name="Tb_VehicleModel"
                                    Style="{StaticResource S_TextBlock_Subtitle}"/>
                         <TextBlock Name="Tb_Registration" 
                                    HorizontalAlignment="Center"
@@ -96,6 +97,7 @@
                                            Text="Tipo:"
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
+                                               Name="Tb_Type"
                                                Text="Camioneta"
                                                Margin="5 0"/>
                                 </WrapPanel>
@@ -106,6 +108,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="En uso"
+                                               Name="Tb_State"
                                                Margin="5 0"/>
                                 </WrapPanel>
 
@@ -115,6 +118,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="5"
+                                               Name="Tb_Passengers"
                                                Margin="5 0"/>
                                 </WrapPanel>
 
@@ -124,6 +128,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="Gasolina 95"
+                                               Name="Tb_Fuel"
                                                Margin="5 0"/>
                                 </WrapPanel>
 
@@ -133,6 +138,7 @@
                                            Style="{StaticResource  S_TextBlock_BodyMedium}"/>
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}" 
                                                Text="Blanco"
+                                               Name="Tb_Color"
                                                Margin="5 0"/>
                                 </WrapPanel>
 

@@ -23,6 +23,20 @@ namespace SteeringSA_WPF.Views
         public Profile_VehicleView()
         {
             InitializeComponent();
+            RefreshProfileInfo();
+        }
+
+        private void RefreshProfileInfo()
+        {
+            CRUD.Vehicle.Instance.ReadFields(StoreProcedure.SEARCH_VEHICLE_BYPLACA, WindowManager.VehicleID);
+
+            Tb_VehicleModel.Text = CRUD.Vehicle.Instance.Modelo;
+            Tb_Type.Text = CRUD.Vehicle.Instance.Tipo;
+            Tb_State.Text = CRUD.Vehicle.Instance.Estado;
+            Tb_Fuel.Text = CRUD.Vehicle.Instance.TipoCombustible;
+            Tb_Color.Text = CRUD.Vehicle.Instance.Color;
+            Tb_Passengers.Text = CRUD.Vehicle.Instance.Pasajeros.ToString();
+            Tb_Registration.Text = CRUD.Vehicle.Instance.IDPlaca;
         }
 
         private void Btn_DeleteVehicle_Click(object sender, RoutedEventArgs e)
@@ -52,9 +66,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddMaintenance_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindowName(WindowsTitle.ADD_MAINTENANCE);
-            Register_MaintenanceView register_MaintenanceView = new Register_MaintenanceView();
-            register_MaintenanceView.ShowDialog();
+            WindowManager.ShowWindow(new Register_MaintenanceView(Tb_Registration.Text));
         }
 
         private void Btn_AddReport_Click(object sender, RoutedEventArgs e)

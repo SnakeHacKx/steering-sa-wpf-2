@@ -28,7 +28,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -137,78 +137,87 @@
                     <!--#region DATAGRID -->
                     <DataGrid 
                     Grid.Row="1"
+                        IsTextSearchEnabled="True"
                     Name="Dgv_ReportsData"
-                    Style="{StaticResource S_DataGrid_Dark}">
+                    Style="{StaticResource S_DataGrid_Light}" ClipToBounds="True" RowHeight="35" ColumnWidth="Auto" RowHeaderWidth="60" HorizontalGridLinesBrush="{x:Null}" SelectionMode="Single" GridLinesVisibility="None" VerticalGridLinesBrush="{x:Null}">
 
                         <!--#region ESTILOS -->
+                        <!--#region COLUMN HEADER -->
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="Background" Value="#76777A"/>
+                                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                                <Setter Property="Background" Value="{StaticResource White}"/>
                             </Style>
                         </DataGrid.Resources>
+                        <!--#endregion-->
 
+                        <!--#region FILAS -->
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource FadedBlack}"/>
+                                <Setter Property="BorderThickness" Value="0.1"/>
 
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#C1C1C1" />
-                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="Background" Value="{StaticResource White}" />
+                                        <Setter Property="Foreground" Value="{StaticResource Black}" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#2196F3"/>
-                                        <Setter Property="BorderBrush" Value="#11131B"/>
-                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="{StaticResource TBlue}"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource TRed}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource TBlue}"/>
                                     </Trigger>
                                     <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                        <Setter Property="BorderBrush" Value="#11131B"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource Red}"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.RowStyle>
+                        <!--#endregion-->
 
+                        <!--#region CELDAS -->
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell">
                                 <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <Border Margin="10 0" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                                 <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
                                 <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                         Value="True">
+                                    <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Transparent" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.CellStyle>
                         <!--#endregion-->
+                        <!--#endregion-->
 
+                        <!--#region BOTON EN COLUMNA -->
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserResize="False">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="Btn_ViewProfile"
                                             Click="Btn_ViewProfile_Click"
-                                            Background="#7F209B"
+                                            Background="{StaticResource TBlack}"
                                                 ToolTip="Ver perfil del vehículo"
                                             BorderThickness="0"
                                             Width="auto">
                                             <Grid Width="auto">
                                                 <materialDesign:PackIcon Kind="Car"
-                                             Width="Auto" 
+                                             Width="auto" 
                                              Height="auto" 
-                                             Foreground="White" 
-                                             VerticalAlignment="Center"
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
                                              HorizontalAlignment="Center"/>
                                             </Grid>
                                         </Button>
@@ -216,6 +225,7 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
+                        <!--#endregion-->
                     </DataGrid>
                     <!--#endregion-->
                 </Grid>
@@ -237,6 +247,7 @@
                             <!--#region BUTTON FILTER -->
                             <Button Name="Btn_Filter"
                                         Margin="115 0 0 0"
+                                    Click="Btn_Filter_Click"
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
                                         VerticalAlignment="Center"
@@ -286,8 +297,8 @@
                                 <ComboBox Name="Cb_State"
                                   Width="150"
                                   Style="{StaticResource S_Combobox_Normal}">
-                                    <ComboBoxItem Content="Activo" Foreground="{StaticResource Black}" />
-                                    <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Atendido" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="No Atendido" Foreground="{StaticResource Black}" />
                                 </ComboBox>
                             </StackPanel>
                         </Border>

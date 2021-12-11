@@ -54,5 +54,30 @@ namespace SteeringSA_WPF.Views
         {
 
         }
+
+        private void Btn_AddService_Click(object sender, RoutedEventArgs e)
+        {
+            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+            CRUD.Service.Instance.Register(Txt_ServiceTypeID.Text,
+                Txt_DriverDNI.Text,
+                Tb_ClientDNI.Text,
+                Txt_VehicleRegistration.Text,
+                Dtp_ServiceBeginDate.Text,
+                Dtp_ServiceEndDate.Text,
+                description);
+            ClearFormFields();
+        }
+
+        private void ClearFormFields()
+        {
+            Txt_ServiceTypeID.Text = "";
+            Txt_DriverDNI.Text = "";
+            Tb_ClientDNI.Text = "";
+            Txt_VehicleRegistration.Text = "";
+            Dtp_ServiceBeginDate.Text = "";
+            Dtp_ServiceEndDate.Text = "";
+            Txt_Description.Document.Blocks.Clear();
+            Txt_Description.Document.Blocks.Add(new Paragraph(new Run("")));
+        }
     }
 }

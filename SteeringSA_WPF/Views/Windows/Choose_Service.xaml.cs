@@ -28,5 +28,35 @@ namespace SteeringSA_WPF.Views.Windows
         {
 
         }
+
+        private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Filter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteeringSA_WPF.Views.Windows"
         mc:Ignorable="d" FontFamily="Poppins"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Height="768" Width="1200" 
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
@@ -13,7 +14,366 @@
             <Grid MouseDown="Grid_MouseDown">
                 <Image Stretch="UniformToFill" Source="../../Images/bg_chooseWindows.png"/>
                 <Grid Margin="30">
-                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--#region COLUMN 1 -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--#region ROW 1 -->
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="Escoger Servicio"
+                                   Margin="0 0 0 10"
+                                   Foreground="{StaticResource TWhite}"
+                                   Style="{StaticResource S_TextBlock_Title}"/>
+                        <!--#endregion-->
+
+                        <!--#region ROW 2 -->
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--#region COLUMN 1 -->
+                            <WrapPanel HorizontalAlignment="Left" Grid.Column="0">
+                                <Button Name="Btn_GoBack"
+                        Click="Btn_GoBack_Click"
+                        ToolTip="Volver"
+                        Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                        HorizontalAlignment="Left">
+                                    <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                                         Foreground="{StaticResource White}"
+                                                             Style="{StaticResource S_Icon_MediumIcon}"/>
+                                </Button>
+
+                                <StackPanel Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
+                                    <!--#region TXB CODIGO -->
+                                    <WrapPanel VerticalAlignment="Center">
+                                        <TextBlock Text="Código:" 
+                                                   Foreground="{StaticResource White}"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource S_TextBlock_Body}"/>
+                                        <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                                            <TextBox MinWidth="20" materialDesign:HintAssist.Hint="5" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
+                                        </Border>
+                                    </WrapPanel>
+                                    <!--#endregion-->
+
+                                    <!--#region BUTTON BUSCAR -->
+                                    <Button Name="Btn_Search"
+                                    Click="Btn_Search_Click"
+                        ToolTip="Buscar"
+                        VerticalAlignment="Center"
+                        Margin="0"
+                        Style="{StaticResource S_Button_NormalButton}">
+
+                                        <materialDesign:PackIcon Kind="Search"
+                                             Height="30"
+                                             Width="auto"
+                                                                 Foreground="{StaticResource White}"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                                    </Button>
+                                    <!--#endregion-->
+                                </StackPanel>
+                            </WrapPanel>
+                            <!--#endregion-->
+
+                            <!--#region COLUMN 2 -->
+                            <Button Grid.Column="1" Name="Btn_TogggleFilters"
+                        Click="Btn_TogggleFilters_Click" Grid.Row="1" 
+                        HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                                    Foreground="{StaticResource White}"
+                        Height="40"
+                        Style="{StaticResource S_Button_NormalButton}">
+                                Ocultar Filtros
+                            </Button>
+                            <!--#endregion-->
+
+                        </Grid>
+                        <!--#endregion-->
+
+                        <!--#region ROW 3 -->
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Margin="0 0 0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                    <TextBlock Foreground="{StaticResource White}" Text="Servicios:" Style="{StaticResource S_TextBlock_Info}"/>
+                                    <TextBlock  Foreground="{StaticResource White}"
+                                                Margin="5 0 0 0" Name="Tb_RecordCount" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
+                                </WrapPanel>
+
+                                <Button Grid.Column="1"
+                            ToolTip="Recargar tabla y limpiar filtros"
+                            Name="Btn_RefreshDataGrid"
+                                Click="Btn_RefreshDataGrid_Click"
+                            Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                            HorizontalAlignment="Right">
+                                    <materialDesign:PackIcon 
+                                        Foreground="{StaticResource White}"
+                                        Kind="Refresh" 
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                                </Button>
+                            </Grid>
+
+
+                            <!--#region DATAGRID -->
+                            <DataGrid 
+                                Grid.Row="3"
+                                Name="Dgv_ServicesData"
+                                Style="{StaticResource S_DataGrid_Dark}" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" GridLinesVisibility="None">
+
+                                <!--#region ESTILOS -->
+                                <!--#region COLUMN HEADER -->
+                                <DataGrid.Resources>
+                                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                                        <Setter Property="Background" Value="{StaticResource White}"/>
+                                    </Style>
+                                </DataGrid.Resources>
+                                <!--#endregion-->
+
+                                <!--#region FILAS -->
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource FadedBlack}"/>
+                                        <Setter Property="BorderThickness" Value="0.1"/>
+
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource White}" />
+                                                <Setter Property="Foreground" Value="{StaticResource Black}" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource TBlue}"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource TRed}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource TBlue}"/>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                                <Setter Property="BorderBrush" Value="{StaticResource Red}"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <!--#endregion-->
+
+                                <!--#region CELDAS -->
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                    <Border Margin="10 0" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <!--#endregion-->
+                                <!--#endregion-->
+
+                                <!--#region BOTON EN COLUMNA -->
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn CanUserResize="False">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="Btn_ViewProfile"
+                                            Click="Btn_ViewProfile_Click"
+                                            Background="{StaticResource TBlack}"
+                                                ToolTip="Ver perfil del vehículo"
+                                            BorderThickness="0"
+                                            Width="auto">
+                                                    <Grid Width="auto">
+                                                        <materialDesign:PackIcon Kind="Check"
+                                             Width="auto" 
+                                             Height="auto" 
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
+                                             HorizontalAlignment="Center"/>
+                                                    </Grid>
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                                <!--#endregion-->
+                            </DataGrid>
+                            <!--#endregion-->
+                        </Grid>
+                        <!--#endregion-->
+                    </Grid>
+
+                    <!--#endregion-->
+
+                    <!--#region COLUMN 2 FILTROS -->
+
+                    <Border Name="Bor_Filters" Visibility="Visible"
+                    Grid.Column="1" Margin="20 0 0 0"
+                    Style="{StaticResource S_Border_TextBoxWithBorder}"
+                    Background="{StaticResource TBlack}"
+                            BorderThickness="0">
+                        <Grid>
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <WrapPanel Margin="0 10">
+                                        <TextBlock Foreground="{StaticResource White}" Style="{StaticResource S_TextBlock_Subtitle}"
+                                            VerticalAlignment="Center"
+                                            Text="Filtros"/>
+
+                                        <!--#region BUTTON FILTER -->
+                                        <Button  Name="Btn_Filter"
+                                        Click="Btn_Filter_Click"
+                                        Margin="100 0 0 0"
+                                        HorizontalAlignment="Right"
+                                        ToolTip="Filtrar"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}">
+
+                                            <materialDesign:PackIcon Kind="Filter"
+                                                                     Foreground="{StaticResource White}"
+                                        Height="30"
+                                        Width="auto"
+                                    Style="{StaticResource S_Icon_MediumIcon}"/>
+                                        </Button>
+                                        <!--#endregion-->
+                                    </WrapPanel>
+
+                                    <!--#region FILTRO COSTO -->
+                                    <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                            VerticalAlignment="Center"
+                            Text="Costo (Balboas):"/>
+                                            <WrapPanel>
+                                                <TextBox MinWidth="80" Name="Txt_MinCost" materialDesign:HintAssist.Hint="20.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Width="Auto"/>
+
+                                                <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                        VerticalAlignment="Center"
+                                        Margin="5 0"
+                                        Text="a"/>
+
+                                                <TextBox Name="Txt_MaxCost" MinWidth="80" materialDesign:HintAssist.Hint="50.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Width="Auto"/>
+                                            </WrapPanel>
+
+                                        </StackPanel>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region FILTRO FECHA DE INICIO -->
+                                    <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}"
+                    Margin="0 20">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                VerticalAlignment="Center"
+                                Margin="0 0 10 0"
+                                Text="Fecha de Inicio:"/>
+                                            <DatePicker Text="" HorizontalAlignment="Left" Name="Dtp_ServiceBeginDate"
+                                Style="{StaticResource S_DatePicker_Light}">
+
+                                            </DatePicker>
+                                        </StackPanel>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region FILTRO FECHA DE FINALIZACION -->
+                                    <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                            VerticalAlignment="Center"
+                            Margin="0 0 10 0"
+                            Text="Fecha de Finalización:"/>
+                                            <DatePicker Text="" HorizontalAlignment="Left" Name="Dtp_ServiceEndDate"
+                            Style="{StaticResource S_DatePicker_Light}">
+
+                                            </DatePicker>
+                                        </StackPanel>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region TXB CLIENTE (CEDULA) -->
+                                    <Border HorizontalAlignment="Left" Margin="0 20" Style="{StaticResource S_Border_TextBoxWithBorder}" >
+                                        <WrapPanel Orientation="Vertical">
+                                            <TextBlock Text="Cliente:" 
+                        VerticalAlignment="Center"
+                        Style="{StaticResource S_TextBlock_Body}"/>
+                                            <TextBox MinWidth="150" materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
+                                        </WrapPanel>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region TXB CONDUCTOR (CEDULA) -->
+                                    <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                        <WrapPanel Orientation="Vertical">
+                                            <TextBlock Text="Conductor:" 
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource S_TextBlock_Body}"/>
+                                            <TextBox MinWidth="150" materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
+                                        </WrapPanel>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region FILTRO TIPO DE SERVICIO -->
+                                    <Border HorizontalAlignment="Left" Margin="0 20" Height="auto" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                            VerticalAlignment="Center"
+                            Text="Tipo:"/>
+                                            <ComboBox Name="Cb_Servicetype"
+                            Width="150"
+                            Style="{StaticResource S_Combobox_Normal}">
+                                                <ComboBoxItem Content="Delivery" Foreground="{StaticResource Black}" />
+                                                <ComboBoxItem Content="Transporte" Foreground="{StaticResource Black}" />
+                                                <ComboBoxItem Content="Opción 3" Foreground="{StaticResource Black}" />
+                                                <ComboBoxItem Content="Opción 4" Foreground="{StaticResource Black}" />
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region TXB PLACA VEHICULO -->
+                                    <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                                        <WrapPanel Orientation="Vertical">
+                                            <TextBlock Text="Matrícula del Vehículo:" 
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource S_TextBlock_Body}"/>
+                                            <TextBox HorizontalAlignment="Left" materialDesign:HintAssist.Hint="AGB09" MinWidth="150" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleID"/>
+                                        </WrapPanel>
+                                    </Border>
+
+                                    <!--#endregion-->
+                                </StackPanel>
+                            </ScrollViewer>
+
+                        </Grid>
+                    </Border>
+                    <!--#endregion-->
                 </Grid>
             </Grid>
         </Border>

@@ -597,9 +597,20 @@
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="SelectionMode" Value="Single"/>
                 <Setter Property="Foreground" Value="{StaticResource White}"/>
-                <Setter Property="Background" Value="{StaticResource Black}"/>
+                <Setter Property="Background" Value="{StaticResource TBlack}"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="BorderBrush" Value="{StaticResource Gray2}"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+
+            <Style x:Key="S_DataGrid_Light" TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="SelectionMode" Value="Extended"/>
+                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                <Setter Property="Background" Value="{StaticResource TWhite}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderBrush" Value="{StaticResource TFadedBlack}"/>
                 <Setter Property="IsReadOnly" Value="True"/>
                 <Setter Property="BorderThickness" Value="1"/>
             </Style>

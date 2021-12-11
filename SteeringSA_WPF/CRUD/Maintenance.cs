@@ -9,28 +9,27 @@ using System.Windows;
 
 namespace SteeringSA_WPF.CRUD
 {
-    public class Client
+    public class Maintenance
     {
         #region PROPERTIES
-        public string ID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string FullName { get { return string.Format("{0} {1}", Name, Surname); } }
-        public string BirthDate { get; set; }
-        public int Age { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
+        public string IDMantenimiento { get; set; }
+        public string PlacaVehiculo { get; set; }
+        public string IDReporte { get; set; }
+        public string Costo { get; set; }
+        public string Fecha { get; set; }
+        public string Descripcion { get; set; }
+        public string Estado { get; set; }
         #endregion
 
         #region SINGLETON
-        private static Client _instance;
+        private static Maintenance _instance;
 
-        public static Client Instance
+        public static Maintenance Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new Client();
+                    _instance = new Maintenance();
 
                 return _instance;
             }
@@ -42,19 +41,18 @@ namespace SteeringSA_WPF.CRUD
         #endregion
 
         #region CRUD
-
-        public void Register(string idClient, string name, string surname, string phoneNumber, string birthDate, string address)
+        public void Register(string vehicleRegistration, string reportID, string cost, string date,  string description, string state)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_MAINTENANCE, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, idClient);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_NOMBRE, name);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_APELLIDO, surname);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_TELEFONO, phoneNumber);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_FECHA_NACIMIENTO, birthDate);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_DIRECCION, address);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_PLACA_VEHICULO, vehicleRegistration);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_COD_REPORTE, reportID);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_COSTO, cost);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_FECHA, date);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_DESCRIPCION, description);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_ESTADO, state);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -76,7 +74,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Cliente Registrado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Reporte Registrado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -84,18 +82,19 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string idClient, string name, string surname, string phoneNumber, DateTime birthDate, string address)
+        public void Edit(int id, string vehicleRegistration, string reportID, string cost, string date, string description, string state)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_MAINTENANCE, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, idClient);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_NOMBRE, name);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_APELLIDO, surname);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_TELEFONO, phoneNumber);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_FECHA_NACIMIENTO, birthDate.ToString("yyyy/MM/dd"));
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_DIRECCION, address);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_CODIGO, id);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_PLACA_VEHICULO, vehicleRegistration);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_COD_REPORTE, reportID);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_COSTO, cost);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_FECHA, date);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_DESCRIPCION, description);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_ESTADO, state);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -117,7 +116,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Cliente Editado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Reporte Editado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -127,11 +126,11 @@ namespace SteeringSA_WPF.CRUD
 
         public void Delete(string id)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.DELETE_MAINTENANCE, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, id);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -153,7 +152,7 @@ namespace SteeringSA_WPF.CRUD
 
             if (successMsg != "")
             {
-                CustomMessageBox.Show(successMsg, "Cliente Eliminado", CustomMessageBox.CMessageBoxType.Success);
+                CustomMessageBox.Show(successMsg, "Reporte Eliminado", CustomMessageBox.CMessageBoxType.Success);
             }
             else if (errorMsg != "")
             {
@@ -164,27 +163,27 @@ namespace SteeringSA_WPF.CRUD
 
         #region LECTURA DE DATOS
 
-        public void ReadFields(string procedureName, string idClient)
+        public void ReadFields(string procedureName, string id)
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.CLIENT_CEDULA, idClient);
+            cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_CODIGO, id);
 
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();
             reader = cmd.ExecuteReader();
-            
+
             try
             {
                 while (reader.Read())
                 {
-                    ID = reader.GetString(0);
-                    Name = reader.GetString(1);
-                    Surname = reader.GetString(2);
-                    BirthDate = reader.GetString(3);
-                    Age = reader.GetInt32(4);
-                    PhoneNumber = reader.GetString(5);
-                    Address = reader.GetString(6);
+                    IDMantenimiento = reader.GetString(0);
+                    PlacaVehiculo = reader.GetString(1);
+                    IDReporte = reader.GetString(2);
+                    Costo = reader.GetString(3);
+                    Fecha = reader.GetString(4);
+                    Descripcion = reader.GetString(5);
+                    Estado = reader.GetString(6);
                 }
             }
             catch (Exception ex)
@@ -198,22 +197,39 @@ namespace SteeringSA_WPF.CRUD
         }
         #endregion
 
-        public DataTable FilterBy(string name, string address, string minAge, string maxAge)
+        public DataTable FilterBy(string minCost, string maxCost, string beginDate, string endDate, string vehicleID, string vehicleType)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_MAINTENANCE, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.CLIENT_NOMBRE, name);
-            cmd.Parameters.AddWithValue(TableVariable.CLIENT_DIRECCION, address);
 
-            if (minAge == null)
-                cmd.Parameters.AddWithValue("@Edad_inicial", minAge);
-            else
-                cmd.Parameters.AddWithValue("@Edad_inicial", int.Parse(minAge));
+            cmd.Parameters.AddWithValue("@Placa_vehiculo", vehicleID);
+            cmd.Parameters.AddWithValue("@Tipo_vehiculo", vehicleType);
 
-            if (maxAge == null)
-                cmd.Parameters.AddWithValue("@Edad_final", maxAge);
+            if (beginDate == null)
+                cmd.Parameters.AddWithValue("@Fecha_inicial", null);
             else
-                cmd.Parameters.AddWithValue("@Edad_final", int.Parse(maxAge));
+            {
+                //MessageBox.Show(DateTime.Parse(beginDate).ToString());
+                cmd.Parameters.AddWithValue("@Fecha_inicial", DateTime.Parse(beginDate));
+            }
+
+            if (endDate == null)
+                cmd.Parameters.AddWithValue("@Fecha_final", null);
+            else
+            {
+                //MessageBox.Show(DateTime.Parse(endDate).ToString());
+                cmd.Parameters.AddWithValue("@Fecha_final", DateTime.Parse(endDate));
+            }
+
+            if (minCost == null)
+                cmd.Parameters.AddWithValue("@Costo_inicial", minCost);
+            else
+                cmd.Parameters.AddWithValue("@Costo_inicial", decimal.Parse(minCost));
+
+            if (maxCost == null)
+                cmd.Parameters.AddWithValue("@Costo_final", maxCost);
+            else
+                cmd.Parameters.AddWithValue("@Costo_final", decimal.Parse(maxCost));
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 

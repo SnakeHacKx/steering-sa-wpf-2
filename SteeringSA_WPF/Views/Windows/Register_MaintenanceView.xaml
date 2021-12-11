@@ -43,7 +43,7 @@
                             <StackPanel>
                                 <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
                                     <TextBlock Text="Matrícula del Vehículo:" Style="{StaticResource S_TextBlock_Body}"/>
-                                    <TextBlock Name="Tb_VehicleCount" Margin="5 0 0 0" Text="AG3660" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                    <TextBlock Name="Tb_VehicleRegistration" Margin="5 0 0 0" Text="AG3660" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
                                 </WrapPanel>
 
                                 <WrapPanel Margin="0 0 0 20">
@@ -51,7 +51,7 @@
                                     <StackPanel>
                                         <TextBlock Margin="0 0 0 10" Text="Reporte" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
-                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_ReportID"/>
                                                     <Button Name="Btn_FindReport"
                                                 Click="Btn_FindReport_Click" 
                                                 ToolTip="Buscar reporte"
@@ -68,7 +68,7 @@
                                     <!--#region TXB FECHA -->
                                     <StackPanel Margin="30 0 0 0">
                                         <TextBlock Text="Fecha" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <DatePicker Name="Dtp_ReportDate"
+                                        <DatePicker Name="Dtp_MaintenanceDate"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                             </DatePicker>
                                     </StackPanel>
@@ -78,10 +78,10 @@
                                 <WrapPanel>
                                     <!--#region CB ESTADO -->
                                     <StackPanel Margin="0 0 0 20">
-                                        <TextBlock Text="Estado" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                        <ComboBox Name="Cb_VehicleState"
+                                        <TextBlock Text="Estado" Margin="0 0 0 2" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                        <ComboBox Name="Cb_MaintenanceState"
                                                       Width="150"
-                                                      Height="25"
+                                                      Height="auto"
                                                       Style="{StaticResource S_Combobox_Normal}">
                                                 <ComboBoxItem Content="Pendiente" Foreground="{StaticResource Black}" />
                                                 <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
@@ -103,7 +103,8 @@
                                         <TextBlock Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <RichTextBox Width="400" 
-                                                 Height="100" 
+                                                 Name="Txt_Description"
+                                                         Height="100" 
                                                  Style="{StaticResource S_RichTextBox_Form}"/>
                                         </Border>
                                     </StackPanel>
@@ -112,7 +113,8 @@
 
                                 <!--#region BOTON INICIAR SESION -->
                                 <Button  
-                            Name="Btn_AddClient"
+                            Name="Btn_AddMaintenance"
+                                    Click="Btn_AddMaintenance_Click"
                                     Margin="0 50 0 0"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"

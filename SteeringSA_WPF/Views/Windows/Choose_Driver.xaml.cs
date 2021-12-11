@@ -115,5 +115,10 @@ namespace SteeringSA_WPF.Views.Windows
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
+        private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

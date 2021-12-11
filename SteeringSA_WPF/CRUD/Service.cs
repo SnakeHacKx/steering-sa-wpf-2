@@ -57,7 +57,7 @@ namespace SteeringSA_WPF.CRUD
         /// <param name="vehicleID">Cedula del cliente</param>
         /// <param name="beginDate">Fecha de inicio</param>
         /// <param name="endDate">Fecha de Finalizacion</param>
-        public void Register(string idServiceType, string driverID, string clientID, string vehicleID, string beginDate, string endDate)
+        public void Register(string idServiceType, string driverID, string clientID, string vehicleID, string beginDate, string endDate, string description)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_SERVICE, DBConnection.Instance.SQLConnection);
             try
@@ -69,6 +69,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_PLACA_VEHICULO, vehicleID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_INICIO, beginDate);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_FINAL, endDate);
+                cmd.Parameters.AddWithValue(TableVariable.TYPE_SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -243,15 +244,6 @@ namespace SteeringSA_WPF.CRUD
             SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_SERVICE, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            //if (minCost == null) MessageBox.Show("minCost NULL");
-            //if (maxCost == null) MessageBox.Show("maxCost NULL");
-            //if (beginDate == null) MessageBox.Show("beginDate NULL");
-            //if (endDate == null) MessageBox.Show("endDate NULL");
-            //if (clientID == null) MessageBox.Show("clientID NULL");
-            //if (driverID == null) MessageBox.Show("driverID NULL");
-            //if (serviceType == null) MessageBox.Show("serviceType NULL");
-            //if (vehicleID == null) MessageBox.Show("vehicleID NULL");
-
             cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CLIENTE, clientID);
             cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
             cmd.Parameters.AddWithValue("@Placa_Vehiculo", vehicleID);
@@ -261,7 +253,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue("@Fecha_inicial", null);
             else
             {
-                MessageBox.Show(DateTime.Parse(beginDate).ToString());
+                //MessageBox.Show(DateTime.Parse(beginDate).ToString());
                 cmd.Parameters.AddWithValue("@Fecha_inicial", DateTime.Parse(beginDate));
             }
 
@@ -269,7 +261,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue("@Fecha_final", null);
             else
             {
-                MessageBox.Show(DateTime.Parse(endDate).ToString());
+                //MessageBox.Show(DateTime.Parse(endDate).ToString());
                 cmd.Parameters.AddWithValue("@Fecha_final", DateTime.Parse(endDate));
             }
 

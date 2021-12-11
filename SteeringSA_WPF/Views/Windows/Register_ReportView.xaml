@@ -50,17 +50,13 @@
                                     <TextBlock Name="Tb_TodaysDate" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
                                 </WrapPanel>
 
-                                <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
-                                    <TextBlock Text="Código del Reporte:" Style="{StaticResource S_TextBlock_Body}" VerticalAlignment="Center"/>
-                                    <TextBlock Name="Tb_ReportID" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
-                                </WrapPanel>
-
                                 <WrapPanel>
                                     <!--#region RTXB DESCRIPCION -->
                                     <StackPanel>
                                         <TextBlock Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <RichTextBox Width="350" 
+                                                         Name="Txt_Description"
                                                  Height="150" 
                                                  Style="{StaticResource S_RichTextBox_Form}"/>
                                         </Border>
@@ -71,7 +67,8 @@
                                 <!--#region BOTON INICIAR SESION -->
                                 <Button
                                     Margin="0 50 0 0"
-                Name="Btn_AddClient"
+                Name="Btn_AddReport"
+                                    Click="Btn_AddReport_Click"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 Width="180"

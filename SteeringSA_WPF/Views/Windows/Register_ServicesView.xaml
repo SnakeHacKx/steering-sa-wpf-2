@@ -50,7 +50,7 @@
                                     <StackPanel>
                                         <TextBlock Margin="0 0 0 10" Text="Tipo de Servicio" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
-                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_ServiceTypeID"/>
                                                     <Button Name="Btn_ChooseServiceType"
                                                 Click="Btn_ChooseServiceType_Click" 
                                                 ToolTip="Buscar reporte"
@@ -129,6 +129,7 @@
                                         <TextBlock Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
                                             <RichTextBox Width="530" 
+                                                         Name="Txt_Description"
                                                          Height="100" 
                                                          Style="{StaticResource S_RichTextBox_Form}"/>
                                         </Border>
@@ -139,7 +140,8 @@
                                 <!--#region BOTON INICIAR SESION -->
                                 <Button  
                                     Margin="0 50 0 0"
-                            Name="Btn_AddClient"
+                            Name="Btn_AddService"
+                                  Click="Btn_AddService_Click"  
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"
                             Width="180"

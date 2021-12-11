@@ -1,10 +1,9 @@
 ﻿<UserControl x:Class="SteeringSA_WPF.Views.DriverView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SteeringSA_WPF.Views"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins">
 
@@ -23,7 +22,7 @@
     <!--#endregion-->
 
     <Grid>
-        <Image Stretch="UniformToFill" Source="../Images/bg_views.png"/>
+        <Image Stretch="UniformToFill" Source="../Images/bg_view.png"/>
         <Grid Margin="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -76,7 +75,7 @@
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
-                        Style="{StaticResource S_Button_NormalButton}">
+                        Style="{StaticResource S_Button_NormalButtonWhite}">
 
                                 <md:PackIcon Kind="Search"
                                              Height="30"
@@ -111,7 +110,7 @@
                                 HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                 Height="40"
-                                Style="{StaticResource S_Button_NormalButton}">
+                                Style="{StaticResource S_Button_NormalButtonWhite}">
                             Ocultar Filtros
                         </Button>
                         <!--#endregion-->
@@ -158,84 +157,93 @@
                     Grid.Row="2"
                     Name="Dgv_DriversData"
                         SelectionChanged="Dgv_DriversData_SelectionChanged_1"
-                    Style="{StaticResource S_DataGrid_Dark}">
+                    Style="{StaticResource S_DataGrid_Light}" GridLinesVisibility="None">
 
                         <!--#region ESTILOS -->
+                        <!--#region COLUMN HEADER -->
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="Background" Value="#76777A"/>
+                                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                                <Setter Property="Background" Value="{StaticResource White}"/>
                             </Style>
                         </DataGrid.Resources>
+                        <!--#endregion-->
 
+                        <!--#region FILAS -->
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource FadedBlack}"/>
+                                <Setter Property="BorderThickness" Value="0.1"/>
 
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#C1C1C1" />
-                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="Background" Value="{StaticResource White}" />
+                                        <Setter Property="Foreground" Value="{StaticResource Black}" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#2196F3"/>
-                                        <Setter Property="BorderBrush" Value="#11131B"/>
-                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="{StaticResource TBlue}"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource TRed}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource TBlue}"/>
                                     </Trigger>
                                     <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                        <Setter Property="BorderBrush" Value="#11131B"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource Red}"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.RowStyle>
+                        <!--#endregion-->
 
+                        <!--#region CELDAS -->
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell">
                                 <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <Border Margin="10 0" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                                 <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
                                 <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                         Value="True">
+                                    <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Transparent" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.CellStyle>
                         <!--#endregion-->
+                        <!--#endregion-->
 
+                        <!--#region BOTON EN COLUMNA -->
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserResize="False">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="Btn_ViewProfile"
-                                        Click="Btn_ViewProfile_Click"
-                                                ToolTip="Ver perfil del conductor"
-                                        Background="#7F209B"
-                                        BorderThickness="0"
-                                        Width="auto">
+                                            Click="Btn_ViewProfile_Click"
+                                            Background="{StaticResource TBlack}"
+                                                ToolTip="Ver perfil del vehículo"
+                                            BorderThickness="0"
+                                            Width="auto">
                                             <Grid Width="auto">
                                                 <md:PackIcon Kind="User"
-                                                             Width="Auto" 
-                                                             Height="auto" 
-                                                             Foreground="White" 
-                                                             VerticalAlignment="Center"
-                                                             HorizontalAlignment="Center"/>
+                                             Width="auto" 
+                                             Height="auto" 
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
+                                             HorizontalAlignment="Center"/>
                                             </Grid>
                                         </Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
+                        <!--#endregion-->
                     </DataGrid>
                     <!--#endregion-->
                 </Grid>
@@ -247,7 +255,7 @@
             <Border Name="Bor_Filters" Visibility="Visible"
                     Grid.Column="1" Margin="20 0 0 0"
                     Style="{StaticResource S_Border_TextBoxWithBorder}"
-                    Background="{StaticResource TGray}">
+                    Background="{StaticResource TWhite}">
                 <Grid>
                     <StackPanel>
                         <WrapPanel Margin="0 10">
@@ -262,7 +270,7 @@
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
                                         VerticalAlignment="Center"
-                                        Style="{StaticResource S_Button_NormalButton}">
+                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}">
 
                                 <md:PackIcon Kind="Filter"
                                         Height="30"
@@ -273,7 +281,7 @@
                         </WrapPanel>
 
                         <!--#region TXB NOMBRE -->
-                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="Nombre:" 
                                VerticalAlignment="Center"
@@ -286,7 +294,7 @@
                             <!--#endregion-->
 
                             <!--#region FILTRO TIPO DE LICENCIA -->
-                            <Border Margin="0 20"  HorizontalAlignment="Left" Height="auto" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                        <Border Margin="0 20"  HorizontalAlignment="Left" Height="auto" Style="{StaticResource S_Border_TextBox}">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    HorizontalAlignment="Left"
@@ -308,7 +316,7 @@
                             <!--#endregion-->
 
                             <!--#region FILTRO EDAD -->
-                            <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
+                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"

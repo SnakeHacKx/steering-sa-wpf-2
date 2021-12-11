@@ -85,14 +85,14 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_Filter_Click(object sender, RoutedEventArgs e)
         {
-            string minCost = "";
-            string maxCost = "";
-            string beginDate = "";
-            string endDate = "";
-            string clientID = "";
-            string driverID = "";
-            string type = "";
-            string vehicleRegis = "";
+            string minCost;
+            string maxCost;
+            string beginDate;
+            string endDate;
+            string clientID;
+            string driverID;
+            string type;
+            string vehicleRegis;
 
             if (Txt_MinCost.Text == "") minCost = null;
             else minCost = Txt_MinCost.Text;

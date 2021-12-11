@@ -75,5 +75,23 @@ namespace SteeringSA_WPF.Views
             Dtp_MaintenanceDateMin.Text = "";
             Dtp_MaintenanceDateMax.Text = "";
         }
+
+        private void Btn_Filter_Click(object sender, RoutedEventArgs e)
+        {
+            string beginDate;
+            string endDate;
+            string state;
+
+            if (Dtp_MaintenanceDateMin.Text == "") beginDate = null;
+            else beginDate = Dtp_MaintenanceDateMin.Text;
+
+            if (Dtp_MaintenanceDateMax.Text == "-") endDate = null;
+            else endDate = Dtp_MaintenanceDateMax.Text;
+
+            if (Cb_State.Text == "") state = null;
+            else state = Cb_State.Text;
+
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ReportsData, TableID.REPORT, CRUD.Report.Instance.FilterBy(beginDate, endDate, state), ref Tb_RecordCount);
+        }
     }
 }

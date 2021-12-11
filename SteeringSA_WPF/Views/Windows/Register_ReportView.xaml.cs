@@ -35,5 +35,20 @@ namespace SteeringSA_WPF.Views
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
+        private void Btn_AddReport_Click(object sender, RoutedEventArgs e)
+        {
+            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+            CRUD.Report.Instance.Register(Tb_VehicleRegistration.Text,
+                description,
+                Tb_TodaysDate.Text);
+            ClearFormFields();
+        }
+
+        private void ClearFormFields()
+        {
+            Txt_Description.Document.Blocks.Clear();
+            Txt_Description.Document.Blocks.Add(new Paragraph(new Run("")));
+        }
     }
 }

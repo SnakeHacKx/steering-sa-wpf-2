@@ -115,7 +115,7 @@
             <!--#region HEADER -->
 
             <!--#region TOP HEADER -->
-            <Grid Grid.Row="0" Style="{StaticResource S_Grid_TopHeader}" MouseDown="Grid_MouseDown"  >
+            <Grid Grid.Row="0" Style="{StaticResource S_Grid_TopHeader}" MouseDown="Grid_MouseDown">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -179,7 +179,7 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="0" Name="Img_Logo" Visibility="Collapsed" Width="auto" Margin="20 0 0 0" HorizontalAlignment="Right" Height="60" Stretch="Uniform" Source="../Images/logo_large.png"/>
+                    <Image Grid.Column="0" Name="Img_Logo" Visibility="Collapsed" Width="auto" Margin="20 0 0 0" HorizontalAlignment="Right" Height="60" Stretch="Uniform" Source="Images/logo_large.png"/>
 
                         <!-- TITULO -->
                     <TextBlock 

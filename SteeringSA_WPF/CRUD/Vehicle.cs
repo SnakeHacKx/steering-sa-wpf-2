@@ -13,10 +13,11 @@ namespace SteeringSA_WPF.CRUD
     {
         #region PROPERTIES
         public string IDPlaca { get; set; }
+        public string Modelo { get; set; }
         public string Motor { get; set; }
         public string Tipo { get; set; }
         public string Estado { get; set; }
-        public int Pasajeros { get; set; }
+        public string Pasajeros { get; set; }
         public string TipoCombustible { get; set; }
         public string Color { get; set; }
         #endregion
@@ -179,12 +180,12 @@ namespace SteeringSA_WPF.CRUD
                 while (reader.Read())
                 {
                     IDPlaca = reader.GetString(0);
-                    Motor = reader.GetString(1);
-                    Estado = reader.GetString(2);
-                    Tipo = reader.GetString(3);
-                    Pasajeros = reader.GetInt32(4);
+                    Tipo = reader.GetString(1);
+                    Modelo = reader.GetString(2);
+                    Pasajeros = reader.GetString(3);
+                    Color = reader.GetString(4);
                     TipoCombustible = reader.GetString(5);
-                    Color = reader.GetString(6);
+                    Estado = reader.GetString(6);
                 }
             }
             catch (Exception ex)
@@ -197,5 +198,38 @@ namespace SteeringSA_WPF.CRUD
             }
         }
         #endregion
+
+        public DataTable FilterBy(string model, string type, string minPassengers, string maxPassengers, string fuelType, string state, string color)
+        {
+            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_VEHICLE, DBConnection.Instance.SQLConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO, type);
+            cmd.Parameters.AddWithValue(TableVariable.VEHICLE_MODELO, model);
+            cmd.Parameters.AddWithValue(TableVariable.VEHICLE_COLOR, color);
+            cmd.Parameters.AddWithValue("@pasajero_init", minPassengers);
+            cmd.Parameters.AddWithValue("@pasajero_top", maxPassengers);
+            cmd.Parameters.AddWithValue("@Tipo_de_combustible", fuelType);
+            cmd.Parameters.AddWithValue("@Estado_vehiculo", state);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            using (da)
+            {
+                DataTable dataTable = new DataTable();
+
+                try
+                {
+                    da.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.Show(ex.Message, "Error en la base de datos", CustomMessageBox.CMessageBoxType.Error);
+                    return null;
+                }
+
+                return dataTable;
+            }
+        }
     }
 }

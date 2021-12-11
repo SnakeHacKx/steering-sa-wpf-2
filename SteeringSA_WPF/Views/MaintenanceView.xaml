@@ -138,76 +138,85 @@
                     <DataGrid 
                     Grid.Row="3"
                     Name="Dgv_MaintenanceData"
-                    Style="{StaticResource S_DataGrid_Dark}">
+                    Style="{StaticResource S_DataGrid_Light}" GridLinesVisibility="None">
 
                         <!--#region ESTILOS -->
+                        <!--#region COLUMN HEADER -->
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="Background" Value="#76777A"/>
+                                <Setter Property="Foreground" Value="{StaticResource Black}"/>
+                                <Setter Property="Background" Value="{StaticResource White}"/>
                             </Style>
                         </DataGrid.Resources>
+                        <!--#endregion-->
 
+                        <!--#region FILAS -->
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource FadedBlack}"/>
+                                <Setter Property="BorderThickness" Value="0.1"/>
 
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#C1C1C1" />
-                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="Background" Value="{StaticResource White}" />
+                                        <Setter Property="Foreground" Value="{StaticResource Black}" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#2196F3"/>
-                                        <Setter Property="BorderBrush" Value="#11131B"/>
-                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="{StaticResource TBlue}"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource TRed}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource TBlue}"/>
                                     </Trigger>
                                     <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                        <Setter Property="BorderBrush" Value="#11131B"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource Red}"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.RowStyle>
+                        <!--#endregion-->
 
+                        <!--#region CELDAS -->
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell">
                                 <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <Border Margin="10 0" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                                 <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
                                 <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                         Value="True">
+                                    <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Transparent" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGrid.CellStyle>
                         <!--#endregion-->
+                        <!--#endregion-->
 
+                        <!--#region BOTON EN COLUMNA -->
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserResize="False">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="Btn_ViewProfile"
                                             Click="Btn_ViewProfile_Click"
-                                            Background="#7F209B"
+                                            Background="{StaticResource TBlack}"
+                                                ToolTip="Ver perfil del vehículo"
                                             BorderThickness="0"
                                             Width="auto">
                                             <Grid Width="auto">
-                                                <materialDesign:PackIcon Kind="User"
-                                             Width="Auto" 
+                                                <materialDesign:PackIcon Kind="Car"
+                                             Width="auto" 
                                              Height="auto" 
-                                             Foreground="White" 
-                                             VerticalAlignment="Center"
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
                                              HorizontalAlignment="Center"/>
                                             </Grid>
                                         </Button>
@@ -215,6 +224,7 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
+                        <!--#endregion-->
                     </DataGrid>
                     <!--#endregion-->
                 </Grid>
@@ -238,6 +248,7 @@
                             <!--#region BUTTON FILTER -->
                             <Button Name="Btn_Filter"
                                         Margin="115 0 0 0"
+                                    Click="Btn_Filter_Click"
                                         HorizontalAlignment="Right"
                                         ToolTip="Filtrar"
                                         VerticalAlignment="Center"
@@ -258,13 +269,14 @@
                                    VerticalAlignment="Center"
                                    Text="Costo (Balboas):"/>
                                 <WrapPanel VerticalAlignment="Center">
-                                    <TextBox MinWidth="80" materialDesign:HintAssist.Hint="30.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
+                                    <TextBox MinWidth="80" materialDesign:HintAssist.Hint="30.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinCost" Width="Auto"/>
 
                                     <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                        VerticalAlignment="Center"
+                                               Margin="5 0"
                                        Text="a"/>
-                                    
-                                    <TextBox MinWidth="80" materialDesign:HintAssist.Hint="70.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
+
+                                    <TextBox MinWidth="80" materialDesign:HintAssist.Hint="70.00" MaxWidth="60" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxCost" Width="Auto"/>
                                 </WrapPanel>
 
                             </StackPanel>
@@ -278,19 +290,8 @@
                                    VerticalAlignment="Center"
                                    Text="Fecha de asignación:"/>
                                 <WrapPanel VerticalAlignment="Center">
-                                    <DatePicker Name="Dtp_MaintenanceDateMin"
+                                    <DatePicker Name="Dtp_MaintenanceBeginDate"
                                     Style="{StaticResource S_DatePicker_Light}">
-
-                                    </DatePicker>
-
-                                    <TextBlock Style="{StaticResource S_TextBlock_Body}"
-                                       Margin="15 0"
-                                       VerticalAlignment="Center"
-                                       Text="a"/>
-
-                                    <DatePicker Name="Dtp_MaintenanceDateMax"
-                                    Style="{StaticResource S_DatePicker_Light}">
-
                                     </DatePicker>
                                 </WrapPanel>
 
@@ -305,22 +306,60 @@
                                    VerticalAlignment="Center"
                                    Text="Fecha de finalización:"/>
                                 <WrapPanel VerticalAlignment="Center">
-                                    <DatePicker Name="Dtp_MaintenanceEndDateMin"
+                                    <DatePicker Name="Dtp_MaintenanceEndDate"
                                     Style="{StaticResource S_DatePicker_Light}">
-
-                                    </DatePicker>
-
-                                    <TextBlock Style="{StaticResource S_TextBlock_Body}"
-                                       Margin="15 0"
-                                       VerticalAlignment="Center"
-                                       Text="a"/>
-
-                                    <DatePicker Name="Dtp_MaintenanceEndDateMax"
-                                    Style="{StaticResource S_DatePicker_Light}">
-
                                     </DatePicker>
                                 </WrapPanel>
 
+                            </StackPanel>
+                        </Border>
+                        <!--#endregion-->
+
+                        <!--#region FILTRO ESTADO -->
+                        <Border Margin="0 20"  HorizontalAlignment="Left" Height="auto" Style="{StaticResource S_Border_TextBox}">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   HorizontalAlignment="Left"
+                                   Text="Estado:"/>
+                                <ComboBox Name="Cb_State"
+                                          SelectedIndex="0"
+                                          HorizontalAlignment="Left"
+                                          Width="40"
+                                          Style="{StaticResource S_Combobox_Normal}">
+                                    <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Pendiente" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+                        <!--#endregion-->
+
+                        <!--#region FILTRO TIPO DE VEHICULO -->
+                        <Border Margin="0 0" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}" Height="auto">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Text="Tipo:"/>
+                                <ComboBox Name="Cb_VehicleType"
+                                  Width="150"
+                                  Height="35"
+                                  Style="{StaticResource S_Combobox_Normal}">
+                                    <ComboBoxItem Content="Sedán" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Camión" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Camioneta" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Motocicleta" Foreground="{StaticResource Black}" />
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+                        <!--#endregion-->
+
+                        <!--#region FILTRO MODELO -->
+                        <Border Margin="0 20 0 0" Height="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{StaticResource S_TextBlock_Body}"
+                                   VerticalAlignment="Center"
+                                   Text="Matrícula de Vehículo:"/>
+                                <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleID"/>
                             </StackPanel>
                         </Border>
                         <!--#endregion-->

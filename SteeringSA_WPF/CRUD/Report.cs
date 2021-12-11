@@ -12,24 +12,22 @@ namespace SteeringSA_WPF.CRUD
     public class Report
     {
         #region PROPERTIES
-        public string IDPlaca { get; set; }
-        public string Motor { get; set; }
-        public string Tipo { get; set; }
+        public string IDReporte { get; set; }
+        public string PlacaVehiculo { get; set; }
         public string Estado { get; set; }
-        public int Pasajeros { get; set; }
-        public string TipoCombustible { get; set; }
-        public string Color { get; set; }
+        public string Descripcion { get; set; }
+        public string Fecha { get; set; }
         #endregion
 
         #region SINGLETON
-        private static Vehicle _instance;
+        private static Report _instance;
 
-        public static Vehicle Instance
+        public static Report Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new Vehicle();
+                    _instance = new Report();
 
                 return _instance;
             }
@@ -41,18 +39,15 @@ namespace SteeringSA_WPF.CRUD
         #endregion
 
         #region CRUD
-
-        public void Register(string id, string vehicleRegister, string state, string description, string addDate)
+        public void Register(string vehicleRegister, string description, string todaysDate)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_REPORT, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_PLACA_VEHICULO, vehicleRegister);
-                cmd.Parameters.AddWithValue(TableVariable.REPORT_ESTADO, state);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_DESCRIPCION, description);
-                cmd.Parameters.AddWithValue(TableVariable.REPORT_FECHA, addDate);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_FECHA, todaysDate);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -82,14 +77,14 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string id, string vehicleRegister, string state, string description, string addDate)
+        public void Edit(string id, string vehicleRegistration, string state, string description, string addDate)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_REPORT, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
-                cmd.Parameters.AddWithValue(TableVariable.REPORT_PLACA_VEHICULO, vehicleRegister);
+                cmd.Parameters.AddWithValue(TableVariable.REPORT_PLACA_VEHICULO, vehicleRegistration);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_ESTADO, state);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_DESCRIPCION, description);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_FECHA, addDate);
@@ -165,7 +160,7 @@ namespace SteeringSA_WPF.CRUD
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PLACA, id);
+            cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
 
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();
@@ -175,13 +170,11 @@ namespace SteeringSA_WPF.CRUD
             {
                 while (reader.Read())
                 {
-                    IDPlaca = reader.GetString(0);
-                    Motor = reader.GetString(1);
-                    Estado = reader.GetString(2);
-                    Tipo = reader.GetString(3);
-                    Pasajeros = reader.GetInt32(4);
-                    TipoCombustible = reader.GetString(5);
-                    Color = reader.GetString(6);
+                    IDReporte = reader.GetString(0);
+                    PlacaVehiculo = reader.GetString(1);
+                    Descripcion = reader.GetString(2);
+                    Fecha = reader.GetString(3);
+                    Estado = reader.GetString(4);
                 }
             }
             catch (Exception ex)
@@ -194,5 +187,47 @@ namespace SteeringSA_WPF.CRUD
             }
         }
         #endregion
+
+        public DataTable FilterBy(string beginDate, string endDate, string state)
+        {
+            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_REPORT, DBConnection.Instance.SQLConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Estado_reporte", state);
+
+            if (beginDate == null)
+                cmd.Parameters.AddWithValue("@Fecha_inicio", null);
+            else
+            {
+                //MessageBox.Show(DateTime.Parse(beginDate).ToString());
+                cmd.Parameters.AddWithValue("@Fecha_inicio", DateTime.Parse(beginDate));
+            }
+
+            if (endDate == null)
+                cmd.Parameters.AddWithValue("@Fecha_final", null);
+            else
+            {
+                //MessageBox.Show(DateTime.Parse(endDate).ToString());
+                cmd.Parameters.AddWithValue("@Fecha_final", DateTime.Parse(endDate));
+            }
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            using (da)
+            {
+                DataTable dataTable = new DataTable();
+
+                try
+                {
+                    da.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.Show(ex.Message, "Error en la base de datos", CustomMessageBox.CMessageBoxType.Error);
+                    return null;
+                }
+
+                return dataTable;
+            }
+        }
     }
 }

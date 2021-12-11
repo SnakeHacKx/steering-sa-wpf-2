@@ -26,7 +26,7 @@ namespace SteeringSA_WPF.Views
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = false;
+            isFilterGridOpen = true;
         }
 
         /// <summary>
@@ -73,5 +73,41 @@ namespace SteeringSA_WPF.Views
         {
             RefreshDataGrid();
         }
+
+        private void Btn_Filter_Click(object sender, RoutedEventArgs e)
+        {
+            string minCost;
+            string maxCost;
+            string beginDate;
+            string endDate;
+            string state;
+            string vehicleID;
+            string vehicleType;
+
+            if (Txt_MinCost.Text == "") minCost = null;
+            else minCost = Txt_MinCost.Text;
+
+            if (Txt_MaxCost.Text == "") maxCost = null;
+            else maxCost = Txt_MaxCost.Text;
+
+            if (Dtp_MaintenanceBeginDate.Text == "") beginDate = null;
+            else beginDate = Dtp_MaintenanceBeginDate.Text;
+
+            if (Dtp_MaintenanceEndDate.Text == "") endDate = null;
+            else endDate = Dtp_MaintenanceEndDate.Text;
+
+            if (Txt_VehicleID.Text == "") vehicleID = null;
+            else vehicleID = Txt_VehicleID.Text;
+
+            if (Cb_State.Text == "-") state = null;
+            else state = Cb_State.Text;
+
+            if (Cb_VehicleType.Text == "") vehicleType = null;
+            else vehicleType = Cb_VehicleType.Text;
+
+
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_MaintenanceData, TableID.MAINTENANCE, CRUD.Maintenance.Instance.FilterBy(minCost, maxCost, beginDate, endDate, vehicleID, vehicleType), ref Tb_RecordCount);
+        }
     }
 }
+  

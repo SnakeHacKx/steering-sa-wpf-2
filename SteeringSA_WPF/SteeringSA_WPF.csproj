@@ -68,6 +68,7 @@
     <Compile Include="CRUD\Client.cs" />
     <Compile Include="CRUD\Driver.cs" />
     <Compile Include="CRUD\GenericCRUD.cs" />
+    <Compile Include="CRUD\Maintenance.cs" />
     <Compile Include="CRUD\Report.cs" />
     <Compile Include="CRUD\Service.cs" />
     <Compile Include="CRUD\Vehicle.cs" />

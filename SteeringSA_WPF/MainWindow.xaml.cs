@@ -46,7 +46,6 @@ namespace SteeringSA_WPF
             BrushConverter bc = new BrushConverter();
             if (this.WindowState == WindowState.Normal)
             {
-
                 MainWindowBorder.BorderThickness = new Thickness(1);
                 MainWindowBorder.BorderBrush = (Brush)bc.ConvertFrom("#4FCDF5");
             }
@@ -62,7 +61,10 @@ namespace SteeringSA_WPF
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
+            {
                 this.DragMove();
+            }
+                
         }
 
         /// <summary>

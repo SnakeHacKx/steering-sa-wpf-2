@@ -19,9 +19,12 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class Register_MaintenanceView : Window
     {
-        public Register_MaintenanceView()
+        private string vehicleID;
+        public Register_MaintenanceView(string vehicleID)
         {
             InitializeComponent();
+            this.vehicleID = vehicleID;
+            Tb_VehicleRegistration.Text = vehicleID;
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -38,6 +41,28 @@ namespace SteeringSA_WPF.Views
         private void Btn_FindReport_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Btn_AddMaintenance_Click(object sender, RoutedEventArgs e)
+        {
+            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+
+            CRUD.Maintenance.Instance.Register(Tb_VehicleRegistration.Text,
+                Txt_ReportID.Text,
+                Txt_Cost.Text,
+                Dtp_MaintenanceDate.Text,
+                description,
+                Cb_MaintenanceState.Text);
+            ClearFormFields();
+        }
+
+        private void ClearFormFields()
+        {
+            Txt_ReportID.Text = "";
+            Txt_Cost.Text = "";
+            Dtp_MaintenanceDate.Text = "";
+            Txt_Description.Document.Blocks.Clear();
+            Txt_Description.Document.Blocks.Add(new Paragraph(new Run("")));
         }
     }
 }
