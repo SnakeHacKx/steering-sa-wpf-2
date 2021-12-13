@@ -16,6 +16,13 @@ namespace SteeringSA_WPF
         public static string ServiceID { get; set; }
         public static string MaintenanceID { get; set; }
         public static string Username { get; set; }
+        public static string ChosenDriver { get; set; }
+        public static string ChosenClient { get; set; }
+        public static string ChosenReport { get; set; }
+        public static string ChosenMaintenance { get; set; }
+        public static string ChosenVehicle { get; set; }
+        public static string ChosenService { get; set; }
+        public static string ChosenServiceType { get; set; }
 
         /// <summary>
         /// Cambia la ventana (control de usuario) presentado actualmente por uno nuevo.

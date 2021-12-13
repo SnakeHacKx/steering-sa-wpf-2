@@ -19,6 +19,7 @@ namespace SteeringSA_WPF
         public const string VIEW_MAINTENANCE = "Mantenimientos";
         public const string VIEW_REPORTS = "Reportes";
         public const string VIEW_SERVICES = "Servicios";
+        public const string VIEW_USERS = "Usuarios";
 
         public const string CLIENT_PROFILE = "Cliente";
         public const string VEHICLE_PROFILE = "Vehículo";
@@ -30,6 +31,7 @@ namespace SteeringSA_WPF
         public const string ADD_MAINTENANCE = "Agregar Mantenimiento";
         public const string ADD_REPORTS = "Agregar Reporte";
         public const string ADD_SERVICES = "Agregar Servicio";
+        public const string ADD_USERS = "Agregar Usuario";
 
         public const string EDIT_CLIENT = "Editar Cliente";
         public const string EDIT_DRIVER = "Editar Conductor";
@@ -65,6 +67,7 @@ namespace SteeringSA_WPF
         public const string REPORT = "Cod_reporte";
         public const string SERVICE = "Cod_Servicio";
         public const string TYPE_SERVICE = "Cod_tipo_servicio";
+        public const string USER = "Cod_tipo_servicio";
     }
 
     /// <summary>
@@ -205,8 +208,8 @@ namespace SteeringSA_WPF
         public const string INSERT_TYPE_SERVICE = "PROC_REGISTRAR_TIPO_SERVICIO";
         public const string UPDATE_TYPE_SERVICE = "PROC_ACTUALIZAR_DATOS_T_SERVICIOS";
         public const string DELETE_TYPE_SERVICE = "PROC_ELIMINAR_TIPO_SERVICIO";
-        public const string SHOW_ALL_TYPE_SERVICE = "PROC_LISTAR_TODOS_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BY_TYPE_SERVICE = "PROC_BUSCAR_CODIGO_SERVICIO"; //BUSCA POR EL CODIGO
+        public const string SHOW_ALL_TYPE_SERVICE = "PROC_LISTAR_TODOS_T_SERVICIOS";//MUESTRA TODOS LOS DATOS GENERALES
+        public const string SEARCH_TYPE_SERVICE_BYCODE = "PROC_BUSCAR_CODIGO_TIPO_SERVICIO"; //BUSCA POR EL CODIGO
         public const string SEARCH_TYPE_SERVICE_NAME = "PROC_OBTENER_NOMBRES_T_SERVICIO";
         #endregion
 

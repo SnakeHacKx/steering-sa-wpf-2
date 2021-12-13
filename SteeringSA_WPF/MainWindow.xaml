@@ -57,6 +57,11 @@
                       DataType="{x:Type viewmodels:ServicesViewModel}">
             <views:ServicesView DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="UserProfileViewTemplate"
+                      DataType="{x:Type viewmodels:UserViewModel}">
+            <views:UserView DataContext="{Binding}"/>
+        </DataTemplate>
         <!--#endregion-->
 
         <!--#region PERFILES -->
@@ -74,6 +79,8 @@
                       DataType="{x:Type viewmodels:Profile_VehicleViewModel}">
             <views:Profile_VehicleView DataContext="{Binding}"/>
         </DataTemplate>
+
+        
         <!--#endregion-->
 
         <DataTemplate x:Name="HistoryViewTemplate"
@@ -124,7 +131,7 @@
                 <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"
                            Foreground="{StaticResource TWhite}"
                            Style="{StaticResource S_TextBlock_Info}">
-                    Proyecto de Base de Datos II
+                    CA Transport
                 </TextBlock>
 
                 <WrapPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" >

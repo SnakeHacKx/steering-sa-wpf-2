@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="SteeringSA_WPF.Views.ReportView"
+﻿<UserControl x:Class="SteeringSA_WPF.Views.UserView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SteeringSA_WPF.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             d:DesignHeight="768" d:DesignWidth="1366" FontFamily="Poppins" Loaded="UserControl_Loaded">
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" FontFamily="Poppins"
+             d:DesignHeight="768" d:DesignWidth="1366">
 
     <!--#region ANIMACION -->
     <UserControl.Triggers>
@@ -25,11 +25,13 @@
     <Grid>
         <Image Stretch="UniformToFill" Source="../Images/bg_view.png"/>
         <Grid Margin="50">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
+            <!--#region COLUMN 1 -->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -37,76 +39,71 @@
                 </Grid.RowDefinitions>
 
                 <!--#region ROW 1 -->
-                <Grid Grid.Row="0" Grid.Column="0">
+                <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <!--#region COLUMN 1 -->
-                    <WrapPanel HorizontalAlignment="Left" Grid.Column="0">
+                    <WrapPanel>
                         <Button Name="Btn_GoBack"
                         Click="Btn_GoBack_Click"
                         ToolTip="Volver"
                         Style="{StaticResource S_Button_TransparentButtonWithHand}" 
                         HorizontalAlignment="Left">
-                            <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                            <md:PackIcon Kind="ArrowBackCircle" 
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
 
-                        <StackPanel Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
-                            <!--#region TXB CODIGO -->
-                            <WrapPanel VerticalAlignment="Center">
-                                <TextBlock Text="Código:" 
+                        <!--#region TXB CEDULA -->
+                        <WrapPanel VerticalAlignment="Center" >
+                            <TextBlock Text="Nombre de Usuario:" 
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
-                                <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                                    <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="SIN DEFINIR" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_IDReport, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
-                                    </Grid>
-                                </Border>
-                            </WrapPanel>
-                            <!--#endregion-->
+                            <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
+                                <TextBox
+                                         MinWidth="200"
+                                         MaxWidth="250" 
+                                         Style="{StaticResource S_TextBox_Form}" Name="Txt_ClientDNI"/>
+                            </Border>
+                        </WrapPanel>
+                        <!--#endregion-->
 
-                            <Button Name="Btn_Search"
+                        <!--#region BUTTON BUSCAR -->
+                        <Button Name="Btn_Search"
+                                    Click="Btn_Search_Click"
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
                         Style="{StaticResource S_Button_NormalButtonWhite}">
 
-                                <materialDesign:PackIcon Kind="Search"
+                            <md:PackIcon Kind="Search"
                                              Height="30"
                                              Width="auto"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
-                            </Button>
-
-                        </StackPanel>
-
-
+                        </Button>
+                        <!--#endregion-->
                     </WrapPanel>
-                    <!--#endregion-->
 
-                    <!--#region COLUMN 2 -->
-                    <Button Grid.Column="1" Name="Btn_TogggleFilters"
-                        Click="Btn_TogggleFilters_Click" Grid.Row="1" 
-                        HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                        Height="40"
-                        Style="{StaticResource S_Button_NormalButtonWhite}">
-                        Ocultar Filtros
-                    </Button>
-                    <!--#endregion-->
+                    <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <!-- #region Boton Agregar  -->
+                        <Button
+                        ToolTip="Agregar usuario"
+                        Name="Btn_AddUser" 
+                        Click="Btn_AddUser_Click"
+                        Style="{StaticResource S_Button_ConfirmButton}">
+
+                            <md:PackIcon Kind="Register"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                        </Button>
+                        <!--#endregion-->
+                    </WrapPanel>
 
                 </Grid>
                 <!--#endregion-->
 
-                <!--#region ROW 2 -->
-                <Grid Grid.Row="1">
+                <!--#region ROW 3 -->
+                <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
@@ -118,17 +115,17 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
-                            <TextBlock Text="Reportes:" Style="{StaticResource S_TextBlock_Info}"/>
-                            <TextBlock Margin="5 0 0 0" Name="Tb_RecordCount" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
+                            <TextBlock Text="Usuarios:" Style="{StaticResource S_TextBlock_Info}"/>
+                            <TextBlock Name="Tb_RecordCount" Margin="5 0 0 0" Text="0" Style="{StaticResource S_TextBlock_Info}"/>
                         </WrapPanel>
 
                         <Button Grid.Column="1"
                             ToolTip="Recargar tabla y limpiar filtros"
                             Name="Btn_RefreshDataGrid"
-                                Click="Btn_RefreshDataGrid_Click"
+                            Click="Btn_RefreshDataGrid_Click_1"
                             Style="{StaticResource S_Button_TransparentButtonWithHand}" 
                             HorizontalAlignment="Right">
-                            <materialDesign:PackIcon Kind="Refresh" 
+                            <md:PackIcon Kind="Refresh" 
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
                     </Grid>
@@ -136,10 +133,10 @@
 
                     <!--#region DATAGRID -->
                     <DataGrid 
-                    Grid.Row="1"
-                        IsTextSearchEnabled="True"
-                    Name="Dgv_ReportsData"
-                    Style="{StaticResource S_DataGrid_Light}" ClipToBounds="True" RowHeight="35" ColumnWidth="Auto" RowHeaderWidth="60" HorizontalGridLinesBrush="{x:Null}" SelectionMode="Single" GridLinesVisibility="None" VerticalGridLinesBrush="{x:Null}">
+                    Grid.Row="2"
+                    SelectionChanged="Dgv_UsersData_SelectionChanged"
+                    Name="Dgv_UsersData"
+                    Style="{StaticResource S_DataGrid_Light}" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}">
 
                         <!--#region ESTILOS -->
                         <!--#region COLUMN HEADER -->
@@ -213,7 +210,7 @@
                                             BorderThickness="0"
                                             Width="auto">
                                             <Grid Width="auto">
-                                                <materialDesign:PackIcon Kind="Car"
+                                                <md:PackIcon Kind="User"
                                              Width="auto" 
                                              Height="auto" 
                                              Foreground="{StaticResource White}" 
@@ -230,83 +227,72 @@
                     <!--#endregion-->
                 </Grid>
                 <!--#endregion-->
+
             </Grid>
+            <!--#endregion-->
+            
+            <!--#region COLUMN 2 PROFILE -->
+            <Border 
+                    Grid.Column="1"
+                Margin="50 0 0 0"
+                    BorderThickness="1" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        BorderBrush="{StaticResource DarkenGray}"
+                        Padding="20 10"
+                        Background="{StaticResource PaleGray}"
+                        Width="auto"
+                        CornerRadius="10">
+                <StackPanel>
+                    <md:PackIcon Kind="User" 
+                                                 HorizontalAlignment="Center"
+                                                 Foreground="{StaticResource Black}"
+                                                 Style="{StaticResource S_Icon_LargeIcon}"/>
 
-            <!--#region COLUMN 2 FILTROS -->
-            <Border Name="Bor_Filters" Visibility="Visible"
-                    Grid.Column="1" Margin="20 0 0 0"
-                    Style="{StaticResource S_Border_TextBoxWithBorder}"
-                    Background="{StaticResource TWhite}">
-                <Grid>
-                    <StackPanel>
-                        <WrapPanel Margin="0 10">
-                            <TextBlock Style="{StaticResource S_TextBlock_Subtitle}"
-                                            VerticalAlignment="Center"
-                                            Text="Filtros"/>
+                    <TextBlock HorizontalAlignment="Center" 
+                                   Text="Nombre Usuario" 
+                                   Name="Tb_Name"
+                                   Style="{StaticResource S_TextBlock_Subtitle}"/>
+                    <TextBlock Name="Tb_Role" 
+                                   HorizontalAlignment="Center"
+                                   Text="Administrador" 
+                                   Style="{StaticResource S_TextBlock_BodyMedium}"/>
 
-                            <!--#region BUTTON FILTER -->
-                            <Button Name="Btn_Filter"
-                                        Margin="115 0 0 0"
-                                    Click="Btn_Filter_Click"
-                                        HorizontalAlignment="Right"
-                                        ToolTip="Filtrar"
-                                        VerticalAlignment="Center"
-                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}">
 
-                                <materialDesign:PackIcon Kind="Filter"
-                                        Height="30"
-                                        Width="auto"
-                                    Style="{StaticResource S_Icon_MediumIcon}"/>
-                            </Button>
-                            <!--#endregion-->
-                        </WrapPanel>
+                    <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
 
-                        <!--#region FILTRO RANGO DE FECHA -->
-                        <Border HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBox}">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Style="{StaticResource S_TextBlock_Body}"
-                                   VerticalAlignment="Center"
-                                   Text="Fecha:"/>
-                                <WrapPanel VerticalAlignment="Center">
-                                    <DatePicker Margin="10 0 0 0" Name="Dtp_MaintenanceDateMin"
-                                    Style="{StaticResource S_DatePicker_Light}">
+                        <!-- #region Boton Editar  -->
+                        <Button Grid.Column="1"
+                                    ToolTip="Editar conductor"
+                                    Name="Btn_EditUser" 
+                                    Click="Btn_EditUser_Click"    
+                                    HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                    Margin="0 0 50 0"
+                                    Style="{StaticResource S_Button_EditButton}">
 
-                                    </DatePicker>
-
-                                    <TextBlock Style="{StaticResource S_TextBlock_Body}"
-                                       Margin="5 0"
-                                       VerticalAlignment="Center"
-                                       Text="a"/>
-
-                                    <DatePicker Name="Dtp_MaintenanceDateMax"
-                                    Style="{StaticResource S_DatePicker_Light}">
-
-                                    </DatePicker>
-                                </WrapPanel>
-
-                            </StackPanel>
-                        </Border>
+                            <md:PackIcon Kind="UserEdit"
+                                         Foreground="{StaticResource White}"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                        </Button>
                         <!--#endregion-->
 
-                        <!--#region FILTRO ESTADO -->
-                        <Border Margin="0 20 0 0" HorizontalAlignment="Left" Height="auto" Style="{StaticResource S_Border_TextBox}">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Style="{StaticResource S_TextBlock_Body}"
-                                   VerticalAlignment="Center"
-                                   Text="Estado:"/>
-                                <ComboBox Name="Cb_State"
-                                          SelectedIndex="0"
-                                  Width="150"
-                                  Style="{StaticResource S_Combobox_Normal}">
-                                    <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
-                                    <ComboBoxItem Content="Atendido" Foreground="{StaticResource Black}" />
-                                    <ComboBoxItem Content="No Atendido" Foreground="{StaticResource Black}" />
-                                </ComboBox>
-                            </StackPanel>
-                        </Border>
+                        <!-- #region Boton Eliminar  -->
+                        <Button Grid.Column="1"
+                                    ToolTip="Eliminar conductor"
+                                    Name="Btn_DeleteUser" 
+                                    Click="Btn_DeleteUser_Click"
+                                    HorizontalAlignment="Right"
+                                    
+                                    Style="{StaticResource S_Button_DeleteButton}">
+
+                            <md:PackIcon Kind="DeleteCircle"
+                                                         Foreground="{StaticResource White}"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                        </Button>
                         <!--#endregion-->
-                    </StackPanel>
-                </Grid>
+                    </WrapPanel>
+                </StackPanel>
             </Border>
             <!--#endregion-->
         </Grid>

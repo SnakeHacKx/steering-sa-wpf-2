@@ -1,0 +1,111 @@
+﻿<Window x:Class="SteeringSA_WPF.Views.Windows.Edit_Client"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SteeringSA_WPF.Views.Windows"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" FontFamily="Poppins"
+        Title="Register_ReportView"  Height="700" Width="1000" 
+        AllowsTransparency="False" WindowStyle="None"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image Stretch="UniformToFill" Source="../../Images/viewTest2.png"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--#region ROW 1 -->
+            <Grid Grid.Row="0">
+                <Button Name="Btn_GoBack"
+                        Click="Btn_GoBack_Click" 
+                        ToolTip="Volver"
+                        Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                        HorizontalAlignment="Left"
+                        Margin="70 20 0 0">
+                    <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+                </Button>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region ROW 2 -->
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center"
+                VerticalAlignment="Center" Margin="0 0 0 50">
+                <Border BorderThickness="0" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
+                Width="auto"
+                CornerRadius="10">
+                    <StackPanel>
+                        <WrapPanel Margin="0 0 0 20">
+                            <!--#region TXB NOMBRE -->
+                            <StackPanel>
+                                <TextBlock Margin="0 0 0 10" Text="Nombre" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                            </StackPanel>
+                            <!--#endregion-->
+
+                            <!--#region TXB APELLIDO -->
+                            <StackPanel Margin="50 0 0 0">
+                                <TextBlock Text="Apellido" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Surname"/>
+                            </StackPanel>
+                            <!--#endregion-->
+                        </WrapPanel>
+
+                        <WrapPanel Margin="0 0 0 20">
+                            <!--#region TXB CEDULA -->
+                            <StackPanel>
+                                <TextBlock Margin="0 0 0 10" Text="Cédula" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                <TextBox MinWidth="150" Style="{StaticResource S_TextBox_Form}" materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" Name="Txt_DNI"/>
+                            </StackPanel>
+                            <!--#endregion-->
+
+                            <!--#region TXB TELEFONO -->
+                            <StackPanel Margin="30 0 0 0">
+                                <TextBlock Text="Teléfono" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                <TextBox materialDesign:HintAssist.Hint="XXXX-XXXX" MinWidth="100" Style="{StaticResource S_TextBox_Form}" Name="Txt_PhoneNumber"/>
+                            </StackPanel>
+                            <!--#endregion-->
+
+                            <!--#region TXB FECHA DE NACIMIENTO -->
+                            <StackPanel Margin="30 0 0 0">
+                                <TextBlock Text="Fecha de Nacimiento" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                <WrapPanel>
+                                    <DatePicker Name="Dtp_BirthDate"
+                                                    Style="{StaticResource S_DatePicker_Light}">
+                                    </DatePicker>
+                                    <TextBlock VerticalAlignment="Center" Text="(0 años)" Margin="5 0 0 0" Style="{StaticResource ResourceKey=S_TextBlock_Faded}" />
+                                </WrapPanel>
+                            </StackPanel>
+                            <!--#endregion-->
+                        </WrapPanel>
+
+                        <!--#region TXB NOMBRE -->
+                        <StackPanel>
+                            <TextBlock Margin="0 0 0 10" Text="Dirección" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                            <TextBox materialDesign:HintAssist.Hint="Calle, Corregimiento, Distrito, Provincia" MinWidth="560" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Address"/>
+                        </StackPanel>
+                        <!--#endregion-->
+
+                        <!--#region BOTON INICIAR SESION -->
+                        <Button  
+                            Margin="0 50 0 0"
+                Name="Btn_AddClient"
+                Click="Btn_AddClient_Click" 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Width="100"
+                Style="{StaticResource S_Button_EditButton}"
+                Content="EDITAR"/>
+                        <!--#endregion-->
+                    </StackPanel>
+                </Border>
+
+
+            </StackPanel>
+            <!--#endregion-->
+        </Grid>
+    </Grid>
+</Window>

@@ -59,7 +59,7 @@
                         <StackPanel Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
                             <!--#region TXB CODIGO -->
                             <WrapPanel VerticalAlignment="Center">
-                                <TextBlock Text="Código:" 
+                                <TextBlock Text="Matrícula:" 
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
                                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">

@@ -20,6 +20,8 @@ namespace SteeringSA_WPF.Views.Windows
     public partial class Choose_Driver : Window
     {
         private bool isFilterGridOpen;
+        public delegate void DChangeDriverID();
+        public event DChangeDriverID ChangeDriverID;
 
         public Choose_Driver()
         {
@@ -75,10 +77,10 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_Filter_Click(object sender, RoutedEventArgs e)
         {
-            string name = "";
-            string license = "";
-            string minAge = "";
-            string maxAge = "";
+            string name;
+            string license;
+            string minAge;
+            string maxAge;
 
             if (Txt_DriverName.Text == "") name = null;
             else name = Txt_DriverName.Text;
@@ -116,9 +118,20 @@ namespace SteeringSA_WPF.Views.Windows
                 this.DragMove();
         }
 
-        private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
+        private void Btn_ChooseDriver_Click_1(object sender, RoutedEventArgs e)
         {
+            ChangeDriverID();
+            Close();
+        }
 
+        private void Dgv_DriversData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
+
+            if (columnValue != null)
+            {
+                WindowManager.ChosenDriver = columnValue;
+            }
         }
     }
 }

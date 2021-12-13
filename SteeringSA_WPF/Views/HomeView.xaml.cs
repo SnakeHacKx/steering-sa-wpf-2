@@ -85,5 +85,10 @@ namespace SteeringSA_WPF.Views
         {
             WindowManager.ChangeWindow(WindowsTitle.HISTORY, new HistoryViewModel());
         }
+
+        private void Btn_ShowUsers_Click(object sender, RoutedEventArgs e)
+        {
+            WindowManager.ChangeWindow(WindowsTitle.VIEW_USERS, new UserViewModel());
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,12 @@ namespace SteeringSA_WPF.Views
         {
             InitializeComponent();
             this.clientID = clientID;
-
             Tb_ClientDNI.Text = clientID;
+        }
+
+        public void ChangeDriverID()
+        {
+            Txt_DriverDNI.Text = WindowManager.ChosenDriver;
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -42,17 +47,40 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_ChooseServiceType_Click(object sender, RoutedEventArgs e)
         {
+            //WindowManager.ShowWindow(new Windows.Choose_ServiceType());
+            Windows.Choose_ServiceType chooseServiceType = new Windows.Choose_ServiceType();
+            chooseServiceType.ChangeServiceTypeID += new Windows.Choose_ServiceType.DChangeServiceTypeID(ChangeServiceTypeID);
+            chooseServiceType.ShowDialog();
+        }
 
+        public void ChangeServiceTypeID()
+        {
+            Txt_ServiceTypeID.Text = WindowManager.ChosenServiceType;
+            Tb_ServiceTypeCode.Text = WindowManager.ChosenServiceType;
+
+            CRUD.ServiceType.Instance.ReadFields(StoreProcedure.SEARCH_TYPE_SERVICE_BYCODE, WindowManager.ChosenServiceType);
+            Tb_ServiceTypeName.Text = CRUD.ServiceType.Instance.Nombre;
+            Tb_ServiceTypeCost.Text = CRUD.ServiceType.Instance.Costo_Dia.ToString();
         }
 
         private void Btn_ChooseDriver_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ShowWindow(new Windows.Choose_Driver());
+            Windows.Choose_Driver chooseDriver = new Windows.Choose_Driver();
+            chooseDriver.ChangeDriverID += new Windows.Choose_Driver.DChangeDriverID(ChangeDriverID);
+            chooseDriver.ShowDialog();
+            //WindowManager.ShowWindow(new Windows.Choose_Driver());
         }
 
         private void Btn_ChooseVehicle_Click(object sender, RoutedEventArgs e)
         {
+            Windows.Choose_Vehicle chooseVehicle = new Windows.Choose_Vehicle();
+            chooseVehicle.ChangeVehicleID += new Windows.Choose_Vehicle.DChangeVehicleID(ChangeVehicleID);
+            chooseVehicle.ShowDialog();
+        }
 
+        public void ChangeVehicleID()
+        {
+            Txt_VehicleRegistration.Text = WindowManager.ChosenVehicle;
         }
 
         private void Btn_AddService_Click(object sender, RoutedEventArgs e)
@@ -78,6 +106,29 @@ namespace SteeringSA_WPF.Views
             Dtp_ServiceEndDate.Text = "";
             Txt_Description.Document.Blocks.Clear();
             Txt_Description.Document.Blocks.Add(new Paragraph(new Run("")));
+        }
+
+        private void Btn_AddServiceType_Click(object sender, RoutedEventArgs e)
+        {
+            Dh_AddServiceType.ShowDialog(Dh_AddServiceType.DialogContent);
+        }
+
+        private void Btn_BHAccept_Click(object sender, RoutedEventArgs e)
+        {
+            CRUD.ServiceType.Instance.Register(Txt_ServiceTypeName.Text,
+                Txt_ServiceTypeCost.Text);
+            ClearDialogHostFields();
+        }
+
+        private void ClearDialogHostFields()
+        {
+            Txt_ServiceTypeName.Text = "";
+            Txt_ServiceTypeCost.Text = "";
+        }
+
+        private void Txt_ServiceTypeID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            InfoServiceType.Visibility = Visibility.Visible;
         }
     }
 }

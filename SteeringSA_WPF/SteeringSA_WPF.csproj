@@ -71,6 +71,7 @@
     <Compile Include="CRUD\Maintenance.cs" />
     <Compile Include="CRUD\Report.cs" />
     <Compile Include="CRUD\Service.cs" />
+    <Compile Include="CRUD\ServiceType.cs" />
     <Compile Include="CRUD\Vehicle.cs" />
     <Compile Include="CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
@@ -90,9 +91,11 @@
     <Compile Include="ViewModels\Profile_VehicleViewModel.cs" />
     <Compile Include="ViewModels\Register_ClientViewModel.cs" />
     <Compile Include="ViewModels\Register_DriverViewModel.cs" />
+    <Compile Include="ViewModels\Register_UserViewModel.cs" />
     <Compile Include="ViewModels\Register_VehicleViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\ServicesViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\VehicleViewModel.cs" />
     <Compile Include="Views\ClientProfileView.xaml.cs">
       <DependentUpon>ClientProfileView.xaml</DependentUpon>
@@ -127,11 +130,47 @@
     <Compile Include="Views\Register_DriverView.xaml.cs">
       <DependentUpon>Register_DriverView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Register_UserView.xaml.cs">
+      <DependentUpon>Register_UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Choose_Driver.xaml.cs">
       <DependentUpon>Choose_Driver.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\Choose_Report.xaml.cs">
+      <DependentUpon>Choose_Report.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Choose_Service.xaml.cs">
       <DependentUpon>Choose_Service.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Choose_ServiceType.xaml.cs">
+      <DependentUpon>Choose_ServiceType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Choose_Vehicle.xaml.cs">
+      <DependentUpon>Choose_Vehicle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_Client.xaml.cs">
+      <DependentUpon>Edit_Client.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_Driver.xaml.cs">
+      <DependentUpon>Edit_Driver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_Maintenance.xaml.cs">
+      <DependentUpon>Edit_Maintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_Report.xaml.cs">
+      <DependentUpon>Edit_Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_Service.xaml.cs">
+      <DependentUpon>Edit_Service.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_User.xaml.cs">
+      <DependentUpon>Edit_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Edit_Vehicle.xaml.cs">
+      <DependentUpon>Edit_Vehicle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Register_MaintenanceView.xaml.cs">
       <DependentUpon>Register_MaintenanceView.xaml</DependentUpon>
@@ -215,11 +254,59 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Register_UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\Choose_Driver.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Windows\Choose_Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\Choose_Service.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Choose_ServiceType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Choose_Vehicle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_Client.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_Driver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_Maintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_Service.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Edit_Vehicle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

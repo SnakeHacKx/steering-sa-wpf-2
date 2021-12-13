@@ -24,6 +24,12 @@ namespace SteeringSA_WPF
             recordQuantity.Text = dataGrid.Items.Count.ToString();
         }
 
+        public static void RefreshUsersDataGrid(ref DataGrid dataGrid, DataTable dataTable, ref TextBlock recordQuantity)
+        {
+            dataGrid.ItemsSource = dataTable.DefaultView;
+            recordQuantity.Text = dataGrid.Items.Count.ToString();
+        }
+
         public static string GetColumnValue(object sender, int column)
         {
             DataGrid dg = (DataGrid)sender;
@@ -46,12 +52,22 @@ namespace SteeringSA_WPF
             combo.ItemsSource = dataTable.DefaultView;
         }
 
+        /// <summary>
+        /// Permite validar si el caracter ingresado desde el input es un numero o no.
+        /// </summary>
+        /// <param name="str">caracter</param>
+        /// <returns>True: exito, el input fue un numero. False: error, el input no fue un numero.</returns>
         public static bool IsInputNumeric(string str)
         {
             Regex reg = new Regex("[^0-9]");
             return reg.IsMatch(str);
         }
 
+        /// <summary>
+        /// (NO LO HE PROBADO, NO CREO QUE SIRVA XD) Permite validar la cedula
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool IsAValidDNI(string str)
         {
             Regex reg = new Regex("^[0 - 9]{ 3} -[0 - 9]{ 4}-[0 - 9]{ 4}");

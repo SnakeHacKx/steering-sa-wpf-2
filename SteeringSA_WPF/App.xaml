@@ -44,9 +44,9 @@
             <SolidColorBrush x:Key="TRed" Color="#99D12633"/>
             <SolidColorBrush x:Key="DarkenRed" Color="#D12633"/>
 
-            <SolidColorBrush x:Key="Blue" Color="#3498DB"/>
-            <SolidColorBrush x:Key="DarkenbBlue" Color="#146FAD"/>
-            <SolidColorBrush x:Key="TBlue" Color="#99146FAD"/>
+            <SolidColorBrush x:Key="Blue" Color="#992B7DE9"/>
+            <SolidColorBrush x:Key="DarkenbBlue" Color="#2B7DE9"/>
+            <SolidColorBrush x:Key="TBlue" Color="#993498DB"/>
 
             <SolidColorBrush x:Key="PaleOrange" Color="#FFD6A5"/>
 
@@ -389,7 +389,7 @@
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Margin" Value="5"/>
                 <Setter Property="Foreground" Value="{StaticResource Black}"/>
-                <Setter Property="Background" Value="{StaticResource Blue}"/>
+                <Setter Property="Background" Value="{StaticResource TBlue}"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="Width" Value="auto"/>
@@ -399,7 +399,7 @@
                         <ControlTemplate TargetType="Button">
                             <Border Name="border" 
                                     CornerRadius="7"
-                                    BorderBrush="{StaticResource DarkenbBlue}"
+                                    BorderBrush="{StaticResource Blue}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Padding="10 5"
                                     Background="{TemplateBinding Background}">
@@ -596,7 +596,7 @@
             <Style x:Key="S_DataGrid_Dark" TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="SelectionMode" Value="Single"/>
-                <Setter Property="Foreground" Value="{StaticResource White}"/>
+                <Setter Property="Foreground" Value="{StaticResource White}"/> 
                 <Setter Property="Background" Value="{StaticResource TBlack}"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="BorderBrush" Value="{StaticResource Gray2}"/>
@@ -612,7 +612,7 @@
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="BorderBrush" Value="{StaticResource TFadedBlack}"/>
                 <Setter Property="IsReadOnly" Value="True"/>
-                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderThickness" Value="0"/>
             </Style>
             <!--#endregion-->
             

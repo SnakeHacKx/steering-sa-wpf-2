@@ -19,10 +19,13 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class Register_ReportView : Window
     {
-        public Register_ReportView()
+        private string vehicleID;
+        public Register_ReportView(string vehicleID)
         {
             InitializeComponent();
+            this.vehicleID = vehicleID;
             Tb_TodaysDate.Text = DateTime.Now.ToString();
+            Tb_VehicleRegistration.Text = vehicleID;
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

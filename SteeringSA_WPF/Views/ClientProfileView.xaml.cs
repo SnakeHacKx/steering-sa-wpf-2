@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -36,6 +37,7 @@ namespace SteeringSA_WPF.Views
             Tb_ClientDNI.Text = CRUD.Client.Instance.ID;
             Tb_BirthDate.Text = CRUD.Client.Instance.BirthDate.ToString();
             Tb_Age.Text = CRUD.Client.Instance.Age.ToString();
+            Tb_Address.Text = CRUD.Client.Instance.Address;
         }
 
         private void Btn_ShowServices_Click(object sender, RoutedEventArgs e)
@@ -55,9 +57,6 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddService_Click(object sender, RoutedEventArgs e)
         {
-            //WindowManager.ChangeWindowName(WindowsTitle.ADD_SERVICES);
-            //Register_ServicesView addServiceWindow = new Register_ServicesView();
-            //addServiceWindow.ShowDialog();
             WindowManager.ShowWindow(new Register_ServicesView(Tb_ClientDNI.Text));
         }
 

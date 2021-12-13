@@ -133,8 +133,6 @@ namespace SteeringSA_WPF.Views
         {
             string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
 
-            //MessageBox.Show(columnValue);
-
             if (columnValue != null)
             {
                 WindowManager.DriverID = columnValue;

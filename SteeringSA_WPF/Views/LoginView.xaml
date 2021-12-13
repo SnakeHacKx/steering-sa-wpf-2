@@ -42,29 +42,29 @@
                     </StackPanel>
 
                     <StackPanel VerticalAlignment="Center">
-                        <!--#region TXB CORREO ELECTRONICO -->
+                        <!--#region TXB USERNAME -->
                         <TextBlock Text="Nombre de Usuario:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                         <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="0 0 0 30">
-                            <TextBox KeyDown="Txt_User_KeyDown" HorizontalAlignment="Left"  md:HintAssist.Hint="Nombre Usuario" Text="Omar" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
+                            <TextBox KeyDown="Txt_User_KeyDown" HorizontalAlignment="Left"  md:HintAssist.Hint="Nombre Usuario" Text="Omar_root" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
                         </Border>
                         <!--#endregion-->
 
                         <!--#region TXB CONTRA -->
                         <TextBlock Text="Contraseña:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                         <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="0 0 0 30">
-                            <PasswordBox HorizontalAlignment="Left" Password="elputo" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
+                            <PasswordBox HorizontalAlignment="Left" Password="12345" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
                         </Border>
                         <!--#endregion-->
 
                         <!--#region BOTON INICIAR SESION -->
                         <Button  
-                Name="Btn_LogIn"
-                Click="Btn_LogIn_Click"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Center"
-                Width="180"
-                Style="{StaticResource S_Button_ConfirmButton}"
-                Content="INICIAR SESIÓN"/>
+                            Name="Btn_LogIn"
+                            Click="Btn_LogIn_Click"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Width="180"
+                            Style="{StaticResource S_Button_ConfirmButton}"
+                            Content="INICIAR SESIÓN"/>
                         <!--#endregion-->
                     </StackPanel>
                 </WrapPanel>

@@ -59,7 +59,7 @@
                 </WrapPanel>
             </Button>
 
-            <Button  Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
+            <Button Name="Btn_ShowUsers" Click="Btn_ShowUsers_Click" Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
                 <WrapPanel>
                     <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="Usuarios" Style="{StaticResource S_TextBlock_BodyMedium}"/>
                     <materialDesign:PackIcon Kind="UserBadge"

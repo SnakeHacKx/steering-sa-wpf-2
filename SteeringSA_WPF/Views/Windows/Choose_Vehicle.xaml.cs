@@ -1,5 +1,4 @@
-﻿using SteeringSA_WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,38 +10,34 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SteeringSA_WPF.Views
+namespace SteeringSA_WPF.Views.Windows
 {
     /// <summary>
-    /// Interaction logic for VehicleView.xaml
+    /// Interaction logic for Choose_Vehicle.xaml
     /// </summary>
-    public partial class VehicleView : UserControl
+    public partial class Choose_Vehicle : Window
     {
         private bool isFilterGridOpen;
+        public delegate void DChangeVehicleID();
+        public event DChangeVehicleID ChangeVehicleID;
 
-        public VehicleView()
+        public Choose_Vehicle()
         {
             InitializeComponent();
             RefreshDataGrid();
             isFilterGridOpen = true;
         }
 
-        private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
+        private void Dgv_VehiclesData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            WindowManager.ChangeWindow(WindowsTitle.VEHICLE_PROFILE, new Profile_VehicleViewModel());
-        }
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
 
-        private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
-        {
-            WindowManager.ChangeWindow(WindowsTitle.HOME, new HomeViewModel());
-        }
-
-        private void Btn_AddVehicle_Click(object sender, RoutedEventArgs e)
-        {
-            WindowManager.ChangeWindow(WindowsTitle.ADD_VEHICLES, new Register_VehicleViewModel());
+            if (columnValue != null)
+            {
+                WindowManager.ChosenVehicle = columnValue;
+            }
         }
 
         /// <summary>
@@ -56,7 +51,7 @@ namespace SteeringSA_WPF.Views
 
         private void ClearInputs()
         {
-            Txt_IDReport.Text = "";
+            Txt_VehicleRegistration.Text = "";
             Txt_MaxPassengerCount.Text = "";
             Txt_MinPassengerCount.Text = "";
             Txt_VehicleModel.Text = "";
@@ -64,6 +59,11 @@ namespace SteeringSA_WPF.Views
             Cb_Fuel.Text = "";
             Cb_State.Text = "";
             Cb_VehicleType.Text = "";
+        }
+
+        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshDataGrid();
         }
 
         private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
@@ -82,19 +82,14 @@ namespace SteeringSA_WPF.Views
             }
         }
 
-        private void Btn_ViewVehiclkeProfile_Click(object sender, RoutedEventArgs e)
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindow(WindowsTitle.VEHICLE_PROFILE, new Profile_VehicleViewModel());
+
         }
 
-        private void Dgv_VehiclesData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
-
-            if (columnValue != null)
-            {
-                WindowManager.VehicleID = columnValue;
-            }
+            Close();
         }
 
         private void Btn_Filter_Click(object sender, RoutedEventArgs e)
@@ -131,9 +126,10 @@ namespace SteeringSA_WPF.Views
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.Vehicle.Instance.FilterBy(vehicleModel, vehicleType, minPassengers, maxPassengers, fuelType, state, color), ref Tb_RecordCount);
         }
 
-        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        private void Btn_ChooseVehicle_Click(object sender, RoutedEventArgs e)
         {
-            RefreshDataGrid();
+            ChangeVehicleID();
+            Close();
         }
     }
 }

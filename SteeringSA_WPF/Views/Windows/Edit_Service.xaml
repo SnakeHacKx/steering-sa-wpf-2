@@ -1,12 +1,12 @@
-﻿<Window x:Class="SteeringSA_WPF.Views.Register_ServicesView"
+﻿<Window x:Class="SteeringSA_WPF.Views.Windows.Edit_Service"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SteeringSA_WPF.Views"
+        xmlns:local="clr-namespace:SteeringSA_WPF.Views.Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d" FontFamily="Poppins"
-        Title="Register_ReportView"  Height="760" Width="1200" 
+        Title="Register_ReportView"  Height="700" Width="1000" 
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -85,7 +85,7 @@
                         </Button>
 
                         <TextBlock HorizontalAlignment="Center"
-                                   Text="Registrar Servicio"
+                                   Text="Editar Servicio"
                                    Margin="0 10 0 0"
                                    Foreground="{StaticResource Black}"
                                    Style="{StaticResource S_TextBlock_Title}"/>
@@ -111,7 +111,7 @@
                                         <WrapPanel>
                                             <TextBox TextChanged="Txt_ServiceTypeID_TextChanged" MinWidth="50" IsReadOnly="True" MaxWidth="80" Style="{StaticResource S_TextBox_Form}" Name="Txt_ServiceTypeID" Width="50"/>
                                             <Button Name="Btn_AddServiceType"
-                                                        Click="Btn_AddServiceType_Click" 
+                                                        Click="Btn_AddServiceType_Click_1" 
                                                         ToolTip="Buscar reporte"
                                                         Style="{StaticResource S_Button_NormalButton}" 
                                                         HorizontalAlignment="Left"
@@ -131,7 +131,7 @@
                                                         Style="{StaticResource S_Icon_WindowIcon}"/>
                                             </Button>
 
-                                            
+
                                         </WrapPanel>
                                     </StackPanel>
                                     <!--#endregion-->
@@ -143,7 +143,7 @@
                                         <TextBlock Margin="0 0 0 10" Text="Conductor" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
                                             <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MinWidth="150" MaxWidth="200" Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
-                                                    <Button Name="Btn_ChooseDriver"
+                                            <Button Name="Btn_ChooseDriver"
                                                     Click="Btn_ChooseDriver_Click" 
                                                     ToolTip="Elegir conductor"
                                                     Style="{StaticResource S_Button_NormalButton}" 
@@ -161,7 +161,7 @@
                                         <TextBlock Margin="0 0 0 10" Text="Vehículo" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
                                             <TextBox IsReadOnly="True" MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleRegistration"/>
-                                                    <Button Name="Btn_ChooseVehicle"
+                                            <Button Name="Btn_ChooseVehicle"
                                                     Click="Btn_ChooseVehicle_Click"
                                                     ToolTip="Elegir conductor"
                                                     Style="{StaticResource S_Button_NormalButton}" 
@@ -181,7 +181,7 @@
                                         <TextBlock Text="Fecha de Inicio" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <DatePicker HorizontalAlignment="Left" Name="Dtp_ServiceBeginDate"
                                                         Style="{StaticResource S_DatePicker_Light}">
-                                            </DatePicker>
+                                        </DatePicker>
                                     </StackPanel>
                                     <!--#endregion-->
 
@@ -190,7 +190,7 @@
                                         <TextBlock Text="Fecha de Finalización" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <DatePicker HorizontalAlignment="Left" Name="Dtp_ServiceEndDate"
                                                         Style="{StaticResource S_DatePicker_Light}">
-                                            </DatePicker>
+                                        </DatePicker>
                                     </StackPanel>
                                     <!--#endregion-->
                                 </WrapPanel>
@@ -231,7 +231,7 @@
                                 CornerRadius="10">
                             <StackPanel Height="auto" VerticalAlignment="Center">
                                 <TextBlock HorizontalAlignment="Center" Text="Servicio Elegido" Margin="0 0 0 20" Style="{StaticResource S_TextBlock_BodyMedium}"/>
-                                
+
                                 <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
                                     <TextBlock Text="Código:" Style="{StaticResource S_TextBlock_Body}"/>
                                     <TextBlock Name="Tb_ServiceTypeCode" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
@@ -249,7 +249,7 @@
                             </StackPanel>
                         </Border>
                     </StackPanel>
-                    <!--#endregion--> 
+                    <!--#endregion-->
                 </Grid>
             </Grid>
         </Border>
