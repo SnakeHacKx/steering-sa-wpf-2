@@ -253,7 +253,7 @@
                                    Text="Nombre Usuario" 
                                    Name="Tb_Name"
                                    Style="{StaticResource S_TextBlock_Subtitle}"/>
-                    <TextBlock Name="Tb_Role" 
+                    <TextBlock Name="Tb_Role"
                                    HorizontalAlignment="Center"
                                    Text="Administrador" 
                                    Style="{StaticResource S_TextBlock_BodyMedium}"/>
