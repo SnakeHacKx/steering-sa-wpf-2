@@ -14,6 +14,7 @@ namespace SteeringSA_WPF.CRUD
         #region PROPERTIES
         public string ID { get; set; }
         public string Type { get; set; }
+        public string ServiceTypeID { get; set; }
         public string Description { get; set; }
         public string ClientFullName { get; set; }
         public string DriverFullName { get; set; }
@@ -214,18 +215,18 @@ namespace SteeringSA_WPF.CRUD
                 while (reader.Read())
                 {
                     ID = reader.GetInt32(0).ToString();
-                    DriverFullName = reader.GetString(1);
-                    VehicleID = reader.GetString(2);
-                    VehicleType = reader.GetString(3);
+                    Type = reader.GetString(1);
+                    ServiceTypeID = reader.GetInt32(2).ToString();
+                    DriverFullName = reader.GetString(3);
                     DriverID = reader.GetString(4);
-                    VehicleColor = reader.GetString(5);
-                    Type = reader.GetString(6);
-                    BeginDate = reader.GetString(7);
-                    EndDate = reader.GetString(8);
-                    TotalCost = reader.GetDecimal(9).ToString();
-                    ClientFullName = reader.GetString(10);
-                    ClientID = reader.GetString(11);
-                    Duration = reader.GetInt32(12).ToString();
+                    ClientFullName = reader.GetString(5);
+                    ClientID = reader.GetString(6);
+                    VehicleID = reader.GetString(7);
+                    VehicleType = reader.GetString(8);
+                    BeginDate = reader.GetString(9);
+                    EndDate = reader.GetString(10);
+                    Duration = reader.GetInt32(11).ToString();
+                    TotalCost = reader.GetDecimal(12).ToString();
                     Description = reader.GetString(13);       
                 }
             }

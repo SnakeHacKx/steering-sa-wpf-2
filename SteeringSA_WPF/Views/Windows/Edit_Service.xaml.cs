@@ -35,6 +35,7 @@ namespace SteeringSA_WPF.Views.Windows
         {
             CRUD.Service.Instance.ReadFields(StoreProcedure.SEARCH_SERVICE_BYCODE, serviceID);
 
+            Txt_ServiceTypeID.Text = CRUD.Service.Instance.ServiceTypeID;
             Tb_ClientDNI.Text = CRUD.Service.Instance.ClientID;
             Txt_DriverDNI.Text = CRUD.Service.Instance.DriverID;
             Txt_VehicleRegistration.Text = CRUD.Service.Instance.VehicleID;

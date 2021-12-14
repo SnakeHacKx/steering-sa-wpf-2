@@ -19,6 +19,7 @@ namespace SteeringSA_WPF.CRUD
         public string Fecha { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
+        public string TipoVehiculo { get; set; }
         #endregion
 
         #region SINGLETON
@@ -178,11 +179,12 @@ namespace SteeringSA_WPF.CRUD
                 while (reader.Read())
                 {
                     IDMantenimiento = reader.GetInt32(0).ToString();
-                    PlacaVehiculo = reader.GetString(1);
-                    IDReporte = reader.GetString(3);
+                    IDReporte = reader.GetString(1);
+                    Costo = reader.GetDecimal(2);
+                    Estado = reader.GetString(3);
                     Fecha = reader.GetString(4);
-                    Costo = reader.GetDecimal(5);
-                    Estado = reader.GetString(6);
+                    PlacaVehiculo = reader.GetString(5);
+                    TipoVehiculo = reader.GetString(6);
                     Descripcion = reader.GetString(7);
                 }
             }
