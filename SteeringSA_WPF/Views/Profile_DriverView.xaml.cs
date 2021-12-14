@@ -46,7 +46,9 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_EditDriver_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.Edit_Driver editDriver = new Windows.Edit_Driver(Tb_DriverDNI.Text);
+            editDriver.RefreshProfileInfo += new Windows.Edit_Driver.DRefreshProfileInfo(RefreshProfileInfo);
+            editDriver.ShowDialog();
         }
 
         private void Btn_DeleteDriver_Click(object sender, RoutedEventArgs e)

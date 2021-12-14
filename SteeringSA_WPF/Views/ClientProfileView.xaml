@@ -142,6 +142,7 @@
                                     Name="Btn_EditClient" 
                                     Click="Btn_EditClient_Click"
                                     HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
                                     Margin="0 0 50 0"
                                     Style="{StaticResource S_Button_EditButton}">
 

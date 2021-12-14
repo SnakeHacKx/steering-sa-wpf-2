@@ -19,19 +19,40 @@ namespace SteeringSA_WPF.Views.Windows
     /// </summary>
     public partial class Edit_Vehicle : Window
     {
-        public Edit_Vehicle()
+        private string vehicleID;
+        public delegate void DRefreshProfileInfo();
+        public event DRefreshProfileInfo RefreshProfileInfo;
+
+        public Edit_Vehicle(string vehicleID)
         {
             InitializeComponent();
+            GetVehicleInfo();
+            this.vehicleID = vehicleID;
+        }
+
+        private void GetVehicleInfo()
+        {
+            Txt_Model.Text = CRUD.Vehicle.Instance.Modelo;
+            Cb_VehicleType.Text = CRUD.Vehicle.Instance.Tipo;
+            Cb_Fuel.Text = CRUD.Vehicle.Instance.TipoCombustible;
+            Cb_Color.Text = CRUD.Vehicle.Instance.Color;
+            Cb_MaxPassengerNumber.Text = CRUD.Vehicle.Instance.Pasajeros.ToString();
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
-        private void Btn_AddVehicle_Click(object sender, RoutedEventArgs e)
+        private void Btn_EditVehicle_Click(object sender, RoutedEventArgs e)
         {
-
+            CRUD.Vehicle.Instance.Edit(vehicleID,
+                Txt_Model.Text,
+                Cb_VehicleType.Text,
+                int.Parse(Cb_MaxPassengerNumber.Text),
+                Cb_Fuel.Text, Cb_Color.Text);
+            RefreshProfileInfo();
+            Close();
         }
     }
 }

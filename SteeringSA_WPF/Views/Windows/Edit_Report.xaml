@@ -65,7 +65,7 @@
                                             <RichTextBox Width="350" 
                                                          FontFamily="Poppins"
                                                          Name="Txt_Description"
-                                                 Height="150" 
+                                                 Height="150"
                                                  Style="{StaticResource S_RichTextBox_Form}"/>
                                         </Border>
                                     </StackPanel>
@@ -75,14 +75,14 @@
                                 <!--#region BOTON INICIAR SESION -->
                                 <Button
                                     Margin="0 50 0 0"
-                Name="Btn_AddReport"
-                                    Click="Btn_AddReport_Click"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Center"
-                Width="100"
-                Style="{StaticResource S_Button_EditButton}"
-                Content="EDITAR"/>
-                                <!--#endregion-->
+                                    Name="Btn_EditReport"
+                                    Click="Btn_EditReport_Click"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Center"
+                                    Width="100"
+                                    Style="{StaticResource S_Button_EditButton}"
+                                    Content="EDITAR"/>
+                                                    <!--#endregion-->
                             </StackPanel>
                         </Border>
 

@@ -10,7 +10,7 @@
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Image Stretch="UniformToFill" Source="../../Images/viewTest1.png"/>
+        <Image Stretch="UniformToFill" Source="../../Images/bg_editWindows.png"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -26,6 +26,7 @@
                         HorizontalAlignment="Left"
                         Margin="70 20 0 0">
                     <materialDesign:PackIcon Kind="ArrowBackCircle" 
+                                             Foreground="{StaticResource White}"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                 </Button>
             </Grid>
@@ -55,15 +56,9 @@
                         </WrapPanel>
 
                         <WrapPanel Margin="0 0 0 20">
-                            <!--#region TXB CEDULA -->
-                            <StackPanel>
-                                <TextBlock Margin="0 0 0 10" Text="Cédula" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <TextBox materialDesign:HintAssist.Hint="XX-XXXX-XXXXX" MinWidth="150" Style="{StaticResource S_TextBox_Form}" Name="Txt_DNI"/>
-                            </StackPanel>
-                            <!--#endregion-->
 
                             <!--#region TXB TELEFONO -->
-                            <StackPanel Margin="30 0 0 0">
+                            <StackPanel Margin="0 0 0 0">
                                 <TextBlock Text="Teléfono" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                 <TextBox MinWidth="100" Style="{StaticResource S_TextBox_Form}" materialDesign:HintAssist.Hint="XXXX-XXXX" Name="Txt_PhoneNumber"/>
                             </StackPanel>
@@ -119,8 +114,8 @@
                         <!--#region BOTON INICIAR SESION -->
                         <Button  
                             Margin="0 50 0 0"
-                Name="Btn_AddDriver"
-                Click="Btn_AddDriver_Click"
+                Name="Btn_EditDriver"
+                Click="Btn_EditDriver_Click"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 Width="100"

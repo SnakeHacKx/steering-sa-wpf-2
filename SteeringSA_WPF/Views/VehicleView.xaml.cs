@@ -56,7 +56,7 @@ namespace SteeringSA_WPF.Views
 
         private void ClearInputs()
         {
-            Txt_IDReport.Text = "";
+            Txt_VehicleRegistration.Text = "";
             Txt_MaxPassengerCount.Text = "";
             Txt_MinPassengerCount.Text = "";
             Txt_VehicleModel.Text = "";
@@ -134,6 +134,12 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_VEHICLE_BYPLACA,
+                TableID.VEHICLE, Txt_VehicleRegistration.Text), ref Tb_RecordCount);
         }
     }
 }

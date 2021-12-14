@@ -148,10 +148,10 @@
 
                             <!--#region DATAGRID -->
                             <DataGrid 
-                    Grid.Row="2"
-                    Name="Dgv_ServicesTypesData"
-                                SelectionChanged="Dgv_ServicesTypesData_SelectionChanged"
-                    Style="{StaticResource S_DataGrid_Dark}" GridLinesVisibility="None">
+                                    Grid.Row="2"
+                                    Name="Dgv_ServicesTypesData"
+                                    SelectionChanged="Dgv_ServicesTypesData_SelectionChanged"
+                                    Style="{StaticResource S_DataGrid_Dark}" GridLinesVisibility="None">
 
                                 <!--#region ESTILOS -->
                                 <!--#region COLUMN HEADER -->
@@ -218,21 +218,37 @@
                                     <DataGridTemplateColumn CanUserResize="False">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Name="Btn_ChooseServiceType"
-                                            Click="Btn_ChooseServiceType_Click"
-                                            Background="{StaticResource PaleGreen}"
-                                                ToolTip="Seleccionar tipo de servicio"
-                                            BorderThickness="0"
-                                            Width="auto">
-                                                    <Grid Width="auto">
+                                                <WrapPanel>
+                                                    <Button Name="Btn_ChooseServiceType"
+                                                            Click="Btn_ChooseServiceType_Click"
+                                                            Background="{StaticResource PaleGreen}"
+                                                                ToolTip="Seleccionar tipo de servicio"
+                                                            BorderThickness="0"
+                                                            Width="auto">
                                                         <md:PackIcon Kind="CheckBold"
-                                             Width="20" 
-                                             Height="auto" 
-                                             Foreground="{StaticResource White}" 
-                                             VerticalAlignment="Top"
-                                             HorizontalAlignment="Center"/>
-                                                    </Grid>
-                                                </Button>
+                                                             Width="20" 
+                                                             Height="auto" 
+                                                             Foreground="{StaticResource White}" 
+                                                             VerticalAlignment="Top"
+                                                             HorizontalAlignment="Center"/>
+                                                    </Button>
+
+                                                    <Button Name="Btn_EditServiceType"
+                                                            Click="Btn_EditServiceType_Click"
+                                                            Margin="5 0"
+                                                            Background="{StaticResource TBlue}"
+                                                                ToolTip="Editar este tipo de servicio"
+                                                            BorderThickness="0"
+                                                            Width="auto">
+                                                        <md:PackIcon Kind="Edit"
+                                                             Width="20" 
+                                                             Height="auto" 
+                                                             Foreground="{StaticResource White}" 
+                                                             VerticalAlignment="Top"
+                                                             HorizontalAlignment="Center"/>
+                                                    </Button>
+                                                </WrapPanel>
+                                                
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

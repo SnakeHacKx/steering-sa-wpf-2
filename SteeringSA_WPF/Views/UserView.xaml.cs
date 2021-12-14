@@ -20,13 +20,11 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class UserView : UserControl
     {
-        private bool isFilterGridOpen;
 
         public UserView()
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = true;
         }
 
         private void Dgv_UsersData_SelectionChanged(object sender, SelectionChangedEventArgs e)

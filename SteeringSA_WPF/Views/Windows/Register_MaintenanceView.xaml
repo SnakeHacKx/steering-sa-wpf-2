@@ -44,7 +44,40 @@
                     <!--#region ROW 2 -->
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center"
                             VerticalAlignment="Center" Margin="0 0 0 50">
-                        <Border BorderThickness="1" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
+                        <Border BorderThickness="1" Visibility="Collapsed" Name="FormMaintenanceType" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
+                                Width="auto"
+                                CornerRadius="10">
+                            <StackPanel>
+                                <!--#region CB TIPO DE MANTENIMIENTO -->
+                                <StackPanel Margin="0 0 0 0">
+                                    <TextBlock Text="Tipo de Mantenimiento" Margin="0 0 0 2" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                    <ComboBox Name="Cb_MaintenanceType"
+                                              HorizontalAlignment="Left"
+                                              SelectedIndex="0"
+                                                      Width="auto"
+                                                      Height="auto"
+                                                      Style="{StaticResource S_Combobox_Normal}">
+                                        <ComboBoxItem Content="Rutinario" Foreground="{StaticResource Black}" />
+                                        <ComboBoxItem Content="Ligado a Reporte" Foreground="{StaticResource Black}" />
+                                    </ComboBox>
+
+                                    <!--#region BOTON INICIAR SESION -->
+                                    <Button  
+                            Name="Btn_ChooseMaintenanceType"
+                                    Click="Btn_ChooseMaintenanceType_Click"
+                                    Margin="0 20 0 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Width="90"
+                            Style="{StaticResource S_Button_TransparentButtonWithHand_Background}"
+                            Content="LISTO"/>
+                                    <!--#endregion-->
+                                </StackPanel>
+                                <!--#endregion-->
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderThickness="1" Name="BigForm" Visibility="Visible" BorderBrush="{StaticResource DarkenGray}" Padding="20 20" Margin="0 50" Background="{StaticResource White}"
                                 Width="auto"
                                 CornerRadius="10">
                             <StackPanel>
@@ -59,13 +92,22 @@
                                         <TextBlock Margin="0 0 0 10" Text="Reporte" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
                                             <TextBox IsReadOnly="True" MinWidth="100" MaxWidth="200" Style="{StaticResource S_TextBox_Form}" Name="Txt_ReportID"/>
-                                                    <Button Name="Btn_FindReport"
+                                            <Button Name="Btn_FindReport"
                                                 Click="Btn_FindReport_Click" 
                                                 ToolTip="Buscar reporte"
                                                 Style="{StaticResource S_Button_NormalButton}" 
                                                 HorizontalAlignment="Left"
                                                 Margin="5 0 0 0">
                                                 <materialDesign:PackIcon Kind="Search" 
+                                                        Style="{StaticResource S_Icon_WindowIcon}"/>
+                                            </Button>
+                                            <Button Name="Btn_SetSRMaintenance"
+                                                Click="Btn_SetS_RMaintenance_Click" 
+                                                ToolTip="Hacer el mantenimiento rutinario"
+                                                Style="{StaticResource S_Button_NormalButton}" 
+                                                HorizontalAlignment="Left"
+                                                Margin="5 0 0 0">
+                                                <materialDesign:PackIcon Kind="CarCog" 
                                                         Style="{StaticResource S_Icon_WindowIcon}"/>
                                             </Button>
                                         </WrapPanel>
@@ -77,7 +119,7 @@
                                         <TextBlock Text="Fecha" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <DatePicker Name="Dtp_MaintenanceDate"
                                                     Style="{StaticResource S_DatePicker_Light}">
-                                            </DatePicker>
+                                        </DatePicker>
                                     </StackPanel>
                                     <!--#endregion-->
                                 </WrapPanel>
@@ -90,18 +132,20 @@
                                                       Width="150"
                                                       Height="auto"
                                                       Style="{StaticResource S_Combobox_Normal}">
-                                                <ComboBoxItem Content="Pendiente" Foreground="{StaticResource Black}" />
-                                                <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
-                                            </ComboBox>
+                                            <ComboBoxItem Content="Pendiente" Foreground="{StaticResource Black}" />
+                                            <ComboBoxItem Content="Finalizado" Foreground="{StaticResource Black}" />
+                                        </ComboBox>
                                     </StackPanel>
                                     <!--#endregion-->
-                                    
+
                                     <!--#region TXB COSTO -->
                                     <StackPanel Margin="30 0 0 0">
                                         <TextBlock Margin="0 0 0 10" Text="Costo (Balboas)" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <TextBox HorizontalAlignment="Left" MinWidth="80" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Cost"/>
                                     </StackPanel>
                                     <!--#endregion-->
+
+                                   
                                 </WrapPanel>
 
                                 <WrapPanel>
@@ -131,8 +175,6 @@
                                 <!--#endregion-->
                             </StackPanel>
                         </Border>
-
-                        
                     </StackPanel>
                     <!--#endregion-->
                 </Grid>

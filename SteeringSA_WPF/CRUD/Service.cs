@@ -69,7 +69,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_PLACA_VEHICULO, vehicleID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_INICIO, beginDate);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_FINAL, endDate);
-                cmd.Parameters.AddWithValue(TableVariable.TYPE_SERVICE_DESCRIPCION, description);
+                cmd.Parameters.AddWithValue(TableVariable.SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -108,7 +108,7 @@ namespace SteeringSA_WPF.CRUD
         /// <param name="vehicleID">Cedula del cliente</param>
         /// <param name="beginDate">Fecha de inicio</param>
         /// <param name="endDate">Fecha de Finalizacion</param>
-        public void Edit(string id, string idServiceType, string driverID, string clientID, string vehicleID, string beginDate, string endDate)
+        public void Edit(string id, string idServiceType, string driverID, string clientID, string vehicleID, string beginDate, string endDate, string description)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_SERVICE, DBConnection.Instance.SQLConnection);
             try
@@ -121,6 +121,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_PLACA_VEHICULO, vehicleID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_INICIO, beginDate);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_FINAL, endDate);
+                cmd.Parameters.AddWithValue(TableVariable.SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -197,12 +198,12 @@ namespace SteeringSA_WPF.CRUD
         /// Permite traer los campos de la tabla Conductor
         /// </summary>
         /// <param name="procedureName">Nombre del procedimiento almacenado.</param>
-        /// <param name="idClient">Cédula del Conductor</param>
+        /// <param name="id">Cédula del Conductor</param>
         public void ReadFields(string procedureName, string id)
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.SERVICE_CODIGO, id);
+            cmd.Parameters.AddWithValue("@Codigo_Servicio", int.Parse(id));
 
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();
@@ -212,20 +213,20 @@ namespace SteeringSA_WPF.CRUD
             {
                 while (reader.Read())
                 {
-                    ID = reader.GetString(0);
-                    Type = reader.GetString(1);
-                    Description = reader.GetString(2);
-                    ClientFullName = reader.GetString(3);
-                    DriverFullName = reader.GetString(4);
-                    DriverID = reader.GetString(5);
-                    ClientID = reader.GetString(6);
-                    VehicleID = reader.GetString(7);
-                    VehicleType = reader.GetString(8);
-                    VehicleColor = reader.GetString(9);
-                    BeginDate = reader.GetString(10);
-                    EndDate = reader.GetString(11);
-                    Duration = reader.GetString(12);
-                    TotalCost = reader.GetString(13);
+                    ID = reader.GetInt32(0).ToString();
+                    DriverFullName = reader.GetString(1);
+                    VehicleID = reader.GetString(2);
+                    VehicleType = reader.GetString(3);
+                    DriverID = reader.GetString(4);
+                    VehicleColor = reader.GetString(5);
+                    Type = reader.GetString(6);
+                    BeginDate = reader.GetString(7);
+                    EndDate = reader.GetString(8);
+                    TotalCost = reader.GetDecimal(9).ToString();
+                    ClientFullName = reader.GetString(10);
+                    ClientID = reader.GetString(11);
+                    Duration = reader.GetInt32(12).ToString();
+                    Description = reader.GetString(13);       
                 }
             }
             catch (Exception ex)

@@ -84,7 +84,7 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string idClient, string name, string surname, string phoneNumber, DateTime birthDate, string address)
+        public void Edit(string idClient, string name, string surname, string phoneNumber, string birthDate, string address)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_CLIENT, DBConnection.Instance.SQLConnection);
             try
@@ -94,7 +94,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.CLIENT_NOMBRE, name);
                 cmd.Parameters.AddWithValue(TableVariable.CLIENT_APELLIDO, surname);
                 cmd.Parameters.AddWithValue(TableVariable.CLIENT_TELEFONO, phoneNumber);
-                cmd.Parameters.AddWithValue(TableVariable.CLIENT_FECHA_NACIMIENTO, birthDate.ToString("yyyy/MM/dd"));
+                cmd.Parameters.AddWithValue(TableVariable.CLIENT_FECHA_NACIMIENTO, birthDate);
                 cmd.Parameters.AddWithValue(TableVariable.CLIENT_DIRECCION, address);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

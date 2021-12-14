@@ -132,13 +132,13 @@ namespace SteeringSA_WPF
         public const string SERVICE_FECHA_INICIO = "Fecha_inicio";
         public const string SERVICE_FECHA_FINAL = "Fecha_finalizacion";
         public const string SERVICE_MONTO_TOTAL = "Monto_Total_Servicio";
+        public const string SERVICE_DESCRIPCION = "Descripcion_servicio";
         #endregion
 
         #region TYPE_SERVICE
         public const string TYPE_SERVICE_CODIGO = "Cod_tipo_servicio";
         public const string TYPE_SERVICE_NOMBRE = "Nombre_servicio";
         public const string TYPE_SERVICE_COSTO = "Costo_servicio";
-        public const string TYPE_SERVICE_DESCRIPCION = "Descripcion_servicio";
         #endregion
     }
 
@@ -180,18 +180,17 @@ namespace SteeringSA_WPF
         public const string UPDATE_MAINTENANCE = "PROC_ACTUALIZAR_MANTENIMIENTO";
         public const string DELETE_MAINTENANCE = "PROC_ELIMINAR_MANTENIMIENTO";
         public const string SHOW_ALL_MAINTENANCE = "PROC_LISTAR_TODOS_MANTENIMIENTOS";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYCODE_MAINTENANCE = "PROC_BUSCAR_CODIGO_MANTENIMIENTO";//BUSCA POR EL CODIGO
+        public const string SEARCH_MAINTENANCE_BYCODE = "PROC_BUSCAR_CODIGO_MANTENIMIENTO";//BUSCA POR EL CODIGO
         public const string FILTERS_MAINTENANCE = "PROC_FILTRO_MANTENIMIENTO";//Formato inicio rango de costo, final rango de costo, inicio rango de fecha, final rango de fechas,estado,placa de vehiculo,tipo de vehiculo
         #endregion
 
         #region REPORT
         public const string INSERT_REPORT = "PROC_REGISTRAR_REPORTE";
-        public const string UPDATE_REPORT = "PROC_ACTUALIZAR_ESTADO_REPORTES";
+        public const string UPDATE_REPORT = "PROC_ACTUALIZAR_DATOS_REPORTE";
         public const string DELETE_REPORT = "PROC_ELIMINAR_REPORTE";
         public const string SHOW_ALL_REPORT = "PROC_LISTAR_TODOS_REPORTES";//MUESTRA TODOS LOS DATOS GENERALES
-        public const string SEARCH_BYCODE_REPORT = "PROC_BUSCAR_CODIGO_REPORTE";//BUSCA POR EL CODIGO
+        public const string SEARCH_REPORT_BYCODE = "PROC_BUSCAR_CODIGO_REPORTE";//BUSCA POR EL CODIGO
         public const string FILTERS_REPORT = "PROC_FILTRO_REPORTE";//Formato inicio rango de fechas, final rango de fechas, estado
-
         #endregion
 
         #region SERVICE

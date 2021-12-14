@@ -39,17 +39,11 @@
                 CornerRadius="10">
                     <StackPanel>
                         <WrapPanel Margin="0 0 0 20">
-                            <!--#region TXB MATRICULA -->
-                            <StackPanel>
-                                <TextBlock Margin="0 0 0 10" Text="Matrícula" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Matricula"/>
-                            </StackPanel>
-                            <!--#endregion-->
 
                             <!--#region TXB MOTOR -->
-                            <StackPanel Margin="50 0 0 0">
+                            <StackPanel>
                                 <TextBlock Text="Modelo" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Motor"/>
+                                <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Model"/>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>
@@ -65,6 +59,7 @@
                                     <ComboBoxItem Content="Camnión" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Motocicleta" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Camioneta" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Autobús" Foreground="{StaticResource Black}" />
                                 </ComboBox>
                             </StackPanel>
                             <!--#endregion-->
@@ -119,8 +114,8 @@
                         <!--#region BOTON INICIAR SESION -->
                         <Button  
                             Margin="0 50 0 0"
-                    Name="Btn_AddVehicle"
-                    Click="Btn_AddVehicle_Click"
+                    Name="Btn_EditVehicle"
+                    Click="Btn_EditVehicle_Click"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
                     Width="100"

@@ -172,7 +172,8 @@
                             <Button Grid.Column="1"
                                     ToolTip="Editar conductor"
                                     Name="Btn_EditDriver" 
-                                    Click="Btn_EditDriver_Click"    
+                                    Click="Btn_EditDriver_Click" 
+                                    VerticalAlignment="Center"
                                     HorizontalAlignment="Right"
                                     Margin="0 0 50 0"
                                     Style="{StaticResource S_Button_EditButton}">

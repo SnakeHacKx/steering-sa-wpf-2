@@ -108,7 +108,7 @@ namespace SteeringSA_WPF.CRUD
         /// <param name="licenseType">Tipo de Licencia</param>
         public void Edit(string id, string name, string surname, string phoneNumber, string birthDate, string bloodType, string licenseType)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_CLIENT, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_DRIVER, DBConnection.Instance.SQLConnection);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -118,7 +118,7 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue("@telefono", phoneNumber);
                 cmd.Parameters.AddWithValue("@fechaNac", birthDate);
                 cmd.Parameters.AddWithValue("@tipoSangre", bloodType);
-                cmd.Parameters.AddWithValue("@tipoLecencia", licenseType);
+                cmd.Parameters.AddWithValue("@tipoLicencia", licenseType);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

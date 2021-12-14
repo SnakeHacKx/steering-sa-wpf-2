@@ -21,6 +21,8 @@ namespace SteeringSA_WPF.Views
     public partial class ReportView : UserControl
     {
         private bool isFilterGridOpen;
+        private string chosenReportID;
+
         public ReportView()
         {
             InitializeComponent();
@@ -96,6 +98,29 @@ namespace SteeringSA_WPF.Views
             else state = Cb_State.Text;
 
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ReportsData, TableID.REPORT, CRUD.Report.Instance.FilterBy(beginDate, endDate, state), ref Tb_RecordCount);
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ReportsData, TableID.REPORT, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_REPORT_BYCODE,
+                TableID.REPORT, Txt_IDReport.Text), ref Tb_RecordCount);
+        }
+
+        private void Btn_EditReport_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Edit_Report chooseServiceType = new Windows.Edit_Report(chosenReportID);
+            chooseServiceType.RefreshDatagrid += new Windows.Edit_Report.DRefreshDatagrid(RefreshDataGrid);
+            chooseServiceType.ShowDialog();
+        }
+
+        private void Dgv_ReportsData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
+
+            if (columnValue != null)
+            {
+                chosenReportID = columnValue;
+            }
         }
     }
 }

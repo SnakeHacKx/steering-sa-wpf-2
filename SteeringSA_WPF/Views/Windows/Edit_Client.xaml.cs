@@ -19,19 +19,35 @@ namespace SteeringSA_WPF.Views.Windows
     /// </summary>
     public partial class Edit_Client : Window
     {
-        public Edit_Client()
+        private string clientID;
+        public delegate void DRefreshProfileInfo();
+        public event DRefreshProfileInfo RefreshProfileInfo;
+
+        public Edit_Client(string clientID)
         {
             InitializeComponent();
+            RefreshClientInfo();
+            this.clientID = clientID;
+        }
+
+        private void RefreshClientInfo()
+        {
+            Txt_Name.Text = CRUD.Client.Instance.FullName;
+            Txt_PhoneNumber.Text = CRUD.Client.Instance.PhoneNumber;
+            Dtp_BirthDate.Text = CRUD.Client.Instance.BirthDate.ToString();
+            Txt_Address.Text = CRUD.Client.Instance.Address;
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
-        private void Btn_AddClient_Click(object sender, RoutedEventArgs e)
+        private void Btn_EditClient_Click(object sender, RoutedEventArgs e)
         {
-
+            CRUD.Client.Instance.Edit(clientID, Txt_Name.Text, Txt_Surname.Text, Txt_PhoneNumber.Text, Dtp_BirthDate.Text, Txt_Address.Text);
+            RefreshProfileInfo();
+            Close();
         }
     }
 }

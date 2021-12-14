@@ -40,7 +40,8 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesTypesData, TableID.TYPE_SERVICE, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_TYPE_SERVICE_BYCODE,
+                TableID.TYPE_SERVICE, Txt_ServiceTypeID.Text), ref Tb_RecordCount);
         }
 
         private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
@@ -88,6 +89,11 @@ namespace SteeringSA_WPF.Views.Windows
         {
             ChangeServiceTypeID();
             Close();
+        }
+
+        private void Btn_EditServiceType_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

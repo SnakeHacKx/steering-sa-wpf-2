@@ -84,7 +84,7 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string idVehicle, string model, string type, string state, int passengers, string fuelType, string color)
+        public void Edit(string idVehicle, string model, string type, int passengers, string fuelType, string color)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_VEHICLE, DBConnection.Instance.SQLConnection);
             try
@@ -93,7 +93,6 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PLACA, idVehicle);
                 cmd.Parameters.AddWithValue(TableVariable.VEHICLE_MODELO, model);
                 cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO, type);
-                cmd.Parameters.AddWithValue(TableVariable.VEHICLE_ESTADO, state);
                 cmd.Parameters.AddWithValue(TableVariable.VEHICLE_PASAJERO, passengers);
                 cmd.Parameters.AddWithValue(TableVariable.VEHICLE_TIPO_COMBUSTIBLE, fuelType);
                 cmd.Parameters.AddWithValue(TableVariable.VEHICLE_COLOR, color);

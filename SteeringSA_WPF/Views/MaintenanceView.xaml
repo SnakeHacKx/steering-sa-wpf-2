@@ -62,20 +62,14 @@
                                VerticalAlignment="Center"
                                Style="{StaticResource S_TextBlock_Body}"/>
                                 <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="10 0">
-                                    <Grid Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" >
-                                        <TextBlock Text="SIN DEFINIR" 
-                                   MinWidth="200" MaxWidth="250"
-                                   Style="{StaticResource S_TextBlock_Hint}"  
-                                    Foreground="{StaticResource DarkenGray}" 
-                                     Visibility="{Binding ElementName=Txt_IDReport, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"/>
-                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
-                                    </Grid>
+                                    <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaintenanceID"/>
                                 </Border>
                             </WrapPanel>
                             <!--#endregion-->
 
                             <!--#region BUTTON BUSCAR -->
                             <Button Name="Btn_Search"
+                                    Click="Btn_Search_Click"
                         ToolTip="Buscar"
                         VerticalAlignment="Center"
                         Margin="0"
@@ -138,6 +132,7 @@
                     <DataGrid 
                     Grid.Row="3"
                     Name="Dgv_MaintenanceData"
+                        SelectionChanged="Dgv_MaintenanceData_SelectionChanged"
                     Style="{StaticResource S_DataGrid_Light}" GridLinesVisibility="None">
 
                         <!--#region ESTILOS -->
@@ -205,21 +200,35 @@
                             <DataGridTemplateColumn CanUserResize="False">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Name="Btn_ViewProfile"
+                                        <WrapPanel>
+                                            <Button Name="Btn_ViewProfile"
                                             Click="Btn_ViewProfile_Click"
                                             Background="{StaticResource TBlack}"
                                                 ToolTip="Ver perfil del vehículo"
                                             BorderThickness="0"
                                             Width="auto">
-                                            <Grid Width="auto">
                                                 <materialDesign:PackIcon Kind="Car"
                                              Width="auto" 
                                              Height="auto" 
                                              Foreground="{StaticResource White}" 
                                              VerticalAlignment="Top"
                                              HorizontalAlignment="Center"/>
-                                            </Grid>
-                                        </Button>
+                                            </Button>
+
+                                            <Button Margin="5 0" Name="Btn_EditMaintenance"
+                                            Click="Btn_EditMaintenance_Click"
+                                            Background="{StaticResource TBlue}"
+                                                ToolTip="Editar este reporte"
+                                            BorderThickness="0"
+                                            Width="auto">
+                                                <materialDesign:PackIcon Kind="Edit"
+                                             Width="auto" 
+                                             Height="auto" 
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
+                                             HorizontalAlignment="Center"/>
+                                            </Button>
+                                        </WrapPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

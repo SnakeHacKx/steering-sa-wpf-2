@@ -84,7 +84,8 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_VEHICLE_BYPLACA,
+                TableID.VEHICLE, Txt_VehicleRegistration.Text), ref Tb_RecordCount);
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

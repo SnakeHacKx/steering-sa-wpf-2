@@ -21,6 +21,7 @@ namespace SteeringSA_WPF.Views
     public partial class ServicesView : UserControl
     {
         private bool isFilterGridOpen;
+        private string chosenVehicleID;
 
         public ServicesView()
         {
@@ -131,6 +132,23 @@ namespace SteeringSA_WPF.Views
         {
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesData, TableID.SERVICE, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_SERVICE_BYCODE,
                 "@Codigo_Servicio", Txt_IDReport.Text), ref Tb_RecordCount);
+        }
+
+        private void Btn_EditService_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Edit_Service editService = new Windows.Edit_Service(chosenVehicleID);
+            editService.RefreshDatagrid += new Windows.Edit_Service.DRefreshDatagrid(RefreshDataGrid);
+            editService.ShowDialog();
+        }
+
+        private void Dgv_ServicesData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
+
+            if (columnValue != null)
+            {
+                chosenVehicleID = columnValue;
+            }
         }
     }
 }

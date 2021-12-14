@@ -15,7 +15,7 @@ namespace SteeringSA_WPF.CRUD
         public string IDMantenimiento { get; set; }
         public string PlacaVehiculo { get; set; }
         public string IDReporte { get; set; }
-        public string Costo { get; set; }
+        public decimal Costo { get; set; }
         public string Fecha { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
@@ -177,13 +177,13 @@ namespace SteeringSA_WPF.CRUD
             {
                 while (reader.Read())
                 {
-                    IDMantenimiento = reader.GetString(0);
+                    IDMantenimiento = reader.GetInt32(0).ToString();
                     PlacaVehiculo = reader.GetString(1);
-                    IDReporte = reader.GetString(2);
-                    Costo = reader.GetString(3);
+                    IDReporte = reader.GetString(3);
                     Fecha = reader.GetString(4);
-                    Descripcion = reader.GetString(5);
+                    Costo = reader.GetDecimal(5);
                     Estado = reader.GetString(6);
+                    Descripcion = reader.GetString(7);
                 }
             }
             catch (Exception ex)

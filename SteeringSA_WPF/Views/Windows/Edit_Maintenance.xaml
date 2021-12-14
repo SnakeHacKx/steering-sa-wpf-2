@@ -57,7 +57,7 @@
                                     <StackPanel>
                                         <TextBlock Margin="0 0 0 10" Text="Reporte" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <WrapPanel>
-                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_ReportID"/>
+                                            <TextBox MinWidth="100" MaxWidth="200" Style="{StaticResource S_TextBox_Form}" Name="Txt_ReportID"/>
                                             <Button Name="Btn_FindReport"
                                                 Click="Btn_FindReport_Click" 
                                                 ToolTip="Buscar reporte"
@@ -65,6 +65,16 @@
                                                 HorizontalAlignment="Left"
                                                 Margin="5 0 0 0">
                                                 <materialDesign:PackIcon Kind="Search" 
+                                                        Style="{StaticResource S_Icon_WindowIcon}"/>
+                                            </Button>
+
+                                            <Button Name="Btn_SetSRMaintenance"
+                                                Click="Btn_SetSRMaintenance_Click" 
+                                                ToolTip="Hacer el mantenimiento rutinario"
+                                                Style="{StaticResource S_Button_NormalButton}" 
+                                                HorizontalAlignment="Left"
+                                                Margin="5 0 0 0">
+                                                <materialDesign:PackIcon Kind="CarCog" 
                                                         Style="{StaticResource S_Icon_WindowIcon}"/>
                                             </Button>
                                         </WrapPanel>
@@ -119,8 +129,8 @@
 
                                 <!--#region BOTON INICIAR SESION -->
                                 <Button  
-                            Name="Btn_AddMaintenance"
-                                    Click="Btn_AddMaintenance_Click"
+                            Name="Btn_EditMaintenance"
+                                    Click="Btn_EditMaintenance_Click"
                                     Margin="0 50 0 0"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"

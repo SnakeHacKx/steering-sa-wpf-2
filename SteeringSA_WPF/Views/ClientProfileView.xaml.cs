@@ -62,7 +62,9 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_EditClient_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.Edit_Client chooseServiceType = new Windows.Edit_Client(Tb_ClientDNI.Text);
+            chooseServiceType.RefreshProfileInfo += new Windows.Edit_Client.DRefreshProfileInfo(RefreshProfileInfo);
+            chooseServiceType.ShowDialog();
         }
 
         private void Btn_DeleteClient_Click(object sender, RoutedEventArgs e)

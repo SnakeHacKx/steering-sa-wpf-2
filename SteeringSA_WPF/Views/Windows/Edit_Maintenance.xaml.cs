@@ -19,9 +19,28 @@ namespace SteeringSA_WPF.Views.Windows
     /// </summary>
     public partial class Edit_Maintenance : Window
     {
-        public Edit_Maintenance()
+        private string maintenanceID;
+        public delegate void DRefreshDatagrid();
+        public event DRefreshDatagrid RefreshDatagrid;
+
+        public Edit_Maintenance(string maintenanceID)
         {
             InitializeComponent();
+            this.maintenanceID = maintenanceID;
+            GetDriverInfo();
+        }
+
+        private void GetDriverInfo()
+        {
+            CRUD.Maintenance.Instance.ReadFields(StoreProcedure.SEARCH_MAINTENANCE_BYCODE, maintenanceID);
+
+            Tb_VehicleRegistration.Text = CRUD.Maintenance.Instance.PlacaVehiculo;
+            Txt_ReportID.Text = CRUD.Maintenance.Instance.IDReporte;
+            Txt_Cost.Text = CRUD.Maintenance.Instance.Costo.ToString();
+            Txt_Description.Document.Blocks.Clear();
+            Txt_Description.Document.Blocks.Add(new Paragraph(new Run(CRUD.Maintenance.Instance.Descripcion)));
+            Cb_MaintenanceState.Text = CRUD.Maintenance.Instance.Estado;
+            Dtp_MaintenanceDate.Text = CRUD.Maintenance.Instance.Fecha;
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -31,7 +50,7 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void Btn_FindReport_Click(object sender, RoutedEventArgs e)
@@ -39,9 +58,27 @@ namespace SteeringSA_WPF.Views.Windows
 
         }
 
-        private void Btn_AddMaintenance_Click(object sender, RoutedEventArgs e)
+        private void Btn_EditMaintenance_Click(object sender, RoutedEventArgs e)
         {
+            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
 
+            //description = System.Text.RegularExpressions.Regex.Replace(description, @"\s+", string.Empty);
+            description = description.Replace("\n", "").Replace("\r", "");
+
+            CRUD.Maintenance.Instance.Edit(int.Parse(maintenanceID), Tb_VehicleRegistration.Text,
+                Txt_ReportID.Text,
+                Txt_Cost.Text,
+                Dtp_MaintenanceDate.Text,
+                description,
+                Cb_MaintenanceState.Text);
+
+            RefreshDatagrid();
+            Close();
+        }
+
+        private void Btn_SetSRMaintenance_Click(object sender, RoutedEventArgs e)
+        {
+            Txt_ReportID.Text = "S/R";
         }
     }
 }

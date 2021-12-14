@@ -42,6 +42,9 @@ namespace SteeringSA_WPF.Views
         private void Btn_AddReport_Click(object sender, RoutedEventArgs e)
         {
             string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+
+            description = description.Replace("\n", "").Replace("\r", "");
+
             CRUD.Report.Instance.Register(Tb_VehicleRegistration.Text,
                 description,
                 Tb_TodaysDate.Text);

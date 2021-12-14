@@ -19,9 +19,11 @@ namespace SteeringSA_WPF.Views.Windows
     /// </summary>
     public partial class Edit_User : Window
     {
-        public Edit_User()
+        private string userID;
+        public Edit_User(string userID)
         {
             InitializeComponent();
+            this.userID = userID;
         }
 
         private void Txt_Password_KeyDown(object sender, KeyEventArgs e)

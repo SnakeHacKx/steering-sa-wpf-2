@@ -20,6 +20,7 @@ namespace SteeringSA_WPF.Views
     public partial class Register_MaintenanceView : Window
     {
         private string vehicleID;
+        private bool isRoutineMaintenance;
         public Register_MaintenanceView(string vehicleID)
         {
             InitializeComponent();
@@ -54,6 +55,8 @@ namespace SteeringSA_WPF.Views
         {
             string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
 
+            description = description.Replace("\n", "").Replace("\r", "");
+
             CRUD.Maintenance.Instance.Register(Tb_VehicleRegistration.Text,
                 Txt_ReportID.Text,
                 Txt_Cost.Text,
@@ -70,6 +73,28 @@ namespace SteeringSA_WPF.Views
             Dtp_MaintenanceDate.Text = "";
             Txt_Description.Document.Blocks.Clear();
             Txt_Description.Document.Blocks.Add(new Paragraph(new Run("")));
+        }
+
+        private void Btn_ChooseMaintenanceType_Click(object sender, RoutedEventArgs e)
+        {
+            FormMaintenanceType.Visibility = Visibility.Collapsed;
+            BigForm.Visibility = Visibility.Visible;
+
+            if (Cb_MaintenanceType.Text == "Rutinario")
+            {
+                //VehicleRegistration.Visibility = Visibility.Visible;
+                isRoutineMaintenance = true;
+            }
+            else
+            {
+                //VehicleRegistration.Visibility = Visibility.Collapsed;
+                isRoutineMaintenance = false;
+            }
+        }
+
+        private void Btn_SetS_RMaintenance_Click(object sender, RoutedEventArgs e)
+        {
+            Txt_ReportID.Text = "S/R";
         }
     }
 }

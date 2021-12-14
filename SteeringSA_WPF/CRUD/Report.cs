@@ -77,7 +77,7 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string id, string vehicleRegistration, string state, string description, string addDate)
+        public void Edit(string id, string vehicleRegistration, string description, string addDate)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_REPORT, DBConnection.Instance.SQLConnection);
             try
@@ -85,7 +85,6 @@ namespace SteeringSA_WPF.CRUD
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_PLACA_VEHICULO, vehicleRegistration);
-                cmd.Parameters.AddWithValue(TableVariable.REPORT_ESTADO, state);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_DESCRIPCION, description);
                 cmd.Parameters.AddWithValue(TableVariable.REPORT_FECHA, addDate);
 
@@ -160,7 +159,7 @@ namespace SteeringSA_WPF.CRUD
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
+            cmd.Parameters.AddWithValue("@Cod_Reporte", id);
 
             SqlDataReader reader;
             DBConnection.Instance.SQLConnection.Open();
@@ -172,9 +171,9 @@ namespace SteeringSA_WPF.CRUD
                 {
                     IDReporte = reader.GetString(0);
                     PlacaVehiculo = reader.GetString(1);
-                    Descripcion = reader.GetString(2);
-                    Fecha = reader.GetString(3);
-                    Estado = reader.GetString(4);
+                    Fecha = reader.GetString(2);
+                    Estado = reader.GetString(3);
+                    Descripcion = reader.GetString(4);
                 }
             }
             catch (Exception ex)

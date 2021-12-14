@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SteeringSA_WPF.Views.Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d" FontFamily="Poppins"
-        Title="Register_ReportView"  Height="700" Width="1000" 
+        Title="Register_ReportView"  Height="760" Width="auto" MinWidth="700" MaxWidth="1200"
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -111,7 +111,7 @@
                                         <WrapPanel>
                                             <TextBox TextChanged="Txt_ServiceTypeID_TextChanged" MinWidth="50" IsReadOnly="True" MaxWidth="80" Style="{StaticResource S_TextBox_Form}" Name="Txt_ServiceTypeID" Width="50"/>
                                             <Button Name="Btn_AddServiceType"
-                                                        Click="Btn_AddServiceType_Click_1" 
+                                                        Click="Btn_AddServiceType_Click" 
                                                         ToolTip="Buscar reporte"
                                                         Style="{StaticResource S_Button_NormalButton}" 
                                                         HorizontalAlignment="Left"
@@ -198,9 +198,9 @@
                                 <WrapPanel>
                                     <!--#region RTXB DESCRIPCION -->
                                     <StackPanel>
-                                        <TextBlock Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                        <TextBlock HorizontalAlignment="Left" Text="Descripción" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                         <Border Width="auto" HorizontalAlignment="Left" Style="{StaticResource S_Border_TextBoxWithBorder}">
-                                            <RichTextBox Width="530" 
+                                            <RichTextBox Width="445" 
                                                          BorderThickness="0"
                                                          Name="Txt_Description"
                                                          Height="100" 
@@ -213,13 +213,13 @@
                                 <!--#region BOTON INICIAR SESION -->
                                 <Button  
                                     Margin="0 30 0 0"
-                            Name="Btn_AddService"
-                                  Click="Btn_AddService_Click"  
+                            Name="Btn_EditService"
+                                  Click="Btn_EditService_Click"  
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"
-                            Width="180"
-                            Style="{StaticResource S_Button_ConfirmButton}"
-                            Content="REGISTRAR"/>
+                            Width="100"
+                            Style="{StaticResource S_Button_EditButton}"
+                            Content="EDITAR"/>
                                 <!--#endregion-->
                             </StackPanel>
                         </Border>

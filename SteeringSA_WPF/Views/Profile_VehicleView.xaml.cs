@@ -46,7 +46,9 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_EditVehicle_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.Edit_Vehicle editVehicle = new Windows.Edit_Vehicle(Tb_Registration.Text);
+            editVehicle.RefreshProfileInfo += new Windows.Edit_Vehicle.DRefreshProfileInfo(RefreshProfileInfo);
+            editVehicle.ShowDialog();
         }
 
         private void Btn_ShowMaintenances_Click(object sender, RoutedEventArgs e)

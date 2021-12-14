@@ -132,6 +132,7 @@
                     <DataGrid 
                     Grid.Row="3"
                     Name="Dgv_ServicesData"
+                        SelectionChanged="Dgv_ServicesData_SelectionChanged"
                     Style="{StaticResource S_DataGrid_Light}" GridLinesVisibility="None">
 
                         <!--#region ESTILOS -->
@@ -199,21 +200,35 @@
                             <DataGridTemplateColumn CanUserResize="False">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Name="Btn_ViewProfile"
-                                            Click="Btn_ViewProfile_Click"
-                                            Background="{StaticResource TBlack}"
-                                                ToolTip="Ver perfil del vehículo"
-                                            BorderThickness="0"
-                                            Width="auto">
-                                            <Grid Width="auto">
+                                        <WrapPanel>
+                                            <Button Name="Btn_ViewProfile"
+                                                    Click="Btn_ViewProfile_Click"
+                                                    Background="{StaticResource TBlack}"
+                                                    ToolTip="Ver perfil del vehículo"
+                                                    BorderThickness="0"
+                                                    Width="auto">
                                                 <materialDesign:PackIcon Kind="Car"
-                                             Width="auto" 
-                                             Height="auto" 
-                                             Foreground="{StaticResource White}" 
-                                             VerticalAlignment="Top"
-                                             HorizontalAlignment="Center"/>
-                                            </Grid>
-                                        </Button>
+                                                             Width="auto" 
+                                                             Height="auto" 
+                                                             Foreground="{StaticResource White}" 
+                                                             VerticalAlignment="Top"
+                                                             HorizontalAlignment="Center"/>
+                                            </Button>
+
+                                            <Button Margin="5 0" Name="Btn_EditService"
+                                                    Click="Btn_EditService_Click"
+                                                    Background="{StaticResource TBlue}"
+                                                        ToolTip="Editar este servicio"
+                                                    BorderThickness="0"
+                                                    Width="auto">
+                                                <materialDesign:PackIcon Kind="Edit"
+                                                                 Width="auto" 
+                                                                 Height="auto" 
+                                                                 Foreground="{StaticResource White}" 
+                                                                 VerticalAlignment="Top"
+                                                                 HorizontalAlignment="Center"/>
+                                            </Button>
+                                        </WrapPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

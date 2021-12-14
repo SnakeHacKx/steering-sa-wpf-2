@@ -21,6 +21,7 @@ namespace SteeringSA_WPF.Views
     public partial class MaintenanceView : UserControl
     {
         private bool isFilterGridOpen;
+        private string chosenMaintenanceID;
 
         public MaintenanceView()
         {
@@ -107,6 +108,29 @@ namespace SteeringSA_WPF.Views
 
 
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_MaintenanceData, TableID.MAINTENANCE, CRUD.Maintenance.Instance.FilterBy(minCost, maxCost, beginDate, endDate, vehicleID, vehicleType), ref Tb_RecordCount);
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_MaintenanceData, TableID.MAINTENANCE, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_MAINTENANCE_BYCODE,
+                TableID.MAINTENANCE, Txt_MaintenanceID.Text), ref Tb_RecordCount);
+        }
+
+        private void Btn_EditMaintenance_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Edit_Maintenance editMaintenance = new Windows.Edit_Maintenance(chosenMaintenanceID);
+            editMaintenance.RefreshDatagrid += new Windows.Edit_Maintenance.DRefreshDatagrid(RefreshDataGrid);
+            editMaintenance.ShowDialog();
+        }
+
+        private void Dgv_MaintenanceData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string columnValue = UtilitiesDataGrid.GetColumnValue(sender, 0);
+
+            if (columnValue != null)
+            {
+                chosenMaintenanceID = columnValue;
+            }
         }
     }
 }

@@ -41,7 +41,6 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.ChangeWindowName(WindowsTitle.CLIENT_PROFILE);
             this.Close();
         }
 
@@ -86,6 +85,9 @@ namespace SteeringSA_WPF.Views
         private void Btn_AddService_Click(object sender, RoutedEventArgs e)
         {
             string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+
+            description = description.Replace("\n", "").Replace("\r", "");
+
             CRUD.Service.Instance.Register(Txt_ServiceTypeID.Text,
                 Txt_DriverDNI.Text,
                 Tb_ClientDNI.Text,
