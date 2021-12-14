@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteeringSA_WPF.Views.Windows"
-        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Choose_ServiceType" FontFamily="Poppins"
         Height="768" Width="1200" 
@@ -19,6 +19,63 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
+
+                    <!--#region DH REGISTRAR TIPO DE SERVICIO -->
+                    <md:DialogHost Grid.RowSpan="3" Name="Dh_EditServiceType" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <md:DialogHost.DialogContent>
+                            <StackPanel Margin="16">
+                                <!-- HERE GOES YOUR CONTENT -->
+                                <WrapPanel Margin="0 0 0 20" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                    <TextBlock Text="Código:" Style="{StaticResource S_TextBlock_Body}"/>
+                                    <TextBlock Name="Tb_ServiceTypeID" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                </WrapPanel>
+                                
+                                <StackPanel Margin="10">
+                                    <!--#region TXB NOMBRE DEL TIPO DE SERVICIO -->
+                                    <StackPanel>
+                                        <TextBlock Margin="0 0 0 10" Text="Nombre del Servicio" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                        <WrapPanel>
+                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_ServiceTypeName"/>
+                                        </WrapPanel>
+                                    </StackPanel>
+                                    <!--#endregion-->
+
+                                    <!--#region TXB COSTO/DIA DEL TIPO DE SERVICIO -->
+                                    <StackPanel Margin="0 20 0 0">
+                                        <TextBlock Margin="0 0 0 10" Text="Costo/Día del Servicio" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                        <WrapPanel>
+                                            <TextBox MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_ServiceTypeCost"/>
+                                        </WrapPanel>
+                                    </StackPanel>
+                                    <!--#endregion-->
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                                    <Button Name="Btn_BHAccept" Click="Btn_BHAccept_Click" Style="{StaticResource MaterialDesignFlatButton}" IsDefault="True"
+                        Margin="0 8 8 0" Command="md:DialogHost.CloseDialogCommand">
+                                        <Button.CommandParameter>
+                                            <system:Boolean>True</system:Boolean>
+                                        </Button.CommandParameter>
+                                        EDITAR
+                                    </Button>
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                         IsCancel="True" Margin="0 8 8 0" 
+                         Command="md:DialogHost.CloseDialogCommand">
+                                        <Button.CommandParameter>
+                                            <system:Boolean>False</system:Boolean>
+                                        </Button.CommandParameter>
+                                        CANCELAR
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </md:DialogHost.DialogContent>
+                        <!-- START OF YOUR CONTEXT-->
+
+
+
+                        <!-- END OF YOUR CONTEXT -->
+                    </md:DialogHost>
+                    <!--#endregion-->
 
                     <!--#region COLUMN 1 -->
                     <Grid>
@@ -246,6 +303,20 @@
                                                              Foreground="{StaticResource White}" 
                                                              VerticalAlignment="Top"
                                                              HorizontalAlignment="Center"/>
+                                                    </Button>
+
+                                                    <Button Name="Btn_Delete"
+                                                    Click="Btn_Delete_Click"
+                                                    Background="{StaticResource TRed}"
+                                                        ToolTip="Eliminar este tipo de servicio"
+                                                    BorderThickness="0"
+                                                    Width="auto">
+                                                                <md:PackIcon Kind="DeleteCircle"
+                                                     Width="auto" 
+                                                     Height="auto" 
+                                                     Foreground="{StaticResource White}" 
+                                                     VerticalAlignment="Top"
+                                                     HorizontalAlignment="Center"/>
                                                     </Button>
                                                 </WrapPanel>
                                                 

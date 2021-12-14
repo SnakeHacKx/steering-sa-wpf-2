@@ -43,6 +43,8 @@ namespace SteeringSA_WPF.Views.Windows
             Dtp_ServiceEndDate.Text = CRUD.Service.Instance.EndDate;
             Txt_Description.Document.Blocks.Clear();
             Txt_Description.Document.Blocks.Add(new Paragraph(new Run(CRUD.Service.Instance.Description)));
+
+            ChangeServiceTypeInfo();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -71,9 +73,13 @@ namespace SteeringSA_WPF.Views.Windows
         public void ChangeServiceTypeID()
         {
             Txt_ServiceTypeID.Text = WindowManager.ChosenServiceType;
-            Tb_ServiceTypeCode.Text = WindowManager.ChosenServiceType;
+            ChangeServiceTypeInfo();
+        }
 
-            CRUD.ServiceType.Instance.ReadFields(StoreProcedure.SEARCH_TYPE_SERVICE_BYCODE, WindowManager.ChosenServiceType);
+        private void ChangeServiceTypeInfo()
+        {
+            Tb_ServiceTypeCode.Text = Txt_ServiceTypeID.Text;
+            CRUD.ServiceType.Instance.ReadFields(StoreProcedure.SEARCH_TYPE_SERVICE_BYCODE, Txt_ServiceTypeID.Text);
             Tb_ServiceTypeName.Text = CRUD.ServiceType.Instance.Nombre;
             Tb_ServiceTypeCost.Text = CRUD.ServiceType.Instance.Costo_Dia.ToString();
         }
@@ -111,25 +117,33 @@ namespace SteeringSA_WPF.Views.Windows
         private void Btn_AddServiceType_Click(object sender, RoutedEventArgs e)
         {
             Dh_AddServiceType.ShowDialog(Dh_AddServiceType.DialogContent);
+           
         }
 
         private void Btn_EditService_Click(object sender, RoutedEventArgs e)
         {
-            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea editar este servicio?",
+                "Editar Servicio",
+                CustomMessageBox.CMessageBoxType.Warning);
 
-            description = description.Replace("\n", "").Replace("\r", "");
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
 
-            CRUD.Service.Instance.Edit(serviceID,
-                Txt_ServiceTypeID.Text,
-                Txt_DriverDNI.Text,
-                Tb_ClientDNI.Text,
-                Txt_VehicleRegistration.Text,
-                Dtp_ServiceBeginDate.Text,
-                Dtp_ServiceEndDate.Text,
-                description);
+                description = description.Replace("\n", "").Replace("\r", "");
 
-            RefreshDatagrid();
-            Close();
+                CRUD.Service.Instance.Edit(serviceID,
+                    Txt_ServiceTypeID.Text,
+                    Txt_DriverDNI.Text,
+                    Tb_ClientDNI.Text,
+                    Txt_VehicleRegistration.Text,
+                    Dtp_ServiceBeginDate.Text,
+                    Dtp_ServiceEndDate.Text,
+                    description);
+
+                RefreshDatagrid();
+                Close();
+            }
         }
     }
 }

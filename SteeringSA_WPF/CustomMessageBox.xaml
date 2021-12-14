@@ -7,16 +7,17 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="Poppins"
-        Title="CustomMessageBox" Height="300" Width="500" AllowsTransparency="False" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="CustomMessageBox" Height="auto" MinHeight="200" MaxHeight="250" Width="500" AllowsTransparency="False" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Height="auto">
         <Image Name="Pic_Background" Stretch="UniformToFill" Source="Images/bg_mb_info.png"/>
-        <Grid Name="Body" Background="Transparent" MouseDown="Body_MouseDown">
+        <Grid Name="Body" Height="auto" Background="Transparent" VerticalAlignment="Top" MouseDown="Body_MouseDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <!--#region HEADER -->
             <Grid Name="Header" Background="#99FFFFFF">
                 <TextBlock
                         x:Name="Tb_HeaderMessage"
@@ -26,11 +27,14 @@
                         Width="auto"
                         Margin="10"
                         TextWrapping="Wrap"
-                        Foreground="Black"
+                        Foreground="{StaticResource Black}"
                         Style="{StaticResource S_TextBlock_Info}" 
                         HorizontalAlignment="Left" 
                         Text="Ha ocurrido un error en la  aplicación"/>
             </Grid>
+            <!--#endregion-->
+            
+            <!--#region MESSAGE -->
 
             <Grid Grid.Row="1" Margin="0 20 0 0" Width="auto" Height="auto">
                 <Grid.ColumnDefinitions>
@@ -43,7 +47,7 @@
                                         Grid.Column="0"
                                         Width="Auto" 
                                         Height="50" 
-                                        Foreground="Black" 
+                                        Foreground="{StaticResource Black}" 
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Stretch"
                                         Margin="0,0,0,0"/>
@@ -55,10 +59,10 @@
                         Height="auto" 
                         Width="auto"
                         TextWrapping="Wrap"
-                        Foreground="Black"
+                        Foreground="{StaticResource Black}"
                         Style="{StaticResource S_TextBlock_Body}" 
                         HorizontalAlignment="Left" 
-                        Text="La Planta con el ID #234235345 no existe, inténtelo nuevamente"/>
+                        />
 
                 <!--<Viewbox Margin="0,0,0,0" Grid.Column="1">
                     <StackPanel Orientation="Vertical" Width="400">
@@ -72,74 +76,55 @@
 
             </Grid>
 
-            <WrapPanel Height="auto" Grid.Row="2" HorizontalAlignment="Center" Margin="0 20 0 0">
+            <!--#endregion-->
+            
+            <!--#region BUTTONS -->
+            <WrapPanel Height="auto" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
                 <!-- #region BOTON OK  -->
                 <Button  
+                    Margin="5 0"
                     Name="Btn_OK"
                     Click="Btn_OK_Click"
-                    Width="99"
-                    Height="auto"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
                     Visibility="Collapsed"
                     Content="OK"
+                    FontWeight="Bold"
                     Style="{StaticResource S_Button_NormalButtonWhite}"/>
                 <!--#endregion-->
 
                 <!-- #region BOTON CANCELAR  -->
                 <Button 
+                    Margin="5 0"
                 Name="Btn_Cancel"
-                Width="168" 
-                Height="auto"
-                Visibility="Collapsed"
-                Foreground="White"
-                FontSize="25"
-                FontFamily="Verdana"
-                FontWeight="Black"
-                BorderThickness="10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="#1A1D28"
-                Style="{StaticResource S_Button_NormalButton}"
+                    Visibility="Collapsed"
+                    Click="Btn_Cancel_Click"
+                    FontWeight="Bold"
+                Style="{StaticResource S_Button_NormalButtonWhite}"
             >Cancelar</Button>
                 <!--#endregion-->
 
                 <!-- #region BOTON SI  -->
                 <Button 
                 Name="Btn_Yes"
-                Width="84" 
-                Height="auto"
-                Visibility="Collapsed"
-                Foreground="White"
-                FontSize="25"
-                FontFamily="Verdana"
-                FontWeight="Black"
-                BorderThickness="10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="#1A1D28"
-                Style="{StaticResource S_Button_NormalButton}"
+                    Margin="5 0"
+                    Visibility="Collapsed"
+                    Click="Btn_Yes_Click"
+                    FontWeight="Bold"
+                Style="{StaticResource S_Button_NormalButtonWhite}"
             >Sí</Button>
                 <!--#endregion-->
 
                 <!-- #region BOTON NO  -->
                 <Button 
                 Name="Btn_No"
-                Width="84" 
-                Height="auto"
-                Visibility="Collapsed"
-                Foreground="White"
-                FontSize="25"
-                FontFamily="Verdana"
-                FontWeight="Black"
-                BorderThickness="10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="#1A1D28"
-                Style="{StaticResource S_Button_TransparentButtonWithHand}"
+                    Margin="5 0"
+                    Visibility="Collapsed"
+                    Click="Btn_No_Click"
+                    FontWeight="Bold"
+                Style="{StaticResource S_Button_NormalButtonWhite}"
             >No</Button>
                 <!--#endregion-->
             </WrapPanel>
+            <!--#endregion-->
         </Grid>
     </Grid>
 </Window>

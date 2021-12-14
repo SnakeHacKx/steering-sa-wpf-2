@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -93,7 +94,38 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_EditServiceType_Click(object sender, RoutedEventArgs e)
         {
+            Dh_EditServiceType.ShowDialog(Dh_EditServiceType.DialogContent);
+            CRUD.ServiceType.Instance.ReadFields(StoreProcedure.SEARCH_TYPE_SERVICE_BYCODE, WindowManager.ChosenServiceType);
+            Tb_ServiceTypeID.Text = WindowManager.ChosenServiceType;
+            Txt_ServiceTypeName.Text = CRUD.ServiceType.Instance.Nombre;
+            Txt_ServiceTypeCost.Text = CRUD.ServiceType.Instance.Costo_Dia.ToString();
+        }
 
+        private void Btn_BHAccept_Click(object sender, RoutedEventArgs e)
+        {
+            CRUD.ServiceType.Instance.Edit(WindowManager.ChosenServiceType, Txt_ServiceTypeName.Text,
+                   Txt_ServiceTypeCost.Text);
+            ClearDialogHostFields();
+            RefreshDataGrid();
+        }
+
+        private void ClearDialogHostFields()
+        {
+            Txt_ServiceTypeName.Text = "";
+            Txt_ServiceTypeCost.Text = "";
+        }
+
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Tipo de Servicio",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.ServiceType.Instance.Delete(WindowManager.ChosenServiceType);
+                RefreshDataGrid();
+            }
         }
     }
 }

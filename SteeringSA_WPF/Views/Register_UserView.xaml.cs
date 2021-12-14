@@ -40,9 +40,15 @@ namespace SteeringSA_WPF.Views
 
         }
 
-        private void Btn_AddClient_Click(object sender, RoutedEventArgs e)
+        private void Btn_AddUser_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea registrar este usuario?",
+                "Registrar Usuario",
+                CustomMessageBox.CMessageBoxType.Warning);
 
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            { 
+            }
         }
     }
 }

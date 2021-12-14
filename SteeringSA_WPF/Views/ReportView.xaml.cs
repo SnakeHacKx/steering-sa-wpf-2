@@ -122,5 +122,18 @@ namespace SteeringSA_WPF.Views
                 chosenReportID = columnValue;
             }
         }
+
+        private void Btn_DeleteReport_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Reporte",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Report.Instance.Delete(chosenReportID);
+                RefreshDataGrid();
+            }
+        }
     }
 }

@@ -93,13 +93,13 @@ namespace SteeringSA_WPF.CRUD
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableID.SERVICE, id);
-                cmd.Parameters.AddWithValue(TableVariable.TYPE_SERVICE_NOMBRE, name);
+                cmd.Parameters.AddWithValue("Codigo", id);
+                cmd.Parameters.AddWithValue("Nombre", name);
 
                 if (cost == null)
-                    cmd.Parameters.AddWithValue(TableVariable.TYPE_SERVICE_COSTO, cost);
+                    cmd.Parameters.AddWithValue("Costo", cost);
                 else
-                    cmd.Parameters.AddWithValue(TableVariable.TYPE_SERVICE_COSTO, decimal.Parse(cost));
+                    cmd.Parameters.AddWithValue("Costo", decimal.Parse(cost));
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -139,7 +139,7 @@ namespace SteeringSA_WPF.CRUD
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_CODIGO, id);
+                cmd.Parameters.AddWithValue("@Codigo_Tipo_Servicio", id);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

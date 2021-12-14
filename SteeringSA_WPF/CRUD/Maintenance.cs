@@ -131,7 +131,7 @@ namespace SteeringSA_WPF.CRUD
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.REPORT_CODIGO, id);
+                cmd.Parameters.AddWithValue(TableVariable.MAINTENANCE_CODIGO, id);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

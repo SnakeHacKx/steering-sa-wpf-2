@@ -69,7 +69,15 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_DeleteClient_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Cliente",
+                CustomMessageBox.CMessageBoxType.Warning);
 
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Client.Instance.Delete(Tb_ClientDNI.Text);
+                WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
+            }
         }
 
         private void Btn_DownloadDoc_Click(object sender, RoutedEventArgs e)

@@ -45,9 +45,16 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_EditClient_Click(object sender, RoutedEventArgs e)
         {
-            CRUD.Client.Instance.Edit(clientID, Txt_Name.Text, Txt_Surname.Text, Txt_PhoneNumber.Text, Dtp_BirthDate.Text, Txt_Address.Text);
-            RefreshProfileInfo();
-            Close();
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea editar este cliente?",
+                "Editar Cliente",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Client.Instance.Edit(clientID, Txt_Name.Text, Txt_Surname.Text, Txt_PhoneNumber.Text, Dtp_BirthDate.Text, Txt_Address.Text);
+                RefreshProfileInfo();
+                Close();
+            }
         }
     }
 }

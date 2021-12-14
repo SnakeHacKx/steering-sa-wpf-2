@@ -40,14 +40,21 @@ namespace SteeringSA_WPF.Views
         /// <param name="e"></param>
         private void Btn_AddDriver_Click(object sender, RoutedEventArgs e)
         {
-            CRUD.Driver.Instance.Register(Txt_DNI.Text,
-                Txt_Name.Text, 
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea registrar este conductor?",
+                "Registrar Conductor",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Driver.Instance.Register(Txt_DNI.Text,
+                Txt_Name.Text,
                 Txt_Surname.Text,
                 Txt_PhoneNumber.Text,
-                Dtp_BirthDate.Text, 
+                Dtp_BirthDate.Text,
                 Cb_BloodType.Text,
                 Cb_LicenseType.Text);
-            ClearFormFields();
+                ClearFormFields();
+            }
         }
 
         /// <summary>

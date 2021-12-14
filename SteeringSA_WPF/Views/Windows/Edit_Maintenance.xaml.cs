@@ -60,20 +60,27 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_EditMaintenance_Click(object sender, RoutedEventArgs e)
         {
-            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea editar este mantenimiento?",
+                "Editar Mantenimiento",
+                CustomMessageBox.CMessageBoxType.Warning);
 
-            //description = System.Text.RegularExpressions.Regex.Replace(description, @"\s+", string.Empty);
-            description = description.Replace("\n", "").Replace("\r", "");
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
 
-            CRUD.Maintenance.Instance.Edit(int.Parse(maintenanceID), Tb_VehicleRegistration.Text,
-                Txt_ReportID.Text,
-                Txt_Cost.Text,
-                Dtp_MaintenanceDate.Text,
-                description,
-                Cb_MaintenanceState.Text);
+                //description = System.Text.RegularExpressions.Regex.Replace(description, @"\s+", string.Empty);
+                description = description.Replace("\n", "").Replace("\r", "");
 
-            RefreshDatagrid();
-            Close();
+                CRUD.Maintenance.Instance.Edit(int.Parse(maintenanceID), Tb_VehicleRegistration.Text,
+                    Txt_ReportID.Text,
+                    Txt_Cost.Text,
+                    Dtp_MaintenanceDate.Text,
+                    description,
+                    Cb_MaintenanceState.Text);
+
+                RefreshDatagrid();
+                Close();
+            }
         }
 
         private void Btn_SetSRMaintenance_Click(object sender, RoutedEventArgs e)

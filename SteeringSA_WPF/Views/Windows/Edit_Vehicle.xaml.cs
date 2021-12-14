@@ -46,13 +46,20 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_EditVehicle_Click(object sender, RoutedEventArgs e)
         {
-            CRUD.Vehicle.Instance.Edit(vehicleID,
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea editar este vehículo?",
+                "Editar Vehículo",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Vehicle.Instance.Edit(vehicleID,
                 Txt_Model.Text,
                 Cb_VehicleType.Text,
                 int.Parse(Cb_MaxPassengerNumber.Text),
                 Cb_Fuel.Text, Cb_Color.Text);
-            RefreshProfileInfo();
-            Close();
+                RefreshProfileInfo();
+                Close();
+            }
         }
     }
 }

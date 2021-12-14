@@ -53,7 +53,15 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_DeleteDriver_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Conductor",
+                CustomMessageBox.CMessageBoxType.Warning);
 
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Driver.Instance.Delete(Tb_DriverDNI.Text);
+                WindowManager.ChangeWindow(WindowsTitle.VIEW_DRIVERS, new ViewModels.DriverViewModel());
+            }
         }
 
         private void Btn_DownloadDoc_Click(object sender, RoutedEventArgs e)

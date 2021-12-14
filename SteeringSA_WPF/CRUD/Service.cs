@@ -49,7 +49,6 @@ namespace SteeringSA_WPF.CRUD
         #endregion
 
         #region CRUD
-
         /// <summary>
         /// Permite registrar un servicio
         /// </summary>
@@ -64,12 +63,12 @@ namespace SteeringSA_WPF.CRUD
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_COD_TIPO_SERVICIO, idServiceType);
+                cmd.Parameters.AddWithValue("@Codigo_Tipo_servicio", idServiceType);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CLIENTE, clientID);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_PLACA_VEHICULO, vehicleID);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_INICIO, beginDate);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_FINAL, endDate);
+                cmd.Parameters.AddWithValue("@Placa_Vehiculo", vehicleID);
+                cmd.Parameters.AddWithValue("@F_Inicio", beginDate);
+                cmd.Parameters.AddWithValue("@F_Final", endDate);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -116,12 +115,12 @@ namespace SteeringSA_WPF.CRUD
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue(TableID.SERVICE, id);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_COD_TIPO_SERVICIO, idServiceType);
+                cmd.Parameters.AddWithValue("@Cod_tipo_servicio", idServiceType);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CLIENTE, clientID);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_PLACA_VEHICULO, vehicleID);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_INICIO, beginDate);
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_FECHA_FINAL, endDate);
+                cmd.Parameters.AddWithValue("@Placa", vehicleID);
+                cmd.Parameters.AddWithValue("@Fecha_inicio", beginDate);
+                cmd.Parameters.AddWithValue("@Fecha_finalizacion", endDate);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -162,7 +161,7 @@ namespace SteeringSA_WPF.CRUD
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(TableVariable.SERVICE_CODIGO, id);
+                cmd.Parameters.AddWithValue("@Codigo_Servicio", id);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@MsgError", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

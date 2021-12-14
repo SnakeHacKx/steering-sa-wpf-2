@@ -236,6 +236,20 @@
                                              VerticalAlignment="Top"
                                              HorizontalAlignment="Center"/>
                                             </Button>
+
+                                            <Button Name="Btn_DeleteReport"
+                                            Click="Btn_DeleteReport_Click"
+                                            Background="{StaticResource TRed}"
+                                                ToolTip="Eliminar este reporte"
+                                            BorderThickness="0"
+                                            Width="auto">
+                                                <materialDesign:PackIcon Kind="DeleteCircle"
+                                             Width="auto" 
+                                             Height="auto" 
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
+                                             HorizontalAlignment="Center"/>
+                                            </Button>
                                         </WrapPanel>
                                            
                                     </DataTemplate>

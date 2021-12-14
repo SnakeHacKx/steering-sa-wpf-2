@@ -21,7 +21,7 @@ namespace SteeringSA_WPF.Views
     public partial class ServicesView : UserControl
     {
         private bool isFilterGridOpen;
-        private string chosenVehicleID;
+        private string chosenServiceID;
 
         public ServicesView()
         {
@@ -136,7 +136,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_EditService_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Edit_Service editService = new Windows.Edit_Service(chosenVehicleID);
+            Windows.Edit_Service editService = new Windows.Edit_Service(chosenServiceID);
             editService.RefreshDatagrid += new Windows.Edit_Service.DRefreshDatagrid(RefreshDataGrid);
             editService.ShowDialog();
         }
@@ -147,7 +147,20 @@ namespace SteeringSA_WPF.Views
 
             if (columnValue != null)
             {
-                chosenVehicleID = columnValue;
+                chosenServiceID = columnValue;
+            }
+        }
+
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Servicio",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Service.Instance.Delete(chosenServiceID);
+                RefreshDataGrid();
             }
         }
     }

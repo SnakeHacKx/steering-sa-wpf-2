@@ -52,13 +52,21 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_EditReport_Click(object sender, RoutedEventArgs e)
         {
-            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea editar este reporte?",
+                "Editar Reporte",
+                CustomMessageBox.CMessageBoxType.Warning);
 
-            description = description.Replace("\n", "").Replace("\r", "");
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
 
-            CRUD.Report.Instance.Edit(reportID, Tb_VehicleRegistration.Text, description, Tb_TodaysDate.Text);
-            RefreshDatagrid();
-            Close();
+                string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+
+                description = description.Replace("\n", "").Replace("\r", "");
+
+                CRUD.Report.Instance.Edit(reportID, Tb_VehicleRegistration.Text, description, Tb_TodaysDate.Text);
+                RefreshDatagrid();
+                Close();
+            }
         }
     }
 }

@@ -156,29 +156,22 @@ namespace SteeringSA_WPF
             customMessageBox.Close();
         }
 
+        private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            result = System.Windows.Forms.DialogResult.Cancel;
+            customMessageBox.Close();
+        }
 
-        //private void Btn_Yes_Click(object sender, RoutedEventArgs e)
-        //{
-        //    result = System.Windows.Forms.DialogResult.Yes;
-        //    customMessageBox.Close();
-        //}
+        private void Btn_Yes_Click(object sender, RoutedEventArgs e)
+        {
+            result = System.Windows.Forms.DialogResult.Yes;
+            customMessageBox.Close();
+        }
 
-        //private void Btn_OK_Click(object sender, RoutedEventArgs e)
-        //{
-        //    result = System.Windows.Forms.DialogResult.OK;
-        //    customMessageBox.Close();
-        //}
-
-        //private void Btn_No_Click(object sender, RoutedEventArgs e)
-        //{
-        //    result = System.Windows.Forms.DialogResult.No;
-        //    customMessageBox.Close();
-        //}
-
-        //private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
-        //{
-        //    result = System.Windows.Forms.DialogResult.Cancel;
-        //    customMessageBox.Close();
-        //}
+        private void Btn_No_Click(object sender, RoutedEventArgs e)
+        {
+            result = System.Windows.Forms.DialogResult.No;
+            customMessageBox.Close();
+        }
     }
 }

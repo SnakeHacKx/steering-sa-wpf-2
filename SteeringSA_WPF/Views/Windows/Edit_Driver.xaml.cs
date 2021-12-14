@@ -69,15 +69,22 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_EditDriver_Click(object sender, RoutedEventArgs e)
         {
-            CRUD.Driver.Instance.Edit(driverID,
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea editar este conductor?",
+                "Editar Conductor",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Driver.Instance.Edit(driverID,
                 Txt_Name.Text,
                 Txt_Surname.Text,
                 Txt_PhoneNumber.Text,
                 Dtp_BirthDate.Text,
                 Cb_BloodType.Text,
                 Cb_LicenseType.Text);
-            RefreshProfileInfo();
-            Close();
+                RefreshProfileInfo();
+                Close();
+            }
         }
     }
 }

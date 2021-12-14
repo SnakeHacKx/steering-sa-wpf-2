@@ -27,8 +27,15 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddClient_Click(object sender, RoutedEventArgs e)
         {
-            CRUD.Client.Instance.Register(Txt_DNI.Text, Txt_Name.Text, Txt_Surname.Text, Txt_PhoneNumber.Text, Dtp_BirthDate.Text, Txt_Address.Text);
-            ClearFormFields();
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea registrar este cliente?",
+                "Registrar Cliente",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Client.Instance.Register(Txt_DNI.Text, Txt_Name.Text, Txt_Surname.Text, Txt_PhoneNumber.Text, Dtp_BirthDate.Text, Txt_Address.Text);
+                ClearFormFields();
+            }
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

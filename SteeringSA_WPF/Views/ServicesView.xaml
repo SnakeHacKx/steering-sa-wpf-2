@@ -228,6 +228,20 @@
                                                                  VerticalAlignment="Top"
                                                                  HorizontalAlignment="Center"/>
                                             </Button>
+
+                                            <Button Name="Btn_Delete"
+                                            Click="Btn_Delete_Click"
+                                            Background="{StaticResource TRed}"
+                                                ToolTip="Eliminar este vehículo"
+                                            BorderThickness="0"
+                                            Width="auto">
+                                                <materialDesign:PackIcon Kind="DeleteCircle"
+                                             Width="auto" 
+                                             Height="auto" 
+                                             Foreground="{StaticResource White}" 
+                                             VerticalAlignment="Top"
+                                             HorizontalAlignment="Center"/>
+                                            </Button>
                                         </WrapPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

@@ -53,17 +53,24 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddMaintenance_Click(object sender, RoutedEventArgs e)
         {
-            string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("¿Está seguro/a que desea registrar este mantenimiento?",
+                "Registrar Mantenimiento",
+                CustomMessageBox.CMessageBoxType.Warning);
 
-            description = description.Replace("\n", "").Replace("\r", "");
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                string description = new TextRange(Txt_Description.Document.ContentStart, Txt_Description.Document.ContentEnd).Text;
 
-            CRUD.Maintenance.Instance.Register(Tb_VehicleRegistration.Text,
-                Txt_ReportID.Text,
-                Txt_Cost.Text,
-                Dtp_MaintenanceDate.Text,
-                description,
-                Cb_MaintenanceState.Text);
-            ClearFormFields();
+                description = description.Replace("\n", "").Replace("\r", "");
+
+                CRUD.Maintenance.Instance.Register(Tb_VehicleRegistration.Text,
+                    Txt_ReportID.Text,
+                    Txt_Cost.Text,
+                    Dtp_MaintenanceDate.Text,
+                    description,
+                    Cb_MaintenanceState.Text);
+                ClearFormFields();
+            }
         }
 
         private void ClearFormFields()

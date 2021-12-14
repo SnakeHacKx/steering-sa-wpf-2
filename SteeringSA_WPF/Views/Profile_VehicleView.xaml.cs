@@ -41,7 +41,15 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_DeleteVehicle_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Vehículo",
+                CustomMessageBox.CMessageBoxType.Warning);
 
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Vehicle.Instance.Delete(Tb_Registration.Text);
+                WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
+            }
         }
 
         private void Btn_EditVehicle_Click(object sender, RoutedEventArgs e)

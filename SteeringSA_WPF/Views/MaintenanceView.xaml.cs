@@ -132,6 +132,19 @@ namespace SteeringSA_WPF.Views
                 chosenMaintenanceID = columnValue;
             }
         }
+
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Mantenimiento",
+                CustomMessageBox.CMessageBoxType.Warning);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.Maintenance.Instance.Delete(chosenMaintenanceID);
+                RefreshDataGrid();
+            }
+        }
     }
 }
   

@@ -87,8 +87,8 @@
                         <!--#region BOTON INICIAR SESION -->
                         <Button  
                             Margin="0 50 0 0"
-                Name="Btn_AddClient"
-                Click="Btn_AddClient_Click"
+                Name="Btn_AddUser"
+                Click="Btn_AddUser_Click"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 Width="180"
