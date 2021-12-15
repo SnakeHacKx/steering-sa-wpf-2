@@ -45,7 +45,7 @@ namespace SteeringSA_WPF.Views.Windows
         /// </summary>
         private void RefreshDataGrid()
         {
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_VEHICLE), ref Tb_RecordCount);
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_AVAILABLE_VEHICLES), ref Tb_RecordCount);
             ClearInputs();
         }
 

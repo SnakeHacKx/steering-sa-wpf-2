@@ -172,6 +172,7 @@ namespace SteeringSA_WPF
         public const string INSERT_VEHICLE = "PROC_REGISTRAR_VEHICULO";
         public const string UPDATE_VEHICLE = "PROC_ACTUALIZAR_DATOS_VEHICULO";
         public const string DELETE_VEHICLE = "PROC_ELIMINAR_VEHICULO";
+        public const string SHOW_AVAILABLE_VEHICLES = "PROC_OBTENER_VEHICULOS_DISPONIBLE";
         public const string SHOW_ALL_VEHICLE = "PROC_LISTAR_TODOS_VEHICULOS";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_VEHICLE_BYPLACA = "PROC_BUSCAR_VEHICULO_POR_PLACA";//BUSCA POR PLACA
         public const string FILTERS_VEHICLE = "PROC_FILTRO_VEHICULO"; //Formato Modelo, tipo de vehiculo, rango inicial pasajeros, rango final pasajeros, tipo de combustible,estado,color
