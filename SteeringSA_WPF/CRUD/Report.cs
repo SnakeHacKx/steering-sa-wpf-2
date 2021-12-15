@@ -187,6 +187,32 @@ namespace SteeringSA_WPF.CRUD
         }
         #endregion
 
+        public DataTable ShowReportsByVehicle(string vehicleID)
+        {
+            SqlCommand cmd = new SqlCommand(StoreProcedure.SHOW_REPORTS_BYVEHICLE, DBConnection.Instance.SQLConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Placa_Vehiculo", vehicleID);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            using (da)
+            {
+                DataTable dataTable = new DataTable();
+
+                try
+                {
+                    da.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.Show(ex.Message, "Error en la base de datos", CustomMessageBox.CMessageBoxType.Error);
+                    return null;
+                }
+
+                return dataTable;
+            }
+        }
+
         public DataTable FilterBy(string beginDate, string endDate, string state)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_REPORT, DBConnection.Instance.SQLConnection);

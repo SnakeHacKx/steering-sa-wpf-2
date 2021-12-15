@@ -19,15 +19,18 @@ namespace SteeringSA_WPF.Views.Windows
     /// </summary>
     public partial class Choose_Report : Window
     {
+        private string vehicleID;
         private bool isFilterGridOpen;
         public delegate void DChangeReportID();
         public event DChangeReportID ChangeReportID;
 
-        public Choose_Report()
+        public Choose_Report(string vehicleID)
         {
             InitializeComponent();
-            RefreshDataGrid();
             isFilterGridOpen = true;
+            this.vehicleID = vehicleID;
+            Console.WriteLine("VEHICULOOOOO: "+ vehicleID);
+            RefreshDataGrid();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -68,7 +71,8 @@ namespace SteeringSA_WPF.Views.Windows
         /// </summary>
         private void RefreshDataGrid()
         {
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ReportsData, TableID.REPORT, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_ALL_REPORT), ref Tb_RecordCount);
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ReportsData, TableID.REPORT, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SHOW_REPORTS_BYVEHICLE,
+                "@Placa_Vehiculo", vehicleID), ref Tb_RecordCount);
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

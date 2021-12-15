@@ -56,7 +56,7 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_FindReport_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Choose_Report chooseReport = new Windows.Choose_Report();
+            Windows.Choose_Report chooseReport = new Windows.Choose_Report(CRUD.Maintenance.Instance.PlacaVehiculo);
             chooseReport.ChangeReportID += new Windows.Choose_Report.DChangeReportID(ChangeReportID);
             chooseReport.ShowDialog();
         }

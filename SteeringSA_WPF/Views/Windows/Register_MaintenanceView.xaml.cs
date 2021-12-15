@@ -41,7 +41,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_FindReport_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Choose_Report chooseReport = new Windows.Choose_Report();
+            Windows.Choose_Report chooseReport = new Windows.Choose_Report(vehicleID);
             chooseReport.ChangeReportID += new Windows.Choose_Report.DChangeReportID(ChangeReportID);
             chooseReport.ShowDialog();
         }

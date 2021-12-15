@@ -67,8 +67,8 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CLIENTE, clientID);
                 cmd.Parameters.AddWithValue("@Placa_Vehiculo", vehicleID);
-                cmd.Parameters.AddWithValue("@F_Inicio", beginDate);
-                cmd.Parameters.AddWithValue("@F_Final", endDate);
+                cmd.Parameters.AddWithValue("@F_Inicio", DateTime.Parse(beginDate));
+                cmd.Parameters.AddWithValue("@F_Final", DateTime.Parse(endDate));
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
@@ -119,8 +119,8 @@ namespace SteeringSA_WPF.CRUD
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CLIENTE, clientID);
                 cmd.Parameters.AddWithValue("@Placa", vehicleID);
-                cmd.Parameters.AddWithValue("@Fecha_inicio", beginDate);
-                cmd.Parameters.AddWithValue("@Fecha_finalizacion", endDate);
+                cmd.Parameters.AddWithValue("@Fecha_inicio", DateTime.Parse(beginDate));
+                cmd.Parameters.AddWithValue("@Fecha_finalizacion", DateTime.Parse(endDate));
                 cmd.Parameters.AddWithValue(TableVariable.SERVICE_DESCRIPCION, description);
 
                 cmd.Parameters.Add("@MsgSuccess", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

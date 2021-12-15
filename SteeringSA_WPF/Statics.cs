@@ -190,6 +190,7 @@ namespace SteeringSA_WPF
         public const string INSERT_REPORT = "PROC_REGISTRAR_REPORTE";
         public const string UPDATE_REPORT = "PROC_ACTUALIZAR_DATOS_REPORTE";
         public const string DELETE_REPORT = "PROC_ELIMINAR_REPORTE";
+        public const string SHOW_REPORTS_BYVEHICLE = "PROC_OBTENER_REPORTES_VEHICULO";
         public const string SHOW_ALL_REPORT = "PROC_LISTAR_TODOS_REPORTES";//MUESTRA TODOS LOS DATOS GENERALES
         public const string SEARCH_REPORT_BYCODE = "PROC_BUSCAR_CODIGO_REPORTE";//BUSCA POR EL CODIGO
         public const string FILTERS_REPORT = "PROC_FILTRO_REPORTE";//Formato inicio rango de fechas, final rango de fechas, estado
