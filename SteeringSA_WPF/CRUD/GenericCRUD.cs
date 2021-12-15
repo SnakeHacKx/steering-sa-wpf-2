@@ -120,12 +120,12 @@ namespace SteeringSA_WPF.CRUD
             {
                 while (reader.Read())
                 {
-                    ClientCount = reader.GetString(0);
+                    ClientCount = reader.GetString(5);
                     DriverCount = reader.GetString(1);
                     VehicleCount = reader.GetString(2);
                     ReportCount = reader.GetString(3);
                     MaintenanceCount = reader.GetString(4);
-                    ServiceCount = reader.GetString(5);
+                    ServiceCount = reader.GetString(0);
                 }
             }
             catch (Exception ex)

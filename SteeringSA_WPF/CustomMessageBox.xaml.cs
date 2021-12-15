@@ -76,11 +76,11 @@ namespace SteeringSA_WPF
                 case CMessageBoxType.Info:
                     // Icono
                     customMessageBox.messageIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.InfoCircle;
-                    customMessageBox.messageIcon.Foreground = Brushes.White;
+                    customMessageBox.messageIcon.Foreground = Brushes.Black;
                     // Color
                     customMessageBox.Pic_Background.Source = new BitmapImage(new Uri(@"/Images/bg_mb_info.png", UriKind.Relative));
                     // Texto
-                    customMessageBox.Tb_Message.Foreground = Brushes.White;
+                    customMessageBox.Tb_Message.Foreground = Brushes.Black;
                     // Botones
                     customMessageBox.Btn_OK.Visibility = Visibility.Visible;
                     customMessageBox.Btn_Cancel.Visibility = Visibility.Collapsed;

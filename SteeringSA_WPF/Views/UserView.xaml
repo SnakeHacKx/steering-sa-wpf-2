@@ -199,29 +199,6 @@
                         <!--#endregion-->
 
                         <!--#region BOTON EN COLUMNA -->
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn CanUserResize="False">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Name="Btn_ViewProfile"
-                                            Click="Btn_ViewProfile_Click"
-                                            Background="{StaticResource TBlack}"
-                                                ToolTip="Ver perfil del vehículo"
-                                            BorderThickness="0"
-                                            Width="auto">
-                                            <Grid Width="auto">
-                                                <md:PackIcon Kind="User"
-                                             Width="auto" 
-                                             Height="auto" 
-                                             Foreground="{StaticResource White}" 
-                                             VerticalAlignment="Top"
-                                             HorizontalAlignment="Center"/>
-                                            </Grid>
-                                        </Button>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
                         <!--#endregion-->
                     </DataGrid>
                     <!--#endregion-->
@@ -234,6 +211,8 @@
             <!--#region COLUMN 2 PROFILE -->
             <Border 
                     Grid.Column="1"
+                Name="UserProfile"
+                Visibility="Collapsed"
                 Margin="50 0 0 0"
                     BorderThickness="1" 
                         HorizontalAlignment="Center"
@@ -251,7 +230,7 @@
 
                     <TextBlock HorizontalAlignment="Center" 
                                    Text="Nombre Usuario" 
-                                   Name="Tb_Name"
+                                   Name="Tb_UserName"
                                    Style="{StaticResource S_TextBlock_Subtitle}"/>
                     <TextBlock Name="Tb_Role"
                                    HorizontalAlignment="Center"

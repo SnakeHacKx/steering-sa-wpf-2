@@ -54,21 +54,21 @@
                         <!--#region TXB NOMBRE USUARIO -->
                         <StackPanel>
                             <TextBlock Margin="0 0 0 5" Text="Nombre de Usuario" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                            <TextBox HorizontalAlignment="Left" MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                            <TextBox HorizontalAlignment="Left" MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_UserName"/>
                         </StackPanel>
                         <!--#endregion-->
 
                         <!--#region TXB CONTRA -->
                         <StackPanel Margin="0 20">
                             <TextBlock Text="Contraseña:" Margin="0 0 0 5" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                            <PasswordBox HorizontalAlignment="Left" Password="elputo" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
+                            <PasswordBox HorizontalAlignment="Left" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="200" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
                         </StackPanel>
                         <!--#endregion-->
 
                         <!--#region TXB CONFIRMAR CONTRA -->
                         <StackPanel>
                             <TextBlock Text="Confirmar Contraseña:" Margin="0 0 0 5" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                            <PasswordBox HorizontalAlignment="Left" Password="elputo" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_ConfirmPassword" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_ConfirmPassword_KeyDown"/>
+                            <PasswordBox HorizontalAlignment="Left" md:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_ConfirmPassword" MinWidth="200" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
                         </StackPanel>
                         <!--#endregion-->
 

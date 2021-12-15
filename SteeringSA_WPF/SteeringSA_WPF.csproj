@@ -72,6 +72,7 @@
     <Compile Include="CRUD\Report.cs" />
     <Compile Include="CRUD\Service.cs" />
     <Compile Include="CRUD\ServiceType.cs" />
+    <Compile Include="CRUD\User.cs" />
     <Compile Include="CRUD\Vehicle.cs" />
     <Compile Include="CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>

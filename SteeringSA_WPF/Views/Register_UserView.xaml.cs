@@ -25,19 +25,17 @@ namespace SteeringSA_WPF.Views
             InitializeComponent();
         }
 
-        private void Txt_Password_KeyDown(object sender, KeyEventArgs e)
+        private void ClearFormFields()
         {
-
-        }
-
-        private void Txt_ConfirmPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-
+            Txt_UserName.Text = "";
+            Txt_Password.Password = "";
+            Txt_ConfirmPassword.Password = "";
+            Cb_Role.Text = "";
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VIEW_USERS, new ViewModels.UserViewModel());
         }
 
         private void Btn_AddUser_Click(object sender, RoutedEventArgs e)
@@ -48,6 +46,16 @@ namespace SteeringSA_WPF.Views
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             { 
+                if (Txt_Password.Password == Txt_ConfirmPassword.Password)
+                {
+                    CRUD.User.Instance.Register(Txt_UserName.Text, Txt_Password.Password, Cb_Role.Text);
+                }
+                else
+                {
+                    CustomMessageBox.Show("Las contraseñas no coinciden, inténtelo nuevamente", "Error", CustomMessageBox.CMessageBoxType.Error);
+                }
+
+                ClearFormFields();
             }
         }
     }

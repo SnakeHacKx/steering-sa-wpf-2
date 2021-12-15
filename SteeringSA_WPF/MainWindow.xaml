@@ -103,9 +103,15 @@
                       DataType="{x:Type viewmodels:Register_VehicleViewModel}">
             <views:Register_VehicleView DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="AddUserViewTemplate"
+                      DataType="{x:Type viewmodels:Register_UserViewModel}">
+            <views:Register_UserView DataContext="{Binding}"/>
+        </DataTemplate>
         <!--#endregion-->
 
         <!--#region EDITAR -->
+
         <!--#endregion-->
     </Window.Resources>
 

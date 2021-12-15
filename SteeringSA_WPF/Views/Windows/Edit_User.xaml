@@ -49,34 +49,54 @@
                             <StackPanel>
                                 <!--#region TXB NOMBRE USUARIO -->
                                 <StackPanel>
-                                    <TextBlock Margin="0 0 0 5" Text="Nombre de Usuario:" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                    <TextBox HorizontalAlignment="Left" MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_Name"/>
+                                    <WrapPanel>
+                                        <WrapPanel Margin="0 0 0 5" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                            <TextBlock Text="Nombre del Usuario:" Style="{StaticResource S_TextBlock_Body}"/>
+                                            <TextBlock Name="Tb_ActualUsername" Margin="5 0 0 0" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                            <Button Name="Btn_EditUsername"
+                                                        Click="Btn_EditUsername_Click" 
+                                                    
+                                                        ToolTip="Editar nombre de usuario"
+                                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}" 
+                                                        HorizontalAlignment="Left"
+                                                        Margin="5 0 0 0">
+                                                <materialDesign:PackIcon Kind="Edit" 
+                                                        Style="{StaticResource S_Icon_WindowIcon}"/>
+                                            </Button>
+                                        </WrapPanel>
+
+                                    </WrapPanel>
+                                   
+                                    <TextBox Visibility="Collapsed" HorizontalAlignment="Left" MinWidth="200" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_NewUserName"/>
                                 </StackPanel>
                                 <!--#endregion-->
 
                                 <!--#region TXB CONTRA -->
-                                <StackPanel Margin="0 20">
-                                    <TextBlock Text="Contraseña:" Margin="0 0 0 5" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                    <PasswordBox HorizontalAlignment="Left" Password="elputo" materialDesign:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_Password_KeyDown"/>
+                                <StackPanel Margin="0 20 0 5">
+                                    <WrapPanel>
+                                        <TextBlock Text="Contraseña:" Margin="0 0 0 5" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
+                                        <TextBlock Margin="5 0 0 0" Text="●●●●●●●●●●●" Foreground="{StaticResource FadedBlack}" Style="{StaticResource S_TextBlock_Body}"/>
+                                        <Button Name="Btn_EditPassword"
+                                                        Click="Btn_EditPassword_Click" 
+                                                    
+                                                        ToolTip="Editar nombre de usuario"
+                                                        Style="{StaticResource S_Button_TransparentButtonWithHand_Background}" 
+                                                        HorizontalAlignment="Left"
+                                                        Margin="5 0 0 0">
+                                            <materialDesign:PackIcon Kind="Edit" 
+                                                        Style="{StaticResource S_Icon_WindowIcon}"/>
+                                        </Button>
+                                    </WrapPanel>
+                                    
+                                    
                                 </StackPanel>
                                 <!--#endregion-->
 
-                                <!--#region TXB CONFIRMAR CONTRA -->
-                                <StackPanel>
+                                <!--#region TXBS CONTRAS -->
+                                <StackPanel Name="PasswordInputs" Visibility="Collapsed">
+                                    <PasswordBox materialDesign:HintAssist.HelperText="Mínimo 8 caracteres" materialDesign:HintAssist.HelperTextFontSize="12" Margin="0 0 0 20" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_Password" MinWidth="200" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
                                     <TextBlock Text="Confirmar Contraseña:" Margin="0 0 0 5" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                    <PasswordBox HorizontalAlignment="Left" Password="elputo" materialDesign:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_ConfirmPassword" MinWidth="300" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}" KeyDown="Txt_ConfirmPassword_KeyDown"/>
-                                </StackPanel>
-                                <!--#endregion-->
-
-                                <!--#region CB ROL -->
-                                <StackPanel Margin="0 20 0 0">
-                                    <TextBlock Text="Rol:" Margin="0 0 0 5" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
-                                    <ComboBox Name="Cb_Role" HorizontalAlignment="Left"
-                                  Width="120"
-                                  Style="{StaticResource S_Combobox_Normal}">
-                                        <ComboBoxItem Content="Administrador" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Empleado" Foreground="{StaticResource Black}" />
-                                    </ComboBox>
+                                    <PasswordBox materialDesign:HintAssist.HelperText="Mínimo 8 caracteres" materialDesign:HintAssist.HelperTextFontSize="12" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="●●●●●●●●●●●" Name="Txt_ConfirmPassword" MinWidth="200" MaxWidth="350" Style="{StaticResource S_PasswordBox_Form}"/>
                                 </StackPanel>
                                 <!--#endregion-->
 

@@ -20,6 +20,7 @@ namespace SteeringSA_WPF.Views
     /// </summary>
     public partial class UserView : UserControl
     {
+        private string chosenUser;
 
         public UserView()
         {
@@ -29,7 +30,11 @@ namespace SteeringSA_WPF.Views
 
         private void Dgv_UsersData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (UserProfile.Visibility == Visibility.Collapsed)
+                UserProfile.Visibility = Visibility.Visible;
 
+            Tb_UserName.Text = UtilitiesDataGrid.GetColumnValue(sender, 0);
+            Tb_Role.Text = UtilitiesDataGrid.GetColumnValue(sender, 1);
         }
 
         /// <summary>
@@ -45,14 +50,10 @@ namespace SteeringSA_WPF.Views
             //WindowManager.ChangeWindow(WindowsTitle.SIGNUP_USER_PROFILE, new UserProfileViewModel());
         }
 
-        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Btn_RefreshDataGrid_Click_1(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+            UserProfile.Visibility = Visibility.Collapsed;
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_AddUser_Click(object sender, RoutedEventArgs e)
         {
-            //WindowManager.ChangeWindow(WindowsTitle.ADD_USER, new Register_UserViewModel());
+            WindowManager.ChangeWindow(WindowsTitle.ADD_USER, new ViewModels.Register_UserViewModel());
         }
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
@@ -70,19 +71,24 @@ namespace SteeringSA_WPF.Views
 
         }
 
-        private void Btn_EditDriver_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Btn_DeleteUser_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
+                "Eliminar Usuario",
+                CustomMessageBox.CMessageBoxType.Warning);
 
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                CRUD.User.Instance.Delete(Tb_UserName.Text);
+                RefreshDataGrid();
+            }
         }
 
         private void Btn_EditUser_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.Edit_User editUser = new Windows.Edit_User(Tb_UserName.Text);
+            editUser.RefreshDatagrid += new Windows.Edit_User.DRefreshDatagrid(RefreshDataGrid);
+            editUser.ShowDialog();
         }
     }
 }

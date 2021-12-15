@@ -31,7 +31,7 @@ namespace SteeringSA_WPF
         public const string ADD_MAINTENANCE = "Agregar Mantenimiento";
         public const string ADD_REPORTS = "Agregar Reporte";
         public const string ADD_SERVICES = "Agregar Servicio";
-        public const string ADD_USERS = "Agregar Usuario";
+        public const string ADD_USER = "Agregar Usuario";
 
         public const string EDIT_CLIENT = "Editar Cliente";
         public const string EDIT_DRIVER = "Editar Conductor";
@@ -218,6 +218,7 @@ namespace SteeringSA_WPF
         public const string DELETE_USER = "PROC_ELIMINAR_USUARIO";
         public const string UPDATE_USER_NAME = "PROC_CAMBIAR_NOMBRE_DE_USUARIO";
         public const string UPDATE_USER_PASSWORD = "PROC_CAMBIAR_CONTRASEÑA_USUARIO";
+        public const string EDIT_USER = "PROC_EDITAR_USUARIOS";
         public const string SHOW_ALL_USERS = "PROC_MOSTRAR_USUARIOS";//Muesta unicamente el nombre de usuario y que rol tiene en el sistema(empleado o administrador)
         public const string GET_TOTALS = "PROC_TOTALES_EN_TABLAS";
         #endregion
