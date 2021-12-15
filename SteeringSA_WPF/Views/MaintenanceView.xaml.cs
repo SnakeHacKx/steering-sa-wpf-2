@@ -168,6 +168,13 @@ namespace SteeringSA_WPF.Views
                 RefreshDataGrid();
             }
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            Dtp_MaintenanceBeginDate.Text = "";
+            Dtp_MaintenanceEndDate.Text = "";
+        }
     }
 }
   

@@ -119,5 +119,11 @@ namespace SteeringSA_WPF.Views.Windows
                 WindowManager.ChosenReport = columnValue;
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dtp_MaintenanceDateMax.Text = "";
+            Dtp_MaintenanceDateMin.Text = "";
+        }
     }
 }

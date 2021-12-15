@@ -9,7 +9,7 @@
         Title="Choose_Report" FontFamily="Poppins"
         Height="768" Width="1200" 
         AllowsTransparency="False" WindowStyle="None"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Border BorderThickness="1" BorderBrush="{StaticResource TBlack}">
             <Grid MouseDown="Grid_MouseDown">
