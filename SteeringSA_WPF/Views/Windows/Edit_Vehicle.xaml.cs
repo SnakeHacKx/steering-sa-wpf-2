@@ -55,11 +55,17 @@ namespace SteeringSA_WPF.Views.Windows
                 CRUD.Vehicle.Instance.Edit(vehicleID,
                 Txt_Model.Text,
                 Cb_VehicleType.Text,
-                int.Parse(Cb_MaxPassengerNumber.Text),
+                Cb_MaxPassengerNumber.Text,
                 Cb_Fuel.Text, Cb_Color.Text);
                 RefreshProfileInfo();
                 Close();
             }
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

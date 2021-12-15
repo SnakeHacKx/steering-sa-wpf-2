@@ -215,14 +215,22 @@ namespace SteeringSA_WPF.CRUD
             cmd.Parameters.AddWithValue("@Nombre_Servicio", name);
 
             if (minCost == null)
+            {
                 cmd.Parameters.AddWithValue("@Costo_inicial", minCost);
+            }
             else
+            {
                 cmd.Parameters.AddWithValue("@Costo_inicial", decimal.Parse(minCost));
+            }
 
             if (maxCost == null)
+            {
                 cmd.Parameters.AddWithValue("@Costo_final", maxCost);
+            }
             else
+            {
                 cmd.Parameters.AddWithValue("@Costo_final", decimal.Parse(maxCost));
+            }
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 

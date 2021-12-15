@@ -55,10 +55,10 @@ namespace SteeringSA_WPF.Views.Windows
             Txt_MaxPassengerCount.Text = "";
             Txt_MinPassengerCount.Text = "";
             Txt_VehicleModel.Text = "";
-            Cb_Color.Text = "";
-            Cb_Fuel.Text = "";
-            Cb_State.Text = "";
-            Cb_VehicleType.Text = "";
+            Cb_Color.Text = "-";
+            Cb_Fuel.Text = "-";
+            Cb_State.Text = "-";
+            Cb_VehicleType.Text = "-";
         }
 
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
@@ -103,7 +103,7 @@ namespace SteeringSA_WPF.Views.Windows
             string vehicleModel;
             string state;
 
-            if (Cb_Color.Text == "") color = null;
+            if (Cb_Color.Text == "-") color = null;
             else color = Cb_Color.Text;
 
             if (Txt_MinPassengerCount.Text == "") minPassengers = null;
@@ -112,16 +112,16 @@ namespace SteeringSA_WPF.Views.Windows
             if (Txt_MaxPassengerCount.Text == "") maxPassengers = null;
             else maxPassengers = Txt_MaxPassengerCount.Text;
 
-            if (Cb_Fuel.Text == "") fuelType = null;
+            if (Cb_Fuel.Text == "-") fuelType = null;
             else fuelType = Cb_Fuel.Text;
 
-            if (Cb_VehicleType.Text == "") vehicleType = null;
+            if (Cb_VehicleType.Text == "-") vehicleType = null;
             else vehicleType = Cb_VehicleType.Text;
 
             if (Txt_VehicleModel.Text == "") vehicleModel = null;
             else vehicleModel = Txt_VehicleModel.Text;
 
-            if (Cb_State.Text == "") state = null;
+            if (Cb_State.Text == "-") state = null;
             else state = Cb_State.Text;
 
             UtilitiesDataGrid.RefreshDataGrid(ref Dgv_VehiclesData, TableID.VEHICLE, CRUD.Vehicle.Instance.FilterBy(vehicleModel, vehicleType, minPassengers, maxPassengers, fuelType, state, color), ref Tb_RecordCount);
@@ -131,6 +131,12 @@ namespace SteeringSA_WPF.Views.Windows
         {
             ChangeVehicleID();
             Close();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

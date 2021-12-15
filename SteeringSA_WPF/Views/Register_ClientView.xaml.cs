@@ -49,7 +49,7 @@ namespace SteeringSA_WPF.Views
             Txt_Name.Text = "";
             Txt_Surname.Text = "";
             Txt_PhoneNumber.Text = "";
-            Dtp_BirthDate.Text = DateTime.Now.ToString();
+            Dtp_BirthDate.SelectedDate = new DateTime(1950, 1, 1);
             Txt_Address.Text = "";
         }
 
@@ -60,8 +60,12 @@ namespace SteeringSA_WPF.Views
             if (ageInYears < 18)
             {
                 CustomMessageBox.Show("El conductor debe ser mayor de edad", "Error", CustomMessageBox.CMessageBoxType.Error);
-                Dtp_BirthDate.SelectedDate = DateTime.Today;
+                Dtp_BirthDate.SelectedDate = new DateTime(1950, 1, 1);
+                return;
             }
+
+            if (Tb_Age != null)
+                Tb_Age.Text = ageInYears.ToString();
         }
 
         /// <summary>

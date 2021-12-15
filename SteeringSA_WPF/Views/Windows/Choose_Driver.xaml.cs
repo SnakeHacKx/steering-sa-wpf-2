@@ -27,7 +27,7 @@ namespace SteeringSA_WPF.Views.Windows
         {
             InitializeComponent();
             RefreshDataGrid();
-            isFilterGridOpen = false;
+            isFilterGridOpen = true;
         }
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
@@ -105,11 +105,6 @@ namespace SteeringSA_WPF.Views.Windows
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void Btn_ChooseDriver_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)

@@ -91,7 +91,20 @@
                                                     SelectedDateChanged="Dtp_BirthDate_SelectedDateChanged"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                         </DatePicker>
-                                        <TextBlock VerticalAlignment="Center" Text="(0 años)" Margin="5 0 0 0" Style="{StaticResource ResourceKey=S_TextBlock_Faded}" />
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Faded}" 
+                                               Text="("
+                                               VerticalAlignment="Center"
+                                               Margin="5 0 0 0"/>
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Faded}" 
+                                               Text="71"
+                                               VerticalAlignment="Center"
+                                               Name="Tb_Age"/>
+
+                                    <TextBlock Style="{StaticResource S_TextBlock_Faded}" 
+                                               VerticalAlignment="Center"
+                                               Text=" años)"/>
                                 </WrapPanel>
                             </StackPanel>
                             <!--#endregion-->

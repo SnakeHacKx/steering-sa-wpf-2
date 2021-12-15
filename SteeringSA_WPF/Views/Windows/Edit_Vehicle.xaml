@@ -11,7 +11,7 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image Stretch="UniformToFill" Source="../../Images/bg_editWindows.png"/>
-        <Grid>
+        <Grid MouseDown="Grid_MouseDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />

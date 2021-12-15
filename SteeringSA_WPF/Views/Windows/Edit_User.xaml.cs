@@ -36,7 +36,8 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)

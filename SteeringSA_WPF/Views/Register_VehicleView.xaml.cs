@@ -51,7 +51,7 @@ namespace SteeringSA_WPF.Views
                 CRUD.Vehicle.Instance.Register(Txt_Matricula.Text,
                 Txt_Motor.Text,
                 Cb_VehicleType.Text,
-                int.Parse(Cb_MaxPassengerNumber.Text),
+                Cb_MaxPassengerNumber.Text,
                 Cb_Fuel.Text, Cb_Color.Text);
 
                 ClearFormFields();

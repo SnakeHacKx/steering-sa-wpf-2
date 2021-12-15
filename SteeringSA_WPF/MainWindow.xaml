@@ -231,8 +231,6 @@
                                 </materialDesign:PopupBox.ToggleContent>
 
                                 <StackPanel>
-                                    <Button Style="{StaticResource S_Button_PopupButton}" Content="Ver Perfil" HorizontalAlignment="Left"/>
-                                    <Button Style="{StaticResource S_Button_PopupButton}" Content="Configuración" HorizontalAlignment="Left"/>
                                     <Button Name="Btn_LogOut" Click="Btn_LogOut_Click" Style="{StaticResource S_Button_PopupButton}" HorizontalAlignment="Left" Content="Cerrar Sesión"/>
                                 </StackPanel>
                             </materialDesign:PopupBox>

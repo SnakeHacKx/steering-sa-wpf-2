@@ -77,8 +77,8 @@ namespace SteeringSA_WPF.Views
             Txt_MaxCost.Text = "";
             Txt_MinCost.Text = "";
             Txt_VehicleID.Text = "";
-            Cb_State.Text = "";
-            Cb_VehicleType.Text = "";
+            Cb_State.Text = "-";
+            Cb_VehicleType.Text = "-";
             Dtp_MaintenanceBeginDate.Text = "";
             Dtp_MaintenanceEndDate.Text = "";
         }
@@ -111,7 +111,7 @@ namespace SteeringSA_WPF.Views
             if (Cb_State.Text == "-") state = null;
             else state = Cb_State.Text;
 
-            if (Cb_VehicleType.Text == "") vehicleType = null;
+            if (Cb_VehicleType.Text == "-") vehicleType = null;
             else vehicleType = Cb_VehicleType.Text;
 
 

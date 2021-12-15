@@ -218,6 +218,7 @@
                                 <Button
                                     Name="Btn_ShowMaintenances"
                                     Click="Btn_ShowMaintenances_Click"
+                                    Visibility="Collapsed"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Center"
                                     Background="{StaticResource TWhite}"
@@ -261,6 +262,7 @@
                                 <!--#region BOTON REPORTES -->
                                 <Button  
                                     Name="Btn_ShowReports"
+                                    Visibility="Collapsed"
                                     Click="Btn_ShowReports_Click"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Center"

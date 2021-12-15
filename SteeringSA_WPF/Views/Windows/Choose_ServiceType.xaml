@@ -12,7 +12,7 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Border>
-            <Grid>
+            <Grid MouseDown="Grid_MouseDown">
                 <Image Stretch="UniformToFill" Source="../../Images/bg_chooseWindows.png"/>
                 <Grid Margin="30">
                     <Grid.ColumnDefinitions>

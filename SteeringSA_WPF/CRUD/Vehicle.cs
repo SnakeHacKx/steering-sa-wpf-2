@@ -43,7 +43,7 @@ namespace SteeringSA_WPF.CRUD
 
         #region CRUD
 
-        public void Register(string idVehicle, string model, string type, int passengers, string fuelType, string color)
+        public void Register(string idVehicle, string model, string type, string passengers, string fuelType, string color)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.INSERT_VEHICLE, DBConnection.Instance.SQLConnection);
             try
@@ -84,7 +84,7 @@ namespace SteeringSA_WPF.CRUD
             }
         }
 
-        public void Edit(string idVehicle, string model, string type, int passengers, string fuelType, string color)
+        public void Edit(string idVehicle, string model, string type, string passengers, string fuelType, string color)
         {
             SqlCommand cmd = new SqlCommand(StoreProcedure.UPDATE_VEHICLE, DBConnection.Instance.SQLConnection);
             try

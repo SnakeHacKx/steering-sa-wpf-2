@@ -362,15 +362,21 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
-                                   Text="Tipo:"/>
+                                   Text="Tipo de Vehículo:"/>
                                 <ComboBox Name="Cb_VehicleType"
+                                          SelectedIndex="0"
                                   Width="150"
                                   Height="35"
                                   Style="{StaticResource S_Combobox_Normal}">
+                                    <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Sedán" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Camión" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Camioneta" Foreground="{StaticResource Black}" />
                                     <ComboBoxItem Content="Motocicleta" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Todoterreno" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Autobús" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Deportivo" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Minivan" Foreground="{StaticResource Black}" />
                                 </ComboBox>
                             </StackPanel>
                         </Border>

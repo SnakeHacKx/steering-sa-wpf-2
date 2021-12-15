@@ -287,9 +287,11 @@
                                    VerticalAlignment="Center"
                                    Text="Color:"/>
                                         <ComboBox Name="Cb_Color"
+                                                  SelectedIndex="0"
                                                   Width="150"
                                                   Style="{StaticResource S_Combobox_Normal}">
-                                            <ComboBoxItem Content="Rojo" Foreground="{StaticResource Black}" />
+                                        <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
+                                        <ComboBoxItem Content="Rojo" Foreground="{StaticResource Black}" />
                                             <ComboBoxItem Content="Blanco" Foreground="{StaticResource Black}" />
                                             <ComboBoxItem Content="Amarillo" Foreground="{StaticResource Black}" />
                                             <ComboBoxItem Content="Azul" Foreground="{StaticResource Black}" />

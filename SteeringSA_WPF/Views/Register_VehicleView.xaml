@@ -74,11 +74,15 @@
                                 <ComboBox Name="Cb_VehicleType"
                                   Width="150"
                                   Style="{StaticResource S_Combobox_Normal}">
-                                        <ComboBoxItem Content="Sedán" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Camnión" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Motocicleta" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Camioneta" Foreground="{StaticResource Black}" />
-                                    </ComboBox>
+                                    <ComboBoxItem Content="Sedán" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Camión" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Camioneta" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Motocicleta" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Todoterreno" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Autobús" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Deportivo" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Minivan" Foreground="{StaticResource Black}" />
+                                </ComboBox>
                             </StackPanel>
                             <!--#endregion-->
 
@@ -88,12 +92,10 @@
                                 <ComboBox Name="Cb_MaxPassengerNumber"
                                    Width="50"
                                   Style="{StaticResource S_Combobox_Normal}">
-                                        <ComboBoxItem Content="1" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="2" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="3" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="4" Foreground="{StaticResource Black}" />
                                         <ComboBoxItem Content="5" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="6" Foreground="{StaticResource Black}" />
+                                        <ComboBoxItem Content="7" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="8+" Foreground="{StaticResource Black}" />
                                 </ComboBox>
                             </StackPanel>
                             <!--#endregion-->
@@ -106,9 +108,10 @@
                                 <ComboBox Name="Cb_Fuel"
                                   Width="120"
                                   Style="{StaticResource S_Combobox_Normal}">
-                                        <ComboBoxItem Content="Diesel" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Gasolina" Foreground="{StaticResource Black}" />
-                                    </ComboBox>
+                                    <ComboBoxItem Content="Diesel" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Gasolina 91" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Gasolina 95" Foreground="{StaticResource Black}" />
+                                </ComboBox>
                             </StackPanel>
                             <!--#endregion-->
 
@@ -118,13 +121,18 @@
                                 <ComboBox Name="Cb_Color"
                                   Width="120"
                                   Style="{StaticResource S_Combobox_Normal}">
-                                        <ComboBoxItem Content="Rojo" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Blanco" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Amarillo" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Azul" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Negro" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Morado" Foreground="{StaticResource Black}" />
-                                    </ComboBox>
+                                    <ComboBoxItem Content="Rojo" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Blanco" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Amarillo" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Azul" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Negro" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Morado" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Celeste" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Gris" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Naranja" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Rosado" Foreground="{StaticResource Black}" />
+                                    <ComboBoxItem Content="Verde" Foreground="{StaticResource Black}" />
+                                </ComboBox>
                             </StackPanel>
                             <!--#endregion-->
                         </WrapPanel>

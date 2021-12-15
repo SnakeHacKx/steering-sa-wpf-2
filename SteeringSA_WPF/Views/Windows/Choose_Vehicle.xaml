@@ -11,7 +11,7 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Border>
-            <Grid>
+            <Grid MouseDown="Grid_MouseDown">
                 <Image Stretch="UniformToFill" Source="../../Images/bg_chooseWindows.png"/>
                 <Grid Margin="30">
                     <Grid.ColumnDefinitions>
@@ -283,6 +283,7 @@
                                         <ComboBox Name="Cb_Color"
                                                   Width="150"
                                                   Style="{StaticResource S_Combobox_Normal}">
+                                            <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
                                             <ComboBoxItem Content="Rojo" Foreground="{StaticResource Black}" />
                                             <ComboBoxItem Content="Blanco" Foreground="{StaticResource Black}" />
                                             <ComboBoxItem Content="Amarillo" Foreground="{StaticResource Black}" />

@@ -47,8 +47,12 @@ namespace SteeringSA_WPF.Views.Windows
             if (ageInYears < 18)
             {
                 CustomMessageBox.Show("El conductor debe ser mayor de edad", "Error", CustomMessageBox.CMessageBoxType.Error);
-                Dtp_BirthDate.SelectedDate = DateTime.Today;
+                Dtp_BirthDate.SelectedDate = new DateTime(1950, 1, 1);
+                return;
             }
+
+            if (Tb_Age != null)
+                Tb_Age.Text = ageInYears.ToString();
         }
 
         /// <summary>
@@ -85,6 +89,12 @@ namespace SteeringSA_WPF.Views.Windows
                 RefreshProfileInfo();
                 Close();
             }
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

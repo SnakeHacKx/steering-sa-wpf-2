@@ -66,7 +66,7 @@
                                             <TextBox md:HintAssist.Hint="XX-XXXX-XXXXX"
                                              MinWidth="200" 
                                              MaxWidth="250" 
-                                             Style="{StaticResource S_TextBox_Form}" Name="Txt_DriverDNI"/>
+                                             Style="{StaticResource S_TextBox_Form}" Name="Txt_IDReport"/>
                                         </Border>
                                     </WrapPanel>
                                     <!--#endregion-->

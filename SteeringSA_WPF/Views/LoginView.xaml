@@ -45,7 +45,7 @@
                         <!--#region TXB USERNAME -->
                         <TextBlock Text="Nombre de Usuario:" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                         <Border Style="{StaticResource S_Border_TextBoxWithBorder}" Margin="0 0 0 30">
-                            <TextBox KeyDown="Txt_User_KeyDown" HorizontalAlignment="Left"  md:HintAssist.Hint="Nombre Usuario" Text="Omar" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
+                            <TextBox KeyDown="Txt_User_KeyDown" HorizontalAlignment="Left"  md:HintAssist.Hint="Nombre Usuario" Text="Omar_root" MinWidth="300" MaxWidth="350" Style="{StaticResource S_TextBox_Form}" Name="Txt_User"/>
                         </Border>
                         <!--#endregion-->
 

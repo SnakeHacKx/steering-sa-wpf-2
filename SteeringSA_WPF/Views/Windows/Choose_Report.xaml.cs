@@ -32,12 +32,8 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-        }
-
-        private void Dgv_DriversData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
 
         private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
@@ -58,7 +54,8 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ReportsData, TableID.REPORT, CRUD.GenericCRUD.Instance.SearchBy(StoreProcedure.SEARCH_REPORT_BYCODE,
+                TableID.REPORT, Txt_IDReport.Text), ref Tb_RecordCount);
         }
 
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)

@@ -27,11 +27,13 @@ namespace SteeringSA_WPF.Views.Windows
         {
             InitializeComponent();
             isFilterGridOpen = true;
+            Utilities.FillCombobox(ref Cb_Servicetype, TableID.TYPE_SERVICE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SEARCH_TYPE_SERVICE_NAME));
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
 
         private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)

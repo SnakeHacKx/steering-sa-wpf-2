@@ -76,6 +76,10 @@ namespace SteeringSA_WPF.Views.Windows
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+            Txt_MaxCost.Text = "";
+            Txt_MinCost.Text = "";
+            Txt_ServiceTypeID.Text = "";
+            Txt_ServiceTypeNameFilter.Text = "";
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
@@ -85,21 +89,21 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_Filter_Click(object sender, RoutedEventArgs e)
         {
-            string minCost = "";
-            string maxCost = "";
-            string serviceTypeName = "";
+            string minCost;
+            string maxCost;
+            string serviceTypeName;
 
             if (Txt_MinCost.Text == "") minCost = null;
             else minCost = Txt_MinCost.Text;
 
-            if (Txt_MaxCost.Text == "-") maxCost = null;
+            if (Txt_MaxCost.Text == "") maxCost = null;
             else maxCost = Txt_MaxCost.Text;
 
             if (Txt_ServiceTypeNameFilter.Text == "") serviceTypeName = null;
             else serviceTypeName = Txt_ServiceTypeNameFilter.Text;
 
 
-            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesTypesData, TableID.CLIENT, CRUD.ServiceType.Instance.FilterBy(minCost, maxCost, serviceTypeName), ref Tb_RecordCount);
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_ServicesTypesData, TableID.TYPE_SERVICE, CRUD.ServiceType.Instance.FilterBy(minCost, maxCost, serviceTypeName), ref Tb_RecordCount);
         }
 
         private void Btn_ChooseServiceType_Click(object sender, RoutedEventArgs e)
@@ -150,6 +154,12 @@ namespace SteeringSA_WPF.Views.Windows
                 CRUD.ServiceType.Instance.Delete(WindowManager.ChosenServiceType);
                 RefreshDataGrid();
             }
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

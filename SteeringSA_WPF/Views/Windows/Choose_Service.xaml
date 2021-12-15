@@ -349,10 +349,6 @@
                                             <ComboBox Name="Cb_Servicetype"
                             Width="150"
                             Style="{StaticResource S_Combobox_Normal}">
-                                                <ComboBoxItem Content="Delivery" Foreground="{StaticResource Black}" />
-                                                <ComboBoxItem Content="Transporte" Foreground="{StaticResource Black}" />
-                                                <ComboBoxItem Content="Opción 3" Foreground="{StaticResource Black}" />
-                                                <ComboBoxItem Content="Opción 4" Foreground="{StaticResource Black}" />
                                             </ComboBox>
                                         </StackPanel>
                                     </Border>

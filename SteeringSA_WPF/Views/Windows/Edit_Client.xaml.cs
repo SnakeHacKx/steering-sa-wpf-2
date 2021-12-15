@@ -32,7 +32,8 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void RefreshClientInfo()
         {
-            Txt_Name.Text = CRUD.Client.Instance.FullName;
+            Txt_Name.Text = CRUD.Client.Instance.Name;
+            Txt_Surname.Text = CRUD.Client.Instance.Surname;
             Txt_PhoneNumber.Text = CRUD.Client.Instance.PhoneNumber;
             Dtp_BirthDate.Text = CRUD.Client.Instance.BirthDate.ToString();
             Txt_Address.Text = CRUD.Client.Instance.Address;
@@ -64,8 +65,12 @@ namespace SteeringSA_WPF.Views.Windows
             if (ageInYears < 18)
             {
                 CustomMessageBox.Show("El conductor debe ser mayor de edad", "Error", CustomMessageBox.CMessageBoxType.Error);
-                Dtp_BirthDate.SelectedDate = DateTime.Today;
+                Dtp_BirthDate.SelectedDate = new DateTime(1950, 1, 1);
+                return;
             }
+
+            if (Tb_Age != null)
+                Tb_Age.Text = ageInYears.ToString();
         }
 
         /// <summary>
@@ -77,6 +82,12 @@ namespace SteeringSA_WPF.Views.Windows
         private int GetDifferenceInYears(DateTime startDate, DateTime endDate)
         {
             return endDate.Year - startDate.Year - 1 + (((endDate.Month > startDate.Month) || ((endDate.Month == startDate.Month) && (endDate.Day >= startDate.Day))) ? 1 : 0);
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }
