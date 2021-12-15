@@ -28,6 +28,15 @@
         <StackPanel HorizontalAlignment="Center"
                 VerticalAlignment="Center">
 
+            <Button Name="Btn_GoBack"
+                        Click="Btn_GoBack_Click"
+                        ToolTip="Volver"
+                        Style="{StaticResource S_Button_TransparentButtonWithHand}" 
+                        HorizontalAlignment="Left">
+                <md:PackIcon Kind="ArrowBackCircle" 
+                             Foreground="{StaticResource White}"
+                                         Style="{StaticResource S_Icon_MediumIcon}"/>
+            </Button>
 
             <Border Style="{StaticResource S_Border_TextBoxWithBorder}" BorderThickness="0" Margin="0 20" Background="{StaticResource White}"
                 Width="auto"

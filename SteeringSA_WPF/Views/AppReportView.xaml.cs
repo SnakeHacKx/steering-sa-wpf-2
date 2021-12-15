@@ -43,5 +43,10 @@ namespace SteeringSA_WPF.Views
             Tb_TotalActions.Text = CRUD.AppSummary.Instance.TotalActions;
             Tb_VehiclesCount.Text = CRUD.AppSummary.Instance.VehiclesCount;
         }
+
+        private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
+        }
     }
 }
