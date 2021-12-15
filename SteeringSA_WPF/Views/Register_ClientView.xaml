@@ -87,6 +87,7 @@
                                 <TextBlock Text="Fecha de Nacimiento" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                 <WrapPanel>
                                     <DatePicker Name="Dtp_BirthDate"
+                                                SelectedDateChanged="Dtp_BirthDate_SelectedDateChanged"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                         </DatePicker>
                                         <TextBlock VerticalAlignment="Center" Text="(0 años)" Margin="5 0 0 0" Style="{StaticResource ResourceKey=S_TextBlock_Faded}" />

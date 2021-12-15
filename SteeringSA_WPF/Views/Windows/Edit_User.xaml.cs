@@ -59,6 +59,7 @@ namespace SteeringSA_WPF.Views.Windows
                         if (Txt_Password.Password.Length < 8)
                         {
                             CustomMessageBox.Show("Las contraseñas deben tener mínimio 8 caracteres, favor inténtelo nuevamente", "La contraseña es muy débil", CustomMessageBox.CMessageBoxType.Error);
+                            ClearPassworsInputs();
                             return;
                         }
                         CRUD.User.Instance.Edit(username, Txt_NewUserName.Text, Txt_Password.Password);
@@ -67,6 +68,7 @@ namespace SteeringSA_WPF.Views.Windows
                     else
                     {
                         CustomMessageBox.Show("Las contraseñas no coinciden, favor inténtelo nuevamente", "Las contraseñas no coinciden", CustomMessageBox.CMessageBoxType.Error);
+                        ClearPassworsInputs();
                     }
                     
                 }
@@ -82,6 +84,7 @@ namespace SteeringSA_WPF.Views.Windows
                         if(Txt_Password.Password.Length < 8)
                         {
                             CustomMessageBox.Show("Las contraseñas deben tener mínimio 8 caracteres, favor inténtelo nuevamente", "La contraseña es muy débil", CustomMessageBox.CMessageBoxType.Error);
+                            ClearPassworsInputs();
                             return;
                         }
                         CRUD.User.Instance.Edit(username, null, Txt_Password.Password);
@@ -90,6 +93,7 @@ namespace SteeringSA_WPF.Views.Windows
                     else
                     {
                         CustomMessageBox.Show("Las contraseñas no coinciden, favor inténtelo nuevamente", "Las contraseñas no coinciden", CustomMessageBox.CMessageBoxType.Error);
+                        ClearPassworsInputs();
                     }
                 }
                 else
@@ -97,6 +101,12 @@ namespace SteeringSA_WPF.Views.Windows
                     CustomMessageBox.Show("Debe elegir un campo para editar", "Nada que editar", CustomMessageBox.CMessageBoxType.Info);
                 }
             }
+        }
+
+        private void ClearPassworsInputs()
+        {
+            Txt_ConfirmPassword.Password = "";
+            Txt_Password.Password = "";
         }
 
         private void Btn_EditUsername_Click(object sender, RoutedEventArgs e)

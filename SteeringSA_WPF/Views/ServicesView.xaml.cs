@@ -28,12 +28,12 @@ namespace SteeringSA_WPF.Views
             InitializeComponent();
             RefreshDataGrid();
             isFilterGridOpen = true;
-            
+            Utilities.FillCombobox(ref Cb_Servicetype, TableID.TYPE_SERVICE, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SEARCH_TYPE_SERVICE_NAME));
         }
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.CLIENT_PROFILE, new ViewModels.ClientProfileViewModel());
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
@@ -148,6 +148,13 @@ namespace SteeringSA_WPF.Views
             if (columnValue != null)
             {
                 chosenServiceID = columnValue;
+            }
+
+            string clientID = UtilitiesDataGrid.GetColumnValue(sender, 6);
+
+            if (clientID != null)
+            {
+                WindowManager.ClientID = clientID;
             }
         }
 

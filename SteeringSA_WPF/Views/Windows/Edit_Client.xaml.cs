@@ -56,5 +56,27 @@ namespace SteeringSA_WPF.Views.Windows
                 Close();
             }
         }
+
+        private void Dtp_BirthDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int ageInYears = GetDifferenceInYears(Dtp_BirthDate.SelectedDate.Value, DateTime.Today);
+
+            if (ageInYears < 18)
+            {
+                CustomMessageBox.Show("El conductor debe ser mayor de edad", "Error", CustomMessageBox.CMessageBoxType.Error);
+                Dtp_BirthDate.SelectedDate = DateTime.Today;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene la diferencia de años entre dos fechas.
+        /// </summary>
+        /// <param name="startDate">Fecha inicial.</param>
+        /// <param name="endDate">Fecha final.</param>
+        /// <returns>La diferencia entre las fechas.</returns>
+        private int GetDifferenceInYears(DateTime startDate, DateTime endDate)
+        {
+            return endDate.Year - startDate.Year - 1 + (((endDate.Month > startDate.Month) || ((endDate.Month == startDate.Month) && (endDate.Day >= startDate.Day))) ? 1 : 0);
+        }
     }
 }

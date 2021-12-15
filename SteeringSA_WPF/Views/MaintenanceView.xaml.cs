@@ -35,7 +35,7 @@ namespace SteeringSA_WPF.Views
         /// </summary>
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VEHICLE_PROFILE, new ViewModels.Profile_VehicleViewModel());
         }
 
         /// <summary>
@@ -73,6 +73,14 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+            Txt_MaintenanceID.Text = "";
+            Txt_MaxCost.Text = "";
+            Txt_MinCost.Text = "";
+            Txt_VehicleID.Text = "";
+            Cb_State.Text = "";
+            Cb_VehicleType.Text = "";
+            Dtp_MaintenanceBeginDate.Text = "";
+            Dtp_MaintenanceEndDate.Text = "";
         }
 
         private void Btn_Filter_Click(object sender, RoutedEventArgs e)
@@ -130,6 +138,13 @@ namespace SteeringSA_WPF.Views
             if (columnValue != null)
             {
                 chosenMaintenanceID = columnValue;
+            }
+
+            string vehicleID = UtilitiesDataGrid.GetColumnValue(sender, 5);
+
+            if (vehicleID != null)
+            {
+                WindowManager.VehicleID = vehicleID;
             }
         }
 

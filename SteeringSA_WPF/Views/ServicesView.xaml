@@ -207,7 +207,7 @@
                                                     ToolTip="Ver perfil del vehículo"
                                                     BorderThickness="0"
                                                     Width="auto">
-                                                <materialDesign:PackIcon Kind="Car"
+                                                <materialDesign:PackIcon Kind="User"
                                                              Width="auto" 
                                                              Height="auto" 
                                                              Foreground="{StaticResource White}" 
@@ -371,11 +371,7 @@
                             Width="150"
                             Style="{StaticResource S_Combobox_Normal}">
                                         <ComboBoxItem Content="-" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Delivery" Foreground="{StaticResource Black}" />
-                                        <ComboBoxItem Content="Transporte" Foreground="{StaticResource Black}" />
-                                    <ComboBoxItem Content="Opción 3" Foreground="{StaticResource Black}" />
-                                    <ComboBoxItem Content="Opción 4" Foreground="{StaticResource Black}" />
-                                </ComboBox>
+                                    </ComboBox>
                             </StackPanel>
                         </Border>
                         <!--#endregion-->

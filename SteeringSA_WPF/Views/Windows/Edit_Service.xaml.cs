@@ -60,7 +60,14 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_ChooseVehicle_Click(object sender, RoutedEventArgs e)
         {
+            Windows.Choose_Vehicle chooseVehicle = new Windows.Choose_Vehicle();
+            chooseVehicle.ChangeVehicleID += new Windows.Choose_Vehicle.DChangeVehicleID(ChangeVehicleID);
+            chooseVehicle.ShowDialog();
+        }
 
+        public void ChangeVehicleID()
+        {
+            Txt_VehicleRegistration.Text = WindowManager.ChosenVehicle;
         }
 
         private void Btn_ChooseServiceType_Click(object sender, RoutedEventArgs e)

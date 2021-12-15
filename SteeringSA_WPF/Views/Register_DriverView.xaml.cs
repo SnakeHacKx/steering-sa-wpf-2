@@ -83,7 +83,7 @@ namespace SteeringSA_WPF.Views
             if (ageInYears < 18)
             {
                 CustomMessageBox.Show("El conductor debe ser mayor de edad", "Error", CustomMessageBox.CMessageBoxType.Error);
-                Dtp_BirthDate.SelectedDate = new DateTime(1950, 1, 1);
+                Dtp_BirthDate.SelectedDate = DateTime.Today;
             }
         }
 

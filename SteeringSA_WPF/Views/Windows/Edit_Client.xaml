@@ -29,6 +29,12 @@
                                              Foreground="{StaticResource White}"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                 </Button>
+
+                <TextBlock HorizontalAlignment="Center"
+                                   Text="Editar Cliente"
+                                   Margin="0 10 0 0"
+                                   Foreground="{StaticResource White}"
+                                   Style="{StaticResource S_TextBlock_Title}"/>
             </Grid>
             <!--#endregion-->
 
@@ -69,6 +75,7 @@
                                 <TextBlock Text="Fecha de Nacimiento" Margin="0 0 0 10" Style="{StaticResource ResourceKey=S_TextBlock_Body}" />
                                 <WrapPanel>
                                     <DatePicker Name="Dtp_BirthDate"
+                                                SelectedDateChanged="Dtp_BirthDate_SelectedDateChanged"
                                                     Style="{StaticResource S_DatePicker_Light}">
                                     </DatePicker>
                                     <TextBlock VerticalAlignment="Center" Text="(0 años)" Margin="5 0 0 0" Style="{StaticResource ResourceKey=S_TextBlock_Faded}" />

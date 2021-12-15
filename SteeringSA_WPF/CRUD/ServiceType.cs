@@ -207,31 +207,12 @@ namespace SteeringSA_WPF.CRUD
         }
         #endregion
 
-        public DataTable FilterBy(string minCost, string maxCost, string beginDate, string endDate, string clientID, string driverID, string serviceType, string vehicleID)
+        public DataTable FilterBy(string minCost, string maxCost, string name)
         {
-            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_SERVICE, DBConnection.Instance.SQLConnection);
+            SqlCommand cmd = new SqlCommand(StoreProcedure.FILTERS_TYPE_SERVICE, DBConnection.Instance.SQLConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CLIENTE, clientID);
-            cmd.Parameters.AddWithValue(TableVariable.SERVICE_CEDULA_CONDUCTOR, driverID);
-            cmd.Parameters.AddWithValue("@Placa_Vehiculo", vehicleID);
-            cmd.Parameters.AddWithValue("@Tipo_Servicio", serviceType);
-
-            if (beginDate == null)
-                cmd.Parameters.AddWithValue("@Fecha_inicial", null);
-            else
-            {
-                //MessageBox.Show(DateTime.Parse(beginDate).ToString());
-                cmd.Parameters.AddWithValue("@Fecha_inicial", DateTime.Parse(beginDate));
-            }
-
-            if (endDate == null)
-                cmd.Parameters.AddWithValue("@Fecha_final", null);
-            else
-            {
-                //MessageBox.Show(DateTime.Parse(endDate).ToString());
-                cmd.Parameters.AddWithValue("@Fecha_final", DateTime.Parse(endDate));
-            }
+            cmd.Parameters.AddWithValue("@Nombre_Servicio", name);
 
             if (minCost == null)
                 cmd.Parameters.AddWithValue("@Costo_inicial", minCost);

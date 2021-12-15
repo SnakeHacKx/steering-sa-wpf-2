@@ -369,14 +369,14 @@
                                    VerticalAlignment="Center"
                                    Text="Costo (B/.):"/>
                                         <WrapPanel VerticalAlignment="Center">
-                                            <TextBox MinWidth="60" md:HintAssist.Hint="20.00" MaxWidth="100" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinPassengerCount" Width="Auto"/>
+                                            <TextBox MinWidth="60" md:HintAssist.Hint="20.00" MaxWidth="100" Style="{StaticResource S_TextBox_Form}" Name="Txt_MinCost" Width="Auto"/>
 
                                             <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                                     VerticalAlignment="Center"
                                                    Margin="5 0"
                                                     Text="a"/>
 
-                                            <TextBox MinWidth="60" md:HintAssist.Hint="70.00" MaxWidth="100" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxPassengerCount" Width="Auto"/>
+                                            <TextBox MinWidth="60" md:HintAssist.Hint="70.00" MaxWidth="100" Style="{StaticResource S_TextBox_Form}" Name="Txt_MaxCost" Width="Auto"/>
                                         </WrapPanel>
 
                                     </StackPanel>
@@ -389,7 +389,7 @@
                                         <TextBlock Style="{StaticResource S_TextBlock_Body}"
                                    VerticalAlignment="Center"
                                    Text="Nombre:"/>
-                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_VehicleModel"/>
+                                        <TextBox MinWidth="200" MaxWidth="250" Style="{StaticResource S_TextBox_Form}" Name="Txt_ServiceTypeNameFilter"/>
                                     </StackPanel>
                                 </Border>
                                 <!--#endregion-->

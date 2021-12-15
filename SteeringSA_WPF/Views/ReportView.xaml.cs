@@ -32,7 +32,7 @@ namespace SteeringSA_WPF.Views
 
         private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.ChangeWindow(WindowsTitle.VEHICLE_PROFILE, new ViewModels.Profile_VehicleViewModel());
         }
 
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
@@ -70,6 +70,10 @@ namespace SteeringSA_WPF.Views
         private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataGrid();
+            Txt_IDReport.Text = "";
+            Cb_State.Text = "-";
+            Dtp_MaintenanceDateMax.Text = "";
+            Dtp_MaintenanceDateMin.Text = "";
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -120,6 +124,13 @@ namespace SteeringSA_WPF.Views
             if (columnValue != null)
             {
                 chosenReportID = columnValue;
+            }
+
+            string vehicleID = UtilitiesDataGrid.GetColumnValue(sender, 1);
+
+            if (vehicleID != null)
+            {
+                WindowManager.VehicleID = vehicleID;
             }
         }
 

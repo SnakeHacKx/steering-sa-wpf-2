@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:SteeringSA_WPF.Views.Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d" FontFamily="Poppins"
-        Title="Register_ReportView"  Height="760" Width="auto" MinWidth="700" MaxWidth="1200"
+        Title="Register_ReportView"  Height="760" Width="1200" MinWidth="700" MaxWidth="1200"
         AllowsTransparency="False" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Border BorderThickness="1" BorderBrush="{StaticResource White}">
             <Grid MouseDown="Grid_MouseDown" >
-                <Image Stretch="UniformToFill" Source="../../Images/viewTest1.png"/>
+                <Image Stretch="UniformToFill" Source="../../Images/bg_editWindows.png"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -81,13 +81,14 @@
                         HorizontalAlignment="Left"
                         Margin="70 10 0 0">
                             <materialDesign:PackIcon Kind="CloseBox" 
+                                                     Foreground="{StaticResource White}"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
 
                         <TextBlock HorizontalAlignment="Center"
                                    Text="Editar Servicio"
                                    Margin="0 10 0 0"
-                                   Foreground="{StaticResource Black}"
+                                   Foreground="{StaticResource White}"
                                    Style="{StaticResource S_TextBlock_Title}"/>
                     </Grid>
                     <!--#endregion-->

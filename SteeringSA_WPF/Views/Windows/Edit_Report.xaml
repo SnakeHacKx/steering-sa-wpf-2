@@ -12,7 +12,7 @@
     <Grid>
         <Border BorderThickness="1" BorderBrush="{StaticResource White}">
             <Grid MouseDown="Grid_MouseDown">
-                <Image Stretch="UniformToFill" Source="../../Images/viewTest1.png"/>
+                <Image Stretch="UniformToFill" Source="../../Images/bg_editWindows.png"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -29,13 +29,14 @@
                         HorizontalAlignment="Left"
                         Margin="70 10 0 0">
                             <materialDesign:PackIcon Kind="CloseBox" 
+                                                     Foreground="White"
                                          Style="{StaticResource S_Icon_MediumIcon}"/>
                         </Button>
 
                         <TextBlock HorizontalAlignment="Center"
                                    Text="Editar Reporte"
                                    Margin="0 10 0 0"
-                                   Foreground="{StaticResource Black}"
+                                   Foreground="{StaticResource White}"
                                    Style="{StaticResource S_TextBlock_Title}"/>
                     </Grid>
                     <!--#endregion-->

@@ -48,6 +48,8 @@ namespace SteeringSA_WPF
     {
         public static void FillCombobox(ref ComboBox combo, string tableID, DataTable dataTable)
         {
+            combo.Items.Clear();
+            combo.DisplayMemberPath = "Nombre";
             combo.SelectedValuePath = tableID;
             combo.ItemsSource = dataTable.DefaultView;
         }
