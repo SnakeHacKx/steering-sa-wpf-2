@@ -23,11 +23,16 @@ namespace SteeringSA_WPF.Views
         public HistoryView()
         {
             InitializeComponent();
+            RefreshDataGrid();
+
         }
 
-        private void Btn_ViewProfile_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Refresca los datos del DataGrid.
+        /// </summary>
+        private void RefreshDataGrid()
         {
-
+            UtilitiesDataGrid.RefreshDataGrid(ref Dgv_History, TableID.HISTORY, CRUD.GenericCRUD.Instance.SelectAllRecords(StoreProcedure.SHOW_HISTORY), ref Tb_RecordCount);
         }
 
         private void Btn_TogggleFilters_Click(object sender, RoutedEventArgs e)
@@ -38,6 +43,11 @@ namespace SteeringSA_WPF.Views
         private void Btn_GoBack_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.HOME, new ViewModels.HomeViewModel());
+        }
+
+        private void Btn_RefreshDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshDataGrid();
         }
     }
 }

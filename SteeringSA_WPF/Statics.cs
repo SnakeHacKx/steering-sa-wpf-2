@@ -51,6 +51,7 @@ namespace SteeringSA_WPF
         public const string LOGIN = "Iniciar Sesión";
         public const string SIGNUP_USER = "Registrar Usuario";
         public const string HISTORY = "Historial";
+        public const string APP_REPORT = "Informe";
     }
 
     /// <summary>
@@ -68,6 +69,7 @@ namespace SteeringSA_WPF
         public const string SERVICE = "Cod_Servicio";
         public const string TYPE_SERVICE = "Cod_tipo_servicio";
         public const string USER = "Cod_tipo_servicio";
+        public const string HISTORY = "ID_operacion";
     }
 
     /// <summary>
@@ -222,5 +224,23 @@ namespace SteeringSA_WPF
         public const string SHOW_ALL_USERS = "PROC_MOSTRAR_USUARIOS";//Muesta unicamente el nombre de usuario y que rol tiene en el sistema(empleado o administrador)
         public const string GET_TOTALS = "PROC_TOTALES_EN_TABLAS";
         #endregion
+
+        #region HISTORY
+        public const string SHOW_HISTORY = "PROC_VER_HISTORIAL";
+        #endregion
+
+        
+    }
+
+    public static class AppReport
+    {
+        public static string appReport;
+    }
+
+    public static class UserRole
+    {
+        public const string ROLE_ADMIN = "Rol_Administrador";
+        public const string ROLE_DBO = "db_owner";
+        public const string ROLE_EMPLOYEE = "Rol_Empleado";
     }
 }

@@ -31,6 +31,8 @@ namespace SteeringSA_WPF.Views.Windows
             isFilterGridOpen = true;
         }
 
+        
+
         /// <summary>
         /// Refresca los datos del DataGrid.
         /// </summary>
@@ -131,6 +133,14 @@ namespace SteeringSA_WPF.Views.Windows
 
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
+            if (WindowManager.LoggedUserRole == UserRole.ROLE_EMPLOYEE)
+            {
+                CustomMessageBox.Show("Esta acción no puede ser realizada debido a que su usuario no está autorizado",
+                "Eliminar Tipo de Servicio",
+                CustomMessageBox.CMessageBoxType.Info);
+                return;
+            }
+
             System.Windows.Forms.DialogResult result = CustomMessageBox.Show("Esta acción hará un cambio permanente en la base de datos ¿Está seguro/a que desea realizarla?",
                 "Eliminar Tipo de Servicio",
                 CustomMessageBox.CMessageBoxType.Warning);

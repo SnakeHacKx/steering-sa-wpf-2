@@ -275,7 +275,7 @@
                                     <DataGridTemplateColumn CanUserResize="False">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <WrapPanel>
+                                                <WrapPanel Name="asff">
                                                     <Button Name="Btn_ChooseServiceType"
                                                             Click="Btn_ChooseServiceType_Click"
                                                             Background="{StaticResource PaleGreen}"
@@ -305,7 +305,7 @@
                                                              HorizontalAlignment="Center"/>
                                                     </Button>
 
-                                                    <Button Name="Btn_Delete"
+                                                    <Button x:Name="Btn_Delete"
                                                     Click="Btn_Delete_Click"
                                                     Background="{StaticResource TRed}"
                                                         ToolTip="Eliminar este tipo de servicio"

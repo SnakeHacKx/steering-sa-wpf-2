@@ -15,6 +15,11 @@
     <!--#region ADMINISTRACION DE PANTALLAS -->
 
     <Window.Resources>
+        <DataTemplate x:Name="AppReportViewTemplate"
+                      DataType="{x:Type viewmodels:AppReportViewModel}">
+            <views:AppReportView DataContext="{Binding}"/>
+        </DataTemplate>
+        
         <!--#region GENERAL -->
         <DataTemplate x:Name="LoginViewTemplate"
                       DataType="{x:Type viewmodels:LoginViewModel}">

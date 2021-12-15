@@ -24,7 +24,16 @@ namespace SteeringSA_WPF.Views
         public ClientProfileView()
         {
             InitializeComponent();
+            ManageAdminOptions();
             RefreshProfileInfo();
+        }
+
+        public void ManageAdminOptions()
+        {
+            if (WindowManager.LoggedUserRole == UserRole.ROLE_ADMIN || WindowManager.LoggedUserRole == UserRole.ROLE_DBO)
+            {
+                Btn_DeleteClient.Visibility = Visibility.Visible;
+            }
         }
 
         private void RefreshProfileInfo()

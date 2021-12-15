@@ -143,7 +143,6 @@
                                     Click="Btn_EditClient_Click"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
-                                    Margin="0 0 50 0"
                                     Style="{StaticResource S_Button_EditButton}">
 
                                 <materialDesign:PackIcon Kind="UserEdit"
@@ -154,6 +153,8 @@
                             
                             <!-- #region Boton Eliminar  -->
                             <Button Grid.Column="1"
+                                    Visibility="Collapsed"
+                                    Margin="50 0 0 0"
                                     ToolTip="Eliminar cliente"
                                     Name="Btn_DeleteClient" 
                                     Click="Btn_DeleteClient_Click"

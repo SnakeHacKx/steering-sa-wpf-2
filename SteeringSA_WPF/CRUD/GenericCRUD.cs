@@ -38,6 +38,54 @@ namespace SteeringSA_WPF.CRUD
         }
         #endregion
 
+        public void GetReport()
+        {
+            SqlCommand cmd = new SqlCommand("PROC_OBTENER_INFORME", DBConnection.Instance.SQLConnection);
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@informe", SqlDbType.VarChar, 1000).Direction = ParameterDirection.Output;
+
+                DBConnection.Instance.SQLConnection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBConnection.Instance.SQLConnection.Close();
+            }
+
+            AppReport.appReport = cmd.Parameters["@informe"].Value.ToString();
+        }
+
+        public void GetUserRole()
+        {
+            SqlCommand cmd = new SqlCommand("PROC_OBTENER_ROL_USUARIO", DBConnection.Instance.SQLConnection);
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@User_rol", SqlDbType.VarChar, 30).Direction = ParameterDirection.Output;
+
+                DBConnection.Instance.SQLConnection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBConnection.Instance.SQLConnection.Close();
+            }
+
+            WindowManager.LoggedUserRole = cmd.Parameters["@User_rol"].Value.ToString();
+        }
+
         public DataTable SearchBy(string procedureName, string variableName, string value)
         {
             SqlCommand cmd = new SqlCommand(procedureName, DBConnection.Instance.SQLConnection);

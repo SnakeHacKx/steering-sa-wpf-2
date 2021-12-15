@@ -24,6 +24,7 @@ namespace SteeringSA_WPF.Views
         public HomeView()
         {
             InitializeComponent();
+            ManageAdminOptions();
             CRUD.GenericCRUD.Instance.GetRecordsCount();
             Tb_ClientCount.Text = CRUD.GenericCRUD.Instance.ClientCount;
             Tb_DriverCount.Text = CRUD.GenericCRUD.Instance.DriverCount;
@@ -31,6 +32,14 @@ namespace SteeringSA_WPF.Views
             Tb_ReportCount.Text = CRUD.GenericCRUD.Instance.ReportCount;
             Tb_MaintenanceCount.Text = CRUD.GenericCRUD.Instance.MaintenanceCount;
             Tb_ServicesCount.Text = CRUD.GenericCRUD.Instance.ServiceCount;
+        }
+
+        public void ManageAdminOptions()
+        {
+            if (WindowManager.LoggedUserRole == UserRole.ROLE_ADMIN || WindowManager.LoggedUserRole == UserRole.ROLE_DBO)
+            {
+                AdminOptions.Visibility = Visibility.Visible;
+            }
         }
 
         /// <summary>
@@ -89,6 +98,12 @@ namespace SteeringSA_WPF.Views
         private void Btn_ShowUsers_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.ChangeWindow(WindowsTitle.VIEW_USERS, new UserViewModel());
+        }
+
+        private void Btn_ShowAppReport_Click(object sender, RoutedEventArgs e)
+        {
+            WindowManager.ChangeWindow(WindowsTitle.APP_REPORT, new AppReportViewModel());
+            //CRUD.GenericCRUD.Instance.GetReport();
         }
     }
 }

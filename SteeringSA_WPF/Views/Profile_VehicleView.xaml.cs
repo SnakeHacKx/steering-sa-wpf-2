@@ -23,7 +23,16 @@ namespace SteeringSA_WPF.Views
         public Profile_VehicleView()
         {
             InitializeComponent();
+            ManageAdminOptions();
             RefreshProfileInfo();
+        }
+
+        public void ManageAdminOptions()
+        {
+            if (WindowManager.LoggedUserRole == UserRole.ROLE_ADMIN || WindowManager.LoggedUserRole == UserRole.ROLE_DBO)
+            {
+                Btn_DeleteVehicle.Visibility = Visibility.Visible;
+            }
         }
 
         private void RefreshProfileInfo()

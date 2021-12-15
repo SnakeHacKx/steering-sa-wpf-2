@@ -153,7 +153,6 @@
                                     Name="Btn_EditVehicle" 
                                     Click="Btn_EditVehicle_Click"
                                     HorizontalAlignment="Right"
-                                    Margin="0 0 50 0"
                                     Style="{StaticResource S_Button_EditButton}">
 
                                 <materialDesign:PackIcon Kind="UserEdit"
@@ -164,7 +163,9 @@
 
                             <!-- #region Boton Eliminar  -->
                             <Button Grid.Column="1"
-                                    ToolTip="Eliminar conductor"
+                                    Visibility="Collapsed"
+                                    Margin="50 0 0 0"
+                                    ToolTip="Eliminar vehículo"
                                     Name="Btn_DeleteVehicle" 
                                     Click="Btn_DeleteVehicle_Click"
                                     HorizontalAlignment="Right"

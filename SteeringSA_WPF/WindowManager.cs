@@ -24,6 +24,8 @@ namespace SteeringSA_WPF
         public static string ChosenService { get; set; }
         public static string ChosenServiceType { get; set; }
 
+        public static string LoggedUserRole { get; set; }
+
         /// <summary>
         /// Cambia la ventana (control de usuario) presentado actualmente por uno nuevo.
         /// </summary>

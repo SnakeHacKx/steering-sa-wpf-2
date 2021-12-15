@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CRUD\AppSummary.cs" />
     <Compile Include="CRUD\Client.cs" />
     <Compile Include="CRUD\Driver.cs" />
     <Compile Include="CRUD\GenericCRUD.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="DBConnection.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="ViewModels\AppReportViewModel.cs" />
     <Compile Include="ViewModels\ClientProfileViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\DriverViewModel.cs" />
@@ -98,6 +100,9 @@
     <Compile Include="ViewModels\ServicesViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\VehicleViewModel.cs" />
+    <Compile Include="Views\AppReportView.xaml.cs">
+      <DependentUpon>AppReportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ClientProfileView.xaml.cs">
       <DependentUpon>ClientProfileView.xaml</DependentUpon>
     </Compile>
@@ -211,6 +216,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AppReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ClientProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -175,7 +175,6 @@
                                     Click="Btn_EditDriver_Click" 
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Right"
-                                    Margin="0 0 50 0"
                                     Style="{StaticResource S_Button_EditButton}">
 
                                 <materialDesign:PackIcon Kind="UserEdit"
@@ -186,6 +185,8 @@
 
                             <!-- #region Boton Eliminar  -->
                             <Button Grid.Column="1"
+                                    Margin="50 0 0 0"
+                                    Visibility="Collapsed"
                                     ToolTip="Eliminar conductor"
                                     Name="Btn_DeleteDriver" 
                                     Click="Btn_DeleteDriver_Click"

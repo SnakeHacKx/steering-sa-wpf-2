@@ -36,7 +36,7 @@
 
         <Image Grid.Row="0" Grid.RowSpan="3" Stretch="UniformToFill" Source="../Images/bg_test3.png"/>
 
-        <WrapPanel>
+        <WrapPanel Name="AdminOptions" Visibility="Collapsed">
             <Button Name="Btn_ShowHistory" Click="Btn_ShowHistory_Click" Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
                 <WrapPanel>
                     <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="Historial" Style="{StaticResource S_TextBlock_BodyMedium}"/>
@@ -48,7 +48,7 @@
                 </WrapPanel>
             </Button>
 
-            <Button  Style="{StaticResource S_Button_NormalButtonWhiteBorder}">
+            <Button  Style="{StaticResource S_Button_NormalButtonWhiteBorder}" Name="Btn_ShowAppReport" Click="Btn_ShowAppReport_Click">
                 <WrapPanel>
                     <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="Informe" Style="{StaticResource S_TextBlock_BodyMedium}"/>
                     <materialDesign:PackIcon Kind="Book"

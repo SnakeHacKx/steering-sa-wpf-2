@@ -65,6 +65,8 @@ namespace SteeringSA_WPF.Views
                 return;
             }
 
+            CRUD.GenericCRUD.Instance.GetUserRole();
+
             WindowManager.ChangeUsername(Txt_User.Text);
             WindowManager.ChangeWindow(WindowsTitle.HOME, new HomeViewModel());
         }
